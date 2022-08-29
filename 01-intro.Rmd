@@ -2,8 +2,12 @@
 
 ## Why this book?
 
+## Theory, Models and Hypotheses
+
 ## Doing research
 
-## Hypotheses
+### Statistical software
+
+The statistical software we use in this course is STATA. 
 
 ## Reading guide

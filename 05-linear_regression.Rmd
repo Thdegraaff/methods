@@ -1,1 +1,9 @@
-# Linear regression
+# Regression analysis in the social sciences
+
+## Statistical framework
+
+## Univariate regression
+
+## Least squares assumptions
+
+## Testing of coefficients

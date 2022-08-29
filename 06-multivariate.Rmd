@@ -1,11 +1,20 @@
-# Multivariate regression
+# Modeling in the Social Sciences
 
-## Why more explanatory variables?
+## Why more independent variables?
 
-## Non-linerarities
+## Multivariate regression analysis
+
+## Using dummy variables
+
+## Non-linear specifications
 
 ### Polynomials
 
+### Interaction variables
+
 ### Logarithms
+
+## Using fixed effects in panel data
+
 
 
