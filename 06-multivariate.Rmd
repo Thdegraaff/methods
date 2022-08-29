@@ -1,0 +1,11 @@
+# Multivariate regression
+
+## Why more explanatory variables?
+
+## Non-linerarities
+
+### Polynomials
+
+### Logarithms
+
+

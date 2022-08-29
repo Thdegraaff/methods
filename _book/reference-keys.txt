@@ -1,0 +1,14 @@
+preface
+introduction
+introduction-to-economic-surplus
+introduction-1
+background
+behavioural-error-and-economic-surplus
+moral-considerations-and-economic-surplus
+linear-regression
+multivariate-regression
+why-more-explanatory-variables
+non-linerarities
+polynomials
+logarithms
+model-assessment

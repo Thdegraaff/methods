@@ -1,0 +1,19 @@
+# Introduction to Economic Surplus
+
+Practical cost-benefit analysis is widely used in applied economic analysis and often employs a definition of economic surplus that adds up consumer and producer surplus and potential external costs. These lecture notes discuss the behavioural assumptions underlying this calculation and show how to operationalise the definition of economic surplus to derive economic surplus changes and externality taxes. It employs a mathematical approach suitable applied economic partial equilibrium analysis.
+
+## Introduction 
+
+### Background
+
+These lecture notes introduce the classical economic perspective on economic surplus. Economic surplus is a quantitative estimate of the value that markets generate for society according to economists. Besides analysing the impacts of economic policies for societies (do policies have effects and do they work as intended?), one of the core tasks of economists is to give recommendations about what is supposed to be valuable for society (do policies add value?). 
+
+Economic analyses of the value that markets generate also are important in debates about sustainability. What economists contribute to this debate is that they seek to analyse behavioural choices of consumers and producers using statistical techniques and mathematical modelling and that they come up with quantitative estimates of value. The contribution of these lecture notes is that we move from conceptual analysis of market figures to mathematical descriptions and connections to statistical measurement. We do so for partial equilibrium analysis, meaning that we focus on the analysis of a market for a single good.
+
+Four conceptual pillars of economic analysis are important for applied economic analysis of surplus and the lecture notes of this week try to emphasize the structural relation between these pillars along the road:
+
+1.	**Optimization**: market actors choose their best (feasible) option.
+2.	**Equilibrium**: market actors choose their best feasible option when interacting with others.
+3.	**Empiricism**: behavioural models need to be tested with data.
+4.	**Choice-based normativity**: choices express value of market actors and value of market actors is equal to value for society. 
+
