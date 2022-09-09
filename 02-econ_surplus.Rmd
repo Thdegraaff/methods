@@ -4,8 +4,6 @@ Practical cost-benefit analysis is widely used in applied economic analysis and 
 
 ## Introduction 
 
-### Background
-
 These lecture notes introduce the classical economic perspective on economic surplus. Economic surplus is a quantitative estimate of the value that markets generate for society according to economists. Besides analysing the impacts of economic policies for societies (do policies have effects and do they work as intended?), one of the core tasks of economists is to give recommendations about what is supposed to be valuable for society (do policies add value?). 
 
 Economic analyses of the value that markets generate also are important in debates about sustainability. What economists contribute to this debate is that they seek to analyse behavioural choices of consumers and producers using statistical techniques and mathematical modelling and that they come up with quantitative estimates of value. The contribution of these lecture notes is that we move from conceptual analysis of market figures to mathematical descriptions and connections to statistical measurement. We do so for partial equilibrium analysis, meaning that we focus on the analysis of a market for a single good.
@@ -17,3 +15,63 @@ Four conceptual pillars of economic analysis are important for applied economic 
 3.	**Empiricism**: behavioural models need to be tested with data.
 4.	**Choice-based normativity**: choices express value of market actors and value of market actors is equal to value for society. 
 
+The first core principle states that consumers and producers optimize when they make their choices. For consumers this implies it is assumed that they maximize their utility. A mathematical description of utility is captured by the direct utility function which maps consumption quantities and remaining money to some cardinal number. We will discuss the mathematical behavioural model underlying consumer optimization in Section II and discuss the implications for consumer value in markets. We also show at some points how this model of consumer behaviour relates to pillar (*iii*). 
+
+For producers, pillar (*i*) implies that they minimize their costs given a production target when they are assumed to be price-takers. Section III discusses the basic cost-minimization model of producers and the implications for producer value in markets. 
+
+The second core principle states that equilibrium in markets results from the behavioural choices and *interaction* of consumers and producers. Section IV of these lecture notes discuss partial equilibrium and implications for total economic value in markets. The discussion in these sections of the lecture notes is conceptually speaking rather basic as substitution to other markets is ignored. Some complexity is added by connecting equilibrium to the third pillar of empiricism. It is very important for you to understand the core concepts and assumptions and the calibration underlying a basic partial equilibrium model in order to understand the extensions that are provided in the weeks that follow. 
+
+The third pillar is discussed along the way. Empirical analysis can be used to estimate the structural parameters of observed demand functions and production functions using regression techniques. These techniques relate mathematical narratives of choice behaviour to empirical data. The mathematical structure that is imposed sometimes requires that parameters in regression have particular values. Hypothesis testing can be used to see which model fits the data better. Calibration can be used to connect estimated elasticities from the literature to market demand and supply functions. Examples are provided to show how you can obtain quantitative estimates of total economic value.
+
+Section V applies the model of market value and introduces the idea of external costs. This is a key concept in environmental economics and analyses of sustainability. From an economic perspective, external costs resulting from market trade lower the value of a market and can be a motivating factor for regulatory intervention of a government. For a classical economist a sustainable market is a market where external costs are correctly priced.  Section V discusses the regulation of an environmental externality in a market and thereby provides the necessary bridge between the economic theory and your bachelor program. Analytical examples are provided to show how you can obtain quantitative estimates of total economic value.
+
+We will come back to the four pillars in the weeks that follow where we zoom in on the impact of bounded rationality and other views on normativity. 
+
+## Consumer choices and consumer value
+
+### Utility functions, inverse demand and demand
+
+Why do consumers choose to consume particular meat products? What is the consumer value of newly developed vegan product? How does households' demand for solar panels respond to price decreases? To study these research questions, it is helpful to develop a model of consumer choice. For economists, models of choice are mathematical narratives about how consumers make their choices. The story of consumer choice by economists assumes that consumers optimize the choice value that they derive from the consumption of market goods given constraints they face. In this section the consumer story is partly simplified and we investigate the decision of the consumer to spend money on the market good versus spending money on other goods or services given a budget constraint. We therefore do not study market goods that are close complements or close substitutes. 
+
+Value is mathematically conceptualized using a direct utility function that depends on the consumption levels. The direct utility function of the consumer is defined by $U(Q,G)$, where $Q$ is the demand for the market good and $G$ is the demand for the outside good. The price of the market good is given by $p$ and the price of the outside good is given by $p_G$. Both prices are given for the consumer and cannot be directly affected by their behaviour. This assumption rules out forms of bilateral bargaining about the market price between consumers and producers. 
+
+The price for the outside good can be interpreted as the costs or price index for a basket of goods for the consumers, where the market good is excluded from this basket. When prices of products in the basket increase over time, this will impact the price of the outside good.
+
+Net spendable income of the consumer is assumed to be exogenous and given by $Y$. This income is after tax income and can be used freely by the consumer. Total spending of the consumer is given by $pQ+p_G G$, because it is assumed that all net income is spent either on the market good or the outside good. The budget constraint of the individual is then given by:
+
+$$Y - pQ - p_G G = 0$$
+From this budget constraint we can derive the consumed quantity of the outside good $G$:
+
+$$ G = \frac{Y-pQ}{p_G}$$
+
+The quantity consumed of the outside good increases in the income level $Y$, decreases in the price of the basket of goods $p_G$, and decreases in consumer spending $pQ$ on the market good. Substituting this quantity in the direct utility gives us an expression that only has the quantity level of the market good as a choice variable: 
+
+$$U \left(Q, \frac{Y-pQ}{p_G} \right) $$
+
+The optimal choice of the quantity of the market good is governed by the utility of consumption (first argument) and the disutility of spending money on the market good (second argument). Optimal consumption can be derived by setting the total derivative with respect to the market quantity to 0:
+
+$$ \frac{dU}{dQ} = U_Q - \frac{P}{P_G}U_G = 0$$
+
+Here, $U_Q=\frac{\partial U}{\partial Q}$ is the marginal utility of consuming the market good. Here we use the notation $\frac{dU}{dQ}$ for the total derivative (both arguments of the utility function), and the notation $\frac{\partial U}{\partial Q}$ for the partial derivative with respect to $Q$ (only the first argument). Marginal utility of consumption is the slope of the direct utility function with respect to the first argument $Q$. Furthermore, $U_G=\frac{\partial U}{\partial G}$ is the marginal utility of consumption of the outside good. This is equal to the price of the outside good multiplied with the marginal utility of income $p_G \frac{\partial U}{\partial Y}$. The second part of the first-order condition therefore captures the disutility of paying a price $p$ for the market good. It also accounts for the relative price of the market good compared to the price for the basket of goods. From the first-order condition an implicit expression for the inverse demand curve can be derived. This expression shows that the ratio of prices is equal to the ration of marginal utilities.
+
+$$\frac{p}{p_G} = \frac{U_Q}{U_G} \longleftrightarrow p = p_G\frac{U_Q}{U_G}$$
+
+An implicit solution means that the price $p$ potentially appears at the right-hand side of the equation. This inverse demand curve is the maximum marginal willingness to pay (MWTP) for the good. It depends on the relative size of the marginal utilities and increases in the price of the basket of goods. For many practical purposes the price of the basket of goods is normalized to $p_G=1$ resulting in inverse demand as a function of the ratio of marginal utilities:
+
+$$p = \frac{U_Q}{U_G}$$
+
+The MWTP can be employed as a measure of consumer benefits. Much of the analytical work of demand analysists focusses on particular specifications that result in explicit solutions for the inverse demand curve. These explicit solutions have only exogenous parameters and quantity $Q$ at the right-hand side and can be analysed using empirical data.
+
+### Examples of demand and inverse demand functions
+
+To illustrate the model, we provide an example of three particular utility functions. First, we discuss a direct utility function without income effects and exponential marginal utility of consumption. Second, we discuss the well-known Cobb-Douglas utility function. This utility function captures non-linear impacts of net spendable income on direct utility. Third, we discuss a specification of the direct utility function that captures minimum threshold levels for consumption. Such a specification is particularly relevant for particular basic goods that a consumer cannot do without.
+
+#### The exponential-linear utility function
+
+Suppose direct utility is specified as:
+
+$$ U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG$$ 
+
+The marginal utility of consumption is given by the partial derivative with respect to the market good:
+
+$$ \frac{\partial U}{\partial Q} = Ae^{-\alpha Q} > 0$$ 
