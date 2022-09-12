@@ -38,11 +38,16 @@ Value is mathematically conceptualized using a direct utility function that depe
 The price for the outside good can be interpreted as the costs or price index for a basket of goods for the consumers, where the market good is excluded from this basket. When prices of products in the basket increase over time, this will impact the price of the outside good.
 
 Net spendable income of the consumer is assumed to be exogenous and given by $Y$. This income is after tax income and can be used freely by the consumer. Total spending of the consumer is given by $pQ+p_G G$, because it is assumed that all net income is spent either on the market good or the outside good. The budget constraint of the individual is then given by:
-
-$$Y - pQ - p_G G = 0$$
+\begin{equation}
+Y - pQ - p_G G = 0.
+(\#eq:budgetconstraint)
+\end{equation}
 From this budget constraint we can derive the consumed quantity of the outside good $G$:
 
-$$ G = \frac{Y-pQ}{p_G}$$
+\begin{equation}
+G = \frac{Y-pQ}{p_G}
+(\#eq:outsidegood)
+\end{equation}
 
 The quantity consumed of the outside good increases in the income level $Y$, decreases in the price of the basket of goods $p_G$, and decreases in consumer spending $pQ$ on the market good. Substituting this quantity in the direct utility gives us an expression that only has the quantity level of the market good as a choice variable: 
 

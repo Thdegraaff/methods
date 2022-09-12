@@ -1,13 +1,23 @@
 # Introduction
 
-## Why this book?
+In this first introductory chapter, we will lay out the relations between theory development and theory testing as they are the cornerstones of scientific progress. After all, a theory or idea can only be scientific if the theory can be tested and if need be refuted. If the theory cannot be tested then it is not science. We will also explain the basic workflow of scientific research and the tools needed with specific emphasis on research in the social sciences. We end with a reading guide where we discuss each chapter and the relations between the chapters.
 
 ## Theory, Models and Hypotheses
 
-## Doing research
+In 2021, Guido Imbens, Joshua Angrist and David Card received the Nobel price for economics (officially *The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel*). The field they work in is applied econometrics with specific focus on finding **causal** relations. That means that with data they want to test whether phenomenon $A$ has an effect on phenomenon $B$. And that is what most applied econometric work nowadays is focused on. And we will focus on that as well in Chapter 5, 6 and 7. But how do you know what to test, or, in other words, where do $A$ and $B$ come from? Those phenomena and possible relations originate from scientific theories as you will have in all disciplines. And those theories are typically casts in models---usually in a very abstract manner. Models come in the form of computer simulations (such as with agent-based modeling), real physical models as with displays, but usually models are formulated in mathematical notation with the aim of being as precise, lucid and clear as possible. Chapter 2, 3 and 4 will indeed deal with a specific subset of economic models formulated with mathematical notation. But note that those models are not theory. That is the underlying set of relations and assumptions. An example of theory is the Law of Diminishing Marginal Utility: each additional unit of the same good is appreciated less by consumers. This theory can be expressed in many mathematical ways but the underlying concept as displayed in Figure \@ref(fig:marginalutility) always remains the same.
+
+
+```{r, echo=FALSE, fig.cap = "Law of Diminishing Marginal Utility", label='marginalutility'}
+par(mar = c(4, 4, 0.1, 0.1))
+x <- seq(1, 20, 1)
+y <- x^(0.2)
+plot(x, y, pch = 19, type = "b", xlab="Units consumed from same good", ylab="Utility", yaxt='n')
+```
+
+## Doing Research in the Social Sciences
 
 ### Statistical software
 
 The statistical software we use in this course is STATA. 
 
-## Reading guide
+## Reading Guide

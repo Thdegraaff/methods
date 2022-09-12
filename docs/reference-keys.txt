@@ -1,8 +1,9 @@
-preface
+fig:marginalutility
+eq:budgetconstraint
+eq:outsidegood
 introduction
-why-this-book
 theory-models-and-hypotheses
-doing-research
+doing-research-in-the-social-sciences
 statistical-software
 reading-guide
 introduction-to-economic-surplus
@@ -27,5 +28,5 @@ polynomials
 interaction-variables
 logarithms
 using-fixed-effects-in-panel-data
-specification-assessment
+specification-assessment-issues
 in-conclusion
