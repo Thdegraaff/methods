@@ -1,4 +1,5 @@
 fig:marginalutility
+fig:popper
 eq:budgetconstraint
 eq:outsidegood
 introduction

@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -62,6 +62,28 @@ Earth, Economics and Sustainability</p>" />
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 </head>
 
@@ -146,13 +168,24 @@ Earth, Economics and Sustainability</p>" />
 <p>In this first introductory chapter, we will lay out the relations between theory development and theory testing as they are the cornerstones of scientific progress. After all, a theory or idea can only be scientific if the theory can be tested and if need be refuted. If the theory cannot be tested then it is not science. We will also explain the basic workflow of scientific research and the tools needed with specific emphasis on research in the social sciences. We end with a reading guide where we discuss each chapter and the relations between the chapters.</p>
 <div id="theory-models-and-hypotheses" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Theory, Models and Hypotheses<a href="introduction.html#theory-models-and-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In 2021, Guido Imbens, Joshua Angrist and David Card received the Nobel price for economics (officially <em>The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel</em>). The field they work in is applied econometrics with specific focus on finding <strong>causal</strong> relations. That means that with data they want to test whether phenomenon <span class="math inline">\(A\)</span> has an effect on phenomenon <span class="math inline">\(B\)</span>. And that is what most applied econometric work nowadays is focused on. And we will focus on that as well in Chapter 5, 6 and 7. But how do you know what to test, or, in other words, where do <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> come from? Those phenomena and possible relations originate from scientific theories as you will have in all disciplines. And those theories are typically casts in models—usually in a very abstract manner. Models come in the form of computer simulations (such as with agent-based modeling), real physical models as with displays, but usually models are formulated in mathematical notation with the aim of being as precise, lucid and clear as possible. Chapter 2, 3 and 4 will indeed deal with a specific subset of economic models formulated with mathematical notation. But note that those models are not theory. That is the underlying set of relations and assumptions. An example of theory is the Law of Diminishing Marginal Utility: each additional unit of the same good is appreciated less by consumers. This theory can be expressed in many mathematical ways but the underlying concept as displayed in Figure <a href="introduction.html#fig:marginalutility">1.1</a> always remains the same.</p>
+<p>In 2021, Guido Imbens, Joshua Angrist and David Card received the Nobel price for economics (officially <em>The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel</em>). The field they work in is applied econometrics with specific focus on finding <strong>causal</strong> relations. That means that with data they want to test whether phenomenon <span class="math inline">\(X\)</span> has an effect on phenomenon <span class="math inline">\(Y\)</span>. And that is what most applied econometric work nowadays is focused on. And we will focus on that as well in Chapter 5, 6 and 7. But how do you know what to test, or, in other words, where do <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> come from? Those phenomena and possible relations originate from scientific theories as you will have in all disciplines. And those theories are typically casts in models—usually in a very abstract manner. Models come in the form of computer simulations (such as with agent-based modeling), real physical models (as with displays), but often models are formulated in mathematical notation with the aim of being as precise, lucid and clear as possible. Chapter 2, 3 and 4 will indeed deal with a specific subset of economic models formulated with mathematical notation. But note that those models are not necessarily theory. Theory is the underlying set of relations and assumptions that can say something the specific structure of models, but very often theory can lead to multiple types of models, each perhaps highlighting different aspects of the underlying theory. An example of such a theory is the Law of Diminishing Marginal Utility: each additional unit of the same good is appreciated less by consumers. This theory can be expressed in many mathematical ways but the underlying concept as displayed in Figure <a href="introduction.html#fig:marginalutility">1.1</a> always remains the same.</p>
 <div class="figure"><span style="display:block;" id="fig:marginalutility"></span>
 <img src="_main_files/figure-html/marginalutility-1.png" alt="Law of Diminishing Marginal Utility" width="672" />
 <p class="caption">
 Figure 1.1: Law of Diminishing Marginal Utility
 </p>
 </div>
+<p>So how to related this with each other in scientific research? Well, when doing research you are interested in something that is not yet known (the research gap). Your aim is to (partly) fill this research gap by answering a research question. To answer this research question you need theory (a theoretical framework); what do you need to assume, what are the most important (moderator) variables, how do they relate with each other, and so on and so forth. From this theory you construct a model. Not necessarily a mathematical one. For example, you can also make a model in a Geographical Information System environment where you visualize layers of information that you think are most relevant based upon theory (in this case often previous scientific literature). Or you make a simulation model examining risks of flooding by rivers. The final step is the stage where your model should provide you with some answers. Sometimes they are concerned with optimality (what is the best location of a new road in a GIS environment), prediction (where are river dikes most vulnerable), or with establishing a (causal) relation. And it is the latter that the second part of this course deals with. How can we know that there is a relation between phenomenon <span class="math inline">\(X\)</span> and phenomenon <span class="math inline">\(Y\)</span> and how do we know whether that relation is causal?</p>
+<p>For that we use applied econometrics (which is a form of applied statistics but then in the social sciences domain–the exact difference will be discussed in Chapter 5). And to establish a, hopefully causal, relation, we test our models with empirical data. The applied econometrics we teach in this course (and in all introductory courses of applied statistics and econometrics all over the world—the “101” courses) is based on so-called frequentist statistics (we will revisit its basic assumptions in Chapter 5). The exact definition is not important for now but know that it is intrinsically related with hypothesis testing.</p>
+<p>And hypothesis testing is most often associated with that scientific philosopher—and perhaps the only one you know—Karl Popper (as displayed in <a href="introduction.html#fig:popper">1.2</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:popper"></span>
+<img src="figures/popper.jpeg" alt="Karl Popper"  />
+<p class="caption">
+Figure 1.2: Karl Popper
+</p>
+</div>
+<p>Popper was a so-called empiricist and claimed that theories in the empirical sciences (that includes most of the social sciences) can never be proven, only rejected. That is why you can reject a null-hypothesis (<span class="math inline">\(H_0\)</span>), but <strong>never</strong> accept the alternative hypothesis (<span class="math inline">\(H_a\)</span>). And this is very much related with the theoretical framework behind frequentist statistics. Loosely speaking, in frequentist statistics you construct a world where <span class="math inline">\(H_0\)</span> is true and try to reject that world with data (we will come back to this in Chapter 5)—but that world does not say something the validity of the alternative hypothesis. Now, Popper never claimed that rejecting one null-hypothesis will reject a whole theory. For that you need a larger body of evidence, including results from all sorts of studies—not only statistical ones, leading to a <em>general</em> consensus among the scientific community <span class="citation">(Popper 2005)</span>.</p>
+<p>In truth, although the scientific approach of working with null-hypotheses is a very valuable one (and remarkably practical), it does not lead to definitive answers. That is because contradicting models can lead to similar null-hypotheses. Moreover, often the direct connection between research question and null-hypothesis is not a direct one. Consider that you want to know the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>, so your research question is: “What is the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>?”. But, in a frequentist world you only reject hypotheses—thus leading to results in the line of: “The effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <em>not</em> <span class="math inline">\(\ldots\)</span>”. This makes the evidence for your research question at least circumstantial and in the best cases indirect. The bottom-line here is that one needs to be careful in drawing conclusions based on null-hypotheses (and in a broader sense based on models in general). Scientific research typically advances very slowly—but hopefully in a robust and parsimonious way!</p>
 </div>
 <div id="doing-research-in-the-social-sciences" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Doing Research in the Social Sciences<a href="introduction.html#doing-research-in-the-social-sciences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -163,6 +196,7 @@ Figure 1.1: Law of Diminishing Marginal Utility
 </div>
 <div id="reading-guide" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Reading Guide<a href="introduction.html#reading-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This course will not concern itself with theory as such, but more with methods to describe that theory (the models) and how to test that theory (the applied econometrics). Chapter 2–4 deals with models.</p>
 
 </div>
 </div>
