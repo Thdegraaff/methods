@@ -1,1 +1,25 @@
 # Behavioural Error and Economic Surplus
+
+## Introduction
+
+These lecture notes investigate the implications of behavioural errors for the calculation of economic surplus. The sub-field of behavioural economics started around 1950 with the pioneering works of Herbert Simon and Ward Edwards. The aim was to develop a novel perspective on rationality and choice behaviour. @laibson2015principles define behavioural economics as follows:
+
+> Behavioural economics uses variants of traditional economic assumptions (often with a psychological motivation) to explain and predict behaviour, and to provide policy prescriptions (p.385).
+
+From their perspective, modern behavioural economics therefore can be viewed as an extension of the neo-classical perspective. @laibson2015principles suggest that behavioural economics refines three of the key core principles of classical economics (p.386). We add to this list how the fourth pillar ‘normativity’ changes when behavioural errors are present.
+
+(i) *Optimization*: market actors try to choose their best (feasible) option. They employ heuristics or a decision goal function for choosing amounts (utility, costs etc.).
+(ii) *Equilibrium*: market actors try to choose their best feasible option when interacting with others. This results in a behavioural equilibrium.
+(iii) *Empiricism*: behavioural models need to be tested with data.
+(iv) *Experienced based normativity*: experiences (not choices) of market actors generate value and experienced value of market actors is equal to value for society.
+
+Compared to the neo-classical paradigm, behavioural economics changes the first core pillar ‘optimization’ by adding the word ‘try’. In classical economic models it is usually assumed that market actors behave rationally: choices of market actors are the result of a rational optimization procedure in the sense that choices track utility value. Behavioural economics has operationalized this idea by replacing the direct utility function by other heuristics or by other kinds of direct utility functions. An example of a consumer heuristic is: buy $Q$ of the market good when it rains and $Q+2$ of the market good when it does not rain. Such a heuristic is independent of the valuation or utility considerations and is therefore difficult to connect to analysis of economic surplus without further assumptions. Examples of different conceptualization of utility functions are utility functions that account for biased processing of probabilities and loss aversion [@tversky1992advances].
+
+The second pillar states that equilibrium in markets might be affected by behavioural errors as market actors interact with each other and is a logical result of adding behavioural error at the first pillar. According to behavioural economists, consumers and producers seek to optimize, but make behavioural errors. This in turn has impacts on how market actors interact with each other. When consumers and producers make systematic mistakes, this can impact equilibrium prices and quantities, but more in-depth analysis is needed to show what the impacts of behavourial errors is on equilibrium outcomes. 
+
+The third pillar states that particular assumptions on the rationality of choices made by neo-classical economists should be backed up by empirical analysis. It has been argued by neo-classical economists that choices are made as if market actors are rational. Milton Friedman (1953) wrote about this in his famous essay ‘The methodology of Positive Economics’: 
+
+> Consider the problem of predicting the shots made by an expert billiard player. It seems not at all unreasonable that excellent predictions would be yielded by the hypothesis that the billiard player made his shots as if he knew the complicated mathematical formulas that would give the optimum directions of travel, could estimate accurately by eye the angles, etc., describing the location of the balls, could make lightning calculations from the formulas, and could then make the balls travel in the direction indicated by the formulas. Our confidence in this hypothesis is not based on the belief that billiard players, even expert ones, can or do go through the process described; it derives rather from the belief that, unless in some way or other they were capable of reaching essentially the same result, they would not in fact be expert billiard players.
+>
+>It is only a short step from these examples to the economic hypothesis that under a wide range of circumstances individual firms behave as if they were seeking rationally to maximize their expected returns (generally if misleadingly called “profits”) and had full knowledge of the data needed to succeed in this attempt; as if, that is, they knew the relevant cost and demand functions, calculated marginal cost and marginal revenue from all actions open to them, and pushed each line of action to the point at which the relevant marginal cost and marginal revenues were equal (Friedman, 1953).
+

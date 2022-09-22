@@ -1,1 +1,39 @@
-# Moral Considerations and Economic Surplus
+# Moral Considerations and Economic Surplus {#moral}
+
+## Introduction
+
+These lecture notes introduce another definition of economic surplus ('the economic pie’) that allows for moral considerations. It specifically investigates moral considerations related to the normative validity of counting costs and benefits of consumers and producers and external costs as economic social surplus. Why is this important? In the first week we have seen that the classical perspective of economic value rests on four pillars: (*i*) optimisation, (*ii*) equilibrium, (*iii*) empiricism and (*iv*) choice-based normativity. The implication of this perspective is that choices of market actors perfectly track value for society. 
+
+The second week provided an extended perspective using insights from psychology. According to this perspective there can be a difference between choice-based value and experienced based value. Given particular assumptions it can be justified that experienced value is the right metric to measure instead of choice-based value. As we have seen, this has implications for policy interventions related to information provision and externality taxation.
+
+The lecture notes of week 3 question the results of the first week from a different angle: there can be moral considerations related to the choices of market actors that lead to the question whether it is justified to include the value of consumers, producers and the external costs completely in the economic surplus calculation. 
+
+Before moving on, it is useful to illustrate why moral considerations are important. Consider a pork producer who is active in the market for pork. The government has set specific rules for pork production for those who want to become active in this market. With the aim of lowering marginal costs, the pork producer ignores some of these rules related to animal welfare without providing good reasons and without changing external costs. The producer rationally trades off lower marginal costs with the probability of getting a fine when being caught. According to the economic model of value developed in week 1 this leads to an increase in producer surplus in the market of pork and thereby into an increase is economic surplus. The example suggests that there are normative limits for behaviour by consumers and producers in markets that might not be captured in behavioural choice. 
+
+Or consider a philosopher of animal welfare who considers the eating of pork to be morally problematic because pigs are sentient beings ‘like us’. If the reasoning of this philosopher is correct, counting consumer benefits fully as social surplus is likely to be questionable. 
+
+These two examples at least illustrate that the choice-based normativity perspective (week 1) and experienced-based normativity (week 2) might not be shared by all persons and groups in society. In these lecture notes we therefore change the 4th pillar ‘normativity’ from choice-based to morally-based evaluation. 
+
+How to deal with this in cost-benefit analysis? 
+
+The key question to investigate here is: "What should count as ‘better or worse off’?” [@atkinson2009economics;@sandel2013market]. This normative question can be investigated from different viewpoints: the individual level, the community level and the societal level. 
+
+At the *individual level*, consumers and producers make moral commitments to their own perspective on the good life. They might want to eat less meat, fly less and might want to lower their carbon emissions by making more sustainable choices. However, these moral commitments and targets are not always reached leading to a discrepancy between the individuals’ perspective on the good life and their actual choices. Most persons are aware of this gap between their goals and actual behaviour in their personal lives. For example, sometimes individuals make promises to particular sustainability targets to others but do not keep these promises. Another example is the observation of flight shame which suggests that individuals have an independent reflective moral attitude (conscience) towards their own behaviour. Even when choices (week 1) and experiences (week 2) are valuable and decisions are made to buy the product, this suggests that these choices might not be evaluated as truly ‘good’ by the individual.  
+
+At the *community level*, individuals participate in communities who determine (partly or fully) what counts as valuable. Community membership can be voluntary or non-voluntary and membership of communities results in particular duties and customs. Communities entail particular minimum standards of behaviour for consumers and producers based on the community values. These standards can be viewed as partly independent of the preferences that are expressed by consumers and producers in their day-to-day market choices. For example, an activist participating in a ‘climate change community’ is likely to be held accountable for behavioural choices: only ‘telling the truth’ is likely not sufficient according the community standards.
+
+At the *societal level*, individuals participate in the common project of living together. Governments can formulate particular minimal sustainability standards for market participants which in turn can lead to particular duties and customs for market actors. This was illustrated with the example of the pork producer above. Furthermore, governments can ask market participants to make concrete commitments in terms of sustainability. Goals can act as targets for moral excellence and result in obligations. 
+
+In order to count something as valuable for society these different viewpoints can play a role and can result in a discrepancy between choice-based value and morally weighted social value. In line with the results of week 2 this can imply that the social optimum is not reached even when there are no external costs. Note that the different viewpoints do not restrict choice of market actors but seek to foster a plural perspective on what should count as valuable.  
+
+The remainder of these lecture notes is structured as follows. First, Section II gives an overview of several strategies that are employed to deal with moral considerations when valuing market outcomes. This section motivates why an adjustment of economic surplus is needed when moral considerations are present. Section III develops a novel analytical specification of economic surplus and sections IV and V discuss the implications for pricing. Examples are provided along the way. Section VI concludes.
+
+## Dealing with moral considerations at the valuation stage   
+
+### Introduction
+
+This section discusses four general approaches to deal with moral considerations when analysing (changes) in economic social surplus. The first approach is the ethical checkbox approach (section II.B), the second approach is the economizing ethics approach (section II.C), the third approach is the ethicizing economics approach (section II.D). The fourth approach is the qualitative valuation approach (section II.E). These approaches are not necessarily perfect substitutes but can be employed in a complementary way. 
+
+### Ethical checkbox approach
+
+The first approach to deal with moral considerations is the ‘ethical checkbox’ approach (ECH). This approach analyses moral considerations independently of economic surplus assessments using a list of necessary ethical requirements or rules for the behaviour of market actors. It is closely related to the ‘independent doctrine’ which views (micro-)economics as separate from ethics (see High (1985, p,.4-6), for a 

@@ -1,5 +1,13 @@
 # Regression analysis in the social sciences
 
+Why should we have something as applied econometrics in the social sciences? That is because we have theories as in Chapters (\@ref(surplus))--(\@ref(moral)) and those theories contain variables such as in the direct utility function of equation \@ref(eq:directutility):
+
+\begin{equation}
+U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
+\end{equation}
+
+Here the quantities for the market good $Q$ and the outside good $G$ are to considered to be *known*---also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.  
+
 ## Statistical framework
 
 ## Univariate regression

@@ -1,4 +1,4 @@
-# Introduction to Economic Surplus
+# Introduction to Economic Surplus {#surplus}
 
 Practical cost-benefit analysis is widely used in applied economic analysis and often employs a definition of economic surplus that adds up consumer and producer surplus and potential external costs. These lecture notes discuss the behavioural assumptions underlying this calculation and show how to operationalise the definition of economic surplus to derive economic surplus changes and externality taxes. It employs a mathematical approach suitable applied economic partial equilibrium analysis.
 
@@ -51,19 +51,27 @@ G = \frac{Y-pQ}{p_G}
 
 The quantity consumed of the outside good increases in the income level $Y$, decreases in the price of the basket of goods $p_G$, and decreases in consumer spending $pQ$ on the market good. Substituting this quantity in the direct utility gives us an expression that only has the quantity level of the market good as a choice variable: 
 
-$$U \left(Q, \frac{Y-pQ}{p_G} \right) $$
+\begin{equation}
+U \left(Q, \frac{Y-pQ}{p_G} \right) 
+\end{equation}
 
 The optimal choice of the quantity of the market good is governed by the utility of consumption (first argument) and the disutility of spending money on the market good (second argument). Optimal consumption can be derived by setting the total derivative with respect to the market quantity to 0:
 
-$$ \frac{dU}{dQ} = U_Q - \frac{P}{P_G}U_G = 0$$
+\begin{equation}
+\frac{dU}{dQ} = U_Q - \frac{P}{P_G}U_G = 0
+\end{equation}
 
 Here, $U_Q=\frac{\partial U}{\partial Q}$ is the marginal utility of consuming the market good. Here we use the notation $\frac{dU}{dQ}$ for the total derivative (both arguments of the utility function), and the notation $\frac{\partial U}{\partial Q}$ for the partial derivative with respect to $Q$ (only the first argument). Marginal utility of consumption is the slope of the direct utility function with respect to the first argument $Q$. Furthermore, $U_G=\frac{\partial U}{\partial G}$ is the marginal utility of consumption of the outside good. This is equal to the price of the outside good multiplied with the marginal utility of income $p_G \frac{\partial U}{\partial Y}$. The second part of the first-order condition therefore captures the disutility of paying a price $p$ for the market good. It also accounts for the relative price of the market good compared to the price for the basket of goods. From the first-order condition an implicit expression for the inverse demand curve can be derived. This expression shows that the ratio of prices is equal to the ration of marginal utilities.
 
-$$\frac{p}{p_G} = \frac{U_Q}{U_G} \longleftrightarrow p = p_G\frac{U_Q}{U_G}$$
+\begin{equation}
+\frac{p}{p_G} = \frac{U_Q}{U_G} \longleftrightarrow p = p_G\frac{U_Q}{U_G}
+\end{equation}
 
 An implicit solution means that the price $p$ potentially appears at the right-hand side of the equation. This inverse demand curve is the maximum marginal willingness to pay (MWTP) for the good. It depends on the relative size of the marginal utilities and increases in the price of the basket of goods. For many practical purposes the price of the basket of goods is normalized to $p_G=1$ resulting in inverse demand as a function of the ratio of marginal utilities:
 
-$$p = \frac{U_Q}{U_G}$$
+\begin{equation} 
+p = \frac{U_Q}{U_G}
+\end{equation}
 
 The MWTP can be employed as a measure of consumer benefits. Much of the analytical work of demand analysists focusses on particular specifications that result in explicit solutions for the inverse demand curve. These explicit solutions have only exogenous parameters and quantity $Q$ at the right-hand side and can be analysed using empirical data.
 
@@ -75,8 +83,35 @@ To illustrate the model, we provide an example of three particular utility funct
 
 Suppose direct utility is specified as:
 
-$$ U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG$$ 
+\begin{equation}
+U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG
+(\#eq:directutility)
+\end{equation}
 
 The marginal utility of consumption is given by the partial derivative with respect to the market good:
 
-$$ \frac{\partial U}{\partial Q} = Ae^{-\alpha Q} > 0$$ 
+\begin{equation}
+\frac{\partial U}{\partial Q} = Ae^{-\alpha Q} > 0.
+\end{equation} 
+
+This marginal utility is positive implying that direct utility increases when consumption of the market good increases. The marginal utility of the outside good is given by the partial derivative with respect to $G$:
+
+\begin{equation}
+\frac{\partial U}{\partial G} = B > 0.
+\end{equation}
+
+It is also positive implying more of the outside good is considered to be better. 
+
+The direct utility is concave^[Remember, concave function have decreasing marginal returns such as in Figure \@ref(fig:marginalutility)] in the consumption of the market good and linear in the consumption of the outside good. This can be proved by investigating the second-order partial derivatives which are negative for consumption (first argument) and 0 for the outside good (second argument):
+
+\begin{equation}
+\frac{\partial^2 U}{\partial Q^2} = - \alpha Ae^{-\alpha Q} < 0, \qquad \frac{\partial^2 U}{\partial G^2} = 0.
+\end{equation} 
+
+The intuitive appeal of the assumption of concavity is that the additional utility gained from consuming an additional unit of the market good is decreasing in the consumption level. This implies that the *marginal utility* of consuming the market good is positive, but decreasing. For example, people might enjoy eating meat, but the additional enjoyment of meat consumption decreases in the consumption level. At some point meat saturation kicks in and marginal utility becomes (close to) 0. 
+
+In line with pillar (*1*), the consumer is assumed to maximize utility while accounting for the budget constraint. From the budget constraint we can obtain the consumption level of the outside good: 
+
+\begin{equation}
+Y - pQ - G = 0 \longleftrightarrow G= Y - pQ.
+\end{equation}
