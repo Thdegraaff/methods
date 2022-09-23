@@ -110,7 +110,7 @@ The direct utility is concave^[Remember, concave function have decreasing margin
 
 The intuitive appeal of the assumption of concavity is that the additional utility gained from consuming an additional unit of the market good is decreasing in the consumption level. This implies that the *marginal utility* of consuming the market good is positive, but decreasing. For example, people might enjoy eating meat, but the additional enjoyment of meat consumption decreases in the consumption level. At some point meat saturation kicks in and marginal utility becomes (close to) 0. 
 
-In line with pillar (*1*), the consumer is assumed to maximize utility while accounting for the budget constraint. From the budget constraint we can obtain the consumption level of the outside good: 
+In line with pillar (*1.*), the consumer is assumed to maximize utility while accounting for the budget constraint. From the budget constraint we can obtain the consumption level of the outside good: 
 
 \begin{equation}
 Y - pQ - G = 0 \longleftrightarrow G= Y - pQ.

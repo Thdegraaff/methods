@@ -78,6 +78,10 @@ This syllabus assumes that the reader has a basic working knowledge of introduct
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'Statamarkdown'
 ), 'packages.bib')
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(Statamarkdown)
 ```
