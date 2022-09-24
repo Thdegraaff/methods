@@ -115,3 +115,38 @@ In line with pillar (*1.*), the consumer is assumed to maximize utility while ac
 \begin{equation}
 Y - pQ - G = 0 \longleftrightarrow G= Y - pQ.
 \end{equation}
+
+Substituting gives:
+
+\begin{equation}
+U(Q,G)=\frac{A}{\alpha}(1-e^{-\alpha Q})+B(Y - p Q).
+\end{equation}
+
+The first-order condition for utility maximisation is given by the total derivative of the direct utility function with respect to the market good:
+
+\begin{equation}
+\frac{dU}{dQ} = Ae^{\alpha Q} - pB.
+\end{equation}
+
+The first positive part is the marginal utility of consumption which is positive and the second negative part the marginal utility of payments for the market good. From the first-order condition one can solve for the inverse demand curve which expresses price $p$ as a function of quantity $Q$. Furthermore, one can also solve for the demand curve which expresses quantity as a function of the price. In order to have a unique solution we have to check the second-order total derivative:
+
+\begin{equation}
+\frac{dU^2}{dQ^2} = -\alpha Ae^{\alpha Q} < 0.
+\end{equation}
+
+This second-order total derivative is negative, implying that the optimum is a unique maximum. We start with solving for the inverse demand curve which  is given by: 
+
+\begin{equation}
+p(Q)=\frac{A}{B} e^{-\alpha Q}.
+\end{equation}
+
+Now we have an explicit solution for the MWTP because the right-hand side of this equation only depends on $Q$ and exogenous utility parameters. At $Q=0$, the MWTP is highest and equal to $\frac{A}{B}$. For higher values of $Q$, the MWTP decreases which is in line with decreasing marginal benefits of consumption. The parameter $\alpha$ governs the steepness of this decrease. The higher the parameter $\alpha$ is, the steeper the decrease of the marginal benefits.
+
+Using the first-order condition for utility maximisation, one can also derive the demand curve: 
+
+\begin{equation}
+Q(p)=\frac{1}{\alpha}\ln(A) - \frac{1}{\alpha}\ln(p) - \frac{1}{\alpha}\ln(B)  
+\end{equation}
+
+This expression shows that demand for the market good:
+
