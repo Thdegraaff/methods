@@ -13,7 +13,7 @@ on returns to education (aka wages), housing prices or commuting flows. The seco
 
 - confounding effects (omitted factors)
 - simultaneous causality
--  measurement error
+- measurement error
 
 ## So, what is the problem?
 
