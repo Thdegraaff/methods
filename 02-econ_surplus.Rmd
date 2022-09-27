@@ -699,34 +699,80 @@ v1 <- c("Case I: Exponential inverse demand and exponential inverse supply",
   "Case IV: linear inverse demand and inverse supply"
 )
 v2 <- c(
-  "$p(Q)=Ae^{-\\alpha Q}$
+  "$p(Q)=Ae^{-\\alpha Q}$\n
 Parameter assumptions:
-$A>0$, $\\alpha>0$.
-Regression (log-linear):
+$A>0$, $\\alpha>0$.\n
+Regression (log-linear):\n
 $\\ln p = \\ln A - \\alpha Q + \\epsilon$",
-"$p(Q) = AQ^{-\\alpha}$
+"$p(Q) = AQ^{-\\alpha}$\n
 Parameter assumptions:
-$A>0$, $\\alpha>0$.
-Regression (log-log):
+$A>0$, $\\alpha>0$.\n
+Regression (log-log):\n
 $\\ln p = \\ln A - \\alpha \\ln Q + \\epsilon$",
-"$p(Q)=A-\\alpha \\ln ⁡$Q
+"$p(Q)=A-\\alpha \\ln Q$\n
 Parameter assumptions:
-$A>0$, $\\alpha>0$.
-Regression (linear-log):
+$A>0$, $\\alpha>0$.\n
+Regression (linear-log):\n
 $p=A- \\alpha \\ln Q + \\epsilon$ ",
-"$p(Q)=A- \\alpha Q$
-Regression (linear-linear):
+"$p(Q)=A- \\alpha Q$\n
+Regression (linear-linear):\n
 $p=A-\\alpha Q+ \\epsilon$ "
 )
-df <- data.frame(v1, v2, v3=rbinom(4, 1, .33), v4=runif(4) )
-df$v5 <- c('My formula $\\sum_{i=1}^9$')
+v3 <- c("$Q^D (p)=\\frac{1}{\\alpha} \\ln\\left[\\frac{A}{P}\\right]$\n
+Equilibrium elasticity:\n
+$\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}\\frac{1}{A^\\ast}$",
+"$Q^D (p)=\\frac{P}{A}^{-\\frac{1}{\\alpha}}$\n
+Equilibrium elasticity:\n
+$\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}$",
+"$Q^D (p)=e^{\\frac{A-p}{\\alpha}}$\n
+Equilibrium elasticity:\n
+$\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}p^\\ast$",
+"$Q^D (p)=\\frac{A-p}{\alpha}$\n
+Equilibrium elasticity:\n
+$\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}\\frac{p^\\ast}{Q^\\ast}$"
+)
+v4 <- c(
+"$s(Q)=Be^{bQ}$\n
+Parameter assumptions:
+$B>0$,$B<A$.\n
+Regression (log-linear):\n
+$MC = \\ln B  +b \\lnQ + \\epsilon$",
+"$s(Q)=BQ^b$\n
+Parameter assumptions:
+$B>0$\n
+Regression (log-log):\n
+$\\ln MC = \\ln B + b \\ln Q + \\epsilon$",
+"$s(Q) = B + b \\ln Q$\n
+Parameter assumptions:
+$B>0$\n
+Regression (linear-log):\n
+$MC = B + b \\ln Q + \\epsilon$",
+"$s(Q)=B+bQ$\n
+Regression (linear-linear):\n
+$MC=B+bQ+\\epsilon$"
+)
+v5 <- c("$Q^S(p)=\\frac{1}{b}\\ln\\left[\\frac{p}{B}\\right]$\n
+Equilibrium elasticity:\n
+$\\kappa^\\ast = \\frac{\\partial Q^S}{\\partial p}\\frac{p^\\ast}{Q^\\ast} = \\frac{1}{b}\\frac{1}{Q^\\ast}$",
+"$Q^S(p)=\\left(\\frac{p}{B}\\right)^{\\frac{1}{b}}$\n
+Equilibrium elasticity:\n
+$\\kappa^\\ast = \\frac{\\partial Q^S}{\\partial p}\\frac{p^\\ast}{Q^\\ast} = \\frac{1}{b}$",
+"$Q^S(p)=e^{\\frac{p-B}{b}}$\n
+Equilibrium elasticity:\n
+$\\kappa^\\ast = \\frac{\\partial Q^S}{\\partial p}\\frac{p^\\ast}{Q^\\ast} = \\frac{1}{b}p^\\ast$",
+"$Q^S(p)=\\frac{p-B}{b}$\n
+Equilibrium elasticity:\n
+$\\kappa^\\ast = \\frac{\\partial Q^S}{\\partial p}\\frac{p^\\ast}{Q^\\ast} = \\frac{1}{b}\\frac{p^\\ast}{Q^\\ast}$"
+)
+df <- data.frame( v1, v2, v3, v4, v5 )
 kable(df, 
       "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Demand and supply elasticities and model parameters',
       col.names = c("Case description", "Inverse demand",	"Implied demand curve and equilibrium price                     elasticity of demand", "Inverse supply", "Implied supply curve and equilibrium                       price elasticity of supply")
-)
+) %>%
+  kable_styling(bootstrap_options = "striped", font_size = 9)
 ```
 
 Table 2 gives the calibrated parameters for the inverse demand and inverse supply functions based on information on the equilibrium elasticities and the equilibrium price and quantity. Equilibrium elasticities can be obtained from the literature or from an empirical analysis of demand and supply data. Equilibrium prices and quantities can be observed for the market that you are interested in.

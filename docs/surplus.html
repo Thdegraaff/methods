@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-09-26" />
+<meta name="date" content="2022-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,8 @@ Earth, Economics and Sustainability</p>" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -781,8 +783,8 @@ p(Q^\ast)= p^\ast=s(Q^\ast).
 <div id="calibration-of-equilibrium" class="section level3 hasAnchor" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> Calibration of equilibrium<a href="surplus.html#calibration-of-equilibrium" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How to fit the conceptual model to a real market in order to do justice to the third pillar: empiricism? That is the challenge of calibration in this section. Using the equilibrium equations, it is possible to recover two unknown parameters of the demand and supply function. If one also has information about the equilibrium elasticities, it is possible to calibrate four model parameters. This is the reason that the estimation of equilibrium elasticities is an important task of empirical economists. In the previous section we have seen estimates for these elasticities for different kinds of market goods. The tables below can be used for calibration of the (inverse) market demand and supply curves given this knowledge on the estimated (equilibrium) elasticities.</p>
-<table>
-<caption>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
 <span id="tab:demand">Table 2.1: </span>Demand and supply elasticities and model parameters
 </caption>
 <thead>
@@ -810,20 +812,28 @@ Implied supply curve and equilibrium price elasticity of supply
 Case I: Exponential inverse demand and exponential inverse supply
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(p(Q)=Ae^{-\alpha Q}\)</span>
-Parameter assumptions:
-<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.
-Regression (log-linear):
+<p><span class="math inline">\(p(Q)=Ae^{-\alpha Q}\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.</p>
+<p>Regression (log-linear):</p>
 <span class="math inline">\(\ln p = \ln A - \alpha Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-0
+<p><span class="math inline">\(Q^D (p)=\frac{1}{\alpha} \ln\left[\frac{A}{P}\right]\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{1}{A^\ast}\)</span>
 </td>
 <td style="text-align:left;">
-0.2395089
+<p><span class="math inline">\(s(Q)=Be^{bQ}\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(B&gt;0\)</span>,<span class="math inline">\(B&lt;A\)</span>.</p>
+<p>Regression (log-linear):</p>
+<span class="math inline">\(MC = \ln B +b \lnQ + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
+<p><span class="math inline">\(Q^S(p)=\frac{1}{b}\ln\left[\frac{p}{B}\right]\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{1}{Q^\ast}\)</span>
 </td>
 </tr>
 <tr>
@@ -831,20 +841,28 @@ My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
 Case II: Constant elasticity inverse demand and inverse supply
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(p(Q) = AQ^{-\alpha}\)</span>
-Parameter assumptions:
-<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.
-Regression (log-log):
+<p><span class="math inline">\(p(Q) = AQ^{-\alpha}\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.</p>
+<p>Regression (log-log):</p>
 <span class="math inline">\(\ln p = \ln A - \alpha \ln Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-0
+<p><span class="math inline">\(Q^D (p)=\frac{P}{A}^{-\frac{1}{\alpha}}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\)</span>
 </td>
 <td style="text-align:left;">
-0.2203663
+<p><span class="math inline">\(s(Q)=BQ^b\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(B&gt;0\)</span></p>
+<p>Regression (log-log):</p>
+<span class="math inline">\(\ln MC = \ln B + b \ln Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
+<p><span class="math inline">\(Q^S(p)=\left(\frac{p}{B}\right)^{\frac{1}{b}}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\)</span>
 </td>
 </tr>
 <tr>
@@ -852,20 +870,28 @@ My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
 Case III: Logged inverse demand and inverse supply
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(p(Q)=A-\alpha \ln ⁡\)</span>Q
-Parameter assumptions:
-<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.
-Regression (linear-log):
+<p><span class="math inline">\(p(Q)=A-\alpha \ln Q\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\alpha&gt;0\)</span>.</p>
+<p>Regression (linear-log):</p>
 <span class="math inline">\(p=A- \alpha \ln Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-0
+<p><span class="math inline">\(Q^D (p)=e^{\frac{A-p}{\alpha}}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}p^\ast\)</span>
 </td>
 <td style="text-align:left;">
-0.4819136
+<p><span class="math inline">\(s(Q) = B + b \ln Q\)</span></p>
+<p>Parameter assumptions:
+<span class="math inline">\(B&gt;0\)</span></p>
+<p>Regression (linear-log):</p>
+<span class="math inline">\(MC = B + b \ln Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
+<p><span class="math inline">\(Q^S(p)=e^{\frac{p-B}{b}}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}p^\ast\)</span>
 </td>
 </tr>
 <tr>
@@ -873,18 +899,24 @@ My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
 Case IV: linear inverse demand and inverse supply
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(p(Q)=A- \alpha Q\)</span>
-Regression (linear-linear):
+<p><span class="math inline">\(p(Q)=A- \alpha Q\)</span></p>
+<p>Regression (linear-linear):</p>
 <span class="math inline">\(p=A-\alpha Q+ \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-0
+<p><span class="math inline">\(Q^D (p)=\frac{A-p}{lpha}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{p^\ast}{Q^\ast}\)</span>
 </td>
 <td style="text-align:left;">
-0.5103099
+<p><span class="math inline">\(s(Q)=B+bQ\)</span></p>
+<p>Regression (linear-linear):</p>
+<span class="math inline">\(MC=B+bQ+\epsilon\)</span>
 </td>
 <td style="text-align:left;">
-My formula <span class="math inline">\(\sum_{i=1}^9\)</span>
+<p><span class="math inline">\(Q^S(p)=\frac{p-B}{b}\)</span></p>
+<p>Equilibrium elasticity:</p>
+<span class="math inline">\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{p^\ast}{Q^\ast}\)</span>
 </td>
 </tr>
 </tbody>
