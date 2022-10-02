@@ -2,7 +2,7 @@
 
 ## Introduction
 
-These lecture notes investigate the implications of behavioural errors for the calculation of economic surplus. The sub-field of behavioural economics started around 1950 with the pioneering works of Herbert Simon and Ward Edwards. The aim was to develop a novel perspective on rationality and choice behaviour. @laibson2015principles define behavioural economics as follows:
+These chapoter investigate the implications of behavioural errors for the calculation of economic surplus. The sub-field of behavioural economics started around 1950 with the pioneering works of Herbert Simon and Ward Edwards. The aim was to develop a novel perspective on rationality and choice behaviour. @laibson2015principles define behavioural economics as follows:
 
 > Behavioural economics uses variants of traditional economic assumptions (often with a psychological motivation) to explain and predict behaviour, and to provide policy prescriptions (p.385).
 
@@ -17,9 +17,56 @@ Compared to the neo-classical paradigm, behavioural economics changes the first 
 
 The second pillar states that equilibrium in markets might be affected by behavioural errors as market actors interact with each other and is a logical result of adding behavioural error at the first pillar. According to behavioural economists, consumers and producers seek to optimize, but make behavioural errors. This in turn has impacts on how market actors interact with each other. When consumers and producers make systematic mistakes, this can impact equilibrium prices and quantities, but more in-depth analysis is needed to show what the impacts of behavourial errors is on equilibrium outcomes. 
 
-The third pillar states that particular assumptions on the rationality of choices made by neo-classical economists should be backed up by empirical analysis. It has been argued by neo-classical economists that choices are made as if market actors are rational. Milton Friedman (1953) wrote about this in his famous essay ‘The methodology of Positive Economics’: 
+The third pillar states that particular assumptions on the rationality of choices made by neo-classical economists should be backed up by empirical analysis. It has been argued by neo-classical economists that choices are made as if market actors are rational. @friedman1953methodology wrote about this in his famous essay ‘The methodology of Positive Economics’: 
 
-> Consider the problem of predicting the shots made by an expert billiard player. It seems not at all unreasonable that excellent predictions would be yielded by the hypothesis that the billiard player made his shots as if he knew the complicated mathematical formulas that would give the optimum directions of travel, could estimate accurately by eye the angles, etc., describing the location of the balls, could make lightning calculations from the formulas, and could then make the balls travel in the direction indicated by the formulas. Our confidence in this hypothesis is not based on the belief that billiard players, even expert ones, can or do go through the process described; it derives rather from the belief that, unless in some way or other they were capable of reaching essentially the same result, they would not in fact be expert billiard players.
+> Consider the problem of predicting the shots made by an expert billiard player. It seems not at all unreasonable that excellent predictions would be yielded by the hypothesis that the billiard player made his shots **as if** he knew the complicated mathematical formulas that would give the optimum directions of travel, could estimate accurately by eye the angles, etc., describing the location of the balls, could make lightning calculations from the formulas, and could then make the balls travel in the direction indicated by the formulas. Our confidence in this hypothesis is not based on the belief that billiard players, even expert ones, can or do go through the process described; it derives rather from the belief that, unless in some way or other they were capable of reaching essentially the same result, they would not in fact be expert billiard players.
 >
 >It is only a short step from these examples to the economic hypothesis that under a wide range of circumstances individual firms behave as if they were seeking rationally to maximize their expected returns (generally if misleadingly called “profits”) and had full knowledge of the data needed to succeed in this attempt; as if, that is, they knew the relevant cost and demand functions, calculated marginal cost and marginal revenue from all actions open to them, and pushed each line of action to the point at which the relevant marginal cost and marginal revenues were equal (Friedman, 1953).
+
+Using the analogy with the expert billiard player, @friedman1953methodology argues that there can be a complicated mathematical description of market choices that correctly *describes* behaviour even when market actors themselves are not aware of the complexities of their own behaviour. Why then, is additional behavioural economic analysis useful?
+
+An important reason for behavioural economists to delve into the peculiarities of individual choices is that this might lead to a better *understanding* of the underlying mechanisms of choice behaviour. After all, scientists are allowed to be curious and are free to formulate hypotheses about the behaviour of individuals. A key purpose of science is to seek understanding and behavioural economists contribute to this with their empirical research.
+
+For *prediction* of choices, understanding of the mechanisms of choice is not needed. ‘As if’ rationality can be a sufficient assumption as more complicated and realistic behavioural models might not always lead to better predictions. Prediction of choice can be tackled using econometric techniques (regression, machine learning) and does not require any underlying behavioural model of choice that describes the mechanisms. For example, one can investigate the change in the consumption of solar panels resulting from subsidies using regression techniques with demand as a dependent variable and subsidies as an independent variable. Utility maximisation and cost minimisation are not needed for these types of impact analyses but might give suggestions about what kind of control variables one can include in the regression.
+
+The scope of the essays of Friedman is only positive or descriptive economics.^[Without normative recommendations, the field of economics reduces to the field of econometrics.] What @friedman1953methodology did not discuss in his essay is that for normative policy analysis as if rationality is not a sufficient assumption. This is because these analyses require a model about how market actors determine value. For example, the question whether the subsidy for solar panels resulted in added value for society cannot be answered using models of prediction alone. Suppose subsidies result in a significant impact on the demand for solar panels. When effectiveness would be the only purpose the recommendation would be to have very high subsidies in order to increase the demand for solar panels. 
+
+To conclude our discussion about pillar (*iii*): the goal of the analysis (understanding, prediction, normative policy analysis) therefore determines whether *as if* rationality is an appropriate assumption. It also determines which research strategy is appropriate. When estimating economic value---and relate market outcomes to appropriate policy interventions---there is a normative component in the analysis, implying that the assumption of *as if* rationality is not sufficient. 
+
+Pillar (*iv*) shows that there is also a change in normative perspective when using behavioural economic models for policy analysis. The reason is that there can be a divergence between the value ‘calculation’ at choice and the experienced value of market actors. This has potential impacts on the calculation of economic value and policy recommendations. Customers can be more (less) satisfied with a product than they expected at the moment of choice. Firms might overestimate (underestimate) the marginal costs of production. These biases can have impacts on equilibrium outcomes and also on the estimation of economic surplus when one assumes that it is experienced value which counts.
+
+To illustrate the importance of behavioural errors for the economics of sustainability, it is interesting to look at an example from the literature. @busse2015psychological find that: 
+
+> The choice to purchase a convertible or a four-wheel-drive is highly dependent on the weather at the time of purchase in a way that is inconsistent with classical utility theory. We consider a range of rational explanations for the empirical effects we find, but none can explain fully the effects we estimate.
+
+Interestingly, @busse2015psychological show that even for expensive purchases in real markets---such as a new car---particular valuation biases stemming from the choice context can occur. In other words, the inverse demand curve that we have learned to estimate with statistical techniques potentially captures contextual valuations which might be irrelevant for the experienced value of the product. This leads to a divergence between choice value and experienced value. 
+
+The remainder of these notes are organised as follows. Section 2 discusses the conceptual argument against neo-classical valuation and also discusses common responses. Section 3 uses choice behavioural modelling to arrive at an inverse demand curve that captures behavioural error. This section helps to develop mathematical narratives of choice that capture some of the essential ingredients of behavioural economics without delving to deeply into psychological details. Section 4 develops a simple behavioural economic surplus model graphically and mathematically and shows the implications of behavioural errors on the calculation of economic surplus. Section 5 and 6 continue by analysing the implications for externality taxation by investigating changes in economic surplus. Section 7 concludes.
+
+## Arguments against neo-classical valuation and responses
+
+### Introduction
+
+The quantitative and methodological implications of behavioural economics for the calculation of economic surplus in markets are often not so clear. Such a calculation is needed as an input for practical cost-benefit assessments that seek to account for behavioural error. One of the methodological worries of cost-benefit practitioners who employ the micro-economic toolbox of the neo-classical economists is that behavioural errors lead to *systematic* flaws in policy recommendations because surplus calculations are incorrect. Before discussing these economic implications of behavioural error, we will discuss the qualitative argument in more detail. It has the following structure:
+
+(A)	 Market actors make behavioural errors when valuing market goods;
+(B)	Therefore, the valuations derived from the choice-based neo-classical modelling approach are incorrect;
+(C)	As a result, neo-classical economic analyses of policies are mistaken as economic surplus is calculated in an incorrect way.
+
+### Discussion of Premise A
+
+#### Introduction
+
+Most researchers will grant that market actors make some behavioural errors in valuation and accept premise (A). However, five objections against the move from (A) to (B) are often raised. These objections are the ‘learning objection’ (sub-section B.2), the ‘size objection’ (sub-section B.3), the ‘generalisability objection’ (sub-section B.4), the ’knowledge objection’ (sub-section B.5) and the ‘competition objection’ (sub-section B.6).
+
+#### The learning objection
+
+The first objection is the ‘learning objection’ which comes in three parts. Individuals learn to behave rationally because they:
+
+(i)	learn from repeated choices (individual learning);
+(ii)	learn from the behavioural errors and choices of others (social learning); 
+(iii)	learn from information from other sources.
+
+To illustrate learning with an example: A family household is likely to be able to estimate the amount of biological milk they need after some repetition. Or in the words of @friedman1953methodology: “they figure it out what their optimal quantity is without knowing any of the mathematical formulas that the researcher uses to describe behavioural choice. When the household buys too much milk there will be leftovers for the next week. When there is not enough milk the household has to substitute to water or other beverages.” 
+
 

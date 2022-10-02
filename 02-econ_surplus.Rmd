@@ -381,7 +381,7 @@ This example shows how regression results can be connected to empirical estimate
 Until now we have not accounted for the fact that the consumer also pays a price for the product. Consumer surplus is defined as the total consumer benefits minus the total consumer costs:
 
 \begin{equation}
-CS = \int^Q^\ast_0 p(Q)dQ - p^\ast Q^\ast.
+CS = \int^{Q^\ast_0} p(Q)dQ - p^\ast Q^\ast.
 \end{equation}
 
 Here $p^\ast$ is the equilibrium price that is observed and $Q^\ast$ the equilibrium quantity. In order to calculate consumer surplus for our vegan chicken nuggets example, this requires input on the equilibrium price. Suppose the equilibrium price is equal to $2$ euros per unit. Consumer surplus for The Netherlands is then given by:
@@ -772,21 +772,61 @@ kable(df,
       caption = 'Demand and supply elasticities and model parameters',
       col.names = c("Case description", "Inverse demand",	"Implied demand curve and equilibrium price                     elasticity of demand", "Inverse supply", "Implied supply curve and equilibrium                       price elasticity of supply")
 ) %>%
-  kable_styling(bootstrap_options = "striped", font_size = 9)
+  kable_styling(bootstrap_options = "striped", font_size = 10)
 ```
 
 Table 2 gives the calibrated parameters for the inverse demand and inverse supply functions based on information on the equilibrium elasticities and the equilibrium price and quantity. Equilibrium elasticities can be obtained from the literature or from an empirical analysis of demand and supply data. Equilibrium prices and quantities can be observed for the market that you are interested in.
 
 [INSERT TABLE HERE]
 
-The parameters $A$ and $B$ can be calibrated using the identities for the inverse demand and inverse supply at the equilibrium. The parameters a and b can be calibrated using the equations we have for the price elasticities for specified demand and supply functions (see Table \@ref(tab:demand)). 
-To illustrate how a market can be calibrated using elasticities from the literature we provide an example of case I: exponential inverse demand and inverse supply functions. Table 3 shows information we have about the equilibrium elasticities for vegan nuggets.
+The parameters $A$ and $B$ can be calibrated using the identities for the inverse demand and inverse supply at the equilibrium. The parameters $a$ and $b$ can be calibrated using the equations we have for the price elasticities for specified demand and supply functions (see Table \@ref(tab:demand)). 
+To illustrate how a market can be calibrated using elasticities from the literature we provide an example of case I: exponential inverse demand and inverse supply functions. Table  \@ref(tab:calibration) shows information we have about the equilibrium elasticities for vegan nuggets.
 
-[INSERT TABLE HERE]
 
-Using the first row of Table 1 we then calibrate the parameters of the inverse demand and the inverse supply function. These are given in Table 4:
+```{r calibration, echo = FALSE}
+v1 <- c("Price elasticity of demand $\\epsilon^\\ast$",
+"Price elasticity of supply $\\kappa^\\ast$",
+"Equilibrium price per piece $p^\\ast$",
+"Equilibrium quantity per year $Q^\\ast$"
+)
+v2 <- c("$-0.7$", "$1.1$", "$2.9$ euro", "$200,000$ pieces per year" )
+df <- data.frame( v1, v2 )
+kable(df, 
+      "html", 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Input for the calibration (numbers are illustrative and not from empirical studies)',
+      col.names = c("Variable explanation", "Value")
+) %>%
+  kable_styling(bootstrap_options = "striped")
+```
 
-[INSERT TABLE HERE]
+Using the first row of Table \@ref(tab:demand) we then calibrate the parameters of the inverse demand and the inverse supply function. These are given in Table \@ref(tab:modelparameters):
+
+```{r modelparameters, echo = FALSE}
+v1 <- c("Parameter of the inverse demand function $\\alpha$",
+"Parameter of the inverse demand function $A$\n
+(maximum MWTP in the sample)",
+"Parameter of the inverse supply function $b$",
+"Parameter of the inverse supply function $B$\n
+(minimum marginal costs in the sample)"
+
+)
+v2 <- c("$\\alpha = \\frac{1}{\\epsilon^\\ast}\\frac{1}{Q^\\ast} = \\frac{1}{0.8}\\frac{1}{200,000} = \\frac{1}{160,000}$",
+"$A = p^\\ast e^{\\alpha Q^\\ast} = 2.9 e^{\\frac{200,000}{160,000}} \\approx 10.12 \\text{ euro}$",
+"$b = \\frac{1}{\\kappa^\\ast}\\frac{1}{Q^{\\ast}} = \\frac{1}{1.1}\\frac{1}{200,000} = \\frac{1}{220,000}$",
+"$B = p^\\ast e^{b Q^\\ast} = 2.9 e^{-\\frac{200,000}{220,000}} \\approx 1.17 \\text{ euro}$"
+)
+df <- data.frame( v1, v2 )
+kable(df, 
+      "html", 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Calibrated model parameters',
+      col.names = c("Variable explanation", "Value")
+) %>%
+  kable_styling(bootstrap_options = "striped")
+```
 
 Using the calibrated inverse demand and inverse supply function one can derive the consumer benefits, the producer costs and economic surplus as we will see in the next section. The important insight here is that model parameters can be calibrated using empirical observations of equilibrium prices and quantity and empirical estimates of the equilibrium elasticities. This provides the bridge between theoretical and conceptual models and empirical observations.
 
@@ -869,7 +909,202 @@ This condition is different from the condition in the previous section because o
 
 ### General analysis of the consumer externality tax
 
-One way to deal with environmental externalities is to set a consumer tax. Mathematical analysis can be employed to investigate this consumer tax. The regulator sets a tax $\tau$ and this will result in a new equilibrium price $p^{\ast R)$ and a new equilibrium demand $Q^{\ast R).  The tax will impact the equilibrium equation for consumers as now their marginal benefits should be higher or equal to the equilibrium price plus the tax. For the equilibrium consumer we have:
+One way to deal with environmental externalities is to set a consumer tax. Mathematical analysis can be employed to investigate this consumer tax. The regulator sets a tax $\tau$ and this will result in a new equilibrium price $p^{\ast R}$ and a new equilibrium demand $Q^{\ast R}$.  The tax will impact the equilibrium equation for consumers as now their marginal benefits should be higher or equal to the equilibrium price plus the tax. For the equilibrium consumer we have:
+
+\begin{equation}
+p(Q^{\ast R}) = p^{\ast R} + \tau.
+\end{equation}
+
+For the equilibrium producer, there is no change and the marginal costs should be equal to the equilibrium price:
+
+\begin{equation}
+s(Q^{\ast R}) = p^{\ast R}.
+\end{equation}
+
+The price of the producer can therefore be treated as given for the regulator. The regulator seeks to optimize welfare given the first constraint and keeping in mind that in the regulated equilibrium inverse supply is equal to the supply price. The Lagrangian is given by:^[This methodology might look a bit extensive as one can directly obtain the result using the optimal welfare condition and plugging in the equilibrium condition. Nevertheless, it helps to move to more complicated analyses. See for example: @verhoef1996second.] 
+
+\begin{equation}
+L = \underbrace{\int_0^{Q^\ast R} p(Q)dQ}_\text{Total consumer benefits} - \underbrace{\int^{Q^\ast R}_0 s(Q)dQ - e(Q^{\ast R})}_\text{Total social costs} + \underbrace{\lambda(p(Q^{\ast R}) - p^{\ast R} - \tau)}_\text{Equilibrium constraint}.
+\end{equation}
+
+The first-order conditions are given by:
+
+\begin{align}
+\frac{\partial L}{\partial Q^{\ast R}} &= p(Q^{\ast R}) - s(Q^{\ast R}) - MEC(Q^{\ast R}) + \lambda \frac{\partial p(Q)}{\partial Q} = 0 \\
+\frac{\partial L}{\partial \lambda} &= p(Q^{\ast R}) - p^{\ast R} - \tau = 0 \\
+\frac{\partial L}{\partial \tau} &= \lambda = 0
+\end{align}
+
+Substituting the second and third condition in the first condition as well as $s(Q^{\ast R})  =p^{*R}$ gives:
+
+\begin{equation}
+p^{*R} - \tau - p^{*R} - MEC(Q^{* R}) + 0 \frac{\partial p(Q)}{\partial Q} = 0
+\end{equation}
+
+This results in the following expression for the consumer tax:
+
+\begin{equation}
+\tau = MEC(Q^{* R})
+\end{equation}
+
+The consumer tax should therefore be equal to the marginal external costs *in the regulated equilibrium*. This is a well-known result in the field of public and environmental economics. The tax ensures that in equilibrium the optimality condition for maximizing economic surplus (including external costs) holds. In the absence of external costs, the tax will be $0$.
+
+When marginal external costs are constant per unit of consumption, the tax will be independent of the equilibrium quantity. Total external costs can then be defined as $e(Q)=mQ$ and the consumer tax is given by:
+
+\begin{equation}
+\tau = m
+\end{equation}
+
+An example for meat production can be given based on the work of @van2010true. 
+
+>The total (editor: marginal) external costs for conventional pork are estimated to be at least **€2.06 per kg** for an average consumer price of €6.69 (PVE, 2009), or 31%. In this, animal welfare is the main factor, followed by biodiversity, animal disease and climate change.
+
+@van2010true estimate the marginal external costs at 2.06 euros per kilogram for conventional pork which is about 1/3 of the current equilibrium price. Interestingly, animal welfare is the largest component in the external costs. Given the analytical analysis this would result in a consumer tax of $m=2.06$ euros per kilogram for conventional pork. From the analytical model we know this will improve economic surplus. Nevertheless, it is interesting to analyse with how much the surplus will change.
+
+### Consumer tax for specific inverse demand and supply functions
+
+This general analysis can be linked to concrete inverse demand and inverse supply functions. Suppose these are given by:
+
+\begin{equation}
+p(Q) = A e^{-\alpha Q}, s(Q) = MC
+\end{equation}
+
+Assume that the marginal external costs are constant per unit and therefore:
+
+\begin{equation}
+e(Q)=mQ.
+\end{equation}
+
+From the analysis in the previous section we already know that the tax in the regulated equilibrium is equal to the marginal external costs $m$. 
+
+We want to study what the predicted resulting equilibrium demand is in the tax-regulated optimum. In order to investigate this research question, we will look at the equilibrium conditions for consumers and producers:
+
+\begin{equation}
+A e^{-\alpha Q^{* R}} = p^{* R} + \tau = p^{* R} + m
+\end{equation}
+
+For the equilibrium producer, there is no change and the marginal costs should be equal to the equilibrium price:
+
+\begin{equation}
+MC = p^{* R}
+\end{equation}
+
+This gives us two equations and two unknowns. Substituting the second equation into the first gives:
+
+\begin{equation}
+A e^{-\alpha Q^{* R}}  = MC + m
+\end{equation}
+
+The assumption of constant marginal costs helps to derive analytical results. Without this assumption one often has to solve the equation numerically. Solving for the equilibrium quantity in the regulated equilibrium gives:
+
+\begin{align}
+e^{-\alpha Q^{* R}} &= \frac{MC + M}{A} \\
+- \alpha Q^{* R} &=\ln \left[\frac{MC + M}{A} \right] \\
+Q^{* R} &= -\frac{1}{\alpha}\ln \left[\frac{MC + M}{A} \right]= \frac{1}{\alpha}\ln \left[\frac{A}{MC + M}\right]
+\end{align}
+
+This requires the intuitive additional assumption that the marginal social costs $MC+m$ should be lower than the maximum willingness to pay of the first consumer $A$.
+
+Because marginal costs are assumed to be constant, the equilibrium price remains at $MC$ and therefore $MC=p^{* R}$, in the regulated equilibrium. With these results one can estimate the change in economic surplus in the regulated and in the unregulated equilibrium by substituting the expression for the quantity in the economic surplus function. We leave this as an exercise for the reader.
+
+Some important assumptions are made in the analysis. First, the model suggests that the only way the consumer can avoid external costs is by not choosing to buy the product. Despite potential knowledge that consumers have, external costs are not incorporated somewhere in the decision of the consumer to choose the market good. Whether this is a reasonable account of behavioural decisions requires further investigation using for example surveys and interviews. It can be that the consumer already adds the external costs to the price that is paid when making the purchase decision, even when there is no externality tax. As consumers are increasingly aware of the impacts of consumption on climate this might be realistic. If this would be the case, the equilibrium that we as economists observe is the socially optimal equilibrium and externality taxes would lead to lower welfare. Suppose consumer partly take the external costs $eQ$ into account when buying their good. Each consumer adds additional costs $\theta e(Q^{* R})$ to the supply price when making the purchase decision with $0 \leq \theta \leq 1$. This will impact the equilibrium condition but not the value derived from the consumption and production of the market good:
+
+\begin{equation}
+L = \underbrace{\int_0^{Q^\ast R} p(Q)dQ}_\text{Total consumer benefits} - \underbrace{\int^{Q^\ast R}_0 s(Q)dQ - e(Q^{\ast R})}_\text{Total social costs} + \underbrace{\lambda(p(Q^{\ast R}) - p^{\ast R} - \theta e(Q^{* R}) - \tau)}_\text{Equilibrium constraint}.
+\end{equation}
+
+Using this Lagrangian one can derive the optimal tax:
+
+\begin{equation}
+\tau = (1 - \theta) MEC(Q^{* R})
+\end{equation}
+
+This expression confirms the intuition: when individuals fully consider marginal external costs when purchasing the good, $\theta=1$, and the tax should be $0$. When individuals ignore marginal external costs in their purchase decision, $\theta=0$, and the tax should be equal to the marginal external costs. Surveys can be used to assess which share of external costs is already accounted for when individuals make their decisions.
+
+Second, sometimes there are other ways in which consumers take responsibility for external costs, such as real monetary compensation of climate damage. For these cases it is expected that the consumers trade the compensation costs with a direct utility benefit related to taking responsibility. When the compensation costs that are paid really reduce damage, they can be counted as benefits in the economic surplus function. The externality tax is then lower compared to the one proposed above. A way to deal with this is to include only *uncompensated* external costs in the economic surplus function. When $\theta$ is the share of compensated external costs this leads to the same expression for the tax as for the previous example.
+
+Third, it is useful to interpret $e(Q^*)$ in more detail. Because our analysis is a partial equilibrium analysis, there can be two types of goods that generate externalities: the market good and the outside good. Strictly speaking total external costs are then a function of the consumption level of *both* goods and can be defined as $e(Q^*,G^* )=e(Q^*,Y-(p^*+\tau)Q^* )$. In practice, the introduction of a tax implies substitution of the market good to the outside good due to higher price levels, leading to higher consumption levels of the outside good. Furthermore, the tax itself has a direct impact on the consumption level of the outside good. Such a rise in consumption of the outside good can lead to additional external costs. Usually it is assumed that external costs of goods on all other markets are correctly priced. However, such an assumption is likely to be unrealistic. 
+
+When unregulated external costs are present for the outside good these can be properly accounted for in partial equilibrium analysis. When we assume that the externality costs for the market good and the outside good are additive the external costs can be defined as $e(Q^* )=e_Q (Q^* )+e_G (Y-(p^*+\tau)Q^* )$. Here, the first term is increasing in the market good consumption and the second term is decreasing when there are positive external costs for consumption of the outside good. The second term gives the external costs of rising income levels. For sustainability analysis, one can find estimates for the external costs of the outside good by relating spendable income levels to emissions of CO2 equivalents multiplied with the price of these CO2 equivalents. The analytical analysis is more complicated, but suggests that the recommended tax should be lower when positive marginal external costs of the outside good are present. 
+
+One of the implications of this discussion is that policy makers should target their regulations to markets which have higher marginal external costs than the marginal external costs of the average consumption basket of consumers. Otherwise there is the risk that a tax will lead to substitution of the market good to the outside goods which has higher marginal external costs.
+
+Another lesson to be learned from this third point is that it is best to start with taxation of the most polluting market good. For example, the external costs for particular meat types that are close substitutes are higher than for others. For example, starting taxation with the most polluting meat type will therefore lead to lowest risks of regulatory failure when an externality tax is introduced.
+
+On the other hand, one could also argue that externality taxes in other markets should also be introduced. However, it is questionable whether such a ‘Pigouvian state’ with all markets regulated with optimal taxes is politically feasible and desirable. 
+
+### Stylised solutions for the case when marginal external costs are proportional to the equilibrium price.
+
+It is possible to obtain stylised analytical solutions when it is assumed that the marginal external costs are a proportion of the equilibrium price in the regulated equilibrium. This practical assumption is sometimes made for a quick approximation of welfare effects for applied analysis. We can then write $MEC=c_e p^{*R}=\tau$. The equilibrium conditions can then be written as:
+
+\begin{equation}
+p(Q^{* R}) = p^{* R} + \tau = p^{* R} (1 + c_e)
+\end{equation}
+
+For the equilibrium producer, marginal costs should be equal to the equilibrium price:
+
+\begin{equation}
+s(Q^{* R} )=p^{* R}.
+\end{equation}
+
+The challenge is the to find a solution for $Q^{* R}$ for the following equation:
+
+\begin{equation}
+p(Q^{* R}) = s^{* R} (1 + c_e)
+\end{equation}
+
+Analytical expressions can then be obtained for common combinations of inverse demand and inverse supply functions. Table 6 gives the specifications of inverse demand and inverse supply, the equilibrium values for the unregulated equilibrium, and the equilibrium values for the regulated equilibrium. The parameter values can be obtained using the calibration procedure discussed earlier.
+
+[INSERT TABLE HERE]
+
+### Analysis of changes in economic surplus due to externality taxation
+
+An externality tax results in changes in economic surplus. These changes can be summarized in three parts: changes in consumer surplus, changes in producer surplus and changes in external costs. Because taxes are assumed to be transfers and have no impact on the inverse demand curve, these drop out of the economic surplus function. Mathematically the change in economic surplus can be expressed as:
+
+\begin{align}
+\Delta ES &= ES (Q^{**}) - ES(Q^*) = \Delta CS + \Delta PS + \Delta EC \\
+ &= -\int_{Q^{**}}^{Q^*} p(Q)dQ + \int_{Q^{**}}^{Q^*} s(Q)dQ +e(Q^*) - e(Q^{**})
+\end{align}
+
+Because of lower equilibrium demand, consumer surplus decreases, producer costs decrease and external costs also decrease. 
+
+An analytical example can be provided using a Cobb-Douglas based inverse demand curve and constant marginal costs of production. Assume external costs are constant per unit and equal to $e(Q)=mQ$. The change in economic surplus can then be written as:
+
+\begin{align}
+\Delta ES &= -\int_{Q^{**}}^{Q^*} \frac{A}{A+B} \frac{1}{Q} +\int_{Q^{**}}^{Q^*} MCdQ + m(Q^* - Q^{**}) \\
+&=-\frac{A}{A+B} \ln\left[\frac{Q^*}{Q^{**}} \right] +MC (Q^* - Q^{**}) + m(Q^* - Q^{**})
+\end{align}
+
+This requires the calculation of the new equilibrium quantity after the tax has been implemented. The equilibrium tax will be equal to the marginal external costs $m$. The supply price in the regulated equilibrium will not change and will be equal to $MC$. The equilibrium quantity after the tax is implemented is then given by:
+
+\begin{align}
+p^{**} + \tau &= \frac{A}{A+B} \frac{1}{Q^{**}} \\
+MC + m &= \frac{A}{A+B} \frac{1}{Q^{**}} \\
+Q^{**} &= \frac{A}{A+B} \frac{1}{MC + m}
+\end{align}
+
+The equilibrium quantity without regulation is given by the demand function:
+
+\begin{equation}
+Q^* = \frac{A}{A+B} \frac{1}{p} = \frac{A}{A+B} \frac{1} {MC}
+\end{equation}
+
+Substituting these expressions in the equation for the change in welfare gives:
+
+\begin{align}
+ \Delta ES &= \frac{A}{A+B} \ln \left[\frac{MC + m}{MC} \right] + (MC + m) \frac{A}{A+B} \left(\frac{1}{MC} - \frac{1}{MC + m} \right) \\
+ &= \frac{A}{A+B} \ln \left[ \frac{MC + m}{MC} \right] +  \frac{A}{A+B} \ln \left[\frac{MC + m}{MC} -1 \right] \\
+ &= \frac{A}{A+B} \ln \left[ \frac{MC + m}{MC} \right] +  \frac{A}{A+B} m \\
+ &= \frac{A}{A+B}\left( \ln \left[ \frac{MC + m}{MC} \right] +m \right)
+\end{align}
+
+This can be illustrated using an example. Suppose that the marginal costs of production of a particular type of meat are equal to 6 euro per kilogram. Consumption is equal to 2 million kilograms per year. Furthermore, assume that the external costs are estimated at 2 euros per kilogram. From the equilibrium condition we have  $\frac{A}{A+B}=Q* MC=4,000,000$. Substituting these values gives the change in economic surplus when an optimal tax is implemented:
+
+\begin{equation}
+\Delta ES=4,000,000\left(\ln \left[\frac{6}{6+2} \right]+\right)=6,849,272 \text{ euros per year}.
+\end{equation}
+This example has showed how---given the model assumptions---one can estimate a quantitative value for the change in economic surplus resulting from a consumer tax.
+
 
 ## Conclusion 
 
