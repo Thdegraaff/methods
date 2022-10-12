@@ -67,6 +67,222 @@ The first objection is the ‘learning objection’ which comes in three parts. 
 (ii)	learn from the behavioural errors and choices of others (social learning); 
 (iii)	learn from information from other sources.
 
-To illustrate learning with an example: A family household is likely to be able to estimate the amount of biological milk they need after some repetition. Or in the words of @friedman1953methodology: “they figure it out what their optimal quantity is without knowing any of the mathematical formulas that the researcher uses to describe behavioural choice. When the household buys too much milk there will be leftovers for the next week. When there is not enough milk the household has to substitute to water or other beverages.” 
+To illustrate learning with an example: A family household is likely to be able to estimate the amount of biological milk they need after some repetition. Or in the words of @friedman1953methodology: 
+
+>"they figure it out what their optimal quantity is without knowing any of the mathematical formulas that the researcher uses to describe behavioural choice. When the household buys too much milk there will be leftovers for the next week. When there is not enough milk the household has to substitute to water or other beverages."
+
+Such an argument is less convincing for less regular choices such as the purchase of a car, a new house or a holiday. For these choices social learning might be a relevant aspect. For example, for tourism destination choices, reviews of campings and hotels can serve as an input for valuations and can lead to more optimal behaviour of consumers under the assumption that these reviews are truthful. Customers can also learn from information provided by other sources such as science, customer protection agencies, media sources or the government.
+
+In order to counter the learning objection, one has to show that in the presence of individual repetition, social interaction and information provision, individuals still make systematic mistakes. This is quite challenging to investigate empirically and often open for investigation for particular market goods. 
+
+#### The size objection
+
+The second objection against premise (A) is the 'size objection' which challenges the size of the behavioural error. When behavioural errors are present these might not be quantitatively relevant from a personal or societal perspective as the inverse demand curve which captures the WTP at choice, has not been impacted substantially. This objection has been countered by results from studies that investigated the size of behavioural error. For example, @allcott2019regressive predict in a study on sugar-sweetened beverages in the US that---given their assumptions---consumers consume 31% too much sugar-sweetened beverages on average.^[See for example @visschers2016sorting.]  This suggests that overconsumption in this market is substantial and quantitatively relevant. Furthermore, other studies have investigated food waste of consumers in order to estimate sub-optimal choice behaviour.  These studies suggest that there is structural overconsumption of food.
+
+#### Generalisability of empirical results
+
+The third objection is more conceptual and is called the 'generalisability objection'. It is targeted at the generalisability of empirical and experimental results and also applies to neo-classical empirical results. Does the result of @allcott2019regressive only holds for the US or not? Does the result also apply to other goods? When for some particular markets in some countries behavioural errors are quantitatively relevant this does not imply that behavioural errors are relevant for all markets. According to this third objection, premise (A) has to be studied on a case-by-case basis. 
+
+Researchers have used meta-analyses to partly counter this objection. These meta-analyses investigate and summarize the results of many empirical studies and seek to explain structural differences in results using variables such as population characteristics, study design and setup, year of the study etc. An example of such a meta study is the study of @cadario2020healthy who investigate the effectiveness of healthy eating nudges.  They employ the definition of @leonard2008richard: 
+
+> Nudges are defined by @leonard2008richard as "any aspect of the choice architecture that alters people’s behavior in a predictable way (1) without forbidding any options or (2) significantly changing their economic incentives. Putting fruit at eye level counts as a nudge; banning junk food does not."
+
+Eating nudges therefore seek to change behavioural eating choices by changing the choice architecture without using economic incentives or traditional educational tools such as cooking workshops @cadario2020healthy. When nudges show that people change their behaviour for a small change in choice architecture this signals something about potential behavioural error in their original choice. @cadario2020healthy find that the type of intervention has a substantial impact on the effectiveness of eating nudges. They consider three types of interventions: cognitive, affective and behavioural (p.468). Cognitive interventions seek to provide knowledge about food choices. These nudges have lower impacts than affective interventions which are targeted at feelings about food. Affective interventions in turn have lower impacts than behavioural interventions which are targeted at changes in behaviour (p.477). For example, Figure \@ref(fig:cadario) in the paper shows that size enhancements such as smaller plates have the largest impacts @cadario2020healthy.
+
+```{r, echo=FALSE, fig.cap = "Figure from @cadario2020healthy", label='cadario'}
+knitr::include_graphics("./figures/cadario.png")
+```
+
+@jachimowicz2019and is another example of a meta study on the impact of changing default options. Controlling for a number of variables related to channels and study characteristics they show that changing defaults is mainly effective in the consumer domain, but less in the environmental domain (which is the domain where policy makers seek to foster pro-environmental behaviour). Their result therefore suggests that changing the choice architecture is mainly beneficial for society when performed by producers of market goods rather than the government. 
+
+These meta study examples show that the generalisability objection can be partly mitigated by providing systematic overviews of studies on the empirical impacts of behavioural interventions and error. As the field of empirical behavioural economics is growing rapidly, it is expected that more meta studies will be available in the next decade.
+
+#### Knowledge objection
+
+The fourth objection is the '*knowledge objection*', which stems from an epistemic concern at the sight of the researcher: is it possible to know as a researcher whether a market actor makes a mistake in valuation? Is it really possible to determine the difference between experienced and decision utility? Premise (A) depends on the assumption that there is some 'true' experienced utility concept: one can only determine what a valuation error is by contrasting a descriptive utility function with another 'true' experienced utility function. 
+
+Consumers might have reasons for choice that are unobserved by the researcher. For example, it might be that households waste food because they are afraid to run out of food or want to keep food in the fridge for unexpected guests. Without asking about this, it is hard to infer from food choices only whether food waste is the result of behavioural errors in valuation. As @infante2016preference write: [according to the behavioural economics view] "the inner rational agent is trapped in a psychological shell". The process of using the 'true' preferences rather than the choice-based preference of individuals for economic surplus analysis is called ‘'preference purification' [@infante2016preference] The assumption that there are true preferences to be satisfied has motivated the use of nudging approaches in order to help individuals to make 'better' choices. 
+
+Four methodological approaches have been offered in the literature to provide more evidence on the relationship between choice and experienced utility [@chetty2015behavioral]. The first approach is the 'direct measurement approach':
+
+##### **Direct measurement approach**:measure experienced utility using self-reported happiness
+
+This approach uses complementary survey techniques to measure whether experienced utility deviates from choice utility. The researcher has to make a choice whether the directly measured experienced utility captures the true (optimal) utility or whether the choice-based utility is the true utility. Often it is unclear how the two relate. Classical economists usually prefer preferences based on revealed choices. Other researchers trust the self-reported happiness surveys more. Direct measurement approaches also can include qualitative reasons behind choices that might give useful information about the 'why' of choices [see for example @mouter2021contrasting].  
+
+The second approach discussed by Chetty (2015) is the rational context approach:
+
+##### **Rational context approach**: use revealed preference measurements in a context where agents are known to make choices that maximize their experienced utilities; (these are called 'sufficient statistics')
+
+When the utility is measured correctly in a context where the individual behaves rational, this experienced utility can be compared with measurements of decision utility in other contexts where behavioural errors are present in order to determine the size of behavioural errors. For example, when researchers know that there are contextual effects of the weather on car purchases [@busse2015psychological], researchers might come up with a particular context, where weather does not influence preferences. Note however, that the researcher still has to make a choice what counts as a relevant context where the individual behaves rational. 
+
+The third approach is the structural modelling approach. 
+
+#####	**Structural modelling approach**: build a structural model of the difference between decision and experienced utility. 
+
+This approach uses mathematical modelling techniques with inputs from psychology and calibration based on empirical research. Examples of this approach will be given in Section II on behavioural modelling. 
+
+@allcott2019regressive add a fourth strategy which is the rational reference group approach. 
+
+##### **Rational reference group approach**: consumption is compared to particular reference groups who have full information on the product and its impacts. 
+
+This approach deals with informational deficiencies of market actors. In @allcott2019regressive, the reference group are the dietarians who are assumed to have full information on the impact of sugar sweetened beverages on health. Here the researcher has to make a choice which particular group can be viewed as the group having full information. This assumes that the choices of other individuals are not based on full information and that this is the reason for a divergence in consumption between the two groups. More sophisticated analysis can add control variables to explain differences in consumption levels between the groups related to for example income, education or age. This concludes the discussion on the fourth objection whether it is possible to know as a researcher that market actors make mistakes.
+
+#### The competition objection
+
+The fifth objection against premise (A) is the 'competition objection. @friedman1953methodology highlights that when a firm makes systematic mistakes, it would be competed out of the market by firms that behave more rationally. Systematic monetary mistakes can be costly and thereby subject to the forces of the market. This objection has been countered by offering two types of responses. 
+
+First, such an argumentative strategy cannot deal with *systematic* mistakes of all producers and is also invalid for the systematic mistakes that consumers make when calculating their marginal benefits. Consumers do not always pay the price for the mistakes they make when estimating their marginal benefits and are therefore not competed out of the market. Producers might all overestimate marginal costs of production leading to less entry in the market. Second, for durable and experiential goods such as cars, houses and holidays it is harder for consumers to track quantity left-overs in order to arrive at their optimal quantity. Third, not all mistakes are publicly available and known. Therefore, evaluation mistakes can remain in the presence of competition.
+
+### Discussion of premise (B)
+
+#### Introduction
+
+The second premise (B) in the argument concludes from the presence of behavioural errors that marginal valuations are incorrect. For consumers this would imply that the maximum willingness to pay for a particular market good is measured incorrectly. This maximum marginal willingness to pay (MWTP) is the ratio of the marginal utility of consumption and the marginal utility of income. 
+
+#### Examples of optimization with behavioural error that do not impact MWTP
+
+A strategy to counter this objection is to give examples of optimization procedures that include behavioural errors (so premise (A) is granted), but do not result in a different MWTP (so premise (B) does not result). 
+
+Suppose the direct utility with behavioural error is defined as: $U^d(Q,G)=\epsilon \times U(Q,G)$, where $\epsilon > 0$. The marginal utilities are then scaled with a factor $\epsilon$ and therefore the ratio of marginal utilities is unaffected by behavioural error. When consumers make *proportional* errors in the evaluation of the direct utility, these mistakes will drop out and the MWTP is still correctly measured. 
+
+A similar result can be obtained for *additive* errors in direct choice utility: $U^d (Q,G)=U^e (Q,G)+ \epsilon$. The error will drop out as the *marginal* utilities govern market behaviour and choice of consumers as these show up in the first-order conditions for utility maximization. For multiplicative and additive errors in direct utility, the MWTPs are therefore correctly estimated. Premise (A) is granted, but premise (B) does not follow.
+
+A more general third example can be given by assuming that the decision utility function is given by $U^d (Q,G)=V(U^e (Q,G))$, where V is an increasing function of the experienced utility $U^e (Q,G)$. This implies that when experienced utility increases (decreases), choice utility also increases (decreases). Using the budget constraint, the direct choice utility can be written as:
+
+\begin{equation}
+U^d (Q,G)=V(U^e (Q, y - pQ)).
+\end{equation}
+
+The first derivative for optimal choice of the market good is given by:
+
+\begin{equation}
+\frac{\partial U^d}{\partial V}(U^e_Q - pU^e_Q) = 0.
+\end{equation}
+
+As $\frac{\partial U^d}{\partial V} > 0$ this results in:
+
+\begin{equation}
+p_d = \frac{U_Q^e}{U_G^e}.
+(\#eq:focutility)
+\end{equation}
+
+This shows that for choice utility functions that are increasing in the experienced utility, the experienced MWTP coincides with the rational MWTP. Although this mathematical result is quite general, it is not entirely clear what it means from a behavioural perspective and whether it makes psychological sense. Usually the choice to buy the good is made first and the experience comes afterwards.
+What this discussion shows is that premise (B) does not necessarily follow from premise (A). Rational MWTPs can in principle be correctly measured in the presence of behavioural error. 
+
+### Discussion of premise C
+
+D.	Discussion of premise C.
+Premise (C) can follow from premise (B) but requires additional analysis which will be provided in sections III and IV. Errors in evaluation of value can potentially lead to a discrepancy in the value used for decision making and the experienced value of consuming a good or service. Consumer and producer surplus can therefore be affected by behavioural errors. 
+
+When both consumers and producers make behavioural errors or when externalities are present the impacts on economic surplus are less obvious. Without further assumptions it is unclear whether behavioural errors impact economic surplus negatively or positively. 
+
+## Behavioural choice models with errors
+
+### Introduction
+
+This section discusses parsimonious models of consumer choice that include behavioural biases. The focus is not on the underlying cognitive, neurological or physiological processes of why biases might arise. This is because the aim is to study the impact of behavioural error on economic surplus calculations rather than to discuss psychological aspects of behaviour that are relevant for the prediction of market choices. In line with the previous section, two kinds of direct utility functions are applied to illustrate the implications of behavioural error for economic evaluation and policy decision:
+
+* **Direct decision utility function**: the direct decision utility for consuming a quantity $Q$ of a market good and a quantity $G$ of the outside good is given by $U^d (Q,G)$. It includes all potential behavioural biases and errors an individual can make when calculating the value for decision making. The function can also be a descriptive device for a particular heuristic decision approach of an individual.*
+
+* **Direct experienced utility function**: the direct experienced utility function for consuming a quantity $Q$ of a market good and a quantity $G$ of an outside good is given by $U^e (Q,G)$. It includes the numerical evaluation for this consumption for the case of perfect information and knowledge resulting in no biases in the evaluation. It therefore represents the 'true' value of consumption.*
 
 
+Classical economic theories usually assume that the decision utility function is equal to the experienced utility function: $U^d (Q,G)=U^e (Q,G)$. The recent interest in behavioural economics has led to attempts to provide extensions for this model for public economics [see @bernheim2018behavioral].
+
+This section discusses the implication of such extensions for the inverse demand curve that we estimate using market data. Section \@ref(approach1) provides an example for a model where decision utility and experienced utility are fully separated. Section \@ref(approach2) develops a model where individuals satisfice rather than optimize. Section \@ref(approach3) develops a model where individuals calculate utilities on the basis of the weighted average of a decision utility function and an experienced utility function. Section \@ref(approach4) develops a model that employs direct utility weights.
+
+### Approach 1: separated decision and experienced utility {#approach1}
+
+We first investigate the implications of behavioural error for optimal utility and the inverse demand function when decision and experienced utility are fully separated. This implies that experienced utility has no relation at all to the choice utility. For this sub-section, the following direct linear decision utility function is assumed:
+
+\begin{equation}
+U^d (Q,G)= U^d (Q, y - pQ)
+\end{equation}
+where $G=Y-pQ$, stems from the budget constraint. Behavioural errors in valuation can therefore occur for both the market good (the decision value of consumption) and the composite good (the decision value of remaining money). Taking the first derivative of the decision utility function gives the first order-condition for decision utility maximisation:
+
+\begin{equation}
+U^d_Q - U^d_G p = 0.
+\end{equation}
+
+Here, $U_Q^d \equiv \frac{\partial U^d (Q)}{\partial Q}>0$ is the marginal decision utility for consuming the market good and $U_G^d \equiv \frac{\partial U^d (Q)}{\partial G}>0$ the marginal utility of the outside good which is equal to the marginal utility of income in equilibrium. Using the first-order condition one can derive the inverse demand curve:
+
+\begin{equation}
+p_d = \frac{U_Q^d}{U_G^d},
+(\#eq:focdu)
+\end{equation}
+which is the well-known ratio of marginal decision utilities. 
+
+The question is: does it matter? Do consumers loose utility because of the behavioural errors in evaluation? And will this impact economic valuation estimates? Or more formally: are behavioural errors a sufficient condition for biased policy evaluation? In order to answer this question, we have to analyse the counterfactual case of perfect rationality. Suppose that the consumer would be perfectly rational. For that case the optimal the inverse demand is given by: 
+\begin{equation}
+p_e = \frac{U_Q^e}{U_G^e},
+(\#eq:focexpu)
+\end{equation}
+This looks very much like the result of Eq. \@ref(eq:focdu). The only thing that changes in the expression for the inverse demand are that we now have a ratio of the marginal *experienced* utilities. 
+
+The marginal choice utilities result in demand choice $Q$ which is in turn evaluated by the experienced utility function. For policy analysis, the only thing that matters in the end is whether the demand Q that is chosen is optimal. This demand determines the final consumer benefits based on the experienced willingness to pay in Eq. \@ref(eq:focexpu).
+
+Consider the following case. John has a very complicated and biased decision utility function and makes all kinds of errors in the marginal utility of income and in the marginal utility derived from buying solar panels. However, this results in a consumption level of the good which is exactly equal to the case of the decision based on experienced inverse demand (Eq. \@ref(eq:focdu). Therefore $Q^\ast_e = Q^\ast_d$. The implication for John is that in terms of experienced utility---and in terms of economic value---there is no impact of the behavioural errors of John on the optimal experienced utility. 
+
+Only when there is a divergence between $Q^\ast_e$ and $Q^\ast_d$. there is an impact on economic value and for these cases the question is: how much? The answer to that question of course depends on the divergence between the marginal decision utility and the marginal experienced utility as captured by the respective inverse demand curves. When the experienced utility function is very flat around the optimal demand, sub-optimal choices of demand due to behavioural errors do not impact valuations a lot.^[You can make a graph with a concave experienced utility function, optimal demand and sub-optimal demand to visualize this.]  This leads us to an intermediate conclusion:
+
+*Behavioural errors are not a sufficient condition for errors in the calculation of economic value. This implies that the assumption of perfect rationality of consumers is not a necessary condition for a correct calculation of economic value. The quantitative impact of sub-optimal choice of demand depends on the steepness of the experienced utility function around the optimum. This is captured by the second-order derivative of the experienced utility function.*
+
+Or in other words: it depends. Practically speaking the flatness of the experienced utility curve can be investigated by asking question about changes in experienced value such as happiness when a particular good or service is consumed in higher or lower levels. 
+
+### Approach 2: satisficing and the inverse demand curve {#approach2}
+
+One of the founding fathers of behavioural economics, Herbert Simon suggested that persons are not optimizing, but satisficing [@simon1957models]. In the context of market analysis satisficing means that market actors consume and produce quantities that give 'good enough' utility or costs rather than optimal utility or costs. In mathematical terms this implies that persons do not set the first-order condition for utility maximisation or cost minimisation exactly to $0$. The point of satisficing is not that decision utility and experienced utility are different, but rather that the first pillar 'optimisation' is incorrect. This gives satisficing models of behaviour a distinct flavour.
+
+Suppose a representative individual has an income level $Y$ and spends money on the market good $Q$ and some composite or outside good $G$. The price of the composite good is assumed to be exogenous and is normalised to $1$. The price of the market good is given by $p$. The consumer can choose $Q$ and $G$ but has to account for the budget constraint. 
+
+For the rational case the first-order condition for utility maximisation results in Eq. \@ref(eq:focutility) . This is the well-known result that the inverse demand curve is defined by the ratio of two marginal experienced utilities. For specified direct experienced utility functions, the first-order condition can also be solved to obtain the optimal quantity $Q^*$.
+
+Now suppose the representative consumer is satisficing rather than optimizing. This potentially leads to sub-optimal demand choices. Mathematically speaking, satisficing can be modelled by adding an error term in the first-order condition. This error term $e^{-aE}\epsilon$ is related to the effort provision of a consumer $E$. The parameter $a>0$ governs the strength of the impact of effort on the error. When the individual provides infinite effort, $E\rightarrow \infty$ this error term will vanish to $0$. When the consumer provides no effort, $e^{-aE}\epsilon=\epsilon$. The parameter $\epsilon$ is assumed to be bounded from below and above. It can be interpreted as the size of the error for consumers who do not provide any effort. The satisficing condition can then be written by:
+
+\begin{equation}
+- U^e_G p + U^e_Q + e^{-aE}\epsilon = 0.
+\end{equation}
+
+The inverse choice demand function is then given by:
+
+\begin{equation}
+p_d = \frac{U_Q^e +  e^{-aE}\epsilon}{U_G^e} = \frac{U_Q^e}{U_G^e} + \frac{e^{-aE}\epsilon}{U_G^e}.
+\end{equation}
+
+Compared to the experienced inverse demand curve (Eq. \@ref(eq:focdu)), satisficing therefore results in an inverse choice demand curve which shifts inwards or outwards with $\frac{U_Q^e}{U_G^e}$. The sign and size of this shift depends on the effort provision, the size and sign of the error and the marginal utility of income. The rational model is a limiting case that results for $\epsilon =0$, and/or $E \rightarrow \infty$. 
+
+Until now it is assumed in this subsection that the consumer is not aware of the cognitive biases implying that it is assumed that effort provision is exogenous. An open question in this model is therefore how optimal effort can be determined assuming that an individual makes a trade-off between the benefits of effort provision and the costs of sub-optimal consumption. As in the previous section, it is likely that the curvature of the utility function around the optimum plays a role here. This curvature is captured by the second derivate of the utility function. When this second derivative is strongly negative, sub-optimal consumption has a large impact on utility. For these cases, it is then more likely that the individual will provide more effort when making choices. When the utility function is very flat around the optimum, consumption mistakes resulting from satisficing are not very costly for the consumer and therefore it is likely that the effort that is provided by the individual to reduce error is low. 
+
+### Approach 3: System I and system II thinking {#approach3}
+
+A third approach to model behavioural error is to define decision utility as the weighted average of System I and System II utility. This terminology was made popular by @kahneman2011thinking, and is based in the work of @stanovich2000individual.  Loosely speaking, System I can be interpreted as the brain system which is heuristic and makes fast decisions. System II is the slow thinking system which makes decisions upon deliberation and reflection. Instead of choosing to model behaviour with one system or the other, it makes sense to account for both systems when writing down a direct utility function. Therefore, we define direct utility as the weighted average of system I and system II perceived utility:
+
+\begin{equation}
+U^d (Q,G)= \varphi U^I (Q, G) + (1 - \varphi) U^{II} (Q, G). 
+\end{equation}
+
+This specification of utility assumes the individual has at least some partial knowledge about the experienced utility when making the decision, but is also partly governed by the 'heuristic' System I decision utility which is assumed to be irrelevant for evaluation purposes. The parameter $0 \leq \varphi \leq 1$, governs how system I utility and system II utility are weighted. When φ=1, system I utility is completely governing the decision of the consumer. When φ=0, we obtain the rational or neo-classical case where decision utility is equal to experienced utility. 
+
+When we assume that experienced utility is equal to system II utility,  $U^{II} (Q,G)=U^e (Q,G)$, and we obtain:
+
+\begin{equation}
+U^d (Q,G)= \varphi U^I (Q, G) + (1 - \varphi) U^e (Q, G).
+\end{equation}
+
+Substituting $G=Y-pQ$, and taking the total derivative gives the first-order condition for utility maximisation:
+
+\begin{equation}
+-p \varphi U_G^I + \varphi U_Q^I - p (1 - \varphi) U^e_G +  (1 - \varphi) U^e_Q = 0 \end{equation}
+
+Collecting the terms around the price gives:
+
+\begin{equation}
+-p (\varphi U_G^I + (1 - \varphi) U^e_G) +  \varphi U_Q^I + (1 - \varphi) U^e_Q = 0 \end{equation}
+
+Solving for the price gives the implicit solution for the inverse demand curve:
+
+\begin{equation}
+p_d = \frac{ \varphi U_Q^I + (1 - \varphi) U^e_Q }{\varphi U_G^I + (1 - \varphi) U^e_G}
+\end{equation}
+
+### Approach 4: direct utility weights. {#approach4}
