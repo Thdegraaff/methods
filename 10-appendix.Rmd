@@ -1,0 +1,60 @@
+# (APPENDIX) Appendix {-}
+
+# Taxation in the presence of behavioural error {#apperror}
+
+The policy goal is to optimize economic surplus subject to the constraint that marginal decision benefits are equal to the consumer price and the supply price is equal to the marginal decision costs. Define the Lagrangian function as:
+
+\begin{equation}
+H = \int_0^Q p_e (Q')dQ' - \int^Q_0 s_e(Q')dQ' + \lambda (p_d(Q) - p^* - \tau)
+\end{equation}
+
+The derivatives of the Lagrangian function are given by:
+
+\begin{align}
+  \frac{\partial H}{\partial Q} =& p_e(Q) - s_e(Q) + \lambda \frac{\partial p_d(Q)}{\partial Q} = 0 \\
+  \frac{\partial H}{\partial \lambda} =& p_d (Q) - p^* - \tau \\
+  \frac{\partial H}{\partial \tau} =& -\lambda  =0
+\end{align}
+
+Now note that in the regulated equilibrium: $p_d (Q^{*R} )=b_c p_e (Q^{*R} )$ and $p^*=s_d (Q^{*R}) =b_p s_e (Q^{*R})$. Combining the conditions and substituting gives:
+
+\begin{equation}
+\frac{1}{b_c} (p^* + \tau) - \frac{1}{b_p}p^* = 0
+\end{equation}
+
+Solving for the tax results in:
+
+\begin{equation}
+\frac{1}{b_c} \tau = \frac{1}{b_p} p^* - \frac{1}{b_c} p^*.
+\end{equation}
+
+This results in:
+
+\begin{equation}
+\tau = p^* \left(\frac{b_c}{b_p} - 1 \right) = p^* \left(\frac{b_c - b_p}{b_p}\right).
+\end{equation}
+
+Now add the external costs $\frac{\partial e(Q)}{\partial Q} to the economic surplus function. Define the Lagrangian function as:
+
+\begin{equation}
+H = \int_0^Q p_e (Q')dQ' - \int^Q_0 s_e(Q')dQ' - e(Q) + \lambda (p_d(Q) - p^* - \tau)
+\end{equation}
+
+The derivatives of the Lagrangian function are now given by:
+
+\begin{align}
+  \frac{\partial H}{\partial Q} =& p_e(Q) - s_e(Q) -\frac{\partial e(Q)}{\partial Q} + \lambda \frac{\partial p_d(Q)}{\partial Q} = 0 \\
+  \frac{\partial H}{\partial \lambda} =& p_d (Q) - p^* - \tau \\
+  \frac{\partial H}{\partial \tau} =& -\lambda  =0
+\end{align}
+
+Now note that $p_d (Q)=b_c p_e (Q)$ and $p^*=s_d (Q)=b_p s_e (Q)$. Substituting gives:
+
+\begin{equation}
+\frac{1}{b_c} (p^* + \tau) - \frac{1}{b_p}p^* -\frac{\partial e(Q)}{\partial Q} = 0
+\end{equation}
+
+Solving for the tax gives
+\begin{equation}
+\tau = p^{R*} \left(\frac{b_c - b_p}{b_p}\right) + b_c \frac{\partial e(Q)}{\partial Q}.
+\end{equation}
