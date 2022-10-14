@@ -35,6 +35,8 @@ output:
         whatsapp: false
         all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
       info: true
+  # bookdown::pdf_book:
+  #   keep_tex: true
   # bookdown::bs4_book:
   #   config: 
   #     toc:
@@ -49,6 +51,7 @@ output:
   #   theme: bslib::bs_theme()
 documentclass: book
 bibliography: [book.bib, packages.bib]
+always_allow_html: true
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |

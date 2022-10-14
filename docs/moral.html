@@ -429,9 +429,12 @@ div.csl-indent {
 <p>When there are moral considerations related to consumers’ marginal benefits, member <span class="math inline">\(n\)</span> of the committee can adjust the consumer benefits with an ethical weight <span class="math inline">\(0 \leq \alpha_n \leq 1\)</span>. This adjustment can be based on moral considerations and reasons related to consumer responsibility. Committees can use survey data and interviews to learn more about the reasons and intentions of consumers or investigate whether the consumption choice has been made under free conditions or is the result of addiction. The adjustment of marginal consumer benefits does not entail that choice <em>should</em> be restricted or forbidden.</p>
 <p>Moral considerations relating to consumer behaviour can lead to scaling down consumer benefits in particular markets. Eq. <a href="moral.html#eq:acs">(4.1)</a> adjusts the consumer surplus for moral considerations related to consumer marginal benefits:</p>
 <p><span class="math display" id="eq:acs">\[\begin{equation}
-ACS = \sum_{n=1}^N \omega_n \left(\int_0^{Q^*} \alpha_n p(Q)dQ - p^* Q^*\right) = \bar{\alpha} \int_0^{Q^*} p(Q)dQ - p^* Q^*
+ACS = \sum_{n=1}^N \omega_n \left(\int_0^{Q^*} \alpha_n p(Q)dQ - p^* Q^*\right) = \bar{\alpha} \int_0^{Q^*} p(Q)dQ - p^* Q^*,
 \tag{4.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
+where <span class="math inline">\(\bar{\alpha} = \sum_{n=1}^N \omega_n \alpha_n\)</span> is the weighted average sum over all committee members for the ethical parameters for consumer benefits.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> In the presence of moral considerations, consumer benefits are therefore adjusted downwards. Adjusted consumer surplus estimates in markets with moral considerations will therefore decrease in comparison to the case where moral excellence of consumers is assumed (<span class="math inline">\(\bar{\alpha} = 1\)</span>).</p>
+<p>At this point it is helpful to provide an illustration how the model can be operationalized for practical policy analysis. Suppose an advisory committee on the economic value of the pork market is summoned. There are 10 representatives invited for this committee. Each of them has received an equal weight <span class="math inline">\(\omega_n=0.1\)</span>.</p>
+<p>Table 1 below provides an overview of the ethical weights the representatives propose for the marginal benefits of consumers and their reasons for choosing these weights. It includes a wide range of voices and reasons from society, institutes and advocacy groups.</p>
 
 </div>
 </div>
@@ -441,6 +444,7 @@ ACS = \sum_{n=1}^N \omega_n \left(\int_0^{Q^*} \alpha_n p(Q)dQ - p^* Q^*\right) 
 <ol start="19">
 <li id="fn19"><p>These lecture notes are based on the paper ‘Moral Considerations and Economic Surplus’ (working paper). Please do not distribute these lecture notes without permission.<a href="moral.html#fnref19" class="footnote-back">↩︎</a></p></li>
 <li id="fn20"><p>See <span class="citation">Singh et al. (2020)</span> for a recent discussion on expert agreement, disagreement and the (non-)existence of objective moral facts.<a href="moral.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>An additional assumption is required for a valid model: at least one committee member needs to have <span class="math inline">\(\alpha_n&gt;0\)</span>. It is not necessary to have a weighted average: a majority voting decision on the weights is also possible, although this fully leaves out the normative perspectives of particular minorities in the advisory committee.<a href="moral.html#fnref21" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
