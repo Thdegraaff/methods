@@ -1,8 +1,8 @@
-# Behavioural Error and Economic Surplus
+# Behavioural Error and Economic Surplus {#erroreconsurplus}
 
 ## Introduction
 
-These chapoter investigate the implications of behavioural errors for the calculation of economic surplus. The sub-field of behavioural economics started around 1950 with the pioneering works of Herbert Simon and Ward Edwards. The aim was to develop a novel perspective on rationality and choice behaviour. @laibson2015principles define behavioural economics as follows:
+This chapter investigates the implications of behavioural errors for the calculation of economic surplus. The sub-field of behavioural economics started around 1950 with the pioneering works of Herbert Simon and Ward Edwards. The aim was to develop a novel perspective on rationality and choice behaviour. @laibson2015principles define behavioural economics as follows:
 
 > Behavioural economics uses variants of traditional economic assumptions (often with a psychological motivation) to explain and predict behaviour, and to provide policy prescriptions (p.385).
 

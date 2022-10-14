@@ -32,6 +32,7 @@ eq:opttau
 tab:beherror
 fig:econsurplusexterrors
 fig:figure7
+eq:acs
 introduction
 theory-models-and-hypotheses
 doing-research-in-the-social-sciences
@@ -75,7 +76,7 @@ consumer-tax-for-specific-inverse-demand-and-supply-functions
 stylised-solutions-for-the-case-when-marginal-external-costs-are-proportional-to-the-equilibrium-price.
 analysis-of-changes-in-economic-surplus-due-to-externality-taxation
 conclusion
-behavioural-error-and-economic-surplus
+erroreconsurplus
 introduction-4
 arguments
 introduction-5
@@ -117,6 +118,14 @@ introduction-10
 dealing-with-moral-considerations-at-the-valuation-stage
 introduction-11
 ethical-checkbox-approach
+economizing-ethics-approach
+ethicizing-economics-approach
+qualitative-valuation-approach
+contributions-of-the-remainder-of-this-chapter
+scope
+redefining-the-economic-pie
+the-advisory-committee
+adjusted-consumer-surplus
 regression-analysis-in-the-social-sciences
 so-what-is-the-problem
 statistical-framework
