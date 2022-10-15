@@ -58,3 +58,57 @@ Solving for the tax gives
 \begin{equation}
 \tau = p^{R*} \left(\frac{b_c - b_p}{b_p}\right) + b_c \frac{\partial e(Q)}{\partial Q}.
 \end{equation}
+
+# Background calculations for Chapter \@ref(moral)
+
+## Deriving the tax that optimizes adjusted social surplus {#apptax}
+
+The derivations in Appendices \@ref(apptax) and \@ref(apppricing) follow the methodological approach of @verhoef1996second for deriving implicit tax expressions. For the regulated and unregulated case, it is assumed that an equilibrium exists. For the case without externalities, the adjusted social surplus $AES$ is given by Eq. \@ref(eq:adjsocsur). The Lagrangian function is given by:
+
+\begin{equation}
+\mathcal{L} = AES  + \lambda(p(Q) - p - \tau)
+\end{equation}
+and the first-order conditions are given by:
+\begin{align}
+  \frac{\partial \mathcal{L}}{\partial Q} =& \bar{\alpha} p(Q) - \bar{\delta} s(Q) + \lambda \frac{\partial p(Q)}{\partial Q} = 0 (\#eq:apptax1)\\
+  \frac{\partial \mathcal{L}}{\partial \lambda} =& p(Q) - p - \tau = 0 (\#eq:apptax2)\\
+  \frac{\partial \mathcal{L}}{\partial \tau} =& - \lambda = 0 (\#eq:apptax3)
+\end{align}
+
+Substituting Eqs. \@ref(eq:apptax3) and \@ref(eq:apptax2) in Eq. \@ref(eq:apptax2)) and using $s(Q)=p^{*R}$ gives an implicit equilibrium expression for the tax:
+
+\begin{equation}
+ \tau = p^{*R} \frac{\bar{\delta} - \bar{\alpha}}{\bar{\alpha}}.
+\end{equation}
+
+## Pricing of a consumption externality {#apppricing}
+
+
+# Reviewing probability and statistics {#appreviewstat}
+
+This appendix very briefly reviews the statistical knowledge you need for applied econometrics. We assume you had an introductory course in statistics already and will go over this material very quickly.
+
+## Reviewing probability
+
+### Probability
+
+As a definition of probability we use the concept of *empirical probability* which is the proportion of time that something (a specific outcome or event $X$) occurs in the long-run of total events. Usually it is give by:
+
+\begin{equation}
+ \text{probability} = p = \frac{\text{Number of times specific event $X$ happens}}{\text{Total amount of events that can happen}}
+\end{equation}
+
+Now probabilities are *defined* by a set of definations (axioms). These are:
+
+1) Probabilities, $p$, are always between 0 and 1. So, $0 \leq p \leq 1$
+2) If something does not happen, then $p = 0$
+3) If something always happens, then $p = 1$
+4) Probabilities for the total amount of events always add up to $1$. So, if the probability that something happens is $p$, then the probabilities that it will not happen is $1 -p$ (see that $p + 1 - p = 1$)
+
+### Random variables
+
+A random variable (also called a stochastic variable) is a mathematical formalization of something that depends on *random* outcomes. Unfortunately, randomness is not clearly defined and depends on specific scientific philosophical schools. The scientific philosophical school we implicitly assume in this course---and, in fact, in most statistical courses---is that of frequentist statistics. Here we assume that all things we measure are *intrinsically* random. In fact, this is an *ontological* argument---in other words, what are our beliefs in the state of the world. Because all things we measure are random, every time we measure something our measurements are (slightly) different. However, the more we measure, the more precise we *know* something. But there is still randomness. 
+
+In general, there are two types of random variables. First, there are *discrete* random variables, where outcomes can be counted, such as $0, 1, 2, 3, \ldots$ and *continuous* random variables, where outcomes can be any real number.^[There is slightly more to this as fractions such as $\frac{1}{2}$ can in fact be counted as well, and continuous outcomes can be as well complex numbers. But for now we typically see integer numbers as discrete, and real numbers as continuous.]
+
+ 

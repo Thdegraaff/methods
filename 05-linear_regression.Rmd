@@ -8,8 +8,7 @@ U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
 
 Here the quantities for the market good $Q$ and the outside good $G$ are to considered to be *known*---also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.  
 
-This course is about using data to measure **causal** effects. Ideally, we would like an experiment, but almost always we only have observational data
-on returns to education (aka wages), housing prices or commuting flows. The second part of this course and syllabus with difficulties arising from using observational data to estimate causal effects
+This second part of the course is about using data to measure **causal** effects. Ideally, we would like an experiment, but almost always we only have observational data on returns to education (aka wages), housing prices or commuting flows. The second part of this course and syllabus with difficulties arising from using observational data to estimate causal effects
 
 - confounding effects (omitted factors)
 - simultaneous causality
