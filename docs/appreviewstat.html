@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -288,11 +288,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#so-what-is-the-problem"><i class="fa fa-check"></i><b>5.1</b> So, what is the problem?</a></li>
-<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#statistical-framework"><i class="fa fa-check"></i><b>5.2</b> Statistical framework</a></li>
-<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a></li>
-<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.4</b> Least squares assumptions</a></li>
-<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#testing-of-coefficients"><i class="fa fa-check"></i><b>5.5</b> Testing of coefficients</a></li>
+<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a></li>
+<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secstatframe"><i class="fa fa-check"></i><b>5.3</b> Statistical framework</a></li>
+<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.4</b> Univariate regression</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#genesis-regression-towards-the-mean"><i class="fa fa-check"></i><b>5.4.1</b> Genesis: <em>regression towards the mean</em></a></li>
+<li class="chapter" data-level="5.4.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#regression-with-one-regressor"><i class="fa fa-check"></i><b>5.4.2</b> Regression with one regressor</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.5</b> Least squares assumptions</a></li>
+<li class="chapter" data-level="5.6" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.6</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.7" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#conclusion-and-discussion-1"><i class="fa fa-check"></i><b>5.7</b> Conclusion and discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="modeling-in-the-social-sciences.html"><a href="modeling-in-the-social-sciences.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
 <ul>
@@ -369,11 +375,12 @@ div.csl-indent {
 <div id="random-variables" class="section level3 hasAnchor" number="11.1.2">
 <h3><span class="header-section-number">C.1.2</span> Random variables<a href="appreviewstat.html#random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A random variable (also called a stochastic variable) is a mathematical formalization of something that depends on <em>random</em> outcomes. Unfortunately, randomness is not clearly defined and depends on specific scientific philosophical schools. The scientific philosophical school we implicitly assume in this course—and, in fact, in most statistical courses—is that of frequentist statistics. Here we assume that all things we measure are <em>intrinsically</em> random. In fact, this is an <em>ontological</em> argument—in other words, what are our beliefs in the state of the world. Because all things we measure are random, every time we measure something our measurements are (slightly) different. However, the more we measure, the more precise we <em>know</em> something. But there is still randomness.</p>
-<p>In general, there are two types of random variables. First, there are <em>discrete</em> random variables, where outcomes can be counted, such as <span class="math inline">\(0, 1, 2, 3, \ldots\)</span> and <em>continuous</em> random variables, where outcomes can be any real number.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></p>
+<p>In general, there are two types of random variables. First, there are <em>discrete</em> random variables, where outcomes can be counted, such as <span class="math inline">\(0, 1, 2, 3, \ldots\)</span> and <em>continuous</em> random variables, where outcomes can be any real number.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
 
 </div>
 </div>
 </div>
+
 
 
 
@@ -405,8 +412,8 @@ div.csl-indent {
 
 <div class="footnotes">
 <hr />
-<ol start="24">
-<li id="fn24"><p>There is slightly more to this as fractions such as <span class="math inline">\(\frac{1}{2}\)</span> can in fact be counted as well, and continuous outcomes can be as well complex numbers. But for now we typically see integer numbers as discrete, and real numbers as continuous.<a href="appreviewstat.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<ol start="25">
+<li id="fn25"><p>There is slightly more to this as fractions such as <span class="math inline">\(\frac{1}{2}\)</span> can in fact be counted as well, and continuous outcomes can be as well complex numbers. But for now we typically see integer numbers as discrete, and real numbers as continuous.<a href="appreviewstat.html#fnref25" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

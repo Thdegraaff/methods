@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -288,11 +288,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#so-what-is-the-problem"><i class="fa fa-check"></i><b>5.1</b> So, what is the problem?</a></li>
-<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#statistical-framework"><i class="fa fa-check"></i><b>5.2</b> Statistical framework</a></li>
-<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a></li>
-<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.4</b> Least squares assumptions</a></li>
-<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#testing-of-coefficients"><i class="fa fa-check"></i><b>5.5</b> Testing of coefficients</a></li>
+<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a></li>
+<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secstatframe"><i class="fa fa-check"></i><b>5.3</b> Statistical framework</a></li>
+<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.4</b> Univariate regression</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#genesis-regression-towards-the-mean"><i class="fa fa-check"></i><b>5.4.1</b> Genesis: <em>regression towards the mean</em></a></li>
+<li class="chapter" data-level="5.4.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#regression-with-one-regressor"><i class="fa fa-check"></i><b>5.4.2</b> Regression with one regressor</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.5</b> Least squares assumptions</a></li>
+<li class="chapter" data-level="5.6" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.6</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.7" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#conclusion-and-discussion-1"><i class="fa fa-check"></i><b>5.7</b> Conclusion and discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="modeling-in-the-social-sciences.html"><a href="modeling-in-the-social-sciences.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
 <ul>
@@ -349,19 +355,30 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="regression-analysis-in-the-social-sciences" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Regression analysis in the social sciences<a href="regression-analysis-in-the-social-sciences.html#regression-analysis-in-the-social-sciences" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-12" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction<a href="regression-analysis-in-the-social-sciences.html#introduction-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Why should we have something as applied econometrics in the social sciences? That is because we have theories as in Chapters (<a href="surplus.html#surplus">2</a>)–(<a href="moral.html#moral">4</a>) and those theories contain variables such as in the direct utility function of equation <a href="surplus.html#eq:directutility">(2.3)</a>:</p>
 <p><span class="math display">\[\begin{equation}
 U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
 \end{equation}\]</span></p>
 <p>Here the quantities for the market good <span class="math inline">\(Q\)</span> and the outside good <span class="math inline">\(G\)</span> are to considered to be <em>known</em>—also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.</p>
-<p>This second part of the course is about using data to measure <strong>causal</strong> effects. Ideally, we would like an experiment, but almost always we only have observational data on returns to education (aka wages), housing prices or commuting flows. The second part of this course and syllabus with difficulties arising from using observational data to estimate causal effects</p>
+<p>This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example demand and prices. In the second part of this course and syllabus with difficulties arising from using observational data to estimate these causal effects and to rewrite models as <a href="surplus.html#eq:directutility">(2.3)</a> such that we can actually <em>use</em> data to tease out values for—in this case—<span class="math inline">\(A\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>This chapter is organised as follows. The next section addresses the problem of finding a <em>relation</em> between some <span class="math inline">\(X\)</span> and some <span class="math inline">\(Y\)</span>. Here, we follow example in the well-known textbook of @stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some <code>STATA</code> commands. Thereafter, section <a href="regression-analysis-in-the-social-sciences.html#secstatframe">5.3</a> deals with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix <a href="appreviewstat.html#appreviewstat">C</a>.</p>
+</div>
+<div id="secproblem" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> So, what is the problem?<a href="regression-analysis-in-the-social-sciences.html#secproblem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As explained in the introduction above, applied econometrics aims to give the policy maker well-informed values for variables she needs. She needs these variables basically for two things:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Causal inference</strong>: The policy maker wants to assess the effect of a change in one variable (typically called <span class="math inline">\(X\)</span>) on another variables (often called <span class="math inline">\(Y\)</span>).</li>
+<li><strong>Prediction</strong>: If you know what variable <span class="math inline">\(X\)</span> is, what should <span class="math inline">\(Y\)</span> then be?</li>
+</ol>
+<p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what that may be) and then optimize prediction.</p>
+<p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:</p>
 <ul>
-<li>confounding effects (omitted factors)</li>
-<li>simultaneous causality</li>
-<li>measurement error</li>
+<li>To what extent do people eat less meat if we increase the prices with 1% (using a meat-tax)?</li>
+<li>If we increase Dutch dikes with one meter, how much less flood risk will there be?</li>
+<li>How much do classes perform better is we reduce class-size with one student?</li>
 </ul>
-<div id="so-what-is-the-problem" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> So, what is the problem?<a href="regression-analysis-in-the-social-sciences.html#so-what-is-the-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="regression-analysis-in-the-social-sciences.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;./data/caschool.dta&quot;</span>, <span class="kw">clear</span></span>
 <span id="cb1-2"><a href="regression-analysis-in-the-social-sciences.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> str testscr</span></code></pre></div>
 <pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
@@ -373,20 +390,561 @@ U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
 <img src="scatter.svg" alt="" />
 <p class="caption">Student teacher ratio ~ Testscores</p>
 </div>
+<p>Numerical evidence</p>
+<ol style="list-style-type: decimal">
+<li>estimation</li>
+</ol>
+<ul>
+<li>Compare average test scores in districts with low STRs to those with high STRs</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>hypothesis testing</li>
+</ol>
+<ul>
+<li>Test the “null” hypothesis that the mean test scores in the two types of districts are the same, against the ``alternative’’ hypothesis that they differ</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>confidence intervals</li>
+</ol>
+<ul>
+<li>Estimate an interval for the difference in the mean test scores, high v. low STR districts</li>
+</ul>
+<p>Initial data analysis
+Compare districts with “small” (STR <span class="math inline">\(&lt;\)</span> 20) and “large” (STR <span class="math inline">\(\geq\)</span> 20) class sizes:</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Class size
+</th>
+<th style="text-align:left;">
+Average score
+</th>
+<th style="text-align:left;">
+Standard deviation
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(n\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Small
+</td>
+<td style="text-align:left;">
+657.4
+</td>
+<td style="text-align:left;">
+19.4
+</td>
+<td style="text-align:left;">
+182
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Large
+</td>
+<td style="text-align:left;">
+650.0
+</td>
+<td style="text-align:left;">
+17.9
+</td>
+<td style="text-align:left;">
+238
+</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>estimation of <span class="math inline">\(\Delta\)</span> = difference between group means</li>
+<li>Test the hypothesis that <span class="math inline">\(\Delta = 0\)</span></li>
+<li>Construct a confidence interval for <span class="math inline">\(\Delta\)</span></li>
+</ol>
+<p>Estimation</p>
+<p><span class="math display">\[\begin{eqnarray}
+\bar{Y}_{small} - \bar{Y}_{large} &amp;=&amp; \frac{1}{n_{small}} \sum_{i=1}^{n_{small}}Y_i - \frac{1}{n_{large}} \sum_{i=1}^{n_{large}} Y_i \\
+&amp;=&amp; 657.4-650.0\\
+&amp;=&amp;7.4
+\end{eqnarray}\]</span>
+Is this a large difference in a real-world sense?</p>
+<ol style="list-style-type: decimal">
+<li>Standard deviation across districts = 19.1</li>
+<li>Difference between 60<span class="math inline">\(^{\mathrm{th}}\)</span> and 75<span class="math inline">\(^{\mathrm{th}}\)</span> percentiles of test score distribution is <span class="math inline">\(667.6 - 659.4 = 8.2\)</span></li>
+<li>Is <span class="math inline">\(\Delta\)</span> big enough to be important for school reform discussions, for parents, or for a school committee?</li>
+</ol>
+<p>Hypothesis testing</p>
+<p>Difference-in-means test: compute the <span class="math inline">\(t\)</span>-statistic<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>,
+<span class="math display">\[\begin{equation}
+t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }} = \frac{\bar{Y}_s - \bar{Y}_l}{SE(\bar{Y}_s - \bar{Y}_l)}
+\end{equation}\]</span>
+where <span class="math inline">\(SE(\bar{Y}_s - \bar{Y}_l)\)</span> is the <em>standard error</em> of
+<span class="math inline">\((\bar{Y}_s - \bar{Y}_l)\)</span>,
+- the subscripts <span class="math inline">\(s\)</span> and <span class="math inline">\(l\)</span> refer to “small” and
+“large” STR districts
+- <span class="math inline">\(s_s^2 = \frac{1}{n_{small}}\sum_{i=1}^{n_s}(Y_i - \bar{Y}_s)^2\)</span></p>
+<p>Compute the difference-of-means t-statistic:
+<span class="math display">\[\begin{equation}
+t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  = \frac{657.4 - 650.0}{\sqrt{\frac{19.4^2}{238} +\frac{17.9^2}{182} }} = \frac{7.4}{1.83} = 4.05
+\end{equation}\]</span></p>
+<ul>
+<li><span class="math inline">\(|t|&gt;1.96\)</span>, so reject (at the 5% significance level) the null hypothesis that the two means are the same</li>
+<li>Easier with Stata: <code>ttest testscr, by(small)</code></li>
+</ul>
+<p>Confidence interval</p>
+<ul>
+<li>A 95% confidence interval for the difference between the means is:
+<span class="math display">\[\begin{equation}
+(\bar{Y}_s - \bar{Y}_l)\pm 1.96 \times SE(\bar{Y}_s - \bar{Y}_l) = 7.4 \pm 1.96 \times 1.84 = (3.7, 11.0)
+\end{equation}\]</span></li>
+<li>Two equivalent statements:
+<ol style="list-style-type: decimal">
+<li>The 95% confidence interval for <span class="math inline">\(\Delta\)</span> doesn’t include 0</li>
+<li>The hypothesis that <span class="math inline">\(\Delta = 0\)</span> is rejected at the 5% level</li>
+</ol></li>
+</ul>
 </div>
-<div id="statistical-framework" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Statistical framework<a href="regression-analysis-in-the-social-sciences.html#statistical-framework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="secstatframe" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Statistical framework<a href="regression-analysis-in-the-social-sciences.html#secstatframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Population, random variable, and distribution}</p>
+<ul>
+<li>Population
+<ul>
+<li>The group or collection of all possible entities of interest (school districts)</li>
+<li>We will think of populations as infinitely large (<span class="math inline">\(\infty\)</span>)</li>
+</ul></li>
+<li>Random variable <span class="math inline">\(Y\)</span>
+<ul>
+<li>Characteristic of entity (district average test score, district <span class="math inline">\(STR\)</span>)</li>
+<li>Unknown, before measurement (<span class="math inline">\(y\)</span>)</li>
+</ul></li>
+<li>probability distribution is a mathematical function that
+provides the probabilities of occurrence of all different possible outcomes in an <em>experiment</em>: e.g., <span class="math inline">\(\Pr(Y = y)\)</span> <span class="math inline">\(\forall y\)</span></li>
+</ul>
+<p>First 2 moments of a population distribution}
+- Mean = expected value (expectation) of <span class="math inline">\(Y\)</span>
+- <span class="math inline">\(E(Y) = \mu_Y\)</span>
+- Long-run average value of <span class="math inline">\(Y\)</span> over repeated realizations of <span class="math inline">\(Y\)</span>:
+- <span class="math inline">\(\frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span></p>
+<ul>
+<li>Variance = <span class="math inline">\(E(Y - \mu_Y)^2\)</span>
+<ul>
+<li><span class="math inline">\(\sigma^2_Y\)</span></li>
+<li>measure of the squared spread of the distribution</li>
+</ul></li>
+</ul>
+<p>Standard deviation = <span class="math inline">\(\sqrt{\text{variance}} = \sigma_Y\)</span></p>
+<p>Joint distributions and covariance
+- Random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> have a joint distribution
+- The covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> is:
+<span class="math display">\[\begin{equation*}
+cov(X,Z) = E[(X- \mu_X)(Z- \mu_Z)] = \sigma_{XZ}
+\end{equation*}\]</span>
+- The covariance is a measure of the linear association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>; its units are units of <span class="math inline">\(X \times\)</span> units of <span class="math inline">\(Z\)</span>
+- <span class="math inline">\(cov(X,Z) &gt; 0\)</span> means a positive relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>
+- If <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are independently distributed, then <span class="math inline">\(cov(X,Z) = 0\)</span>
+- The covariance of a r.v. with itself is its variance:
+<span class="math display">\[\begin{equation*}
+cov(X,X) = E[(X-\mu_X)(X - \mu_X)] = E[(X - \mu_X)^2] = \sigma^2_X
+\end{equation*}\]</span></p>
+<p>The correlation coefficient
+<span class="math display">\[\begin{equation*}
+corr(X,Z) = \frac{cov(X,Z)}{\sqrt{var(X)var(Z)}} = \frac{\sigma_{XZ}}{\sigma{_X}\sigma{_Z}} = r_{XZ}
+\end{equation*}\]</span>
+<span class="math inline">\(-1 \leq corr(X,Z) \leq 1\)</span>
+- <span class="math inline">\(corr(X,Z) = 1\)</span> means perfect positive linear association
+- <span class="math inline">\(corr(X,Z) = -1\)</span> means perfect negative linear association
+- <span class="math inline">\(corr(X,Z) = 0\)</span> means no linear association</p>
+<p>The correlation coefficient measures linear association</p>
+<div class="figure"><span style="display:block;" id="fig:corrcoef"></span>
+<img src="figures/Sheet27.png" alt="Correlation coefficient" width="504" />
+<p class="caption">
+Figure 5.1: Correlation coefficient
+</p>
 </div>
-<div id="univariate-regression" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Univariate regression<a href="regression-analysis-in-the-social-sciences.html#univariate-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Conditional distributions and conditional means</p>
+<ul>
+<li>Conditional distributions
+<ul>
+<li>The distribution of <span class="math inline">\(Y\)</span>, given value(s) of some other random variable, <span class="math inline">\(X\)</span></li>
+<li>Ex: the distribution of test scores, given that <span class="math inline">\(STR &lt; 20\)</span></li>
+</ul></li>
+<li>Conditional means</li>
+<li>conditional mean = mean of conditional distribution = <span class="math inline">\(E(Y|X = x)\)</span> (important concept and notation)
+Example: <span class="math inline">\(E(Test scores|STR &lt; 20)\)</span> = the mean of test scores among districts with small class sizes</li>
+</ul>
+<p>Difference in means
+<span class="math display">\[\begin{equation*}
+\Delta = E(Test scores|STR &lt; 20)-  E(Test scores|STR \geq 20)
+\end{equation*}\]</span></p>
+<ul>
+<li><p>Other examples of conditional means:</p></li>
+<li><p>Wages of all female workers (<span class="math inline">\(Y\)</span> = wages, <span class="math inline">\(X\)</span> = gender)</p></li>
+<li><p>Mortality rate of those given an experimental treatment (<span class="math inline">\(Y\)</span> = live/die; <span class="math inline">\(X\)</span> = treated/not treated)</p></li>
+<li><p>If <span class="math inline">\(E(X|Z)\)</span> = const, then <span class="math inline">\(corr(X,Z) = 0\)</span></p></li>
+<li><p>The conditional mean is another term for the group mean</p></li>
+</ul>
+<p>So, where does all this uncertainty come from anyway?</p>
+<ul>
+<li><p>We will assume <em>random sampling</em></p></li>
+<li><p>Choose an individual (or district, firm, etc.) at random from the population</p></li>
+<li><p>Randomness and data</p></li>
+<li><p>Prior to sample selection, the value of <span class="math inline">\(Y\)</span> is random because the individual selected is random</p></li>
+<li><p>Once the individual is selected and the value of <span class="math inline">\(Y\)</span> is observed, then <span class="math inline">\(Y\)</span> is just a number—not random</p></li>
+<li><p>The data set is <span class="math inline">\((Y_1, Y_2,\dots, Y_n)\)</span>, where <span class="math inline">\(Y_i\)</span> = value of <span class="math inline">\(Y\)</span> for the <span class="math inline">\(i^{\mathrm{th}}\)</span> individual (district, entity) sampled</p></li>
+<li><p>Note: S&amp;W use capital <span class="math inline">\(Y_{i}\)</span> instead of <span class="math inline">\(y_{i}\)</span>. The subscript <span class="math inline">\(i\)</span> denotes a realisation</p></li>
+</ul>
+<p>Distribution of <span class="math inline">\(Y_1\)</span>,, <span class="math inline">\(Y_n\)</span> under simple random sampling</p>
+<ul>
+<li><p>Because individuals #1 and #2 are selected at random, the value of Y<span class="math inline">\(_1\)</span> has no information content for <span class="math inline">\(Y_2\)</span>. Thus:</p></li>
+<li><p><span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> are independently distributed</p></li>
+<li><p><span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> come from the same distribution, that is, <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span> are identically distributed</p></li>
+<li><p>That is, under simple random sampling, Y<span class="math inline">\(_1\)</span> and Y<span class="math inline">\(_2\)</span> are independently and identically distributed (i.i.d.).</p></li>
+<li><p>More generally, under simple random sampling, Y<span class="math inline">\(_i\)</span>, <span class="math inline">\(i = 1\)</span>,, <span class="math inline">\(n\)</span>, are <em>i.i.d</em>.</p></li>
+<li><p>This framework allows rigorous statistical inferences about <em>the mean</em> <span class="math inline">\(\bar{Y}\)</span> of population distributions using a sample of data from that population </p></li>
+</ul>
+<p>The sampling distribution of <span class="math inline">\(\bar{Y}\)</span>
+<span class="math inline">\(\bar{Y}\)</span> is a random variable, and its properties are determined by the <em>sampling distribution=</em> of <span class="math inline">\(\bar{Y}\)</span></p>
+<ul>
+<li>The elements in the sample are drawn at random.</li>
+<li>Thus the values of <span class="math inline">\((Y_1,\ldots, Y_n)\)</span> are random</li>
+<li>Thus functions of <span class="math inline">\((Y_1,\ldots, Y_n)\)</span>, such as <span class="math inline">\(\bar{Y}\)</span>, are random: had a different sample been drawn, they would have taken on a different value</li>
+<li>The distribution of <span class="math inline">\(\bar{Y}\)</span> over different possible samples of size <span class="math inline">\(n\)</span> is called the sampling distribution of <span class="math inline">\(\bar{Y}\)</span>.</li>
+<li>The concept of the sampling distribution underpins all of econometrics (<em>frequentists</em> statistics)</li>
+</ul>
+<p>Example: simple binomial random variables</p>
+<p>Example: Suppose <span class="math inline">\(Y\)</span> takes on 0 or 1 with the probability distribution, <span class="math inline">\(\Pr[Y = 0] = 0.22\)</span>, <span class="math inline">\(\Pr(Y =1) = 0.78\)</span>
+Then
+<span class="math display">\[\begin{eqnarray*}
+\mu_{Y} &amp;=&amp; p \times 1 + (1-  p) \times 0 = p = 0.78\\
+\sigma^2_Y&amp;=&amp; E[Y - \mu_{Y}]^2 = p(1 - p) \\
+&amp;=&amp; 0.78 \times 0.22 = 0.17
+\end{eqnarray*}\]</span>
+The sampling distribution of <span class="math inline">\(\bar{Y}\)</span> depends on <span class="math inline">\(n\)</span>.
+Consider <span class="math inline">\(n = 2\)</span>. The sampling distribution of <span class="math inline">\(\bar{Y}\)</span> is,
+<span class="math display">\[\begin{eqnarray*}
+\Pr(\bar{Y}  = 0) &amp;= 0.22^2 &amp;= 0.05 \\
+\Pr(\bar{Y}  = 1/2) &amp;=  2 \times 0.22 \times 0.78 &amp;= 0.34\\
+\Pr(\bar{Y}  = 1) &amp;= 0.78^2 &amp;= 0.61
+\end{eqnarray*}\]</span></p>
+<p>The sampling distribution of <span class="math inline">\(\bar{Y}\)</span> when <span class="math inline">\(Y\)</span> is binomial (<span class="math inline">\(p = 0.78\)</span>)}</p>
+<p><code>set obs 10000</code>
+<code>generate Y = rbinomial(2,0.78)/2</code>
+<code>hist(Y), fraction</code></p>
+<p>And what if we consider <span class="math inline">\(n = 5\)</span>, and <span class="math inline">\(n = 100\)</span>?</p>
+<p>Mean and variance of sampling distribution of <span class="math inline">\(\bar{Y}\)</span>, ctd.
+<span class="math display">\[\begin{eqnarray*}
+E(\bar{Y}) &amp;=&amp; \mu_Y\\
+Var(\bar{Y}) &amp;=&amp; \frac{\sigma_Y^2}{n}
+\end{eqnarray*}\]</span></p>
+<ul>
+<li>Implications
+<ul>
+<li><span class="math inline">\(\bar{Y}\)</span> is an <em>unbiased</em> estimator of <span class="math inline">\(\mu_Y\)</span> (that is, <span class="math inline">\(E(\bar{Y}) = \mu_Y\)</span>)</li>
+<li>var(<span class="math inline">\(\bar{Y}\)</span>) is <em>inversely proportional</em> to <span class="math inline">\(n\)</span></li>
+<li>Thus the standard error associated with <span class="math inline">\(\bar{Y}\)</span> is <span class="math inline">\(\sqrt{\frac{\sigma_Y^2}{n}}\)</span> (larger samples, less uncertainty but square-root law)</li>
+</ul></li>
+</ul>
+<p>The sampling distribution of <span class="math inline">\(\bar{Y}\)</span> when <span class="math inline">\(n\)</span> is large
+For small sample sizes, the distribution of <span class="math inline">\(\bar{Y}\)</span> is complicated,
+but if <span class="math inline">\(n\)</span> is large, the sampling distribution is </p>
+<ul>
+<li>as <span class="math inline">\(n\)</span> increases, the distribution if <span class="math inline">\(\bar{Y}\)</span> becomes more tightly centered around <span class="math inline">\(\mu_Y\)</span> (the <em>Law of Large Numbers</em>)</li>
+<li>moreover, the distribution of <span class="math inline">\(\bar{Y}\)</span> becomes normal (the <em>Central Limit Theorem</em>)</li>
+<li><span class="math inline">\(\bar{Y}\)</span> is approximately distributed <span class="math inline">\(N(\mu_Y,\frac{\sigma^2_Y}{n})\)</span> </li>
+<li>“Standardized” <span class="math inline">\(\bar{Y} = \frac{\bar{Y}-\mu_Y}{\sigma_Y/\sqrt{n}}\)</span> is approximately distributed as <span class="math inline">\(N(0,1)\)</span> </li>
+<li>The larger is <span class="math inline">\(n\)</span>, the better is the approximation.</li>
+</ul>
+Sampling distribution of <em>standardized</em> average when <span class="math inline">\(p = 0.78\)</span>}
+<div class="figure"><span style="display:block;" id="fig:samplingdist"></span>
+<img src="figures/Sheet42.png" alt="Sampling distribution" width="689" />
+<p class="caption">
+Figure 5.2: Sampling distribution
+</p>
 </div>
-<div id="least-squares-assumptions" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Least squares assumptions<a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="testing-of-coefficients" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Testing of coefficients<a href="regression-analysis-in-the-social-sciences.html#testing-of-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="univariate-regression" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Univariate regression<a href="regression-analysis-in-the-social-sciences.html#univariate-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="genesis-regression-towards-the-mean" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Genesis: <em>regression towards the mean</em><a href="regression-analysis-in-the-social-sciences.html#genesis-regression-towards-the-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Where does regression comes from?</p>
+<div class="figure"><span style="display:block;" id="fig:galton2"></span>
+<img src="figures/Galton1.png" alt="Relation heigh fathers and height children" width="252" />
+<p class="caption">
+Figure 5.3: Relation heigh fathers and height children
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:galton1"></span>
+<img src="figures/Galton2.png" alt="Relation heigh fathers and height children" width="252" />
+<p class="caption">
+Figure 5.4: Relation heigh fathers and height children
+</p>
+</div>
+</div>
+<div id="regression-with-one-regressor" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Regression with one regressor<a href="regression-analysis-in-the-social-sciences.html#regression-with-one-regressor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Linear regression allows us to <em>estimate</em>, and make <em>inferences</em> about, <em>population</em> slope coefficients. Ultimately our aim
+is to estimate the <em>causal</em> effect on <span class="math inline">\(Y\)</span> of a unit change in <span class="math inline">\(X\)</span>—but for now, just think of the problem of fitting a straight line to data on two variables, <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>Statistical inference</p>
+<ul>
+<li>Estimation}:
+<ul>
+<li>How should we draw a line through the data to estimate the (population) slope (answer: ordinary least squares).
+<ul>
+<li>What are advantages and disadvantages of OLS? </li>
+</ul></li>
+</ul></li>
+<li>Hypothesis testing:
+<ul>
+<li>How to test if the slope is zero?</li>
+</ul></li>
+<li>Confidence intervals:
+<ul>
+<li>How to construct a confidence interval for the slope?</li>
+</ul></li>
+</ul>
+<p>Linear regression: some notation and terminology</p>
+<ul>
+<li>The population regression line:</li>
+</ul>
+<p>Test Score = <span class="math inline">\(\beta_0\)</span> + <span class="math inline">\(\beta_1\)</span> STR</p>
+<p><span class="math display">\[\begin{eqnarray}
+    \beta_1&amp; =&amp; \text{slope of population regression line} \\
+    &amp;=&amp;   \frac{\Delta Testscore}{\Delta STR}\\
+    &amp;=&amp; \text{change in test score for a unit change in STR}
+\end{eqnarray}\]</span></p>
+<ul>
+<li>Why are <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> and <span class="math inline">\(\beta_1\)</span> “population” parameters?</li>
+<li>We would like to know the population value of <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span>.</li>
+<li>We don’t know <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span>, so must estimate it using data.</li>
+</ul>
+<p>The population linear regression model and general notation}</p>
+<p><span class="math display">\[\begin{equation}
+    Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i\ldots n
+\end{equation}\]</span></p>
+<ul>
+<li><span class="math inline">\(X\)</span> is the independent variable or regressor</li>
+<li><span class="math inline">\(Y\)</span> is the dependent variable</li>
+<li><span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> = intercept, <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span> = slope</li>
+<li><span class="math inline">\(u_i\)</span> is the regression error</li>
+<li>The regression error consists of omitted factors, or possibly measurement error in the measurement of <span class="math inline">\(Y\)</span>. In general, these omitted factors are other factors that influence <span class="math inline">\(Y\)</span>, other than the variable <span class="math inline">\(X\)</span></li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:unire"></span>
+<img src="figures/Lecture1_sheet8.png" alt="bla" width="402" />
+<p class="caption">
+Figure 5.5: bla
+</p>
+</div>
+<p>The ordinary least squares estimator (SW Section 4.2)</p>
+<ul>
+<li>How can we estimate <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> and <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span> from data?</li>
+<li>We will focus on the least squares (ordinary least squares or OLS) estimator of the unknown parameters <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> and <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span>, which solves,
+<span class="math display">\[\begin{equation}
+  \min_{b_0,b_1} \sum^n_{i=1} \left[Y_i - (b_0 + b_1 X_i) \right]^2
+\end{equation}\]</span></li>
+</ul>
+<p>The OLS estimator, predicted values, and residuals}
+-The OLS estimators of the slope <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span> and the intercept <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> are:</p>
+<p><span class="math display">\[\begin{eqnarray}
+    \hat{\beta}_1 &amp;=&amp; \frac{\sum^n_{i=1}(X_i - \overline{X})(Y_i - \overline{Y})}{\sum^n_{i=1}(X_i - \overline{X})^2} = \frac{s_{XY}}{s^2_X}\\
+    \hat{\beta}_0 &amp;=&amp; \overline{Y} - \hat{\beta}_1\overline{X}
+\end{eqnarray}\]</span></p>
+<ul>
+<li>The OLS predicted values <span class="math inline">\(\hat{Y}_i\)</span> and residuals <span class="math inline">\(\hat{u}_i\)</span> are:</li>
+</ul>
+<p><span class="math display">\[\begin{eqnarray}
+    \hat{Y}_i &amp;=&amp; \hat{\beta}_0 + \hat{\beta}_1 X_i, \qquad i = 1, \ldots, n\\
+    \hat{u}_i &amp;=&amp; Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
+\end{eqnarray}\]</span></p>
+<div class="figure"><span style="display:block;" id="fig:cloud"></span>
+<img src="figures/Lecture1_sheet13.jpg" alt="bla"  />
+<p class="caption">
+Figure 5.6: bla
+</p>
+</div>
+<ul>
+<li>Estimated slope = <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span></li>
+<li>Estimated intercept = <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span></li>
+<li>Estimated regression line: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span></li>
+</ul>
+<p>Interpretation of the estimated slope and intercept}
+<span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span></p>
+<ul>
+<li>Districts with one more student per teacher on average have test scores that are 2.28 points lower.</li>
+<li>That is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span></li>
+<li>The intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9.</li>
+<li>This interpretation of the intercept makes no sense—extrapolates the line outside the range of the data—, the intercept is not economically meaningful.</li>
+</ul>
+Predicted values &amp; residuals
+<div class="figure"><span style="display:block;" id="fig:sheet15"></span>
+<img src="figures/Lecture1_sheet15.jpg" alt="bla"  />
+<p class="caption">
+Figure 5.7: bla
+</p>
+</div>
+<ul>
+<li>One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span></li>
+<li>Predicted value: <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span></li>
+<li>Residual: <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></li>
+</ul>
+<p>OLS regression: STATA output</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb4-1"><a href="regression-analysis-in-the-social-sciences.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      19.26
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0512
+                                                Root MSE          =     18.581
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -2.279808   .5194892    -4.39   0.000    -3.300945   -1.258671
+       _cons |    698.933   10.36436    67.44   0.000     678.5602    719.3057
+------------------------------------------------------------------------------</code></pre>
+<p>We will discuss the rest of this output later)</p>
+</div>
+</div>
+<div id="least-squares-assumptions" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Least squares assumptions<a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
+\end{equation}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>The conditional distribution of <span class="math inline">\(u\)</span> given <span class="math inline">\(X\)</span> has mean zero, that is, <span class="math inline">\(E(u \mid X = x) = 0\)</span>.
+<ul>
+<li>This implies that <span class="math inline">\(\hat{\beta_1}\)</span> is <em>unbiased</em></li>
+</ul></li>
+<li><span class="math inline">\((X_i,Y_i), i =1 \ldots n\)</span> are i.i.d.
+<ul>
+<li>This is true if <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> are collected by simple random sampling</li>
+<li>This delivers the sampling distribution of <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span></li>
+</ul></li>
+<li>Large outliers in <span class="math inline">\(X\)</span> and/or <span class="math inline">\(Y\)</span> are rare.
+<ul>
+<li>Outliers can result in meaningless values of <span class="math inline">\(\hat{\beta_1}\)</span></li>
+</ul></li>
+</ol>
+<p>Least squares assumption 1: <span class="math inline">\(E(u \mid X = x) = 0\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:ass1"></span>
+<img src="figures/Lecture1_sheet25.jpg" alt="Assumption 1"  />
+<p class="caption">
+Figure 5.8: Assumption 1
+</p>
+</div>
+<p>Example: <span class="math inline">\(TestScore_i = \beta_0 + \beta_1 STR_i + u_i\)</span>, <span class="math inline">\(u_i\)</span> = other factors</p>
+<ul>
+<li>What are some of these other factors?</li>
+<li>Is <span class="math inline">\(E(u|X = x) = 0\)</span> plausible for these other factors?</li>
+</ul>
+<p>Least squares assumption 1, ctd.</p>
+<p>Consider an ideal randomized controlled experiment:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> is <em>randomly</em> assigned to people (students randomly assigned to different size classes; patients randomly assigned to medical treatments).</li>
+<li>Because <span class="math inline">\(X\)</span> is assigned randomly, all other individual characteristics—the things that make up <span class="math inline">\(u\)</span>—are <em>independently</em> distributed of <span class="math inline">\(X\)</span></li>
+<li>Thus: <span class="math inline">\(E(u \mid X = x) = 0\)</span></li>
+<li>In actual experiments, or with **observational* data, we will need to think hard about whether <span class="math inline">\(E(u|X = x) = 0\)</span> holds.</li>
+</ul>
+<p>Least squares assumption 2: <span class="math inline">\((X_i,Y_i), i = 1 \dots n\)</span> are i.i.d.</p>
+<p>This arises automatically if the entity (individual, district) is sampled by simple *random sampling8:
+the entity is selected then, for that entity, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are observed (recorded).</p>
+<p>Possible violations:
+- snowballing
+- temporal correlation
+- spatial correlation</p>
+<p>Least squares assumption 3: Large outliers are rare</p>
+<p>A large outlier is an value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span></p>
+<ul>
+<li>However, the substance of this assumption is that a large outlier can strongly the results</li>
+</ul>
+<p>OLS can be sensitive to an outlier:</p>
+<div class="figure"><span style="display:block;" id="fig:outlier"></span>
+<img src="figures/Lecture1_sheet29.jpg" alt="Outlier"  />
+<p class="caption">
+Figure 5.9: Outlier
+</p>
+</div>
+<ul>
+<li>Is the lone point an outlier in <span class="math inline">\(X\)</span> or in <span class="math inline">\(Y\)</span>?</li>
+</ul>
+</div>
+<div id="hypothesis-testing" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Hypothesis testing<a href="regression-analysis-in-the-social-sciences.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hypothesis testing</p>
+<p><strong>Reject</strong> the -hypothesis. That is, test</p>
+<ul>
+<li><span class="math inline">\(H_0: E(Y) = \mu_{Y,0}\)</span> vs. <span class="math inline">\(H_1: E(Y) \neq \mu_{Y,0}\)</span></li>
+</ul>
+<p>Note: you actually test whether the data <em>you</em> have corresponds with the null-hypothesis: or
+- What is the probability that your data (<span class="math inline">\(D\)</span>) might be right <em>given</em> the null-hypothesis (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\Pr(D|H_0)\)</span></p>
+<p>Terminology</p>
+<p>Some terminology for testing statistical hypotheses:</p>
+<ul>
+<li><span class="math inline">\(p\)</span>-value = probability of drawing a statistic (e.g., <span class="math inline">\(\bar{Y}\)</span>) <em>at least as adverse</em> to the null as the value actually computed with your data, that the null hypothesis is true.</li>
+<li>The significance level of a test is a <em>pre-specified</em> probability of incorrectly rejecting the null, when the null is true.</li>
+<li>Calculating the <span class="math inline">\(p\)</span>-value based on <span class="math inline">\(\bar{Y}\)</span>:</li>
+</ul>
+<p><span class="math display">\[\begin{equation*}
+p\text{-value} = \Pr_{H_0}[|\bar{Y} - \mu_{y,0}| &gt; |\bar{Y}^{act} - \mu_{y,0}|]     
+\end{equation*}\]</span>
+where <span class="math inline">\(\bar{Y}^{act}\)</span> is the value of <span class="math inline">\(\bar{Y}\)</span> actually observed</p>
+<p>Calculating the <span class="math inline">\(p\)</span>-value, ctd.
+- To compute the <span class="math inline">\(p\)</span>-value, you need the to know the sampling distribution of <span class="math inline">\(\bar{Y}\)</span>, which is complicated if <span class="math inline">\(n\)</span> is small.
+- If <span class="math inline">\(n\)</span> is large, you can use the normal approximation (CLT):
+<span class="math display">\[\begin{eqnarray*}
+                            p\text{-value}&amp; = &amp;   \Pr_{H_0}[|\bar{Y} - \mu_{y,0}| &gt; |\bar{Y}^{act} - \mu_{y,0}|]\\
+              &amp; = &amp;   \Pr_{H_0}[|\frac{\bar{Y} - \mu_{Y,0}}{\sigma_Y/\sqrt{n}}| &gt; |\frac{\bar{Y}^{act} - \mu_{Y,0}}{\sigma_Y/\sqrt{n}}|]\\
+              &amp; = &amp;   \Pr_{H_0}[|\frac{\bar{Y} - \mu_{Y,0}}{\sigma_{\bar{Y}}}| &gt;    |\frac{\bar{Y}^{act} - \mu_{Y,0}}{\sigma_{\bar{Y}}}|]\\
+                            &amp;\simeq&amp; \text{probability under left + right } N(0,1) \text{ tails}
+    \end{eqnarray*}\]</span>
+where <span class="math inline">\(\sigma_{\bar{Y}}\)</span> = std. dev. of the distribution of <span class="math inline">\(\bar{Y} = \sigma_Y/\sqrt{n}\)</span>.</p>
+<p>Calculating the <span class="math inline">\(p\)</span>-value with <span class="math inline">\(\sigma_Y\)</span> known:</p>
+<div class="figure"><span style="display:block;" id="fig:pvalues"></span>
+<img src="figures/Sheet47.png" alt="Hypothesis testing" width="376" />
+<p class="caption">
+Figure 5.10: Hypothesis testing
+</p>
+</div>
+<ul>
+<li>For large <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>-value = the probability that a <span class="math inline">\(N(0,1)\)</span> random variable falls outside <span class="math inline">\(|(\bar{Y}^{act} - \mu_{Y,0})/\sigma_{\bar{Y}} | = |t|\)</span></li>
+<li>In practice, <span class="math inline">\(\sigma_{\bar{Y}}\)</span> is unknown; it must be estimated</li>
+</ul>
+<p>What is the link between the <span class="math inline">\(p\)</span>-value and the significance level?</p>
+<p>The significance level is pre-specified. For example, if the pre-specified significance level is 5%,</p>
+<ul>
+<li>you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span></li>
+<li>equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span></li>
+<li>The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level.</li>
+<li>Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the ``yes/no’’ statement about whether the test rejects.</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:significance"></span>
+<img src="figures/significance.jpg" alt="Significance in the social sciences"  />
+<p class="caption">
+Figure 5.11: Significance in the social sciences
+</p>
+</div>
+<p>Confidence intervals}
+- A 95% confidence interval for <span class="math inline">\(\mu_Y\)</span> is an interval that contains the true value of <span class="math inline">\(\mu_Y\)</span> in 95% of repeated samples.</p>
+<ul>
+<li><span class="math display">\[\begin{equation*}
+\bar{Y}\pm1.96 \frac{s_Y}{\sqrt{n}}
+\end{equation*}\]</span>
+A 95% confidence interval can always be constructed as the set of values of <span class="math inline">\(\mu_Y\)</span> not rejected by a hypothesis test with a 5% significance level.</li>
+</ul>
+</div>
+<div id="conclusion-and-discussion-1" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Conclusion and discussion<a href="regression-analysis-in-the-social-sciences.html#conclusion-and-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p>page 94 of syllabus statistics<a href="regression-analysis-in-the-social-sciences.html#fnref24" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

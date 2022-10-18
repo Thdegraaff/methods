@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -288,11 +288,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#so-what-is-the-problem"><i class="fa fa-check"></i><b>5.1</b> So, what is the problem?</a></li>
-<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#statistical-framework"><i class="fa fa-check"></i><b>5.2</b> Statistical framework</a></li>
-<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a></li>
-<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.4</b> Least squares assumptions</a></li>
-<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#testing-of-coefficients"><i class="fa fa-check"></i><b>5.5</b> Testing of coefficients</a></li>
+<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a></li>
+<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secstatframe"><i class="fa fa-check"></i><b>5.3</b> Statistical framework</a></li>
+<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.4</b> Univariate regression</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#genesis-regression-towards-the-mean"><i class="fa fa-check"></i><b>5.4.1</b> Genesis: <em>regression towards the mean</em></a></li>
+<li class="chapter" data-level="5.4.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#regression-with-one-regressor"><i class="fa fa-check"></i><b>5.4.2</b> Regression with one regressor</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions"><i class="fa fa-check"></i><b>5.5</b> Least squares assumptions</a></li>
+<li class="chapter" data-level="5.6" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.6</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.7" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#conclusion-and-discussion-1"><i class="fa fa-check"></i><b>5.7</b> Conclusion and discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="modeling-in-the-social-sciences.html"><a href="modeling-in-the-social-sciences.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
 <ul>
@@ -563,7 +569,7 @@ Q^D(p) = \sum_{n= 1}^{N}\frac{A_n}{A_n+B_n} Y_n \frac{1}{p}=\frac{1}{p} \sum_{n=
 <p>The definition of an elasticity is as follows: for a 1% increase in the market price, the market demand will change with <span class="math inline">\(\epsilon\)</span>%. For many market goods, this elasticity will be negative as higher prices result in lower demand. When the elasticity is lower than <span class="math inline">\(-1\)</span>, the market good has elastic demand. When the elasticity is in between 0 and <span class="math inline">\(-1\)</span>, it has inelastic demand.</p>
 <p>We illustrate the concept of price elasticity of demand using an example. <span class="citation">Brons et al. (2002)</span> give an overview of price elasticities of demand for air travel. Figure <a href="surplus.html#fig:brons">2.1</a> below is from their paper.</p>
 <div class="figure"><span style="display:block;" id="fig:brons"></span>
-<img src="figures/Brons.png" alt="Overview of studies on the price elasticities of market demand for air travel"  />
+<img src="figures/Brons.png" alt="Overview of studies on the price elasticities of market demand for air travel" width="411" />
 <p class="caption">
 Figure 2.1: Overview of studies on the price elasticities of market demand for air travel
 </p>
@@ -571,7 +577,7 @@ Figure 2.1: Overview of studies on the price elasticities of market demand for a
 <p>For short distance air travel the median value of the price elasticity is <span class="math inline">\(-1.5\)</span>. This implies that for short distance travel a <span class="math inline">\(1\)</span>% increase in the price will reduce air travel for these trips with <span class="math inline">\(1.5\)</span>%. For medium-distance trips the median price elasticity of market demand is given by <span class="math inline">\(-1.4\)</span> implying that a <span class="math inline">\(1\)</span>% increase in the price reduces demand with <span class="math inline">\(1.4\)</span>%. For long-distance flights the median is <span class="math inline">\(-0.8\)</span>, implying that a <span class="math inline">\(1\)</span>% increase in the price reduces demand with <span class="math inline">\(0.8\)</span>%. For the assumed numbers above, long-distance flight demand is therefore inelastic whereas short distance and medium distance flights have elastic demands. are therefore less sensitive to the price compared to travellers.</p>
 <p>Another example of estimated price elasticities comes from a meta-analysis of <span class="citation">Andreyeva, Long, and Brownell (2010)</span>. They give a summary of estimates of absolute price elasticities of demand for food categories in the US (displayed in Figure <a href="surplus.html#fig:foodelas">2.2</a>). All food categories have inelastic demand as elasticities are in between <span class="math inline">\(0\)</span> and <span class="math inline">\(-1\)</span>. The estimated price elasticities are between <span class="math inline">\(-0.27\)</span> (eggs) and <span class="math inline">\(-0.81\)</span> (food away from home). A <span class="math inline">\(1\)</span>% increase in the price of eggs therefore results in <span class="math inline">\(0.27\)</span>% lower demand. For beef the estimated elasticity is <span class="math inline">\(-0.75\)</span>, implying that a <span class="math inline">\(1\)</span>% increase in the price for beef results in a <span class="math inline">\(0.75\)</span>% lower demand. Uncertainty in the estimates is reported with the 95% confidence intervals.</p>
 <div class="figure"><span style="display:block;" id="fig:foodelas"></span>
-<img src="figures/foodelasticities.png" alt="Price elasticity estimates for food categories. "  />
+<img src="figures/foodelasticities.png" alt="Price elasticity estimates for food categories. " width="246" />
 <p class="caption">
 Figure 2.2: Price elasticity estimates for food categories.
 </p>
@@ -816,7 +822,7 @@ MC = AC = \frac{\partial C(K^\ast,L^\ast)}{\partial Q} = \frac{C(K^\ast,L^\ast)}
 <p>For a 1% increase in the market price, the market supply will change with <span class="math inline">\(\kappa\)</span>%. When the slope of the supply function <span class="math inline">\(\frac{\partial Q^S}{\partial p}\)</span> is very large, the supply function is steeply increasing in the price and supply is elastic. Supply then responds strongly to price changes. An empirical example of supply elasticities can be given using the work of <span class="citation">Green, Malpezzi, and Mayo (2005)</span> on housing supply in the US. The table in Figure <a href="surplus.html#fig:green">2.3</a> is from their paper and shows price elasticities of supply in the range of <span class="math inline">\(-0.30\)</span> (Miami) up to <span class="math inline">\(29.9\)</span> (Dallas). These estimates are therefore widely varying over space.</p>
 <p>Not all estimates are significant (confidence intervals are not reported). For Pittsburgh, the elasticity is estimated at 1.43 and significant at the 1% level. This implies that a 1% increase in the price of housing will lead to 1.43% increase in the housing supply in Pittsburgh. For Atlanta, housing supply is more elastic: a 1% increase in the price of housing leads to an estimated 21.6% increase in housing supply. Later we will see how elasticities are related to policies related to prices.</p>
 <div class="figure"><span style="display:block;" id="fig:green"></span>
-<img src="figures/green.png" alt="Price elasticities of housing supply "  />
+<img src="figures/green.png" alt="Price elasticities of housing supply " width="219" />
 <p class="caption">
 Figure 2.3: Price elasticities of housing supply
 </p>
