@@ -14,7 +14,7 @@ output:
       toolbar:
         position: fixed
       edit : null
-      download: null
+      download: ["pdf", "epub", "mobi"]
       search:
         engine: lunr # or fuse
         # options to control/tune search engine behavior (for
