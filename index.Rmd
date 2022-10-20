@@ -35,8 +35,8 @@ output:
         whatsapp: false
         all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
       info: true
-  # bookdown::pdf_book:
-  #   keep_tex: true
+  bookdown::pdf_book:
+    keep_tex: true
   # bookdown::bs4_book:
   #   config: 
   #     toc:

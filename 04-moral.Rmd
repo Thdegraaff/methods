@@ -149,16 +149,16 @@ Table \@ref(tab:representatives) below provides an overview of the ethical weigh
 
 ```{r representatives, echo = FALSE}
 v1 <- c(
-"1.	Citizen representative.",
-"2.	Next generation representative.",
-"3.	Consumer representative.",
-"4.	Producer representative.",
-"5.	Governmental representative (chair of the committee).",
-"6.	Economist (specialization: environmental economics)",
-"7.	Philosopher (specialization: animal ethics)",
-"8.	Ecologist (specialization: biodiversity)",
-"9.	Climate activist representative.",
-"10. Animal representative."
+"Citizen representative.",
+"Next generation representative.",
+"Consumer representative.",
+"Producer representative.",
+"Governmental representative (chair of the committee).",
+"Economist (specialization: environmental economics)",
+"Philosopher (specialization: animal ethics)",
+"Ecologist (specialization: biodiversity)",
+"Climate activist representative.",
+"Animal representative."
 )
 v2 <- c(
  "$\\omega_1 = 0.1$", 
@@ -244,16 +244,16 @@ At this point it is useful to illustrate the model in this subsection using an e
 
 ```{r scalingmarginal, echo = FALSE}
 v1 <- c(
-"1.	Citizen representative.",
-"2.	Next generation representative.",
-"3.	Consumer representative.",
-"4.	Producer representative.",
-"5.	Governmental representative (chair of the committee).",
-"6.	Economist (specialization: environmental economics)",
-"7.	Philosopher (specialization: animal ethics)",
-"8.	Ecologist (specialization: biodiversity)",
-"9.	Climate activist representative.",
-"10. Animal representative."
+"Citizen representative.",
+"Next generation representative.",
+"Consumer representative.",
+"Producer representative.",
+"Governmental representative (chair of the committee).",
+"Economist (specialization: environmental economics)",
+"Philosopher (specialization: animal ethics)",
+"Ecologist (specialization: biodiversity)",
+"Climate activist representative.",
+"Animal representative."
 )
 v2 <- c(
  "$\\omega_1 = 0.1$", 
@@ -288,7 +288,7 @@ v4 <- c(
 "No scaling is needed because full information about impacts is available. Therefore, it seems that the current marginal cost function gives the most appropriate evolutionary social fit for consumers. Producers already make a rational trade-off between following the rules and the probability to get caught.",
 "For those producers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling up marginal costs is reasonable. Survey research shows that no producers in the market commit themselves to the combination of these principles. However, 10% of the producers produce at 20% lower marginal costs because they do not follow the governmental rules of production. The marginal costs should therefore be scaled up with $1/0.8=1.25$.",
 "Producers have a responsibility for harm against nature. The systemic impacts of climate change on biodiversity require a reconsideration of marginal costs in this market. Producing meat in a biological sustainable way would imply marginal costs which are 80% higher. Therefore, I recommend 
-$\\delta_8=1.8%.",
+$\\delta_8=1.8$.",
 "The time for action is NOW as extinction is coming near! Producing meat in a biological sustainable way would imply marginal costs which are twice as high. Therefore, I recommend $\\delta_9=1.8$.",
 "It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be killed by your boss for money? The true benchmark here is the sustainable production of animal friendly LAB-meat which has marginal costs which are a factor 10 higher. Therefore, I recommend $\\delta_10=10$."
 )
@@ -382,16 +382,16 @@ Members of the advisory committee therefore have to decide on their weight for t
 
 ```{r scalingexternal, echo = FALSE}
 v1 <- c(
-"1.	Citizen representative.",
-"2.	Next generation representative.",
-"3.	Consumer representative.",
-"4.	Producer representative.",
-"5.	Governmental representative (chair of the committee).",
-"6.	Economist (specialization: environmental economics)",
-"7.	Philosopher (specialization: animal ethics)",
-"8.	Ecologist (specialization: biodiversity)",
-"9.	Climate activist representative.",
-"10. Animal representative."
+"Citizen representative.",
+"Next generation representative.",
+"Consumer representative.",
+"Producer representative.",
+"Governmental representative (chair of the committee).",
+"Economist (specialization: environmental economics)",
+"Philosopher (specialization: animal ethics)",
+"Ecologist (specialization: biodiversity)",
+"Climate activist representative.",
+"Animal representative."
 )
 v2 <- c(
  "$\\omega_1 = 0.1$", 
@@ -488,5 +488,3 @@ The proposed adjustment of economic social surplus in this paper is pragmatic in
 One could argue that in the proposed model non-utilitarian moral considerations related to duties of consumers and producers are implicitly monetized via the taxation rules. This is a valid concern, but comparatively speaking---and as stated in the introduction---the plural ethicizing economics approach is preferred over the approach that ignores these moral considerations altogether when calculating economic surplus (‘ethical checkbox’) or the approach that explicitly monetize the ignorance of these moral considerations (‘economizing ethics’) as it *directly* deals with the moral considerations when specifying the economic ‘pie’ without taking an external costs ‘detour’. Furthermore, the proposed calculation of economic surplus still allows for an ethical checkbox or other social and law considerations that can overrule or complement tax recommendations based on economic social surplus calculations. The use of moral externality taxes is therefore not a substitute for action to reduce grave and tragic injustice and external costs in markets. 
 
 A benefit of the approach is that room is given for considerations related to voice and exit [@hirschman1970exit]. ‘Exit’ considerations are captured by market choices of consumers and producers. If they do not want to produce or consume the good they can choose something else. ‘Exit’ is properly accounted for in the behavioural choices of consumers and producers. ‘Voice’ considerations in our context are related to the different normative perspectives in society related to what should be counted as valuable. The ethical weights are helpful instruments to give different voices a place in the normative stage of the analysis.
-
-

@@ -65,13 +65,13 @@ Now we see descriptive statistics for two variables, containing number of observ
 
 ```{stata scatterplot, echo=1, results="hide"}
 scatter testscr str
-quietly graph export figures/scatter.svg, replace
+quietly graph export figures/scatter.png, replace
 ```
 
 And this provides the following `STATA` output.
 
 ```{r, echo=FALSE, fig.cap = "A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis", label='scattercaschool'}
-knitr::include_graphics("./figures/scatter.svg")
+knitr::include_graphics("./figures/scatter.png")
 ```
 
 This "cloud" of dots do not yield a clearly visible relation between class performance and class size. However, this can be deceptive. Often it is difficult to discern clear relations from raw data only. Therefore we need to resort to numerical evidence. 
@@ -348,7 +348,7 @@ then the $p$-value can be seen from Figure \@ref(fig:pvalues):
 knitr::include_graphics("./figures/lecture_sheet9.jpg")
 ```
 
-That is, for large $n$ (and typically we have that), the $p$-value is the probability that a $N(0,1)$ random variable falls outside $|\hat{\beta}_1^{act} - \beta_{1,0})/\sigma_{\hat{\beta}_1}} | = |t|$. That is the blue areas under the normal distribution and they entail a probability *mass*. Now, if both surfaces on the sides are not larger than 2.5%, then we can reject the null-hypothesis against a 5% significance level. Now, the computer output above gives a $p$-value of $0.000$, which a bit strange. The $p$-value is actually not zero, but a very small number and definitely smaller than $0.05$, so we can *reject* the null-hypothesis being $\beta_{1,0} = 0$ at a 5% significance level (and at a 1% and 0.1% significance level as well). Now, if the $t$-statistic is exactly 1.96 in absolute value, then the $p$-value is 0.05. So, to repeat the steps, but now using computer output for testing the hypothesis that $\beta_1 = \beta_{1,0}$
+That is, for large $n$ (and typically we have that), the $p$-value is the probability that a $N(0,1)$ random variable falls outside $|\hat{\beta}_1^{act} - \beta_{1,0})/\sigma_{\hat{\beta}_1} | = |t|$. That is the blue areas under the normal distribution and they entail a probability *mass*. Now, if both surfaces on the sides are not larger than 2.5%, then we can reject the null-hypothesis against a 5% significance level. Now, the computer output above gives a $p$-value of $0.000$, which a bit strange. The $p$-value is actually not zero, but a very small number and definitely smaller than $0.05$, so we can *reject* the null-hypothesis being $\beta_{1,0} = 0$ at a 5% significance level (and at a 1% and 0.1% significance level as well). Now, if the $t$-statistic is exactly 1.96 in absolute value, then the $p$-value is 0.05. So, to repeat the steps, but now using computer output for testing the hypothesis that $\beta_1 = \beta_{1,0}$
 
 1. Get the standard error from computer output
 2. Compute the $t$-statistics as in Eq. \@ref(eq:olst)

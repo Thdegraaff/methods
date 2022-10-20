@@ -168,7 +168,7 @@ Q = \beta_0 + \beta_1 \ln p + \epsilon.
 
 From equation \@ref(eq:empiricalinversedemand) one can derive some of the utility parameters. The parameter  $\beta_1$ is expected to be negative as demand decreases in the price. The mathematical model suggests that this parameter should be equal to $\frac{1}{\alpha}$. We can therefore write $\alpha = -\frac{1}{\beta_1} > 0$. The constant parameter $\beta_0$ is---according to the behavioural model---equal to $\beta_0 = \frac{1}{\alpha}\ln(\frac{A}{B})$. We can therefore write $\ln \frac{A}{B} = \alpha \beta_0$ or $\frac{A}{B} = e^{\alpha \beta_0} = e^{-\frac{1}{\beta_1}\beta_0}$. 
 
-The estimated parameters resulting from the regression equation therefore have a one-to-one correspondence to the underlying utility maximisation problem. An assumption that needs to be made is that the error $\epsilon$ in the regression equation is irrelevant for the analysis and captures particular measurement errors at the side of the researcher. If this is not the case, errors capture another part of the marginal utility and things become more complicated.^[An interesting question that gives a hint for solving this issue is: could you propose a direct utility function that deals with ∈ as a parameter of the direct utility function?] Dealing with unknown regression noise therefore already leads to interesting epistemological questions for applied economic research that we will assume away for now.
+The estimated parameters resulting from the regression equation therefore have a one-to-one correspondence to the underlying utility maximisation problem. An assumption that needs to be made is that the error $\epsilon$ in the regression equation is irrelevant for the analysis and captures particular measurement errors at the side of the researcher. If this is not the case, errors capture another part of the marginal utility and things become more complicated.^[An interesting question that gives a hint for solving this issue is: could you propose a direct utility function that deals with $\epsilon$ as a parameter of the direct utility function?] Dealing with unknown regression noise therefore already leads to interesting epistemological questions for applied economic research that we will assume away for now.
 
 Furthermore, the behavioural model analyses individual choice behaviour and therefore the measurement of prices and demand should ideally be done at the individual level to stay close to the behavioural mathematical narrative that is developed.
 
@@ -193,7 +193,7 @@ Solving this first-order condition for the quantity level gives the following de
 Q(p) = \frac{A}{A + B}\frac{Y}{p}.
 \end{equation}
 
-The demand curve depends on the exogenous utility parameters $A$ and $B$, increases in the income level $Y$ and decreases in the price $p$. Higher income levels therefore result in higher demand for the market good. The consumer spends $p Q(p)=\frac{A}{A+B} Y$ on the market good. From the budget constraint we can work back the spending on the outside good which are equal to $Y-pQ=\frac{B}{A+B} Y$. This is an attractive aspect of the Cobb-Douglas specification: expenditure shares on the market good are directly related to relative utility parameters $\frac{A}{A+B}. 
+The demand curve depends on the exogenous utility parameters $A$ and $B$, increases in the income level $Y$ and decreases in the price $p$. Higher income levels therefore result in higher demand for the market good. The consumer spends $p Q(p)=\frac{A}{A+B} Y$ on the market good. From the budget constraint we can work back the spending on the outside good which are equal to $Y-pQ=\frac{B}{A+B} Y$. This is an attractive aspect of the Cobb-Douglas specification: expenditure shares on the market good are directly related to relative utility parameters $\frac{A}{A+B}$. 
 
 For empirical purposes, the demand curve can be estimated using econometric techniques. Log-linearizing the demand curve gives the following regression equation:
 
@@ -361,7 +361,7 @@ Suppose we employ a stable Cobb-Douglas inverse demand curve over time which is 
 
 This uses the fact that the primitive function of $\frac{1}{Q}$ is given by $\ln(Q)$. The last step is taken using rules of working with logarithms: $ln(x)-ln(y)=ln(x/y)$. Again, the primitive function is derived of which the derivative gives back the inverse demand function. The change in consumer benefits is positive when $Q^{\ast\ast}>Q^\ast$, and negative when $Q^{\ast\ast}<Q^\ast$. For this particular specification of the utility function the change is proportionally increasing in the income level. In order to operationalise this equation, one has to account for the dimension of the quantity level and the dimension of the income variable. For the budget constraint the net spendable income is relevant. Suppose income in the regression is given by net spendable income per month and is equal to $Y=3,500$ euros. 
 
-Furthermore, suppose there is an increase in the consumption of vegan nuggets from $200,000$ pieces per year in 2019 to $250,000$ pieces per year in 2020. For the analysis of consumer benefits, we need the equality \frac{A}{A+B}=e^{\beta_0}, where $\beta_0$ is the constant of the regression. An econometrician estimates the following regression:
+Furthermore, suppose there is an increase in the consumption of vegan nuggets from $200,000$ pieces per year in 2019 to $250,000$ pieces per year in 2020. For the analysis of consumer benefits, we need the equality $\frac{A}{A+B}=e^{\beta_0}$, where $\beta_0$ is the constant of the regression. An econometrician estimates the following regression:
 
 \begin{equation}
  Q = \beta_0 + \beta_1 \ln p + \beta_2 \ln Y + \epsilon, 
@@ -727,7 +727,7 @@ $\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast
 "$Q^D (p)=e^{\\frac{A-p}{\\alpha}}$\n
 Equilibrium elasticity:\n
 $\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}p^\\ast$",
-"$Q^D (p)=\\frac{A-p}{\alpha}$\n
+"$Q^D (p)=\\frac{A-p}{\\alpha}$\n
 Equilibrium elasticity:\n
 $\\epsilon^\\ast=\\frac{\\partial Q^\\alpha}{\\partial p}\\frac{p^\\ast}{Q^\\ast}=-\\frac{1}{\\alpha}\\frac{p^\\ast}{Q^\\ast}$"
 )
@@ -736,7 +736,7 @@ v4 <- c(
 Parameter assumptions:
 $B>0$,$B<A$.\n
 Regression (log-linear):\n
-$MC = \\ln B  +b \\lnQ + \\epsilon$",
+$MC = \\ln B  +b \\ln Q + \\epsilon$",
 "$s(Q)=BQ^b$\n
 Parameter assumptions:
 $B>0$\n

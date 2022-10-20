@@ -519,7 +519,7 @@ U(Q,G) = A\ln(Q) + B\ln(G) = A \ln(Q) + B \ln (Y - p Q).
 <p><span class="math display">\[\begin{equation}
 Q(p) = \frac{A}{A + B}\frac{Y}{p}.
 \end{equation}\]</span></p>
-<p>The demand curve depends on the exogenous utility parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, increases in the income level <span class="math inline">\(Y\)</span> and decreases in the price <span class="math inline">\(p\)</span>. Higher income levels therefore result in higher demand for the market good. The consumer spends <span class="math inline">\(p Q(p)=\frac{A}{A+B} Y\)</span> on the market good. From the budget constraint we can work back the spending on the outside good which are equal to <span class="math inline">\(Y-pQ=\frac{B}{A+B} Y\)</span>. This is an attractive aspect of the Cobb-Douglas specification: expenditure shares on the market good are directly related to relative utility parameters $.</p>
+<p>The demand curve depends on the exogenous utility parameters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, increases in the income level <span class="math inline">\(Y\)</span> and decreases in the price <span class="math inline">\(p\)</span>. Higher income levels therefore result in higher demand for the market good. The consumer spends <span class="math inline">\(p Q(p)=\frac{A}{A+B} Y\)</span> on the market good. From the budget constraint we can work back the spending on the outside good which are equal to <span class="math inline">\(Y-pQ=\frac{B}{A+B} Y\)</span>. This is an attractive aspect of the Cobb-Douglas specification: expenditure shares on the market good are directly related to relative utility parameters <span class="math inline">\(\frac{A}{A+B}\)</span>.</p>
 <p>For empirical purposes, the demand curve can be estimated using econometric techniques. Log-linearizing the demand curve gives the following regression equation:</p>
 <p><span class="math display">\[\begin{equation}
 \ln Q = \ln(\frac{A}{A+B}) + \ln Y - \ln p + \epsilon.
@@ -647,7 +647,7 @@ CB &amp;= \int_0^{Q^\ast}  \frac{A}{B} e^{-\alpha Q} = \left[-\frac{1}{\alpha}\f
 &amp;= \frac{A}{A+B} Y \left[\ln \left(\frac{Q^{\ast\ast}}{Q^\ast}\right) \right].
 \end{align}\]</span></p>
 <p>This uses the fact that the primitive function of <span class="math inline">\(\frac{1}{Q}\)</span> is given by <span class="math inline">\(\ln(Q)\)</span>. The last step is taken using rules of working with logarithms: <span class="math inline">\(ln(x)-ln(y)=ln(x/y)\)</span>. Again, the primitive function is derived of which the derivative gives back the inverse demand function. The change in consumer benefits is positive when <span class="math inline">\(Q^{\ast\ast}&gt;Q^\ast\)</span>, and negative when <span class="math inline">\(Q^{\ast\ast}&lt;Q^\ast\)</span>. For this particular specification of the utility function the change is proportionally increasing in the income level. In order to operationalise this equation, one has to account for the dimension of the quantity level and the dimension of the income variable. For the budget constraint the net spendable income is relevant. Suppose income in the regression is given by net spendable income per month and is equal to <span class="math inline">\(Y=3,500\)</span> euros.</p>
-<p>Furthermore, suppose there is an increase in the consumption of vegan nuggets from <span class="math inline">\(200,000\)</span> pieces per year in 2019 to <span class="math inline">\(250,000\)</span> pieces per year in 2020. For the analysis of consumer benefits, we need the equality =e^{_0}, where <span class="math inline">\(\beta_0\)</span> is the constant of the regression. An econometrician estimates the following regression:</p>
+<p>Furthermore, suppose there is an increase in the consumption of vegan nuggets from <span class="math inline">\(200,000\)</span> pieces per year in 2019 to <span class="math inline">\(250,000\)</span> pieces per year in 2020. For the analysis of consumer benefits, we need the equality <span class="math inline">\(\frac{A}{A+B}=e^{\beta_0}\)</span>, where <span class="math inline">\(\beta_0\)</span> is the constant of the regression. An econometrician estimates the following regression:</p>
 <p><span class="math display">\[\begin{equation}
 Q = \beta_0 + \beta_1 \ln p + \beta_2 \ln Y + \epsilon,
 \end{equation}\]</span>
@@ -935,7 +935,7 @@ Case I: Exponential inverse demand and exponential inverse supply
 <p>Parameter assumptions:
 <span class="math inline">\(B&gt;0\)</span>,<span class="math inline">\(B&lt;A\)</span>.</p>
 <p>Regression (log-linear):</p>
-<span class="math inline">\(MC = \ln B +b \lnQ + \epsilon\)</span>
+<span class="math inline">\(MC = \ln B +b \ln Q + \epsilon\)</span>
 </td>
 <td style="text-align:left;">
 <p><span class="math inline">\(Q^S(p)=\frac{1}{b}\ln\left[\frac{p}{B}\right]\)</span></p>
@@ -1011,7 +1011,7 @@ Case IV: linear inverse demand and inverse supply
 <span class="math inline">\(p=A-\alpha Q+ \epsilon\)</span>
 </td>
 <td style="text-align:left;">
-<p><span class="math inline">\(Q^D (p)=\frac{A-p}{lpha}\)</span></p>
+<p><span class="math inline">\(Q^D (p)=\frac{A-p}{\alpha}\)</span></p>
 <p>Equilibrium elasticity:</p>
 <span class="math inline">\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{p^\ast}{Q^\ast}\)</span>
 </td>
@@ -1344,7 +1344,7 @@ This example has showed how—given the model assumptions—one can estimate a q
 <li id="fn1"><p>Remember, concave function have decreasing marginal returns such as in Figure <a href="introduction.html#fig:marginalutility">1.1</a><a href="surplus.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Recall that an inverse demand curve is a function of <span class="math inline">\(Q\)</span> that determines <span class="math inline">\(p\)</span><a href="surplus.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Recall that for an optimal utility, which is what we aim for, the condition <span class="math inline">\(\frac{dU}{dQ} = 0\)</span> should hold, so from <a href="surplus.html#eq:foc">(2.4)</a> we then know that <span class="math inline">\(Ae^{\alpha Q} = pB\)</span> leading to <a href="surplus.html#eq:optimalinversedemand">(2.5)</a><a href="surplus.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>An interesting question that gives a hint for solving this issue is: could you propose a direct utility function that deals with ∈ as a parameter of the direct utility function?<a href="surplus.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>An interesting question that gives a hint for solving this issue is: could you propose a direct utility function that deals with <span class="math inline">\(\epsilon\)</span> as a parameter of the direct utility function?<a href="surplus.html#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>It is also possible to specify this utility function as: <span class="math inline">\(U(Q,G)=Z Q^A G^B\)</span>. Log-linearizing gives the utility function used in the text and has no impact on the first-order condition. The constant <span class="math inline">\(Z\)</span> is irrelevant for the analysis of demand.<a href="surplus.html#fnref5" class="footnote-back">↩︎</a></p></li>
 <li id="fn6"><p>This solution is unique. You can check this by proving that the total second-order derivative is negative.<a href="surplus.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>Note that the <span class="math inline">\(\epsilon\)</span> here is different from that what we normally use in regression equations.<a href="surplus.html#fnref7" class="footnote-back">↩︎</a></p></li>

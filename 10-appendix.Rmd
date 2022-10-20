@@ -34,7 +34,7 @@ This results in:
 \tau = p^* \left(\frac{b_c}{b_p} - 1 \right) = p^* \left(\frac{b_c - b_p}{b_p}\right).
 \end{equation}
 
-Now add the external costs $\frac{\partial e(Q)}{\partial Q} to the economic surplus function. Define the Lagrangian function as:
+Now add the external costs $\frac{\partial e(Q)}{\partial Q}$ to the economic surplus function. Define the Lagrangian function as:
 
 \begin{equation}
 H = \int_0^Q p_e (Q')dQ' - \int^Q_0 s_e(Q')dQ' - e(Q) + \lambda (p_d(Q) - p^* - \tau)
@@ -209,13 +209,13 @@ but this start to become boring as $n$ increases. Therefore, we turn to `STATA`.
 set obs 10000
 generate Y = rbinomial(2,0.78)/2 
 hist(Y), fraction
-quietly graph export figures/coin1.svg, replace
+quietly graph export figures/coin1.png, replace
 ```
 
 The first line of this code sets the number of experiments (called `obs`). So, I throw a coin twice, for 10000 times in a row. The second line generates the outcomes, which in this case are no heads (0), head once (1), or two heads (2). To arrive at probabilities I divide by 2 again. Finally, the third line gives a history of fraction (not counts). And this provides the following `STATA` output.
 
 ```{r, echo=FALSE, fig.cap = "Sampling distribution when you throw a coin two times", label='coin1'}
-knitr::include_graphics("./figures/coin1.svg")
+knitr::include_graphics("./figures/coin1.png")
 ```
 
 But what if I do this a 100 times, so $n = 100$?
@@ -225,13 +225,13 @@ clear
 set obs 10000
 generate Y = rbinomial(100,0.78)/100 
 hist(Y), fraction
-quietly graph export figures/coin100.svg, replace
+quietly graph export figures/coin100.png, replace
 ```
 
 Note that fhe first line now clears `STATA`'s memory as I actually create a new dataset. The histogram can be seen now in Figure \@ref(fig:coin100). 
 
 ```{r, echo=FALSE, fig.cap = "Sampling distribution when you throw a coin 100 times", label='coin100'}
-knitr::include_graphics("./figures/coin100.svg")
+knitr::include_graphics("./figures/coin100.png")
 ```
 
 But isn't this strange. Apart from some omitted bars (which is a fluke of `STATA`), we can now observe a couple of things. First, the average of the distribution of Figure \@ref(fig:coin100) is very close to 0.78, which is the actual probability that our biased coin provides tails. But, more importantly the distribution starts to look like a symmetric normal distribution. And we started with a binomial distribution! 

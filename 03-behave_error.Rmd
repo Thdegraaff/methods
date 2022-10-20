@@ -261,7 +261,7 @@ A third approach to model behavioural error is to define decision utility as the
 U^d (Q,G)= \varphi U^I (Q, G) + (1 - \varphi) U^{II} (Q, G). 
 \end{equation}
 
-This specification of utility assumes the individual has at least some partial knowledge about the experienced utility when making the decision, but is also partly governed by the 'heuristic' System I decision utility which is assumed to be irrelevant for evaluation purposes. The parameter $0 \leq \varphi \leq 1$, governs how system I utility and system II utility are weighted. When φ=1, system I utility is completely governing the decision of the consumer. When φ=0, we obtain the rational or neo-classical case where decision utility is equal to experienced utility. 
+This specification of utility assumes the individual has at least some partial knowledge about the experienced utility when making the decision, but is also partly governed by the 'heuristic' System I decision utility which is assumed to be irrelevant for evaluation purposes. The parameter $0 \leq \varphi \leq 1$, governs how system I utility and system II utility are weighted. When $\varphi=1$, system I utility is completely governing the decision of the consumer. When $\varphi=0$, we obtain the rational or neo-classical case where decision utility is equal to experienced utility. 
 
 When we assume that experienced utility is equal to system II utility,  $U^{II} (Q,G)=U^e (Q,G)$, and we obtain:
 
