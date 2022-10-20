@@ -78,14 +78,14 @@ Although there are many and very good introductory textbooks on economic models 
 
 This syllabus assumes that the reader has a basic working knowledge of introductory economics, statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading. Where we think it is necessary we provide (references to) background material. For the course **Methods and Techiques for Social and Economic Research** the syllabus should be read **in total** and it might be wise to read the relevant material *before* the respective lecture. The big advantage of course is that lectures and reading material now really go one-on-one. 
 
-```{r include=FALSE, message=FALSE}
+```{r include=FALSE, warning=FALSE, message=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'Statamarkdown', 'kableExtra'
 ), 'packages.bib')
 ```
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(kableExtra)
 ```
 
