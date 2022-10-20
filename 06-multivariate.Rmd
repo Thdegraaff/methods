@@ -1,4 +1,4 @@
-# Modeling in the Social Sciences
+# Modeling in the Social Sciences {#ch:modeling}
 
 ## Why more independent variables?
 

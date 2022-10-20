@@ -86,6 +86,11 @@ knitr::write_bib(c(
 ```
 
 ```{r, echo=FALSE, message=FALSE}
-library(Statamarkdown)
 library(kableExtra)
+```
+
+```{r stata_setup, warning=FALSE, message=FALSE, echo=FALSE}
+library(Statamarkdown)
+stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE" # Mac OS
+knitr::opts_chunk$set(engine.path = list(stata = stataexe))
 ```

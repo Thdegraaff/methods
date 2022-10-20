@@ -462,9 +462,9 @@ The implicit equilibrium expression for the first-best externality tax is given 
  \tau = p^{*R} \frac{\bar{\delta} - \bar{\alpha}}{\bar{\alpha}} + \frac{\bar{\eta}}{\bar{\alpha}}MEC,
    (\#eq:taxmoral2)
 \end{equation}
-where $p^{*R}$ is the price in the regulated equilibrium. This tax expression has two analytical terms. The first component is equal to the tax Eq. \@ref(eq:moraltax) derived in Section II. 
+where $p^{*R}$ is the price in the regulated equilibrium. This tax expression has two analytical terms. The first component is equal to the tax Eq. \@ref(eq:taxmoral) derived in Section II. 
 
-The second term in Eq. \@ref(eq:moraltax2) is related to the external costs. It multiplies the marginal external costs in the regulated equilibrium MEC with a factor $\frac{\bar{\eta}}{\bar{\alpha}}$, which is equal to $\bar{\eta}$ in the absence of moral considerations related to consumer benefits and governmental taxation. Suppose the external costs are fully counted implying $\bar{\eta} = 1$. This results in the following simplified tax expression:
+The second term in Eq. \@ref(eq:taxmoral2) is related to the external costs. It multiplies the marginal external costs in the regulated equilibrium MEC with a factor $\frac{\bar{\eta}}{\bar{\alpha}}$, which is equal to $\bar{\eta}$ in the absence of moral considerations related to consumer benefits and governmental taxation. Suppose the external costs are fully counted implying $\bar{\eta} = 1$. This results in the following simplified tax expression:
 
 \begin{equation}
  \tau = p^{*R} \frac{\bar{\delta} - \bar{\alpha}}{\bar{\alpha}} + \frac{1}{\bar{\alpha}}MEC,
