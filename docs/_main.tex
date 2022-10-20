@@ -182,7 +182,7 @@ Although there are many and very good introductory textbooks on economic models 
 \section*{For Whom}\label{for-whom}}
 \addcontentsline{toc}{section}{For Whom}
 
-This syllabus assumes that the reader has a basic working knowledge of introductory economics, statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading. Where we think it is necessary we provide (references to) background material. For the course \textbf{Methods and Techiques for Social and Economic Research} the syllabus should be read \textbf{in total} and it might be wise to read the relevant material \emph{before} the respective lecture. THe big advantage of course is that lectures and reading material now really go one-on-one.
+This syllabus assumes that the reader has a basic working knowledge of introductory economics, statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading. Where we think it is necessary we provide (references to) background material. For the course \textbf{Methods and Techiques for Social and Economic Research} the syllabus should be read \textbf{in total} and it might be wise to read the relevant material \emph{before} the respective lecture. The big advantage of course is that lectures and reading material now really go one-on-one.
 
 \begin{verbatim}
 ## Warning in !is.null(rmarkdown::metadata$output) && rmarkdown::metadata$output
@@ -1007,139 +1007,104 @@ The second equality \(p^\ast=s(Q^\ast)\) states that the equilibrium price shoul
 
 How to fit the conceptual model to a real market in order to do justice to the third pillar: empiricism? That is the challenge of calibration in this section. Using the equilibrium equations, it is possible to recover two unknown parameters of the demand and supply function. If one also has information about the equilibrium elasticities, it is possible to calibrate four model parameters. This is the reason that the estimation of equilibrium elasticities is an important task of empirical economists. In the previous section we have seen estimates for these elasticities for different kinds of market goods. The tables below can be used for calibration of the (inverse) market demand and supply curves given this knowledge on the estimated (equilibrium) elasticities.
 
-\label{tab:demand}Demand and supply elasticities and model parameters
+\begin{table}
 
-Case description
-
-Inverse demand
-
-Implied demand curve and equilibrium price elasticity of demand
-
-Inverse supply
-
-Implied supply curve and equilibrium price elasticity of supply
-
-Case I: Exponential inverse demand and exponential inverse supply
-
-\(p(Q)=Ae^{-\alpha Q}\)
+\caption{\label{tab:demand}Demand and supply elasticities and model parameters}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lllll}
+\toprule
+Case description & Inverse demand & Implied demand curve and equilibrium price                     elasticity of demand & Inverse supply & Implied supply curve and equilibrium                       price elasticity of supply\\
+\midrule
+Case I: Exponential inverse demand and exponential inverse supply & $p(Q)=Ae^{-\alpha Q}$
 
 Parameter assumptions:
-\(A>0\), \(\alpha>0\).
+$A>0$, $\alpha>0$.
 
 Regression (log-linear):
 
-\(\ln p = \ln A - \alpha Q + \epsilon\)
-
-\(Q^D (p)=\frac{1}{\alpha} \ln\left[\frac{A}{P}\right]\)
+$\ln p = \ln A - \alpha Q + \epsilon$ & $Q^D (p)=\frac{1}{\alpha} \ln\left[\frac{A}{P}\right]$
 
 Equilibrium elasticity:
 
-\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{1}{A^\ast}\)
-
-\(s(Q)=Be^{bQ}\)
+$\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{1}{A^\ast}$ & $s(Q)=Be^{bQ}$
 
 Parameter assumptions:
-\(B>0\),\(B<A\).
+$B>0$,$B<A$.
 
 Regression (log-linear):
 
-\(MC = \ln B +b \ln Q + \epsilon\)
-
-\(Q^S(p)=\frac{1}{b}\ln\left[\frac{p}{B}\right]\)
+$MC = \ln B  +b \ln Q + \epsilon$ & $Q^S(p)=\frac{1}{b}\ln\left[\frac{p}{B}\right]$
 
 Equilibrium elasticity:
 
-\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{1}{Q^\ast}\)
-
-Case II: Constant elasticity inverse demand and inverse supply
-
-\(p(Q) = AQ^{-\alpha}\)
+$\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{1}{Q^\ast}$\\
+Case II: Constant elasticity inverse demand and inverse supply & $p(Q) = AQ^{-\alpha}$
 
 Parameter assumptions:
-\(A>0\), \(\alpha>0\).
+$A>0$, $\alpha>0$.
 
 Regression (log-log):
 
-\(\ln p = \ln A - \alpha \ln Q + \epsilon\)
-
-\(Q^D (p)=\frac{P}{A}^{-\frac{1}{\alpha}}\)
+$\ln p = \ln A - \alpha \ln Q + \epsilon$ & $Q^D (p)=\frac{P}{A}^{-\frac{1}{\alpha}}$
 
 Equilibrium elasticity:
 
-\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\)
-
-\(s(Q)=BQ^b\)
+$\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}$ & $s(Q)=BQ^b$
 
 Parameter assumptions:
-\(B>0\)
+$B>0$
 
 Regression (log-log):
 
-\(\ln MC = \ln B + b \ln Q + \epsilon\)
-
-\(Q^S(p)=\left(\frac{p}{B}\right)^{\frac{1}{b}}\)
+$\ln MC = \ln B + b \ln Q + \epsilon$ & $Q^S(p)=\left(\frac{p}{B}\right)^{\frac{1}{b}}$
 
 Equilibrium elasticity:
 
-\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\)
-
-Case III: Logged inverse demand and inverse supply
-
-\(p(Q)=A-\alpha \ln Q\)
+$\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}$\\
+Case III: Logged inverse demand and inverse supply & $p(Q)=A-\alpha \ln Q$
 
 Parameter assumptions:
-\(A>0\), \(\alpha>0\).
+$A>0$, $\alpha>0$.
 
 Regression (linear-log):
 
-\(p=A- \alpha \ln Q + \epsilon\)
-
-\(Q^D (p)=e^{\frac{A-p}{\alpha}}\)
+$p=A- \alpha \ln Q + \epsilon$ & $Q^D (p)=e^{\frac{A-p}{\alpha}}$
 
 Equilibrium elasticity:
 
-\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}p^\ast\)
-
-\(s(Q) = B + b \ln Q\)
+$\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}p^\ast$ & $s(Q) = B + b \ln Q$
 
 Parameter assumptions:
-\(B>0\)
+$B>0$
 
 Regression (linear-log):
 
-\(MC = B + b \ln Q + \epsilon\)
-
-\(Q^S(p)=e^{\frac{p-B}{b}}\)
+$MC = B + b \ln Q + \epsilon$ & $Q^S(p)=e^{\frac{p-B}{b}}$
 
 Equilibrium elasticity:
 
-\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}p^\ast\)
-
-Case IV: linear inverse demand and inverse supply
-
-\(p(Q)=A- \alpha Q\)
+$\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}p^\ast$\\
+Case IV: linear inverse demand and inverse supply & $p(Q)=A- \alpha Q$
 
 Regression (linear-linear):
 
-\(p=A-\alpha Q+ \epsilon\)
-
-\(Q^D (p)=\frac{A-p}{\alpha}\)
+$p=A-\alpha Q+ \epsilon$ & $Q^D (p)=\frac{A-p}{\alpha}$
 
 Equilibrium elasticity:
 
-\(\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{p^\ast}{Q^\ast}\)
-
-\(s(Q)=B+bQ\)
+$\epsilon^\ast=\frac{\partial Q^\alpha}{\partial p}\frac{p^\ast}{Q^\ast}=-\frac{1}{\alpha}\frac{p^\ast}{Q^\ast}$ & $s(Q)=B+bQ$
 
 Regression (linear-linear):
 
-\(MC=B+bQ+\epsilon\)
-
-\(Q^S(p)=\frac{p-B}{b}\)
+$MC=B+bQ+\epsilon$ & $Q^S(p)=\frac{p-B}{b}$
 
 Equilibrium elasticity:
 
-\(\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{p^\ast}{Q^\ast}\)
+$\kappa^\ast = \frac{\partial Q^S}{\partial p}\frac{p^\ast}{Q^\ast} = \frac{1}{b}\frac{p^\ast}{Q^\ast}$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Table 2 gives the calibrated parameters for the inverse demand and inverse supply functions based on information on the equilibrium elasticities and the equilibrium price and quantity. Equilibrium elasticities can be obtained from the literature or from an empirical analysis of demand and supply data. Equilibrium prices and quantities can be observed for the market that you are interested in.
 
@@ -1148,55 +1113,43 @@ Table 2 gives the calibrated parameters for the inverse demand and inverse suppl
 The parameters \(A\) and \(B\) can be calibrated using the identities for the inverse demand and inverse supply at the equilibrium. The parameters \(a\) and \(b\) can be calibrated using the equations we have for the price elasticities for specified demand and supply functions (see Table \ref{tab:demand}).
 To illustrate how a market can be calibrated using elasticities from the literature we provide an example of case I: exponential inverse demand and inverse supply functions. Table \ref{tab:calibration} shows information we have about the equilibrium elasticities for vegan nuggets.
 
-\label{tab:calibration}Input for the calibration (numbers are illustrative and not from empirical studies)
+\begin{table}
 
-Variable explanation
-
-Value
-
-Price elasticity of demand \(\epsilon^\ast\)
-
-\(-0.7\)
-
-Price elasticity of supply \(\kappa^\ast\)
-
-\(1.1\)
-
-Equilibrium price per piece \(p^\ast\)
-
-\(2.9\) euro
-
-Equilibrium quantity per year \(Q^\ast\)
-
-\(200,000\) pieces per year
+\caption{\label{tab:calibration}Input for the calibration (numbers are illustrative and not from empirical studies)}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+Variable explanation & Value\\
+\midrule
+Price elasticity of demand $\epsilon^\ast$ & $-0.7$\\
+Price elasticity of supply $\kappa^\ast$ & $1.1$\\
+Equilibrium price per piece $p^\ast$ & $2.9$ euro\\
+Equilibrium quantity per year $Q^\ast$ & $200,000$ pieces per year\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Using the first row of Table \ref{tab:demand} we then calibrate the parameters of the inverse demand and the inverse supply function. These are given in Table \ref{tab:modelparameters}:
 
-\label{tab:modelparameters}Calibrated model parameters
+\begin{table}
 
-Variable explanation
+\caption{\label{tab:modelparameters}Calibrated model parameters}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+Variable explanation & Value\\
+\midrule
+Parameter of the inverse demand function $\alpha$ & $\alpha = \frac{1}{\epsilon^\ast}\frac{1}{Q^\ast} = \frac{1}{0.8}\frac{1}{200,000} = \frac{1}{160,000}$\\
+Parameter of the inverse demand function $A$
 
-Value
+(maximum MWTP in the sample) & $A = p^\ast e^{\alpha Q^\ast} = 2.9 e^{\frac{200,000}{160,000}} \approx 10.12 \text{ euro}$\\
+Parameter of the inverse supply function $b$ & $b = \frac{1}{\kappa^\ast}\frac{1}{Q^{\ast}} = \frac{1}{1.1}\frac{1}{200,000} = \frac{1}{220,000}$\\
+Parameter of the inverse supply function $B$
 
-Parameter of the inverse demand function \(\alpha\)
-
-\(\alpha = \frac{1}{\epsilon^\ast}\frac{1}{Q^\ast} = \frac{1}{0.8}\frac{1}{200,000} = \frac{1}{160,000}\)
-
-Parameter of the inverse demand function \(A\)
-
-(maximum MWTP in the sample)
-
-\(A = p^\ast e^{\alpha Q^\ast} = 2.9 e^{\frac{200,000}{160,000}} \approx 10.12 \text{ euro}\)
-
-Parameter of the inverse supply function \(b\)
-
-\(b = \frac{1}{\kappa^\ast}\frac{1}{Q^{\ast}} = \frac{1}{1.1}\frac{1}{200,000} = \frac{1}{220,000}\)
-
-Parameter of the inverse supply function \(B\)
-
-(minimum marginal costs in the sample)
-
-\(B = p^\ast e^{b Q^\ast} = 2.9 e^{-\frac{200,000}{220,000}} \approx 1.17 \text{ euro}\)
+(minimum marginal costs in the sample) & $B = p^\ast e^{b Q^\ast} = 2.9 e^{-\frac{200,000}{220,000}} \approx 1.17 \text{ euro}$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Using the calibrated inverse demand and inverse supply function one can derive the consumer benefits, the producer costs and economic surplus as we will see in the next section. The important insight here is that model parameters can be calibrated using empirical observations of equilibrium prices and quantity and empirical estimates of the equilibrium elasticities. This provides the bridge between theoretical and conceptual models and empirical observations.
 
@@ -2070,55 +2023,29 @@ Suppose, producers underestimate the marginal costs of doing research with 10\% 
 
 Table \ref{tab:beherror} gives an overview of the cases discussed in section \ref{totalsurplus}, the parameter assumptions and the implications for the sign of the tax. When the sign is negative a subsidy is justified to increase demand. For Cases I and IV, both a tax or a subsidy can apply depending on the sign of the difference \(b_c-b_p\). This is because equilibrium demand can be lower, higher or equal to the optimal demand. For Case II there has to be a subsidy in order to move the equilibrium demand closer to the optimum. Case III shows the opposite result and always results in a tax. As discussed before, cases I and II are more likely to occur than cases III and IV.
 
-\label{tab:beherror}Behavioral error and the sign of an error internality tax
+\begin{table}
 
-Case
+\caption{\label{tab:beherror}Behavioral error and the sign of an error internality tax}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Case & Case description & Parameter assumptions & Sign of the tax\\
+\midrule
+I & Producers overestimate marginal costs and consumers overestimate marginal benefits; & $b_c>1; b_p>1$ & Positive when $b_c>b_p$
+ 
+Negative when  $b_c<b_p$
 
-Case description
+Zero when $b_c=b_p$\\
+II & Producers overestimate marginal costs and consumers underestimate marginal benefits; & $b_c<1; b_p>1$ & Negative\\
+III & Producers underestimate marginal costs and consumers overestimate marginal benefits; & $b_c>1; b_p<1$ & Positive\\
+IV & Producers underestimate costs and consumers underestimate marginal benefits; & $b_c<1; b_p<1$ & Positive when $b_c>b_p$
+ 
+Negative when  $b_c<b_p$
 
-Parameter assumptions
-
-Sign of the tax
-
-I
-
-Producers overestimate marginal costs and consumers overestimate marginal benefits;
-
-\(b_c>1; b_p>1\)
-
-Positive when \(b_c>b_p\)
-
-Negative when \(b_c<b_p\)
-
-Zero when \(b_c=b_p\)
-
-II
-
-Producers overestimate marginal costs and consumers underestimate marginal benefits;
-
-\(b_c<1; b_p>1\)
-
-Negative
-
-III
-
-Producers underestimate marginal costs and consumers overestimate marginal benefits;
-
-\(b_c>1; b_p<1\)
-
-Positive
-
-IV
-
-Producers underestimate costs and consumers underestimate marginal benefits;
-
-\(b_c<1; b_p<1\)
-
-Positive when \(b_c>b_p\)
-
-Negative when \(b_c<b_p\)
-
-Zero when \(b_c=b_p\)
+Zero when $b_c=b_p$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 For the analysis the assumption is made that the parameters \(b_c\) and \(b_p\) do not change when a particular policy is implemented. A behavioral interpretation could be that consumers and producers are not aware of the behavioral decision errors they make. When the parameters \(b_c\) and \(b_p\) are behavioral choice parameters things become more complicated as consumers and producers then optimally gather information themselves to reduce their behavioural errors. Nudges, information provision and taxes might have an impact on this behavioral process leading to more complicated tax expressions.
 
@@ -2373,95 +2300,28 @@ At this point it is helpful to provide an illustration how the model can be oper
 
 Table \ref{tab:representatives} below provides an overview of the ethical weights the representatives propose for the marginal benefits of consumers and their reasons for choosing these weights. It includes a wide range of voices and reasons from society, institutes and advocacy groups.
 
-\label{tab:representatives}Representatives and weights. Numbers are chosen for illustration.
+\begin{table}
 
-Committee member
-
-Decision weight
-
-Recommended weight for consumer marginal benefits
-
-Reasons
-
-Citizen representative.
-
-\(\omega_1 = 0.1\)
-
-\(\alpha_1 = 0.6\)
-
-Using a survey, we estimated what the average citizen weight for consumer marginal benefits in the pork market is for our country. It is estimated at \(\alpha_1=0.6\).
-
-Next generation representative.
-
-\(\omega_2 = 0.1\)
-
-\(\alpha_2 = 0.5\)
-
-Consumption of pork meat leads indirectly to sustainability impacts for future generations. Consumers have a duty of care for these generations and have the opportunity to choose otherwise. However, changing food habits can be difficult as we know from our own experience. Therefore, we set \(\alpha_2=0.5\).
-
-Consumer representative.
-
-\(\omega_3 = 0.1\)
-
-\(\alpha_3 = 1\)
-
-Consumers have the possibility to choose healthy sustainable meat substitutes but they do not want them and do not value them high enough at the moment. There is no need to scale down their benefits as their choice is made under free conditions and there is no pork meat addiction.
-
-Producer representative.
-
-\(\omega_4 = 0.1\)
-
-\(\alpha_4 = 1\)
-
-We produce for the market and respond to consumers' needs and wants. Consumers are free to change these needs and wants if they want to live up to their own moral standards. There is no need to adjust marginal consumer benefits.
-
-Governmental representative (chair of the committee).
-
-\(\omega_5 = 0.1\)
-
-\(\alpha_5 = 0.6\)
-
-As a government we want to be neutral among normative perspectives when evaluating policies. We therefore will take the average weights of the other committee members as they represent the different voices in society.
-
-Economist (specialization: environmental economics)
-
-\(\omega_6 = 0.1\)
-
-\(\alpha_6 = 1\)
-
-No scaling of consumer benefits is needed because full information about sustainability impacts is available for quite some time. Therefore, it seems that the current direct utility function of consumers gives the most appropriate evolutionary social fit for consumers.
-
-Philosopher (specialization: animal ethics)
-
-\(\omega_7 = 0.1\)
-
-\(\alpha_7 = 0.7\)
-
-For those consumers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling down consumer benefits is reasonable. Research for our country shows that 30\% of the people commit themselves to the combination of these principles but still consume meat.
-
-Ecologist (specialization: biodiversity)
-
-\(\omega_8 = 0.1\)
-
-\(\alpha_8 = 0.6\)
-
-Consumers have a responsibility for harm against nature. The systemic and well-known impacts of climate change on biodiversity require a reconsideration of estimated consumer benefits in this market.
-
-Climate activist representative.
-
-\(\omega_0 = 0.1\)
-
-\(\alpha_9 = 0\)
-
-The time for action is NOW as human extinction is coming near. No consumer benefits should be counted in the social surplus as consumption of meat substantially contributes to climate change.
-
-Animal representative.
-
-\(\omega_{10} = 0.1\)
-
-\(\alpha_{10} = 0\)
-
-It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be eaten by another species for money?
+\caption{\label{tab:representatives}Representatives and weights. Numbers are chosen for illustration.}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Committee member & Decision weight & Recommended weight for consumer marginal benefits & Reasons\\
+\midrule
+Citizen representative. & $\omega_1 = 0.1$ & $\alpha_1 = 0.6$ & Using a survey, we estimated what the average citizen weight for consumer marginal benefits in the pork market is for our country. It is estimated at $\alpha_1=0.6$.\\
+Next generation representative. & $\omega_2 = 0.1$ & $\alpha_2 = 0.5$ & Consumption of pork meat leads indirectly to sustainability impacts for future generations. Consumers have a duty of care for these generations and have the opportunity to choose otherwise. However, changing food habits can be difficult as we know from our own experience. Therefore, we set $\alpha_2=0.5$.\\
+Consumer representative. & $\omega_3 = 0.1$ & $\alpha_3 = 1$ & Consumers have the possibility to choose healthy sustainable meat substitutes but they do not want them and do not value them high enough at the moment. There is no need to scale down their benefits as their choice is made under free conditions and there is no pork meat addiction.\\
+Producer representative. & $\omega_4 = 0.1$ & $\alpha_4 = 1$ & We produce for the market and respond to consumers’ needs and wants. Consumers are free to change these needs and wants if they want to live up to their own moral standards. There is no need to adjust marginal consumer benefits.\\
+Governmental representative (chair of the committee). & $\omega_5 = 0.1$ & $\alpha_5 = 0.6$ & As a government we want to be neutral among normative perspectives when evaluating policies. We therefore will take the average weights of the other committee members as they represent the different voices in society.\\
+\addlinespace
+Economist (specialization: environmental economics) & $\omega_6 = 0.1$ & $\alpha_6 = 1$ & No scaling of consumer benefits is needed because full information about sustainability impacts is available for quite some time. Therefore, it seems that the current direct utility function of consumers gives the most appropriate evolutionary social fit for consumers.\\
+Philosopher (specialization: animal ethics) & $\omega_7 = 0.1$ & $\alpha_7 = 0.7$ & For those consumers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling down consumer benefits is reasonable. Research for our country shows that 30\% of the people commit themselves to the combination of these principles but still consume meat.\\
+Ecologist (specialization: biodiversity) & $\omega_8 = 0.1$ & $\alpha_8 = 0.6$ & Consumers have a responsibility for harm against nature. The systemic and well-known impacts of climate change on biodiversity require a reconsideration of estimated consumer benefits in this market.\\
+Climate activist representative. & $\omega_0 = 0.1$ & $\alpha_9 = 0$ & The time for action is NOW as human extinction is coming near. No consumer benefits should be counted in the social surplus as consumption of meat substantially contributes to climate change.\\
+Animal representative. & $\omega_{10} = 0.1$ & $\alpha_{10} = 0$ & It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be eaten by another species for money?\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The average ethical weight for consumer marginal benefits is given by the following weighted sum:
 
@@ -2499,96 +2359,29 @@ where \(\bar{\delta} = \sum^N_{n=1}\omega_n \delta_n\) are the weighted average 
 
 At this point it is useful to illustrate the model in this subsection using an example. Table \ref{tab:scalingmarginal} summarizes the weights and the reasons of the representatives. All numbers are chosen for illustrative purposes.
 
-\label{tab:scalingmarginal}Scaling of marginal costs of production. All numbers are chosen for illustration.
+\begin{table}
 
-Committee member
-
-Decision weight
-
-Recommended weight for consumer marginal benefits
-
-Reasons
-
-Citizen representative.
-
-\(\omega_1 = 0.1\)
-
-\(\delta_1 = 1.1\)
-
-Using a survey, we found out what the average citizen weight for producer marginal costs in the pork market is for our country. It is estimated at \(\delta_1=1.1\).
-
-Next generation representative.
-
-\(\omega_2 = 0.1\)
-
-\(\delta_2 = 1.1\)
-
-Production of pork meat leads to sustainability impacts for future generations. Producers have a duty of care for these generations but have limited opportunities to switch jobs. Therefore, we set \(\delta_2=1.1\).
-
-Consumer representative.
-
-\(\omega_3 = 0.1\)
-
-\(\delta_3 = 1\)
-
-Consumers have the possibility to choose healthy sustainable meat substitutes and production will follow demand. There is no need to scale up marginal producer costs.
-
-Producer representative.
-
-\(\omega_4 = 0.1\)
-
-\(\delta_4 = 1\)
-
-There are some issues with production and animal welfare, but that is normal in many markets. There is no need to adjust marginal costs.
-
-Governmental representative (chair of the committee).
-
-\(\omega_5 = 0.1\)
-
-\(\delta_5 = 2.2\)
-
-As a government we want to be neutral among normative perspectives. We therefore will take the average weights of the other committee members as they represent different voices in society.
-
-Economist (specialization: environmental economics)
-
-\(\omega_6 = 0.1\)
-
-\(\delta_6 = 1\)
-
-No scaling is needed because full information about impacts is available. Therefore, it seems that the current marginal cost function gives the most appropriate evolutionary social fit for consumers. Producers already make a rational trade-off between following the rules and the probability to get caught.
-
-Philosopher (specialization: animal ethics)
-
-\(\omega_7 = 0.1\)
-
-\(\delta_7 = 1.25\)
-
-For those producers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling up marginal costs is reasonable. Survey research shows that no producers in the market commit themselves to the combination of these principles. However, 10\% of the producers produce at 20\% lower marginal costs because they do not follow the governmental rules of production. The marginal costs should therefore be scaled up with \(1/0.8=1.25\).
-
-Ecologist (specialization: biodiversity)
-
-\(\omega_8 = 0.1\)
-
-\(\delta_8 = 1.8\)
-
-Producers have a responsibility for harm against nature. The systemic impacts of climate change on biodiversity require a reconsideration of marginal costs in this market. Producing meat in a biological sustainable way would imply marginal costs which are 80\% higher. Therefore, I recommend
-\(\delta_8=1.8\).
-
-Climate activist representative.
-
-\(\omega_0 = 0.1\)
-
-\(\delta_9 = 1.8\)
-
-The time for action is NOW as extinction is coming near! Producing meat in a biological sustainable way would imply marginal costs which are twice as high. Therefore, I recommend \(\delta_9=1.8\).
-
-Animal representative.
-
-\(\omega_{10} = 0.1\)
-
-\(\delta_{10} = 10\)
-
-It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be killed by your boss for money? The true benchmark here is the sustainable production of animal friendly LAB-meat which has marginal costs which are a factor 10 higher. Therefore, I recommend \(\delta_10=10\).
+\caption{\label{tab:scalingmarginal}Scaling of marginal costs of production. All numbers are chosen for illustration.}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Committee member & Decision weight & Recommended weight for consumer marginal benefits & Reasons\\
+\midrule
+Citizen representative. & $\omega_1 = 0.1$ & $\delta_1 = 1.1$ & Using a survey, we found out what the average citizen weight for producer marginal costs in the pork market is for our country. It is estimated at $\delta_1=1.1$.\\
+Next generation representative. & $\omega_2 = 0.1$ & $\delta_2 = 1.1$ & Production of pork meat leads to sustainability impacts for future generations. Producers have a duty of care for these generations but have limited opportunities to switch jobs. Therefore, we set $\delta_2=1.1$.\\
+Consumer representative. & $\omega_3 = 0.1$ & $\delta_3 = 1$ & Consumers have the possibility to choose healthy sustainable meat substitutes and production will follow demand. There is no need to scale up marginal producer costs.\\
+Producer representative. & $\omega_4 = 0.1$ & $\delta_4 = 1$ & There are some issues with production and animal welfare, but that is normal in many markets. There is no need to adjust marginal costs.\\
+Governmental representative (chair of the committee). & $\omega_5 = 0.1$ & $\delta_5 = 2.2$ & As a government we want to be neutral among normative perspectives. We therefore will take the average weights of the other committee members as they represent different voices in society.\\
+\addlinespace
+Economist (specialization: environmental economics) & $\omega_6 = 0.1$ & $\delta_6 = 1$ & No scaling is needed because full information about impacts is available. Therefore, it seems that the current marginal cost function gives the most appropriate evolutionary social fit for consumers. Producers already make a rational trade-off between following the rules and the probability to get caught.\\
+Philosopher (specialization: animal ethics) & $\omega_7 = 0.1$ & $\delta_7 = 1.25$ & For those producers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling up marginal costs is reasonable. Survey research shows that no producers in the market commit themselves to the combination of these principles. However, 10\% of the producers produce at 20\% lower marginal costs because they do not follow the governmental rules of production. The marginal costs should therefore be scaled up with $1/0.8=1.25$.\\
+Ecologist (specialization: biodiversity) & $\omega_8 = 0.1$ & $\delta_8 = 1.8$ & Producers have a responsibility for harm against nature. The systemic impacts of climate change on biodiversity require a reconsideration of marginal costs in this market. Producing meat in a biological sustainable way would imply marginal costs which are 80\% higher. Therefore, I recommend 
+$\delta_8=1.8$.\\
+Climate activist representative. & $\omega_9 = 0.1$ & $\delta_9 = 1.8$ & The time for action is NOW as extinction is coming near! Producing meat in a biological sustainable way would imply marginal costs which are twice as high. Therefore, I recommend $\delta_9=1.8$.\\
+Animal representative. & $\omega_{10} = 0.1$ & $\delta_{10} = 10$ & It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be killed by your boss for money? The true benchmark here is the sustainable production of animal friendly LAB-meat which has marginal costs which are a factor 10 higher. Therefore, I recommend $\delta_10=10$.\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The average weight for the marginal costs is given by:
 
@@ -2674,95 +2467,28 @@ Indeed, even where government intervention may be warranted, the appropriate for
 
 Members of the advisory committee therefore have to decide on their weight for the external costs in the economic social surplus to do justice to these moral considerations. Define \(0 \leq \eta_n \leq 1\) as the weight attached to the externality. Then the weighted external costs over all committee members are given by \(\bar{\eta}e(Q)\), where \(\bar{\eta} = \sum_{n=1}^N \omega_n \eta_n\) is the average weight over all committee members. Again, it is assumed for simplicity that the ethical weights \(\eta_n\) of committee members do not depend on the equilibrium quantity. An example for the motivated choice of ethical weights by the representatives is given in Table \ref{tab:scalingexternal}.
 
-\label{tab:scalingexternal}Scaling of the external costs. All numbers are chosen for illustration.
+\begin{table}
 
-Committee member
-
-Decision weight
-
-Recommended weight external costs
-
-Reasons
-
-Citizen representative.
-
-\(\omega_1 = 0.1\)
-
-\(\eta_1 = 0.8\)
-
-Using a survey, we found out what the average citizen weight for external costs in the pork market is for our country. It is estimated at \(\eta_1=0.8\).
-
-Next generation representative.
-
-\(\omega_2 = 0.1\)
-
-\(\eta_2 = 1\)
-
-Production of pork meat leads to sustainability impacts for future generations. All external costs should be counted \(\eta_2=1\).
-
-Consumer representative.
-
-\(\omega_3 = 0.1\)
-
-\(\eta_3 = 0.5\)
-
-External costs should be diminished by consumer and producer choices. However, it is fair when part of the external costs are incorporated in the price.
-
-Producer representative.
-
-\(\omega_4 = 0.1\)
-
-\(\eta_4 = 0\)
-
-In other markets external costs are allowed. Why is the pork market so special?
-
-Governmental representative (chair of the committee).
-
-\(\omega_5 = 0.1\)
-
-\(\eta_5 = 0.81\)
-
-As a government we want to be neutral among normative perspectives. We therefore will take the average weights of the other committee members as they represent different voices in society.
-
-Economist (specialization: environmental economics)
-
-\(\omega_6 = 0.1\)
-
-\(\eta_6 = 1\)
-
-External costs should be dealt with as this is consistent with a utilitarian view on society.
-
-Philosopher (specialization: animal ethics)
-
-\(\omega_7 = 0.1\)
-
-\(\eta_7 = 1\)
-
-The utility of animal choices is not incorporated in the economic surplus. Therefore, external costs should be fully counted.
-
-Ecologist (specialization: biodiversity)
-
-\(\omega_8 = 0.1\)
-
-\(\eta_8 = 1\)
-
-Producers have a direct responsibility for harm against nature and consumers an indirect responsibility. External costs should be counted.
-
-Climate activist representative.
-
-\(\omega_0 = 0.1\)
-
-\(\eta_9 = 1\)
-
-The time for action is NOW as extinction is coming near! External costs should be counted fully to mitigate the negative side effects.
-
-Animal representative.
-
-\(\omega_{10} = 0.1\)
-
-\(\eta_{10} = 1\)
-
-From an animal perspective it is best to count external costs fully
+\caption{\label{tab:scalingexternal}Scaling of the external costs. All numbers are chosen for illustration.}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Committee member & Decision weight & Recommended weight external costs & Reasons\\
+\midrule
+Citizen representative. & $\omega_1 = 0.1$ & $\eta_1 = 0.8$ & Using a survey, we found out what the average citizen weight for external costs in the pork market is for our country. It is estimated at $\eta_1=0.8$.\\
+Next generation representative. & $\omega_2 = 0.1$ & $\eta_2 = 1$ & Production of pork meat leads to sustainability impacts for future generations. All external costs should be counted $\eta_2=1$.\\
+Consumer representative. & $\omega_3 = 0.1$ & $\eta_3 = 0.5$ & External costs should be diminished by consumer and producer choices. However, it is fair when part of the external costs are incorporated in the price.\\
+Producer representative. & $\omega_4 = 0.1$ & $\eta_4 = 0$ & In other markets external costs are allowed. Why is the pork market so special?\\
+Governmental representative (chair of the committee). & $\omega_5 = 0.1$ & $\eta_5 = 0.81$ & As a government we want to be neutral among normative perspectives. We therefore will take the average weights of the other committee members as they represent different voices in society.\\
+\addlinespace
+Economist (specialization: environmental economics) & $\omega_6 = 0.1$ & $\eta_6 = 1$ & External costs should be dealt with as this is consistent with a utilitarian view on society.\\
+Philosopher (specialization: animal ethics) & $\omega_7 = 0.1$ & $\eta_7 = 1$ & The utility of animal choices is not incorporated in the economic surplus. Therefore, external costs should be fully counted.\\
+Ecologist (specialization: biodiversity) & $\omega_8 = 0.1$ & $\eta_8 = 1$ & Producers have a direct responsibility for harm against nature and consumers an indirect responsibility. External costs should be counted.\\
+Climate activist representative. & $\omega_9 = 0.1$ & $\eta_9 = 1$ & The time for action is NOW as extinction is coming near! External costs should be counted fully to mitigate the negative side effects.\\
+Animal representative. & $\omega_{10} = 0.1$ & $\eta_{10} = 1$ & From an animal perspective it is best to count external costs fully\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The average weight for the external costs is given by:
 \begin{equation}
@@ -3012,31 +2738,19 @@ In \texttt{STATA} this data analysis would look like:
 
 The first command \emph{generates} a new variable called ``large'' and denotes an indicator being 0 if \(str < 20\) and 1 if \(str \geq 20\). The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable \texttt{large}. Of course, this output is rather ugly and it is better to make a nice table such as Table \ref{tab:smalllarge}.
 
-\label{tab:smalllarge}Descriptive statistics of small and large classes
+\begin{table}
 
-Class size
-
-Average score
-
-Standard deviation
-
-\(n\)
-
-Small
-
-657.4
-
-19.4
-
-238
-
-Large
-
-650.0
-
-17.9
-
-182
+\caption{\label{tab:smalllarge}Descriptive statistics of small and large classes}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Class size & Average score & Standard deviation & $n$\\
+\midrule
+Small & 657.4 & 19.4 & 238\\
+Large & 650.0 & 17.9 & 182\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 No, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference---usually denoted as \(\Delta\). Or, specifically:
 

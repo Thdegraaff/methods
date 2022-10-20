@@ -516,7 +516,6 @@ Zero when $b_c=b_p$"
 )
 df <- data.frame( v1, v2, v3, v4 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Behavioral error and the sign of an error internality tax',

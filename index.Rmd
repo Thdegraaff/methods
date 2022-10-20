@@ -14,7 +14,7 @@ output:
       toolbar:
         position: fixed
       edit : null
-      download: ["pdf", "epub", "mobi"]
+      download: ["pdf"]
       search:
         engine: lunr # or fuse
         # options to control/tune search engine behavior (for
@@ -76,9 +76,9 @@ Although there are many and very good introductory textbooks on economic models 
 
 ## For Whom {-}
 
-This syllabus assumes that the reader has a basic working knowledge of introductory economics, statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading. Where we think it is necessary we provide (references to) background material. For the course **Methods and Techiques for Social and Economic Research** the syllabus should be read **in total** and it might be wise to read the relevant material *before* the respective lecture. THe big advantage of course is that lectures and reading material now really go one-on-one. 
+This syllabus assumes that the reader has a basic working knowledge of introductory economics, statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading. Where we think it is necessary we provide (references to) background material. For the course **Methods and Techiques for Social and Economic Research** the syllabus should be read **in total** and it might be wise to read the relevant material *before* the respective lecture. The big advantage of course is that lectures and reading material now really go one-on-one. 
 
-```{r include=FALSE}
+```{r include=FALSE, message=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'Statamarkdown', 'kableExtra'

@@ -191,14 +191,13 @@ v4 <- c(
 "We produce for the market and respond to consumers’ needs and wants. Consumers are free to change these needs and wants if they want to live up to their own moral standards. There is no need to adjust marginal consumer benefits.",
 "As a government we want to be neutral among normative perspectives when evaluating policies. We therefore will take the average weights of the other committee members as they represent the different voices in society.",
 "No scaling of consumer benefits is needed because full information about sustainability impacts is available for quite some time. Therefore, it seems that the current direct utility function of consumers gives the most appropriate evolutionary social fit for consumers.",
-"For those consumers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling down consumer benefits is reasonable. Research for our country shows that 30% of the people commit themselves to the combination of these principles but still consume meat.",
+"For those consumers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling down consumer benefits is reasonable. Research for our country shows that 30\\% of the people commit themselves to the combination of these principles but still consume meat.",
 "Consumers have a responsibility for harm against nature. The systemic and well-known impacts of climate change on biodiversity require a reconsideration of estimated consumer benefits in this market.",
 "The time for action is NOW as human extinction is coming near. No consumer benefits should be counted in the social surplus as consumption of meat substantially contributes to climate change.",
 "It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be eaten by another species for money?"
 )
 df <- data.frame( v1, v2, v3, v4 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Representatives and weights. Numbers are chosen for illustration.',
@@ -264,7 +263,7 @@ v2 <- c(
   "$\\omega_6 = 0.1$", 
   "$\\omega_7 = 0.1$", 
   "$\\omega_8 = 0.1$", 
-  "$\\omega_0 = 0.1$", 
+  "$\\omega_9 = 0.1$", 
   "$\\omega_{10} = 0.1$"
 )
 v3 <- c(
@@ -286,15 +285,14 @@ v4 <- c(
 "There are some issues with production and animal welfare, but that is normal in many markets. There is no need to adjust marginal costs.",
 "As a government we want to be neutral among normative perspectives. We therefore will take the average weights of the other committee members as they represent different voices in society.",
 "No scaling is needed because full information about impacts is available. Therefore, it seems that the current marginal cost function gives the most appropriate evolutionary social fit for consumers. Producers already make a rational trade-off between following the rules and the probability to get caught.",
-"For those producers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling up marginal costs is reasonable. Survey research shows that no producers in the market commit themselves to the combination of these principles. However, 10% of the producers produce at 20% lower marginal costs because they do not follow the governmental rules of production. The marginal costs should therefore be scaled up with $1/0.8=1.25$.",
-"Producers have a responsibility for harm against nature. The systemic impacts of climate change on biodiversity require a reconsideration of marginal costs in this market. Producing meat in a biological sustainable way would imply marginal costs which are 80% higher. Therefore, I recommend 
+"For those producers who commit themselves to the no-harm principle in ethics and see no distinct difference between animals and humans, scaling up marginal costs is reasonable. Survey research shows that no producers in the market commit themselves to the combination of these principles. However, 10\\% of the producers produce at 20\\% lower marginal costs because they do not follow the governmental rules of production. The marginal costs should therefore be scaled up with $1/0.8=1.25$.",
+"Producers have a responsibility for harm against nature. The systemic impacts of climate change on biodiversity require a reconsideration of marginal costs in this market. Producing meat in a biological sustainable way would imply marginal costs which are 80\\% higher. Therefore, I recommend 
 $\\delta_8=1.8$.",
 "The time for action is NOW as extinction is coming near! Producing meat in a biological sustainable way would imply marginal costs which are twice as high. Therefore, I recommend $\\delta_9=1.8$.",
 "It is time for animal empathy. Imagine that you would be born in this world as a pig instead of a human? Would you find it appropriate to be killed by your boss for money? The true benchmark here is the sustainable production of animal friendly LAB-meat which has marginal costs which are a factor 10 higher. Therefore, I recommend $\\delta_10=10$."
 )
 df <- data.frame( v1, v2, v3, v4 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Scaling of marginal costs of production. All numbers are chosen for illustration.',
@@ -402,7 +400,7 @@ v2 <- c(
   "$\\omega_6 = 0.1$", 
   "$\\omega_7 = 0.1$", 
   "$\\omega_8 = 0.1$", 
-  "$\\omega_0 = 0.1$", 
+  "$\\omega_9 = 0.1$", 
   "$\\omega_{10} = 0.1$"
 )
 v3 <- c(
@@ -431,7 +429,6 @@ v4 <- c(
 )
 df <- data.frame( v1, v2, v3, v4 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Scaling of the external costs. All numbers are chosen for illustration.',

@@ -107,7 +107,6 @@ v3 <- c(19.4, 17.9)
 v4 <- c(238, 182)
 df <- data.frame( v1, v2, v3, v4 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Descriptive statistics of small and large classes',

@@ -766,7 +766,6 @@ $\\kappa^\\ast = \\frac{\\partial Q^S}{\\partial p}\\frac{p^\\ast}{Q^\\ast} = \\
 )
 df <- data.frame( v1, v2, v3, v4, v5 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Demand and supply elasticities and model parameters',
@@ -792,7 +791,6 @@ v1 <- c("Price elasticity of demand $\\epsilon^\\ast$",
 v2 <- c("$-0.7$", "$1.1$", "$2.9$ euro", "$200,000$ pieces per year" )
 df <- data.frame( v1, v2 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Input for the calibration (numbers are illustrative and not from empirical studies)',
@@ -819,7 +817,6 @@ v2 <- c("$\\alpha = \\frac{1}{\\epsilon^\\ast}\\frac{1}{Q^\\ast} = \\frac{1}{0.8
 )
 df <- data.frame( v1, v2 )
 kable(df, 
-      "html", 
       align="l", 
       booktabs=TRUE, escape = F, 
       caption = 'Calibrated model parameters',
