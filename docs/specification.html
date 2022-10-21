@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>B Background calculations for Chapter 4 | Methods and Techniques for Social and Economic Research: Syllabus</title>
+  <title>7 Specification and Assessment Issues | Methods and Techniques for Social and Economic Research: Syllabus</title>
   <meta name="description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
 Earth, Economics and Sustainability</p>" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="B Background calculations for Chapter 4 | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta property="og:title" content="7 Specification and Assessment Issues | Methods and Techniques for Social and Economic Research: Syllabus" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
@@ -19,7 +19,7 @@ Earth, Economics and Sustainability</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="B Background calculations for Chapter 4 | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta name="twitter:title" content="7 Specification and Assessment Issues | Methods and Techniques for Social and Economic Research: Syllabus" />
   
   <meta name="twitter:description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
@@ -36,8 +36,8 @@ Earth, Economics and Sustainability</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="apperror.html"/>
-<link rel="next" href="appreviewstat.html"/>
+<link rel="prev" href="modeling.html"/>
+<link rel="next" href="in-conclusion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -383,42 +383,191 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="background-calculations-for-chapter-refmoral" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">B</span> Background calculations for Chapter <a href="moral.html#moral">4</a><a href="background-calculations-for-chapter-refmoral.html#background-calculations-for-chapter-refmoral" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The derivations in Appendices <a href="background-calculations-for-chapter-refmoral.html#apptax">B.1</a> and <a href="background-calculations-for-chapter-refmoral.html#apppricing">B.2</a> follow the methodological approach of <span class="citation">Verhoef, Nijkamp, and Rietveld (1996)</span> for deriving implicit tax expressions. For the regulated and unregulated case, it is assumed that an equilibrium exists.</p>
-<div id="apptax" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">B.1</span> Deriving the tax that optimizes adjusted social surplus<a href="background-calculations-for-chapter-refmoral.html#apptax" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For the case without externalities, the adjusted social surplus <span class="math inline">\(AES\)</span> is given by Eq. <a href="moral.html#eq:adjsocsur">(4.2)</a>. The Lagrangian function is given by:</p>
-<p><span class="math display">\[\begin{equation}
-\mathcal{L} = AES  + \lambda(p(Q) - p - \tau)
-\end{equation}\]</span>
-and the first-order conditions are given by:
-<span class="math display" id="eq:apptax3" id="eq:apptax2" id="eq:apptax1">\[\begin{align}
-  \frac{\partial \mathcal{L}}{\partial Q} =&amp; \bar{\alpha} p(Q) - \bar{\delta} s(Q) + \lambda \frac{\partial p(Q)}{\partial Q} = 0 \tag{B.1}\\
-  \frac{\partial \mathcal{L}}{\partial \lambda} =&amp; p(Q) - p - \tau = 0 \tag{B.2}\\
-  \frac{\partial \mathcal{L}}{\partial \tau} =&amp; - \lambda = 0 \tag{B.3}
-\end{align}\]</span></p>
-<p>Substituting Eqs. <a href="background-calculations-for-chapter-refmoral.html#eq:apptax3">(B.3)</a> and <a href="background-calculations-for-chapter-refmoral.html#eq:apptax2">(B.2)</a> in Eq. <a href="background-calculations-for-chapter-refmoral.html#eq:apptax2">(B.2)</a> and using <span class="math inline">\(s(Q)=p^{*R}\)</span> gives an implicit equilibrium expression for the tax:</p>
-<p><span class="math display">\[\begin{equation}
-\tau = p^{*R} \frac{\bar{\delta} - \bar{\alpha}}{\bar{\alpha}}.
-\end{equation}\]</span></p>
+<div id="specification" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Specification and Assessment Issues<a href="specification.html#specification" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="specification-of-your-model" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Specification of your model<a href="specification.html#specification-of-your-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to decide which variables to include in a regression<br />
+</p>
+<p>A closer look at the test score data. We want to get an unbiased estimate of the effect on test scores of changing class size, holding constant student and school characteristics but not necessarily holding constant the budget (<em>why</em>)</p>
+<p>To do this we need to think about what variables to include and what regressions to run—and we should do this before we actually sit down at the computer. Think beforehand about your model specification.</p>
+<p>general approach to variable selection and “model specification”
+- Specify a base or benchmark model.
+- Specify a range of plausible alternative models, which include additional candidates
+- Does a candidate variable change the coefficient of interest (<span class="math inline">\(\hat{\beta}_1\)</span>)?
+- Is a candidate variable statistically significantly different from zero?
+- Use judgment, not a mechanical recipe
+- Don’t just try to maximize !</p>
+<p>Digression about measures of fit</p>
+<p>It is easy to fall into the trap of maximizing the <span class="math inline">\(\bar{R^2}\)</span>—but this loses sight of our real objective, an unbiased estimator of the class size effect. A high <span class="math inline">\(\bar{R^2}\)</span> means that the regressors explain the variation in <span class="math inline">\(Y\)</span>.
+- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that you have eliminated omitted variable bias.
+- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that you have an unbiased estimator of a causal effect <span class="math inline">\((\beta_1)\)</span>.
+- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that the included variables are statistically significant</p>
+<p>Back to the test score application:
+What variables would you want—ideally—to estimate the effect on test scores of <span class="math inline">\(STR\)</span> using school district data?</p>
+<p>Variables actually in the California class size data set:
+- student-teacher ratio (<span class="math inline">\(STR\)</span>)
+- percent English learners in the district (<span class="math inline">\(PctEL\)</span>)
+- school expenditures per pupil
+- name of the district (so we could look up average rainfall, for example)
+- percent eligible for subsidized/free lunch
+- percent on public income assistance
+- average district income</p>
+<p>Which of these variables would you want to include?</p>
+<p>More California data</p>
+<div class="figure"><span style="display:block;" id="fig:cadata"></span>
+<img src="figures/cadata.png" alt="Test scores versus various independent variables" width="578" />
+<p class="caption">
+Figure 7.1: Test scores versus various independent variables
+</p>
 </div>
-<div id="apppricing" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">B.2</span> Pricing of a consumption externality<a href="background-calculations-for-chapter-refmoral.html#apppricing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The adjusted social surplus AES with externalities is given by Eq. <a href="moral.html#eq:adjsocsur2">(4.4)</a>. The Lagrangian is given by:</p>
-<p><span class="math display">\[\begin{equation}
-\mathcal{L} = AES  + \lambda(p(Q) - p - \tau)
-\end{equation}\]</span>
-and the first-order conditions are given by:
-<span class="math display" id="eq:appex3" id="eq:appex2" id="eq:appex1">\[\begin{align}
-  \frac{\partial \mathcal{L}}{\partial Q} =&amp; \bar{\alpha} p(Q) - \bar{\delta} s(Q) - \bar{\eta}\frac{\partial e(Q)}{\partial Q} = \lambda \frac{\partial p(Q)}{\partial Q} = 0 \tag{B.4}\\
-  \frac{\partial \mathcal{L}}{\partial \lambda} =&amp; p(Q) - p - \tau = 0 \tag{B.5}\\
-  \frac{\partial \mathcal{L}}{\partial \tau} =&amp; - \lambda = 0 \tag{B.6}
-\end{align}\]</span></p>
-<p>Substituting Eqs. <a href="background-calculations-for-chapter-refmoral.html#eq:appex3">(B.6)</a> and <a href="background-calculations-for-chapter-refmoral.html#eq:appex2">(B.5)</a> in Eq. <a href="background-calculations-for-chapter-refmoral.html#eq:appex2">(B.5)</a> and rearranging gives the equilibrium expression for the first-best tax:</p>
-<p><span class="math display">\[\begin{equation}
-\tau = p^{*R} \frac{\bar{\delta} - \bar{\alpha}}{\bar{\alpha}} + \frac{\bar{\eta}}{\bar{\alpha}}\frac{\partial e(Q)}{\partial Q}.
-\end{equation}\]</span></p>
+</div>
+<div id="presentation-of-results" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Presentation of results<a href="specification.html#presentation-of-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Digression on presentation of regression results. We have a number of regressions and we want to report them. It is awkward and difficult to read regressions written out in equation form, so instead it is conventional to report them in a table.</p>
+<p>A table of regression results should include:
+- estimated regression coefficients
+- standard errors
+- measures of fit
+- number of observations
+- relevant <span class="math inline">\(F\)</span>-statistics, if any
+- any other pertinent information.</p>
+<p>Find this information in the following table:</p>
+<div class="figure"><span style="display:block;" id="fig:catable"></span>
+<img src="figures/catable.png" alt="Various specifications of test score models" width="674" />
+<p class="caption">
+Figure 7.2: Various specifications of test score models
+</p>
+</div>
+</div>
+<div id="potential-sources-of-bias" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Potential sources of bias<a href="specification.html#potential-sources-of-bias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Is there a systematic way to assess regression studies?
+Multiple regression has some key virtues:</p>
+<ol style="list-style-type: decimal">
+<li>It provides an estimate of the marginal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</li>
+<li>It resolves the problem of omitted variable bias, if an omitted variable can be measured and included.</li>
+<li>It can handle nonlinear relations (effects that vary with the <span class="math inline">\(X\)</span>’s)</li>
+</ol>
+<p>Still, OLS might yield a <strong>biased</strong> estimator of the true causal effect—it might not yield valid inferences</p>
+<p>A framework for assessing statistical studies: internal and external validity}
+- <strong>Internal validity</strong> the statistical inferences about causal effects are valid for the population being studied.
+- <strong>External validity</strong>: the statistical inferences can be generalized from the population and setting studied to other populations and setting.</p>
+<p>Threats to external validity</p>
+<p>How far can we generalize class size results from California school districts?</p>
+<ul>
+<li>Differences in populations
+<ul>
+<li>California in 2005?</li>
+<li>Massachusetts in 2005?</li>
+<li>Mexico in 2005?</li>
+</ul></li>
+</ul>
+<p>Differences in settings
+- different legal requirements concerning special education
+- different treatment of bilingual education
+- differences in teacher characteristics</p>
+<p>Threats to validity of multiple regression analysis</p>
+<p><strong>Internal validity</strong>: the statistical inferences about causal effects are valid for the population being studied.</p>
+<p>Five Threats to the internal validity of regression studies:</p>
+<ol style="list-style-type: decimal">
+<li>Omitted variable bias</li>
+<li>Wrong functional form</li>
+<li>Errors-in-variables bias</li>
+<li>Sample selection bias</li>
+<li>Simultaneous causality bias</li>
+</ol>
+<p>All of these imply that <span class="math inline">\(E(u_i|X_{1i},\ldots,X_{ki}) \neq 0\)</span>—in which case OLS is <strong>biased</strong>.</p>
+<p>Omitted variable bias</p>
+<p>Omitted variable bias arises if an omitted variable is both: a determinant of <span class="math inline">\(Y\)</span> and correlated with at least one included regressor.
+We first discussed omitted variable bias in regression with a single <span class="math inline">\(X\)</span>, but OV bias will arise when there are multiple <span class="math inline">\(X\)</span>’s as well, if the omitted variable satisfies the two conditions above.</p>
+<p>Potential solutions to omitted variable bias</p>
+<ul>
+<li>If the variable can be measured, include it as an additional regressor in multiple regression;</li>
+<li>Possibly, use panel data in which each entity (individual) is observed more than once;</li>
+<li>If the variable cannot be measured, use instrumental variables regression (for later courses);</li>
+<li>Run a randomized controlled experiment.</li>
+</ul>
+<p>Wrong functional form</p>
+<p>Arises if the functional form is incorrect—for example, an interaction term is incorrectly omitted; then inferences on causal effects will be biased.</p>
+<p>Potential solutions to functional form misspecification
+- use the appropriate nonlinear specifications in <span class="math inline">\(X\)</span> (logarithms, interactions, etc.)</p>
+<p>Measurement error</p>
+<p>So far we have assumed that <span class="math inline">\(X\)</span> is measured without error. In reality, (economic) data often have measurement error</p>
+<p>Recollection errors in surveys (when did you start your current job?)</p>
+<p>Ambiguous questions problems (what was your income last year?)</p>
+<p>Intentionally false response problems with surveys (What is the current value of your financial assets? How often do you drink and drive?)</p>
+<p>Potential solutions to errors-in-variables bias</p>
+<ul>
+<li>Obtain better data (duh)</li>
+<li>Develop a specific model of the measurement error process. This is only possible if a lot is known about the nature of the measurement error—for example a subsample of the data are cross-checked using administrative records and the discrepancies are analyzed and modelled.</li>
+<li>Instrumental variables regression.</li>
+</ul>
+<p>Sample selection bias</p>
+<p>So far we have assumed simple random sampling of the population. In some cases, simple random sampling is thwarted because the sample, in effect, <strong>selects itself</strong>.</p>
+<p>Sample selection bias arises when a selection process:
+- influences the availability of data and
+- that process is related to the dependent variable.</p>
+<div class="figure"><span style="display:block;" id="fig:Rplot"></span>
+<img src="figures/Rplot.png" alt="Relation heigh fathers and height children" width="270" />
+<p class="caption">
+Figure 7.3: Relation heigh fathers and height children
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:Rplot01"></span>
+<img src="figures/Rplot01.png" alt="Relation heigh fathers and height children" width="270" />
+<p class="caption">
+Figure 7.4: Relation heigh fathers and height children
+</p>
+</div>
+<p>Example 1: aircraft noise externality</p>
+<p>To what extent do people ``value’’ aircraft noise ?
+Empirical strategy
+Sampling scheme: collect housing prices close to Schiphol airport (Zwanenburg) and compare them with identical houses further away (Schagen)</p>
+<p>Data: Housing prices for North-Holland since 1985</p>
+<ul>
+<li>Estimator: average mean difference between Zwanenburg and Schagen location</li>
+<li>Is there sample selection bias?</li>
+</ul>
+<p>Example 2: returns to education
+- What is the return to an additional year of education?
+- Empirical strategy:
+- Sampling scheme: simple random sample of employed college grads (employed, so we have wage data)
+- Data: earnings and years of education
+- Estimator: regress <span class="math inline">\(\ln(Earnings)\)</span> on <span class="math inline">\(YearsEducation\)</span></p>
+<p>Ignore issues of omitted variable bias and measurement error—is there sample selection bias?</p>
+<p>Potential solutions to sample selection bias
+- Collect the sample in a way that avoids sample selection.
+- aircraft noise: look at people who moved between Schagen and Zwanenburg.
+- Returns to education example: sample college graduates, not workers (include the unemployed)</p>
+<p>Randomized controlled experiment.</p>
+<ul>
+<li>Construct a model of the sample selection problem and estimate that model (we won’t do this).</li>
+</ul>
+<p>Simultaneous causality bias in equations</p>
+<ul>
+<li>Causal effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span>: <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_i + u_i\)</span></li>
+<li>Causal effect on <span class="math inline">\(X\)</span> of <span class="math inline">\(Y\)</span>: <span class="math inline">\(X_i = \gamma_0 + \gamma_1 Y_i + v_i\)</span><br />
+Large <span class="math inline">\(u_i\)</span> means large <span class="math inline">\(Y_i\)</span>, which implies large <span class="math inline">\(X_i\)</span> (if <span class="math inline">\(\gamma_1&gt;0\)</span>)
+Thus <span class="math inline">\(corr(X_i,u_i) \neq 0\)</span>
+Thus <span class="math inline">\(\hat{\beta_1}\)</span> is biased and inconsistent.
+Example: A district with particularly bad test scores given the <span class="math inline">\(STR\)</span> (negative <span class="math inline">\(u_i\)</span>) receives extra resources, thereby lowering its <span class="math inline">\(STR\)</span>; so <span class="math inline">\(STR_i\)</span> and <span class="math inline">\(u_i\)</span> are correlated</li>
+</ul>
+<p>Potential solutions to simultaneous causality bias
+Randomized controlled experiment. Because <span class="math inline">\(X_i\)</span> is chosen at random by the experimenter, there is no feedback from the outcome variable to <span class="math inline">\(Y_i\)</span> (assuming perfect compliance).
+Develop and estimate a complete model of both directions of causality. This is the idea behind many large macro models (e.g. Federal Reserve Bank-US). This is extremely difficult in practice.</p>
+<ul>
+<li>Use instrumental variables regression to estimate the causal effect of interest (effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>, ignoring effect of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span>).</li>
+</ul>
+<p>OLS is a powerful tool and often used in all social sciences, but it hinges upon three assumptions from which <span class="math inline">\(E(u_i|X_{1i},\ldots,X_{ki}) = 0\)</span> is difficult to satisfy in reality because:</p>
+<ol style="list-style-type: decimal">
+<li>Omitted variable bias</li>
+<li>Wrong functional form</li>
+<li>Errors-in-variables bias</li>
+<li>Sample selection bias</li>
+<li>Simultaneous causality bias</li>
+</ol>
+
 </div>
 </div>
             </section>
@@ -426,8 +575,8 @@ and the first-order conditions are given by:
           </div>
         </div>
       </div>
-<a href="apperror.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appreviewstat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="in-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

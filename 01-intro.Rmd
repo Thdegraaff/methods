@@ -33,7 +33,7 @@ It is remarkable that, although in principle students are (should be) prepared f
 
 ### Work tidy
 
-Our first and most important tip is to work tidy. Try to make your work look **good**. And with work we mean everything you submit (such as tutorials, papers, examinations, and theses). And that is because lecturers are just like people and often think from primary instincts with their reptilian brain: if it doesn't look good, not much time is spent on arguing and thinking as well! Moreover, when your work is difficult to read, lecturers get annoyed. Making your work look good and in the same time more lucid and transparent also serves a higher purpose as it is then easier to detect mistakes. Namely, everyone makes mistakes. The important thing is to detect them early, learn from them and remedy them. This advances science in general and is a very important feature of the scientific process. Chapter \@ref(ch:specification) will spent additional time on working tidy and making it looking good.
+Our first and most important tip is to work tidy. Try to make your work look **good**. And with work we mean everything you submit (such as tutorials, papers, examinations, and theses). And that is because lecturers are just like people and often think from primary instincts with their reptilian brain: if it doesn't look good, not much time is spent on arguing and thinking as well! Moreover, when your work is difficult to read, lecturers get annoyed. Making your work look good and in the same time more lucid and transparent also serves a higher purpose as it is then easier to detect mistakes. Namely, everyone makes mistakes. The important thing is to detect them early, learn from them and remedy them. This advances science in general and is a very important feature of the scientific process. Chapter \@ref(specification) will spent additional time on working tidy and making it looking good.
 
 ### Know where your stuff is
 
@@ -60,5 +60,5 @@ As quantitative research become more and more important in the social sciences y
 This course will not concern itself with theory as such, but more with methods to describe that theory (the models) and how to test that theory (the applied econometrics). Chapters \@ref(surplus)--(\@ref(moral) deal
 with models. 
 
-Finally, Chapter \@ref(ch:specification) discusses how to *specify* your model. Which variables should you include and which variables not?
+Finally, Chapter \@ref(specification) discusses how to *specify* your model. Which variables should you include and which variables not?
 

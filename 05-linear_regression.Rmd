@@ -12,7 +12,7 @@ Here the quantities for the market good $Q$ and the outside good $G$ are to cons
 
 This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring **causal** effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon $X$ on $Y$. However, we almost always only have observational data on, for example demand and prices. In the second part of this course and syllabus with difficulties arising from using observational data to estimate these causal effects and to rewrite models as \@ref(eq:directutility) such that we can actually *use* data to tease out values for---in this case---$A$ and $\alpha$.
 
-This chapter is organised as follows. The next section addresses the problem of finding a *relation* between some $X$ and some $Y$. Here, we follow example in the well-known textbook of \@stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some `STATA` commands. Thereafter, section \@ref(secstatframe) deals with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix \@ref(appreviewstat). 
+This chapter is organised as follows. The next section addresses the problem of finding a *relation* between some $X$ and some $Y$. Here, we follow example in the well-known textbook of \@stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some `STATA` commands. At the same time this section deal as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix \@ref(appreviewstat). 
 
 ## So, what is the problem? {#secproblem}
 
@@ -180,7 +180,7 @@ So, in this case we want to assess the difference in test score by groups (being
 
 Now try to find out for yourself that this output gives you the estimation of $\Delta$ of Eq. \@ref(eq:estimationlarge), the $t$-value and corresponding test outcome of Eq. \@ref(eq:testinglarge) with the corresponding confidence intervals of Eq. \@ref(eq:cilarge).
 
-## Univariate regression
+## Univariate regression {#sec:uniregress}
 
 The three strategies we adopted in \@ref(sec:numevidence) for assessing the difference between groups directly translate to the case of regression analysis. Here we also look at estimation, hypothesis testing and confidence intervals. But before that we first look at the origin of the name regression in Subsection \@ref(sec:genesis) 
 
@@ -441,7 +441,7 @@ This assumption lies as well at the heart of experimental settings. Namely, cons
 2. Because $X$ is assigned randomly, all other individual characteristics---the things that make up $u$---are *independently* distributed of $X$ by definition.
 3. Thus it automatically follows that: $E(u \mid X = x) = 0$
 
-Now, both in actual experiments, or with **observational** data, we will need to think hard about whether $E(u|X = x) = 0$ holds. Chapters \@ref(ch:modeling) and \@ref(ch:specification) provide various examples where this assumption is violated. However, if this assumption is violated it means that you have **biased** inference, which boils down to the fact that your estimated $\hat{\beta_1}$ is not the one that you want and that correct inference based upon this estimated cannot be done.
+Now, both in actual experiments, or with **observational** data, we will need to think hard about whether $E(u|X = x) = 0$ holds. Chapters \@ref(modeling) and \@ref(specification) provide various examples where this assumption is violated. However, if this assumption is violated it means that you have **biased** inference, which boils down to the fact that your estimated $\hat{\beta_1}$ is not the one that you want and that correct inference based upon this estimated cannot be done.
 
 ### Least squares assumption 2: independenty and identically distributed
 
@@ -561,6 +561,8 @@ If we again look at our regression output:
 regress testscr str, robust
 ```
 
-then we see that the $R^2 = .05$. So, only 5% of all variation in test scores is explained. This of course makes sense as potential many important variables are not included in the model. However, this does not automatically mean that the impact is biased and especially that the $STR$ is unimportant in a policy sence. Again, we focus on causal inference, not on making a good model for prediction. The $RMSE= 18.6$ indicates that the average error made is 18.6 test score units, which can be seen as sizable. In Chapter \@ref(ch:modeling) we include other, and important, variables and what we then of course will see is that the $R^2$ increases and the $SER$ decreases. 
+then we see that the $R^2 = .05$. So, only 5% of all variation in test scores is explained. This of course makes sense as potential many important variables are not included in the model. However, this does not automatically mean that the impact is biased and especially that the $STR$ is unimportant in a policy sence. Again, we focus on causal inference, not on making a good model for prediction. The $RMSE= 18.6$ indicates that the average error made is 18.6 test score units, which can be seen as sizable. In Chapter \@ref(modeling) we include other, and important, variables and what we then of course will see is that the $R^2$ increases and the $SER$ decreases. 
 
 ## Conclusion and discussion
+
+Regression

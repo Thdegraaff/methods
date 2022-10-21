@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Modeling in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus</title>
+  <meta name="description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Modeling in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Modeling in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  
+  <meta name="twitter:description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  
+
+<meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
+
+
+<meta name="date" content="2022-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regression-analysis-in-the-social-sciences.html"/>
+<link rel="next" href="specification.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what"><i class="fa fa-check"></i>What</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why"><i class="fa fa-check"></i>Why</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#for-whom"><i class="fa fa-check"></i>For Whom</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#theory-models-and-hypotheses"><i class="fa fa-check"></i><b>1.1</b> Theory, Models and Hypotheses</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#doing-research-in-the-social-sciences"><i class="fa fa-check"></i><b>1.2</b> Doing Research (in the Social Sciences)</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#work-tidy"><i class="fa fa-check"></i><b>1.2.1</b> Work tidy</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#know-where-your-stuff-is"><i class="fa fa-check"></i><b>1.2.2</b> Know where your stuff is</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#make-notes"><i class="fa fa-check"></i><b>1.2.3</b> Make notes</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#use-a-reference-manager"><i class="fa fa-check"></i><b>1.2.4</b> Use a reference manager!</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#statistical-software"><i class="fa fa-check"></i><b>1.3</b> Statistical software</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#reading-guide"><i class="fa fa-check"></i><b>1.4</b> Reading Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="surplus.html"><a href="surplus.html"><i class="fa fa-check"></i><b>2</b> Introduction to Economic Surplus</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="surplus.html"><a href="surplus.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="surplus.html"><a href="surplus.html#background"><i class="fa fa-check"></i><b>2.1.1</b> Background</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="surplus.html"><a href="surplus.html#consumer-choices-and-consumer-value"><i class="fa fa-check"></i><b>2.2</b> Consumer choices and consumer value</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="surplus.html"><a href="surplus.html#utility-functions-inverse-demand-and-demand"><i class="fa fa-check"></i><b>2.2.1</b> Utility functions, inverse demand and demand</a></li>
+<li class="chapter" data-level="2.2.2" data-path="surplus.html"><a href="surplus.html#examples-of-demand-and-inverse-demand-functions"><i class="fa fa-check"></i><b>2.2.2</b> Examples of demand and inverse demand functions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="surplus.html"><a href="surplus.html#consumer-benefits-and-surplus-in-markets"><i class="fa fa-check"></i><b>2.2.3</b> Consumer benefits and surplus in markets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="surplus.html"><a href="surplus.html#poducer-behaviour-and-surplus"><i class="fa fa-check"></i><b>2.3</b> Poducer behaviour and surplus</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="surplus.html"><a href="surplus.html#producer-cost-functions-and-cost-minimisation"><i class="fa fa-check"></i><b>2.3.1</b> Producer cost functions and cost minimisation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="surplus.html"><a href="surplus.html#specifying-and-interpreting-the-production-function"><i class="fa fa-check"></i><b>2.3.2</b> Specifying and interpreting the production function</a></li>
+<li class="chapter" data-level="2.3.3" data-path="surplus.html"><a href="surplus.html#the-cost-function"><i class="fa fa-check"></i><b>2.3.3</b> The cost function</a></li>
+<li class="chapter" data-level="2.3.4" data-path="surplus.html"><a href="surplus.html#special-case-constant-average-and-marginal-costs"><i class="fa fa-check"></i><b>2.3.4</b> Special case: constant average and marginal costs</a></li>
+<li class="chapter" data-level="2.3.5" data-path="surplus.html"><a href="surplus.html#empirical-examples"><i class="fa fa-check"></i><b>2.3.5</b> Empirical examples</a></li>
+<li class="chapter" data-level="2.3.6" data-path="surplus.html"><a href="surplus.html#from-firm-costs-to-market-inverse-supply-and-supply"><i class="fa fa-check"></i><b>2.3.6</b> From firm costs to market inverse supply and supply</a></li>
+<li class="chapter" data-level="2.3.7" data-path="surplus.html"><a href="surplus.html#producer-surplus"><i class="fa fa-check"></i><b>2.3.7</b> Producer surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="surplus.html"><a href="surplus.html#analysis-of-economic-surplus"><i class="fa fa-check"></i><b>2.4</b> Analysis of economic surplus</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="surplus.html"><a href="surplus.html#introduction-2"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="surplus.html"><a href="surplus.html#equilibrium"><i class="fa fa-check"></i><b>2.4.2</b> Equilibrium</a></li>
+<li class="chapter" data-level="2.4.3" data-path="surplus.html"><a href="surplus.html#calibration-of-equilibrium"><i class="fa fa-check"></i><b>2.4.3</b> Calibration of equilibrium</a></li>
+<li class="chapter" data-level="2.4.4" data-path="surplus.html"><a href="surplus.html#analysis-of-economic-surplus-1"><i class="fa fa-check"></i><b>2.4.4</b> Analysis of economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="surplus.html"><a href="surplus.html#external-costs-and-economic-surplus"><i class="fa fa-check"></i><b>2.5</b> External costs and economic surplus</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="surplus.html"><a href="surplus.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.5.2" data-path="surplus.html"><a href="surplus.html#general-analysis-of-the-consumer-externality-tax"><i class="fa fa-check"></i><b>2.5.2</b> General analysis of the consumer externality tax</a></li>
+<li class="chapter" data-level="2.5.3" data-path="surplus.html"><a href="surplus.html#consumer-tax-for-specific-inverse-demand-and-supply-functions"><i class="fa fa-check"></i><b>2.5.3</b> Consumer tax for specific inverse demand and supply functions</a></li>
+<li class="chapter" data-level="2.5.4" data-path="surplus.html"><a href="surplus.html#stylised-solutions-for-the-case-when-marginal-external-costs-are-proportional-to-the-equilibrium-price."><i class="fa fa-check"></i><b>2.5.4</b> Stylised solutions for the case when marginal external costs are proportional to the equilibrium price.</a></li>
+<li class="chapter" data-level="2.5.5" data-path="surplus.html"><a href="surplus.html#analysis-of-changes-in-economic-surplus-due-to-externality-taxation"><i class="fa fa-check"></i><b>2.5.5</b> Analysis of changes in economic surplus due to externality taxation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="surplus.html"><a href="surplus.html#conclusion"><i class="fa fa-check"></i><b>2.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html"><i class="fa fa-check"></i><b>3</b> Behavioural Error and Economic Surplus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-4"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#arguments"><i class="fa fa-check"></i><b>3.2</b> Arguments against neo-classical valuation and responses</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-5"><i class="fa fa-check"></i><b>3.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-a"><i class="fa fa-check"></i><b>3.2.2</b> Discussion of Premise A</a></li>
+<li class="chapter" data-level="3.2.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-b"><i class="fa fa-check"></i><b>3.2.3</b> Discussion of premise (B)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-c"><i class="fa fa-check"></i><b>3.2.4</b> Discussion of premise C</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#choicemodelserrors"><i class="fa fa-check"></i><b>3.3</b> Behavioural choice models with errors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-8"><i class="fa fa-check"></i><b>3.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.3.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach1"><i class="fa fa-check"></i><b>3.3.2</b> Approach 1: separated decision and experienced utility</a></li>
+<li class="chapter" data-level="3.3.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach2"><i class="fa fa-check"></i><b>3.3.3</b> Approach 2: satisficing and the inverse demand curve</a></li>
+<li class="chapter" data-level="3.3.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach3"><i class="fa fa-check"></i><b>3.3.4</b> Approach 3: System I and system II thinking</a></li>
+<li class="chapter" data-level="3.3.5" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach4"><i class="fa fa-check"></i><b>3.3.5</b> Approach 4: direct utility weights.</a></li>
+<li class="chapter" data-level="3.3.6" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#conclusion-1"><i class="fa fa-check"></i><b>3.3.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#beherrorsurplus"><i class="fa fa-check"></i><b>3.4</b> Behavioural errors and economic social surplus</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#implications-of-behavioural-errors-for-consumer-surplus"><i class="fa fa-check"></i><b>3.4.1</b> Implications of behavioural errors for consumer surplus</a></li>
+<li class="chapter" data-level="3.4.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#the-impact-of-behaviour-error-on-supply-decisions-and-producer-surplus"><i class="fa fa-check"></i><b>3.4.2</b> The impact of behaviour error on supply decisions and producer surplus</a></li>
+<li class="chapter" data-level="3.4.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#totalsurplus"><i class="fa fa-check"></i><b>3.4.3</b> Behavioural error and total economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioural-error-and-policy-recommendations"><i class="fa fa-check"></i><b>3.5</b> Behavioural error and policy recommendations</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioural-errors-and-information-provision"><i class="fa fa-check"></i><b>3.5.1</b> Behavioural errors and information provision</a></li>
+<li class="chapter" data-level="3.5.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#pricing-of-internalities"><i class="fa fa-check"></i><b>3.5.2</b> Pricing of internalities</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioral-errors-and-pricing-of-consumption-externalities"><i class="fa fa-check"></i><b>3.6</b> Behavioral errors and pricing of consumption externalities</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-9"><i class="fa fa-check"></i><b>3.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#a-combined-externality-internality-tax"><i class="fa fa-check"></i><b>3.6.2</b> A combined externality-internality tax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-and-conclusion"><i class="fa fa-check"></i><b>3.7</b> Discussion and conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="moral.html"><a href="moral.html"><i class="fa fa-check"></i><b>4</b> Moral Considerations and Economic Surplus </a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="moral.html"><a href="moral.html#introduction-10"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="moral.html"><a href="moral.html#dealing-with-moral-considerations-at-the-valuation-stage"><i class="fa fa-check"></i><b>4.2</b> Dealing with moral considerations at the valuation stage</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="moral.html"><a href="moral.html#introduction-11"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="moral.html"><a href="moral.html#ethical-checkbox-approach"><i class="fa fa-check"></i><b>4.2.2</b> Ethical checkbox approach</a></li>
+<li class="chapter" data-level="4.2.3" data-path="moral.html"><a href="moral.html#economizing-ethics-approach"><i class="fa fa-check"></i><b>4.2.3</b> Economizing ethics approach</a></li>
+<li class="chapter" data-level="4.2.4" data-path="moral.html"><a href="moral.html#ethicizing-economics-approach"><i class="fa fa-check"></i><b>4.2.4</b> Ethicizing economics approach</a></li>
+<li class="chapter" data-level="4.2.5" data-path="moral.html"><a href="moral.html#qualitative-valuation-approach"><i class="fa fa-check"></i><b>4.2.5</b> Qualitative valuation approach</a></li>
+<li class="chapter" data-level="4.2.6" data-path="moral.html"><a href="moral.html#contributions-of-the-remainder-of-this-chapter"><i class="fa fa-check"></i><b>4.2.6</b> Contributions of the remainder of this chapter</a></li>
+<li class="chapter" data-level="4.2.7" data-path="moral.html"><a href="moral.html#scope"><i class="fa fa-check"></i><b>4.2.7</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="moral.html"><a href="moral.html#redefining-the-economic-pie"><i class="fa fa-check"></i><b>4.3</b> Redefining the economic pie</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="moral.html"><a href="moral.html#the-advisory-committee"><i class="fa fa-check"></i><b>4.3.1</b> The advisory committee</a></li>
+<li class="chapter" data-level="4.3.2" data-path="moral.html"><a href="moral.html#adjusted-consumer-surplus"><i class="fa fa-check"></i><b>4.3.2</b> Adjusted consumer surplus</a></li>
+<li class="chapter" data-level="4.3.3" data-path="moral.html"><a href="moral.html#adjusted-producer-surplus"><i class="fa fa-check"></i><b>4.3.3</b> Adjusted producer surplus</a></li>
+<li class="chapter" data-level="4.3.4" data-path="moral.html"><a href="moral.html#adjusted-economic-surplus"><i class="fa fa-check"></i><b>4.3.4</b> Adjusted economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="moral.html"><a href="moral.html#taxation-and-moral-consideration"><i class="fa fa-check"></i><b>4.4</b> Taxation and moral consideration</a></li>
+<li class="chapter" data-level="4.5" data-path="moral.html"><a href="moral.html#externality-taxation-and-moral-considerations"><i class="fa fa-check"></i><b>4.5</b> Externality taxation and moral considerations</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="moral.html"><a href="moral.html#moral-considerations-related-to-the-kind-of-externality"><i class="fa fa-check"></i><b>4.5.1</b> Moral considerations related to the kind of externality</a></li>
+<li class="chapter" data-level="4.5.2" data-path="moral.html"><a href="moral.html#application-pricing-consumer-externalities-that-are-external-to-the-market"><i class="fa fa-check"></i><b>4.5.2</b> Application: pricing consumer externalities that are external to the market</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="moral.html"><a href="moral.html#conclusion-and-discussion"><i class="fa fa-check"></i><b>4.6</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#a-first-encounter-with-stata"><i class="fa fa-check"></i><b>5.2.1</b> A first encounter with <code>STATA</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:numevidence"><i class="fa fa-check"></i><b>5.2.2</b> Numerical evidence</a></li>
+<li class="chapter" data-level="5.2.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:smart"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:uniregress"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:genesis"><i class="fa fa-check"></i><b>5.3.1</b> Genesis: <em>regression towards the mean</em></a></li>
+<li class="chapter" data-level="5.3.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#regression-with-one-regressor"><i class="fa fa-check"></i><b>5.3.2</b> Regression with one regressor</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions-for-causal-inference"><i class="fa fa-check"></i><b>5.4</b> Least squares assumptions for causal inference</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumption-1-conditional-mean-independence"><i class="fa fa-check"></i><b>5.4.1</b> Least squares assumption 1: conditional mean independence</a></li>
+<li class="chapter" data-level="5.4.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumption-2-independenty-and-identically-distributed"><i class="fa fa-check"></i><b>5.4.2</b> Least squares assumption 2: independenty and identically distributed</a></li>
+<li class="chapter" data-level="5.4.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#least-squares-assumption-3-large-outliers-are-rare"><i class="fa fa-check"></i><b>5.4.3</b> Least squares assumption 3: Large outliers are rare</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#other-least-squares-assumptions"><i class="fa fa-check"></i><b>5.5</b> Other least squares assumptions</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#homoskedasticity"><i class="fa fa-check"></i><b>5.5.1</b> Homoskedasticity</a></li>
+<li class="chapter" data-level="5.5.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#normal-distributed-regression-term"><i class="fa fa-check"></i><b>5.5.2</b> Normal distributed regression term</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#measures-of-fit"><i class="fa fa-check"></i><b>5.6</b> Measures of fit</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#the-regression-r2"><i class="fa fa-check"></i><b>5.6.1</b> The regression <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#the-standard-error-of-the-regression"><i class="fa fa-check"></i><b>5.6.2</b> The Standard Error of the Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#conclusion-and-discussion-1"><i class="fa fa-check"></i><b>5.7</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="modeling.html"><a href="modeling.html#why-more-independent-variables"><i class="fa fa-check"></i><b>6.1</b> Why more independent variables?</a></li>
+<li class="chapter" data-level="6.2" data-path="modeling.html"><a href="modeling.html#multivariate-regression-analysis"><i class="fa fa-check"></i><b>6.2</b> Multivariate regression analysis</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="modeling.html"><a href="modeling.html#measures-of-fit-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.1</b> Measures of Fit for Multiple Regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="modeling.html"><a href="modeling.html#the-least-squares-assumptions-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.2</b> The Least Squares Assumptions for Multiple Regression</a></li>
+<li class="chapter" data-level="6.2.3" data-path="modeling.html"><a href="modeling.html#testing-with-multivariate-regression-models"><i class="fa fa-check"></i><b>6.2.3</b> Testing with multivariate regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="modeling.html"><a href="modeling.html#non-linear-specifications"><i class="fa fa-check"></i><b>6.3</b> Non-linear specifications</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="modeling.html"><a href="modeling.html#polynomials"><i class="fa fa-check"></i><b>6.3.1</b> Polynomials</a></li>
+<li class="chapter" data-level="6.3.2" data-path="modeling.html"><a href="modeling.html#interaction-variables"><i class="fa fa-check"></i><b>6.3.2</b> Interaction variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="modeling.html"><a href="modeling.html#logarithmic-transformation"><i class="fa fa-check"></i><b>6.3.3</b> Logarithmic transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="modeling.html"><a href="modeling.html#using-fixed-effects-in-panel-data"><i class="fa fa-check"></i><b>6.4</b> Using fixed effects in panel data</a></li>
+<li class="chapter" data-level="6.5" data-path="modeling.html"><a href="modeling.html#conclusion-and-discussion-2"><i class="fa fa-check"></i><b>6.5</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="specification.html"><a href="specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
+<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#presentation-of-results"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
+<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="in-conclusion.html"><a href="in-conclusion.html"><i class="fa fa-check"></i><b>8</b> In conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="apperror.html"><a href="apperror.html"><i class="fa fa-check"></i><b>A</b> Taxation in the presence of behavioural error</a></li>
+<li class="chapter" data-level="B" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html"><i class="fa fa-check"></i><b>B</b> Background calculations for Chapter @ref(moral)</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html#apptax"><i class="fa fa-check"></i><b>B.1</b> Deriving the tax that optimizes adjusted social surplus</a></li>
+<li class="chapter" data-level="B.2" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html#apppricing"><i class="fa fa-check"></i><b>B.2</b> Pricing of a consumption externality</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="appreviewstat.html"><a href="appreviewstat.html"><i class="fa fa-check"></i><b>C</b> Reviewing probability and statistics</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="appreviewstat.html"><a href="appreviewstat.html#reviewing-probability"><i class="fa fa-check"></i><b>C.1</b> Reviewing probability</a>
+<ul>
+<li class="chapter" data-level="C.1.1" data-path="appreviewstat.html"><a href="appreviewstat.html#probability"><i class="fa fa-check"></i><b>C.1.1</b> Probability</a></li>
+<li class="chapter" data-level="C.1.2" data-path="appreviewstat.html"><a href="appreviewstat.html#population-random-variables"><i class="fa fa-check"></i><b>C.1.2</b> Population &amp; random variables</a></li>
+<li class="chapter" data-level="C.1.3" data-path="appreviewstat.html"><a href="appreviewstat.html#distribution-functions"><i class="fa fa-check"></i><b>C.1.3</b> Distribution functions</a></li>
+<li class="chapter" data-level="C.1.4" data-path="appreviewstat.html"><a href="appreviewstat.html#conditional-distributions-and-conditional-means"><i class="fa fa-check"></i><b>C.1.4</b> Conditional distributions and conditional means</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="appreviewstat.html"><a href="appreviewstat.html#secssampling"><i class="fa fa-check"></i><b>C.2</b> Sampling in frequentist statistics</a>
+<ul>
+<li class="chapter" data-level="C.2.1" data-path="appreviewstat.html"><a href="appreviewstat.html#the-sampling-distribution-of-bary"><i class="fa fa-check"></i><b>C.2.1</b> The sampling distribution of <span class="math inline">\(\bar{Y}\)</span></a></li>
+<li class="chapter" data-level="C.2.2" data-path="appreviewstat.html"><a href="appreviewstat.html#example-simple-binomial-random-variables"><i class="fa fa-check"></i><b>C.2.2</b> Example: simple binomial random variables</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Methods and Techniques for Social and Economic Research: Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modeling" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Modeling in the Social Sciences<a href="modeling.html#modeling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-more-independent-variables" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Why more independent variables?<a href="modeling.html#why-more-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Directed Acyclical Graphs (DAG)
+Pearl, Judea. Causality. Cambridge university press, 2009</p>
+<div class="figure"><span style="display:block;" id="fig:unknown"></span>
+<img src="figures/unknown.png" alt="Unrelated omitted variables" width="216" />
+<p class="caption">
+Figure 6.1: Unrelated omitted variables
+</p>
+</div>
+<p>The confounding fork</p>
+<div class="figure"><span style="display:block;" id="fig:unobshet"></span>
+<img src="figures/Unobshet.png" alt="Related omitted variables" width="216" />
+<p class="caption">
+Figure 6.2: Related omitted variables
+</p>
+</div>
+<p><strong>U</strong> is a <em>common</em> cause for both student teacher ratio and testscores!
+<span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i
+\end{equation}\]</span></p>
+<p>The error <span class="math inline">\(u\)</span> arises because of factors that influence <span class="math inline">\(Y\)</span> but are not included in the regression function; so, there are <em>always</em> omitted variables.</p>
+<p>The omission of those variables can lead to <strong>bias</strong> in the OLS estimator.</p>
+<p>The bias in the OLS estimator that occurs as a result of an omitted factor is called omitted variable bias. For omitted variable bias to occur, the omitted factor <span class="math inline">\(Z\)</span> must be:</p>
+<ol style="list-style-type: decimal">
+<li>A <strong>determinant</strong> of <span class="math inline">\(Y\)</span> (i.e. <span class="math inline">\(Z\)</span> is part of <span class="math inline">\(u\)</span>)</li>
+<li><strong>Correlated</strong> with the regressor <span class="math inline">\(X\)</span> (i.e. <span class="math inline">\(corr(Z,X) \neq 0\)</span>)</li>
+</ol>
+<p>Both conditions must hold for the omission of <span class="math inline">\(Z\)</span> to result in omitted variable bias.</p>
+<p>In the test score example:</p>
+<p>English language ability (whether the student has English as a second language) plausibly affects standardized test scores: <span class="math inline">\(Z\)</span> is a <strong>determinant</strong> of <span class="math inline">\(Y\)</span>.</p>
+<p>Immigrant communities tend to be less affluent and thus have smaller school budgets—and higher <span class="math inline">\(STR\)</span>: <span class="math inline">\(Z\)</span> is <strong>correlated</strong> with <span class="math inline">\(X\)</span>.</p>
+<p>Accordingly, <span class="math inline">\(\hat{\beta}_1\)</span> is biased. What is the direction of this bias?</p>
+<p>What does common sense suggest?
+If common sense fails you, there is a formula</p>
+<p><span class="math display">\[\begin{equation}
+\hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu}
+\end{equation}\]</span>
+If an omitted factor <span class="math inline">\(Z\)</span> is both:</p>
+<ul>
+<li>a determinant of <span class="math inline">\(Y\)</span> (that is, it is contained in <span class="math inline">\(u\)</span>); and</li>
+<li>correlated with <span class="math inline">\(X\)</span>,</li>
+</ul>
+<p>then <span class="math inline">\(\rho_{XU} \neq 0\)</span> and the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is biased (and is not consistent).</p>
+<p>So, districts with more English learning students (<em>i</em>) do worse on standardized tests and (<em>ii</em>) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect.</p>
+<p>Is this is actually going on in the CA data?</p>
+<div class="figure"><span style="display:block;" id="fig:omitca"></span>
+<img src="figures/Sheet7.png" alt="Cross tabulation of test scores by class size and percentage English learners" width="672" />
+<p class="caption">
+Figure 6.3: Cross tabulation of test scores by class size and percentage English learners
+</p>
+</div>
+<p><em>fewer</em> English Learners have <em>higher</em> test scores
+Districts with <em>lower</em> percent EL (<span class="math inline">\(PctEL\)</span>) have <em>smaller</em> classes
+What is the effect of class size with comparable PctEL?</p>
+<p>Three ways to overcome omitted variable bias</p>
+<ol style="list-style-type: decimal">
+<li>Run a randomized controlled experiment in which treatment (<span class="math inline">\(STR\)</span>) is randomly assigned: then <span class="math inline">\(PctEL\)</span> is still a determinant of <span class="math inline">\(TestScore\)</span>, but <span class="math inline">\(PctEL\)</span> is uncorrelated with <span class="math inline">\(STR\)</span>.</li>
+<li>Adopt the cross tabulation approach, with finer gradations of <span class="math inline">\(STR\)</span> and <span class="math inline">\(PctEL\)</span>—within each group, all classes have the same <span class="math inline">\(PctEL\)</span>, so we control for <span class="math inline">\(PctEL\)</span></li>
+<li>Use a regression in which the omitted variable (<span class="math inline">\(PctEL\)</span>) is no longer omitted: include <span class="math inline">\(PctEL\)</span> as an additional regressor in a multiple regression.</li>
+</ol>
+</div>
+<div id="multivariate-regression-analysis" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Multivariate regression analysis<a href="modeling.html#multivariate-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider the case of two regressors:
+<span class="math display">\[\begin{equation}
+Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
+\end{equation}\]</span></p>
+<ul>
+<li><span class="math inline">\(Y\)</span> is the dependent variable</li>
+<li><span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are the two independent variables (regressors)</li>
+<li><span class="math inline">\((Y_i, X_{1i}, X_{2i})\)</span> denote the i<span class="math inline">\(^{\mathrm{th}}\)</span> observation on <span class="math inline">\(Y\)</span>, <span class="math inline">\(X_1\)</span>, and <span class="math inline">\(X_2\)</span>.</li>
+<li><span class="math inline">\(\beta_0\)</span> = unknown population intercept</li>
+<li><span class="math inline">\(\beta_1\)</span> = effect on <span class="math inline">\(Y\)</span> of a change in <span class="math inline">\(X_1\)</span>, <strong>holding</strong> <span class="math inline">\(X_2\)</span> constant}</li>
+<li><span class="math inline">\(\beta_2\)</span> = effect on <span class="math inline">\(Y\)</span> of a change in <span class="math inline">\(X_2\)</span>, <strong>holding</strong> <span class="math inline">\(X_1\)</span> constant}</li>
+<li><span class="math inline">\(u_i\)</span> = the regression error (omitted factors)</li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+u_i, i=1,\ldots,n
+\end{equation}\]</span></p>
+<p>Consider changing <span class="math inline">\(X_1\)</span> by <span class="math inline">\(\Delta X_1\)</span> while holding <span class="math inline">\(X_2\)</span>:</p>
+<p>Population regression line before the change:
+<span class="math display">\[\begin{equation}
+Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2}
+\end{equation}\]</span></p>
+<p>Population regression line, after the change:
+<span class="math display">\[\begin{equation}
+Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}
+\end{equation}\]</span></p>
+<ul>
+<li>So before: <span class="math inline">\(Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2\)</span></li>
+<li>After: <span class="math inline">\(Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}\)</span></li>
+<li>Difference: <span class="math inline">\(\Delta Y = \beta_1 \Delta X_1\)</span></li>
+<li><span class="math inline">\(\beta_1 = \frac{\Delta Y}{\Delta X_1}\)</span> Holding <span class="math inline">\(X_2\)</span> constant</li>
+<li><span class="math inline">\(\beta_2 = \frac{\Delta Y}{\Delta X_2}\)</span> Holding <span class="math inline">\(X_1\)</span> constant</li>
+<li><span class="math inline">\(\beta_0\)</span> predicted value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1 = X_2 = 0\)</span></li>
+</ul>
+<p>Example: the California test score data</p>
+<p>Regression of TestScore against STR:
+<span class="math display">\[\begin{equation}
+\widehat{TestScore} = 698.9- 2.28 STR
+\end{equation}\]</span>
+Now include percent English Learners in the district (<span class="math inline">\(PctEL\)</span>):
+<span class="math display">\[\begin{equation}
+\widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL
+\end{equation}\]</span></p>
+<p>What happens to the coefficient on <span class="math inline">\(STR\)</span> Why? (Note: <span class="math inline">\(corr(STR, PctEL) = 0.19\)</span>)</p>
+<p>Multiple regression in STATA</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb22-1"><a href="modeling.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str el_pct, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(2, 417)         =     223.82
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.4264
+                                                Root MSE          =     14.464
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -1.101296   .4328472    -2.54   0.011     -1.95213   -.2504616
+      el_pct |  -.6497768   .0310318   -20.94   0.000     -.710775   -.5887786
+       _cons |   686.0322   8.728224    78.60   0.000     668.8754     703.189
+------------------------------------------------------------------------------</code></pre>
+<div id="measures-of-fit-for-multiple-regression" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Measures of Fit for Multiple Regression<a href="modeling.html#measures-of-fit-for-multiple-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Actual = predicted + residual: <span class="math inline">\(Y_i = \hat{Y}_i + \hat{u_i}\)</span>
+- <span class="math inline">\(SER\)</span> =std. deviation of <span class="math inline">\(\hat{u}_i\)</span> (with d.f. correction)
+- <span class="math inline">\(RMSE\)</span> =std. deviation of <span class="math inline">\(\hat{u}_i\)</span> (without d.f. correction)
+- <span class="math inline">\(R^2\)</span> = fraction of variance of <span class="math inline">\(Y\)</span> explained by <span class="math inline">\(X\)</span>
+- <span class="math inline">\(\bar{R}^2\)</span> = ``adjusted <span class="math inline">\(R^2\)</span>’’ = <span class="math inline">\(R^2\)</span> with a degrees-of-freedom correction that adjusts for estimation uncertainty; <span class="math inline">\(\bar{R}^2 &lt;R^2\)</span></p>
+<p>Measures of fit</p>
+<p>Test score example:</p>
+<p><span class="math display">\[\begin{eqnarray}
+TestScore &amp;= &amp;698.9- 2.28  STR \\
+&amp;&amp;R^2 = .05, SER = 18.6
+\end{eqnarray}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray}
+TestScore &amp;=&amp; 686.0 - 1.10  STR - 0.65 PctEL \\
+&amp;&amp;R^2=.426, \bar{R}^2=0.424, SER = 14.5
+\end{eqnarray}\]</span></p>
+<p>What—precisely–does this tell you about the fit of regression (2) compared with regression (1)?
+Why are the <span class="math inline">\(R^2\)</span> and the <span class="math inline">\(\bar{R}^2\)</span> so close in (2)?</p>
+</div>
+<div id="the-least-squares-assumptions-for-multiple-regression" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> The Least Squares Assumptions for Multiple Regression<a href="modeling.html#the-least-squares-assumptions-for-multiple-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+\ldots + \beta_k X_{ki}+u_i, i=1,\ldots,n
+\end{equation}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>The conditional distribution of <span class="math inline">\(u\)</span> given the <span class="math inline">\(X\)</span>’s has mean zero, that is, <span class="math inline">\(E(u|X_1 = x_1,\ldots, X_k = x_k) = 0\)</span>.</li>
+<li>(X<span class="math inline">\(_{1i}\)</span>,,X<span class="math inline">\(_{ki}\)</span>,Y<span class="math inline">\(_i\)</span>), i =1,,n, are i.i.d.</li>
+<li>Large outliers are rare for <span class="math inline">\(X_1,\ldots, X_k\)</span>, and <span class="math inline">\(Y\)</span></li>
+<li>There is no perfect multicollinearity.</li>
+</ol>
+<p>Assumption 1: the conditional mean of <span class="math inline">\(u\)</span> given the included <span class="math inline">\(X\)</span>’s is zero.</p>
+<p><span class="math display">\[\begin{equation}
+E(u|X_1 = x_1,\ldots, X_k = x_k) = 0
+\end{equation}\]</span></p>
+<ul>
+<li>This has the same interpretation as in regression with a single regressor.</li>
+<li>If an omitted variable (1) belongs in the equation (so is in <span class="math inline">\(u\)</span>) and (2) is correlated with an included <span class="math inline">\(X\)</span>, then this condition fails</li>
+<li>Failure of this condition leads to omitted variable bias</li>
+<li>The solution—if possible—is to include the omitted variable in the regression.</li>
+</ul>
+<p>Least squares assumption 4: no perfect multicollinearity</p>
+<p>Multicollinearity, Perfect and Imperfect
+Examples of perfect multicollinearity</p>
+<ol style="list-style-type: decimal">
+<li>First example: you include <span class="math inline">\(STR\)</span> twice.</li>
+<li>Second example:
+<ul>
+<li>regress <span class="math inline">\(TestScore\)</span> on a constant, <span class="math inline">\(D\)</span>, and <span class="math inline">\(B\)</span>, where:<span class="math inline">\(D_i =1\)</span> if <span class="math inline">\(STR \leq 20\)</span>, <span class="math inline">\(=0\)</span> otherwise ; <span class="math inline">\(B_i =1\)</span> if <span class="math inline">\(STR&gt;20\)</span>, <span class="math inline">\(= 0\)</span> otherwise, so <span class="math inline">\(B_i = 1 - D_i\)</span> and there is perfect multicollinearity</li>
+<li>Would there be perfect multicollinearity if the intercept (constant) were somehow dropped (that is, omitted or suppressed) in this regression?</li>
+<li>This example is a special case of dummy variable} trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive—that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity—the dummy variable trap.</li>
+<li>Why is there perfect multicollinearity here?</li>
+</ul></li>
+</ol>
+<p>Solutions to the dummy variable trap:
+1. Omit one of the groups (e.g. Senior), or
+2. Omit the intercept</p>
+<p>What are the implications of (1) or (2) for the interpretation of the coefficients?
+Perfect multicollinearity usually reflects a mistake in the definitions of the regressors, or an oddity in the data</p>
+<ul>
+<li>If you have perfect multicollinearity, your statistical software will let you know—either by crashing or giving an error message or by ``dropping’’ one of the variables arbitrarily</li>
+<li>The solution to perfect multicollinearity is to modify your list of regressors so that you no longer have perfect multicollinearity.</li>
+</ul>
+<p>Imperfect multicollinearity
+Imperfect and perfect multicollinearity are quite different despite the similarity of the names.
+Imperfect multicollinearity occurs when two or more regressors are very highly correlated.
+Why this term? If two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line—they are collinear—but unless the correlation is exactly <span class="math inline">\(\pm\)</span> 1, that collinearity is imperfect.</p>
+<p>Imperfect multicollinearity implies that one or more of the regression coefficients will be imprecisely estimated.</p>
+<ul>
+<li>the coefficient on <span class="math inline">\(X_1\)</span> is the effect of <span class="math inline">\(X_1\)</span> holding <span class="math inline">\(X_2\)</span> constant
+but if <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are highly correlated, there is very little variation in <span class="math inline">\(X_1\)</span> once <span class="math inline">\(X_2\)</span> is held constant</li>
+<li>so the data are pretty much uninformative about what happens when <span class="math inline">\(X_1\)</span> changes but <span class="math inline">\(X_2\)</span> doesn’t, so the variance of the OLS estimator of the coefficient on <span class="math inline">\(X_1\)</span> will be large.</li>
+</ul>
+<p>Imperfect multicollinearity (correctly) results in large standard errors for one or more of the OLS coefficients.</p>
+</div>
+<div id="testing-with-multivariate-regression-models" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Testing with multivariate regression models<a href="modeling.html#testing-with-multivariate-regression-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hypothesis Tests and Confidence Intervals for a Single Coefficient in Multiple Regression</p>
+<p><span class="math inline">\(\frac{\hat{\beta}_1- E(\hat{\beta}_1)}{\sqrt{var(\hat{\beta}_1)}}\)</span> is approximately distributed <span class="math inline">\(N(0,1)\)</span> (CLT)</p>
+<p>Thus hypotheses on <span class="math inline">\(\beta_1\)</span> can be tested using the usual <span class="math inline">\(t\)</span>-statistic, and confidence intervals are constructed as <span class="math inline">\(\{\hat{\beta}_1 \pm 1.96 SE (\hat{\beta}_1)\}\)</span></p>
+<p>So too for <span class="math inline">\(\beta_2,\ldots, \beta_k\)</span>.</p>
+<p><span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> are generally not independently distributed—so neither are their <span class="math inline">\(t\)</span>-statistics (more on this later).</p>
+<p>Example: The California class size data</p>
+<p><span class="math display">\[\begin{equation}
+TestScore =\underbrace{698.9}_{10.4} - \underbrace{2.28}_{0.52}  STR
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+TestScore = \underbrace{686.0}_{8.7} - \underbrace{1.10}_{0.43} STR - \underbrace{0.650}_{0.031} PctEL
+\end{equation}\]</span></p>
+<p>The coefficient on <span class="math inline">\(STR\)</span> in (2) is the effect on <span class="math inline">\(TestScores\)</span> of a unit change in <span class="math inline">\(STR\)</span>, holding constant the percentage of English Learners in the district
+The 95% confidence interval for coefficient on <span class="math inline">\(STR\)</span> in (2) is <span class="math inline">\(\{-1.10 \pm 1.96 \times 0.43\} = (-1.95,-0.26)\)</span>
+The <span class="math inline">\(t\)</span>-statistic testing <span class="math inline">\(\beta_{STR} = 0\)</span> is <span class="math inline">\(t = -1.10/0.43 = -2.54\)</span>, so we reject the hypothesis at the 5% significance level
+\begin{verbatim}</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb24-1"><a href="modeling.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str el_pct, <span class="fu">r</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(2, 417)         =     223.82
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.4264
+                                                Root MSE          =     14.464
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -1.101296   .4328472    -2.54   0.011     -1.95213   -.2504616
+      el_pct |  -.6497768   .0310318   -20.94   0.000     -.710775   -.5887786
+       _cons |   686.0322   8.728224    78.60   0.000     668.8754     703.189
+------------------------------------------------------------------------------</code></pre>
+<p>Tests of Joint Hypotheses</p>
+<p>Let <span class="math inline">\(Expn =\)</span> expenditures per pupil and consider the population
+regression model:
+<span class="math display">\[\begin{equation}
+TestScore_i = \beta0 + \beta_1 STR_i + \beta_2 Expn_i + \beta_3PctEL_i + u_i
+\end{equation}\]</span>
+The null hypothesis that “school resources don’t matter” and the alternative that they do, corresponds to:</p>
+<ul>
+<li><p><span class="math inline">\(H_0:\beta_1 =0\)</span> and <span class="math inline">\(\beta_2 =0\)</span> vs</p></li>
+<li><p><span class="math inline">\(H_1:\)</span> either <span class="math inline">\(\beta_1 \neq 0\)</span> or <span class="math inline">\(\beta_2 \neq 0\)</span> or both</p></li>
+<li><p><span class="math inline">\(H_0:\beta_1 =0\)</span> and <span class="math inline">\(\beta_2 =0\)</span> vs</p></li>
+<li><p><span class="math inline">\(H_1:\)</span> either <span class="math inline">\(\beta_1 \neq 0\)</span> or <span class="math inline">\(\beta_2 \neq 0\)</span> or both
+A joint hypothesis specifies a value for two or more coefficients, that is, it imposes a restriction on two or more coefficients.</p></li>
+<li><p>In general, a joint hypothesis will involve <span class="math inline">\(q\)</span> restrictions. In the example above, <span class="math inline">\(q = 2\)</span>, and the two restrictions are <span class="math inline">\(\beta_1 = 0\)</span> and <span class="math inline">\(\beta_2 = 0\)</span>.</p></li>
+<li><p>A “common sense” idea is to reject if either of the individual <span class="math inline">\(t\)</span>-statistics exceeds 1.96 in absolute value.</p></li>
+</ul>
+<p>But this “one at a time” test isn’t valid: the resulting test rejects too often under the null hypothesis (more than 5%)!</p>
+<p>Therefore, we need the <span class="math inline">\(F\)</span>-statistic</p>
+<p>The <span class="math inline">\(F\)</span>-statistic tests all parts of a joint hypothesis at once.
+Formula for the special case of the joint hypothesis <span class="math inline">\(\beta_1 = \beta_{1,0}\)</span> and <span class="math inline">\(\beta_2 = \beta_{2,0}\)</span> in a regression with two regressors:</p>
+<p><span class="math display">\[\begin{equation}
+F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat{\rho}^2_{t_1 t_2}}  \right)
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\hat{\rho}_{t_1,t_2}\)</span> estimates the correlation between <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span>. Reject when <span class="math inline">\(F\)</span> is large (how large?)</p>
+<p>The F-statistic testing <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat{\rho}^2_{t_1 t_2}}  \right)
+\end{equation}\]</span></p>
+<p>The F-statistic is large when <span class="math inline">\(t_1\)</span> and/or <span class="math inline">\(t_2\)</span> is large
+The F-statistic corrects (in just the right way) for the correlation between <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span>.</p>
+<p>The formula for more than two <span class="math inline">\(\beta\)</span>’s is nasty unless you use matrix algebra.</p>
+<p>This gives the <span class="math inline">\(F\)</span>-statistic a nice large-sample approximate distribution, which is</p>
+<p>Computing the p-value using the <span class="math inline">\(F\)</span>-statistic:</p>
+<p><span class="math inline">\(p\)</span>-value = tail probability of the <span class="math inline">\(\chi^2_q /q\)</span> distribution beyond the <span class="math inline">\(F\)</span>-statistic actually computed.</p>
+<p>Use the <code>test</code> command <strong>right</strong> after the regression</p>
+<p>Example: Test the joint hypothesis that the population coefficients on <span class="math inline">\(STR\)</span> and expenditures per pupil (<span class="math inline">\(expn_{stu}\)</span>) are both zero, against the alternative that at least one of the population coefficients is nonzero.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb26-1"><a href="modeling.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> str el_pct</span></code></pre></div>
+<pre><code> ( 1)  str = 0
+ ( 2)  el_pct = 0
+
+       F(  2,   417) =  223.82
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+</div>
+<div id="non-linear-specifications" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Non-linear specifications<a href="modeling.html#non-linear-specifications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(STR\)</span> relation looks linear</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb28-1"><a href="modeling.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">lfit</span> testscr str) (<span class="kw">scatter</span> testscr str)</span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scatterlfitcaschool"></span>
+<img src="figures/scatterlfit.png" alt="A linear relation" width="660" />
+<p class="caption">
+Figure 6.4: A linear relation
+</p>
+</div>
+<p>But the <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(Income\)</span> relation looks</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb29-1"><a href="modeling.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">lfit</span> testscr avginc) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scatterincome"></span>
+<img src="figures/scatterincome.png" alt="A non-linear relation" width="660" />
+<p class="caption">
+Figure 6.5: A non-linear relation
+</p>
+</div>
+<p>Nonlinear regression population regression functions</p>
+<p>If a relation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> is nonlinear:
+- The effect on <span class="math inline">\(Y\)</span> of a change in <span class="math inline">\(X\)</span> depends on the value of <span class="math inline">\(X\)</span>—that is, the <em>marginal</em> effect of <span class="math inline">\(X\)</span> is not constant
+- A linear regression is misspecified
+- The estimator of the effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> is biased—it needn’t even be right on average.
+- The solution to this is to estimate a regression function that is nonlinear in <span class="math inline">\(X\)</span></p>
+<p>Nonlinear functions of a single independent variable</p>
+<p>We look at two complementary approaches:
+- Polynomials in <span class="math inline">\(X\)</span>
+- The effect is approximated by a quadratic, cubic, or higher-degree polynomial
+- Logarithmic transformations
+- <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking its logarithm
+- this gives a percentages interpretation which is often useful</p>
+<div id="polynomials" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Polynomials<a href="modeling.html#polynomials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Approximate the regression function by a polynomial:
+<span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_1 + \beta_2 X^2_i + \ldots + \beta_r X_i^r + u_i
+\end{equation}\]</span></p>
+<p>This is just the linear regression model—except that the regressors are powers of <span class="math inline">\(X\)</span>! Estimation, hypothesis testing, etc. proceeds as in the multiple regression model using OLS</p>
+<p>The coefficients are difficult to interpret, but the regression function itself is interpretable</p>
+<p>Example: the <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(Income\)</span> relation</p>
+<p><span class="math inline">\(Income_i\)</span> = average district income in the <span class="math inline">\(i^{\mathrm{th}}\)</span> district (thousands of dollars per capita)
+Quadratic specification:
+<span class="math display">\[\begin{equation}
+TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 + u_i
+\end{equation}\]</span>
+Cubic specification:
+<span class="math display">\[\begin{equation}
+TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 +
+\beta_3 (Income_i)^3 + u_i
+\end{equation}\]</span></p>
+<p>Estimation of the quadratic</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb30-1"><a href="modeling.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc, <span class="fu">r</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(2, 417)         =     428.52
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.5562
+                                                Root MSE          =     12.724
+
+-----------------------------------------------------------------------------------
+                  |               Robust
+          testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+------------------+----------------------------------------------------------------
+           avginc |   3.850995   .2680941    14.36   0.000      3.32401    4.377979
+                  |
+c.avginc#c.avginc |  -.0423085   .0047803    -8.85   0.000     -.051705   -.0329119
+                  |
+            _cons |   607.3017   2.901754   209.29   0.000     601.5978    613.0056
+-----------------------------------------------------------------------------------</code></pre>
+<p>Test the null hypothesis of linearity against the alternative that the regression function is a quadratic</p>
+<p>Digression: nonlinearities and plots in stata</p>
+<p>There are four factor-variable operators:</p>
+<ul>
+<li><code>i.</code> operator to specify indicators (dummies)</li>
+<li><code>c.</code> operator to treat as continuous</li>
+<li><code>#</code> binary operator to specify interactions</li>
+<li><code>##</code> binary operator to specify factorial interactions</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb32-1"><a href="modeling.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> hat1 </span>
+<span id="cb32-2"><a href="modeling.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> (testscr avginc) || (<span class="kw">line</span> hat1 avginc, <span class="kw">sort</span>)</span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scatterqua"></span>
+<img src="figures/scatterqua.png" alt="A non-linear relation" width="660" />
+<p class="caption">
+Figure 6.6: A non-linear relation
+</p>
+</div>
+<p>Compute “effects” for different values of <span class="math inline">\(X\)</span>
+<span class="math display">\[\begin{equation}
+\widehat{TestScore_i} = 607.3 + 3.85 Income_i - 0.0423(Income_i)^2
+\end{equation}\]</span>
+Predicted change in TestScore for a change in income from $5,000 per capita to $6,000 per capita:
+<span class="math display">\[\begin{eqnarray}
+\Delta \widehat{TestScore} &amp;=&amp; 607.3 + 3.85 \times 6 -  0.0423 \times 6^2 \\
+&amp;&amp; - (607.3 + 3.85\times 5 - 0.0423\times 5^2)\\
+&amp;=&amp;3.4
+\end{eqnarray}\]</span></p>
+<p>Predicted “effects” for different values of <span class="math inline">\(X\)</span>:}</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:effectqua">Table 6.1: </span>Effect of <span class="math inline">\(X\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Change in Income (1000 dollar per capita)
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(\Delta \widehat{TestScore}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+from 5 to 6
+</td>
+<td style="text-align:left;">
+3.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+from 25 to 26
+</td>
+<td style="text-align:left;">
+1.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+from 45 to 46
+</td>
+<td style="text-align:left;">
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>The “effect” of a change in income is greater at low than high income levels (perhaps, a declining marginal benefit of an increase in school budgets?)</p>
+<p>Caution! What is the effect of a change from 65 to 66? Don’t extrapolate outside the range of the data!</p>
+<p>Estimation of a cubic</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb33-1"><a href="modeling.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc##c.avginc, <span class="fu">r</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(3, 416)         =     270.18
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.5584
+                                                Root MSE          =     12.707
+
+--------------------------------------------------------------------------------------------
+                           |               Robust
+                   testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+---------------------------+----------------------------------------------------------------
+                    avginc |   5.018677   .7073504     7.10   0.000      3.62825    6.409103
+                           |
+         c.avginc#c.avginc |  -.0958052   .0289537    -3.31   0.001     -.152719   -.0388913
+                           |
+c.avginc#c.avginc#c.avginc |   .0006855   .0003471     1.98   0.049     3.26e-06    .0013677
+                           |
+                     _cons |    600.079   5.102062   117.61   0.000     590.0499     610.108
+--------------------------------------------------------------------------------------------</code></pre>
+<p>Testing the null hypothesis of linearity</p>
+<p>Alternative hypothesis: the population regression is quadratic and/or cubic, that is, it is a polynomial of degree up to 3:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Coefficients on <span class="math inline">\(Income^2\)</span> and <span class="math inline">\(Income^3 = 0\)</span></li>
+<li><span class="math inline">\(H_1\)</span>: at least one of these coefficients is nonzero.</li>
+</ul>
+<p>The hypothesis that the population regression is linear is rejected at the 1% significance level against the alternative that it is a polynomial of degree up to 3.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb35-1"><a href="modeling.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> avginc#avginc avginc#avginc#avginc  </span></code></pre></div>
+<pre><code> ( 1)  c.avginc#c.avginc = 0
+ ( 2)  c.avginc#c.avginc#c.avginc = 0
+
+       F(  2,   416) =   37.69
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="interaction-variables" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Interaction variables<a href="modeling.html#interaction-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Interactions between independent variables</p>
+<p>Perhaps a class size reduction is more effective in some
+circumstances than in others</p>
+<p>Perhaps smaller classes help more if there are many English
+learners, who need individual attention</p>
+<p>That is, <span class="math inline">\(\frac{\partial TestScore}{\partial STR}\)</span> might on <span class="math inline">\(PctEL\)</span></p>
+<p>More generally, <span class="math inline">\(\frac{\partial Y}{\partial X_1}\)</span> might on <span class="math inline">\(X_2\)</span></p>
+<div id="interactions-between-two-binary-variables" class="section level4 hasAnchor" number="6.3.2.1">
+<h4><span class="header-section-number">6.3.2.1</span> Interactions between two binary variables<a href="modeling.html#interactions-between-two-binary-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} +u_i
+\end{equation}\]</span></p>
+<p><span class="math inline">\(D_{1i}\)</span> and $ D_{2i}$ are binary</p>
+<p><span class="math inline">\(\beta_1\)</span> is the effect of changing <span class="math inline">\(D_1=0\)</span> to <span class="math inline">\(D_1=1\)</span>. In this specification, this effect doesn’t depend on the value of <span class="math inline">\(D_2\)</span>.</p>
+<p>To allow the effect of changing <span class="math inline">\(D_1\)</span> to depend on <span class="math inline">\(D_2\)</span>, include the interaction term <span class="math inline">\(D_{1i} \times D_{2i}\)</span> as a regressor:\</p>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
+D_{2i}) + u_i
+\end{equation}\]</span></p>
+<p>Interpreting the coefficients</p>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
+D_{2i}) + u_i
+\end{equation}\]</span>
+General rule: compare the various cases:</p>
+<p><span class="math display">\[\begin{eqnarray}
+E(Y_i|D_{1i}=0, D_{2i}=d_2) &amp;=&amp; \beta_0 + \beta_2 d_2 \\
+E(Y_i|D_{1i}=1, D_{2i}=d_2) &amp;=&amp; \beta_0 + \beta_1 + \beta_2 d_2 + \beta_3 d_2
+\end{eqnarray}\]</span></p>
+<p>subtract from each other:
+<span class="math display">\[\begin{equation}
+E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 +
+\beta_3 d_2
+\end{equation}\]</span></p>
+<p>The effect of <span class="math inline">\(D_1\)</span> depends on <span class="math inline">\(d_2\)</span></p>
+<p><span class="math inline">\(\beta_3\)</span> = increment to the effect of <span class="math inline">\(D_1\)</span>, when <span class="math inline">\(D_2 = 1\)</span>\</p>
+<p>Example: <span class="math inline">\(TestScore\)</span>, <span class="math inline">\(STR\)</span>, English learners</p>
+<p>Let:
+<span class="math display">\[\begin{eqnarray}
+HiSTR &amp;=&amp; 1 \text{ if } STR \geq 20 \text{ and } HiEL = 1 \text{ if }
+PctEL \geq 10 \\
+HiSTR &amp;=&amp; 0 \text{ if } STR &lt; 20 \text{ and } HiEL = 0 \text{ if }
+PctEL &lt; 10 \\
+\end{eqnarray}\]</span>
+<span class="math display">\[\begin{equation}
+\widehat{TestScore} = 664.1 - 18.2 HiEL - 1.9 HiSTR - 3.5(HiSTR \times
+HiEL)
+\end{equation}\]</span></p>
+<p>“Effect” of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 0\)</span> is <span class="math inline">\(-1.9\)</span></p>
+<p>“Effect” of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 1\)</span> is <span class="math inline">\(-1.9 - 3.5 = -5.4\)</span></p>
+<p>Class size reduction is estimated to have a bigger effect when the percent of English learners is large</p>
+<p>This interaction isn’t statistically significant: <span class="math inline">\(t = 3.5/3.1\)</span></p>
+</div>
+<div id="interactions-between-continuous-and-binary-variables" class="section level4 hasAnchor" number="6.3.2.2">
+<h4><span class="header-section-number">6.3.2.2</span> Interactions between continuous and binary variables<a href="modeling.html#interactions-between-continuous-and-binary-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i +u_i
+\end{equation}\]</span></p>
+<p><span class="math inline">\(D_i\)</span> is binary, <span class="math inline">\(X\)</span> is continuous</p>
+<p>As specified above, the effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> (holding constant <span class="math inline">\(D\)</span>) = <span class="math inline">\(\beta_2\)</span>, which does not depend on <span class="math inline">\(D\)</span></p>
+<p>To allow the effect of <span class="math inline">\(X\)</span> to depend on <span class="math inline">\(D\)</span>, include the interaction term <span class="math inline">\(D_i \times X_i\)</span> as a regressor:</p>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+\end{equation}\]</span></p>
+<p>Binary-continuous interactions: the two regression lines
+<span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+\end{equation}\]</span>
+Observations with <span class="math inline">\(D_i= 0\)</span> (the <span class="math inline">\(D = 0\)</span> group or the <span class="math inline">\(D=0\)</span> regression line):
+<span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_2 X_i  + u_i
+\end{equation}\]</span>
+Observations with <span class="math inline">\(D_i= 1\)</span> (the <span class="math inline">\(D = 1\)</span> group or the <span class="math inline">\(D = 1\)</span> regression line):
+<span class="math display">\[\begin{eqnarray}
+Y_i &amp;=&amp;   \beta_0 + \beta_1 + \beta_2 X_i + \beta_3 X_i + u_i \\
+            &amp;=&amp;  (\beta_0 + \beta_1) + (\beta_2 + \beta_3) X_i + u_i
+\end{eqnarray}\]</span></p>
+<p>Binary-continuous interactions, ctd.</p>
+<div class="figure"><span style="display:block;" id="fig:interaction"></span>
+<img src="figures/Sheet44.jpg" alt="A non-linear relation"  />
+<p class="caption">
+Figure 6.7: A non-linear relation
+</p>
+</div>
+<p>Interpreting the coefficients</p>
+<p><span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+\end{equation}\]</span></p>
+<p>General rule: take the marginal effect of
+<span class="math display">\[\begin{equation}
+Y =\beta_0 +\beta_1 D + \beta_2 X + \beta_3 (D \times X)
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+\frac{\partial Y}{\partial X} = \beta_2 + \beta_3 D
+\end{equation}\]</span>
+The effect of <span class="math inline">\(X\)</span> depends on <span class="math inline">\(D\)</span></p>
+<p><span class="math inline">\(\beta_3=\)</span> increment to the effect of <span class="math inline">\(X\)</span>, when <span class="math inline">\(D = 1\)</span></p>
+<p>Example: <span class="math inline">\(TestScore\)</span>, <span class="math inline">\(STR\)</span>, <span class="math inline">\(HiEL\)</span></p>
+<p><span class="math display">\[\begin{equation}
+\widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL)
+\end{equation}\]</span></p>
+<p>When <span class="math inline">\(HiEL = 0\)</span>:\</p>
+<p><span class="math display">\[\begin{equation}
+\widehat{TestScore} = 682.2 - 0.97 STR
+\end{equation}\]</span></p>
+<p>When <span class="math inline">\(HiEL = 1\)</span>:</p>
+<p><span class="math display">\[\begin{eqnarray}
+\widehat{TestScore} &amp;=&amp; 682.2 - 0.97 STR + 5.6 - 1.28 STR \\
+&amp;=&amp; 687.8 - 2.25 STR
+\end{eqnarray}\]</span></p>
+<p>Two regression lines: one for each <span class="math inline">\(HiSTR\)</span> group.</p>
+<p>Class size reduction is estimated to have a larger effect when the percent of English learners is large.</p>
+<p>Example, ctd: Testing hypotheses</p>
+<p><span class="math display">\[\begin{equation}
+\widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL)
+\end{equation}\]</span></p>
+<p>The two regression lines have the same slope—the coefficient on <span class="math inline">\(STR \times HiEL\)</span> is zero: <span class="math inline">\(t = -1.28/0.97 = -1.32\)</span></p>
+<p>The two regression lines have the same intercept—the coefficient on <span class="math inline">\(HiEL\)</span> is zero: <span class="math inline">\(t = -5.6/19.5 = 0.29\)</span></p>
+<p>The two regression lines are the same—population coefficient on <span class="math inline">\(HiEL = 0\)</span> and population coefficient on <span class="math inline">\(STR \times HiEL = 0\)</span>: <span class="math inline">\(F = 89.94 (p-value &lt; .001)\)</span>
+We reject the joint hypothesis but neither individual hypothesis (how can this be?)</p>
+</div>
+<div id="interactions-between-two-continuous-variables" class="section level4 hasAnchor" number="6.3.2.3">
+<h4><span class="header-section-number">6.3.2.3</span> Interactions between two continuous variables}<a href="modeling.html#interactions-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are continuous</p>
+<p>As specified, the effect of <span class="math inline">\(X_1\)</span> doesn’t depend on <span class="math inline">\(X_2\)</span></p>
+<p>As specified, the effect of <span class="math inline">\(X_2\)</span> doesn’t depend on <span class="math inline">\(X_1\)</span></p>
+<p>To allow the effect of <span class="math inline">\(X_1\)</span> to depend on <span class="math inline">\(X_2\)</span>, include the “interaction term” <span class="math inline">\(X_{1i} \times X_{2i}\)</span> as a regressor:</p>
+<p>Interpreting the coefficients:</p>
+<p><span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 (X_{1i}
+\times X_{2i}) + u_i
+\end{equation}\]</span></p>
+<p>General rule: compare the various cases</p>
+<p>Now change <span class="math inline">\(X_1\)</span>:</p>
+<p>subtract from each other</p>
+<p>The effect of <span class="math inline">\(X_1\)</span> depends on <span class="math inline">\(X_2\)</span> (what we wanted)</p>
+<p><span class="math inline">\(\beta_3\)</span> = increment to the effect of <span class="math inline">\(X_1\)</span> from a unit change in <span class="math inline">\(X_2\)</span></p>
+</div>
+</div>
+<div id="logarithmic-transformation" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Logarithmic transformation<a href="modeling.html#logarithmic-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Logarithmic functions of <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span></p>
+<p><span class="math inline">\(\ln(X) =\)</span> the natural logarithm of <span class="math inline">\(X\)</span>
+Logarithmics permit modeling relations in percentage terms (like elasticities), rather than linearly.</p>
+<p>Here’s why:</p>
+<p><span class="math display">\[\begin{equation}
+\ln(x+\Delta x) - \ln(x) = \ln (1 + \frac{\Delta x}{x}) \cong \frac{\Delta x}{x}
+\end{equation}\]</span>
+(calculus: <span class="math inline">\(\frac{d \ln(x)}{dx}=\frac{1}{x})\)</span>
+Numerically: <span class="math inline">\(\ln(1.01) = .00995 \cong .01\)</span>;
+- <span class="math inline">\(\ln(1.10) = .0953 \cong .10\)</span> (sort of)</p>
+<p>Rules for natural logarithms
+1. <span class="math inline">\(\ln(a\times b)= \ln(a)+\ln(b)\)</span>
+2. <span class="math inline">\(\ln(\frac{a}{b}) =\ln(a) - \ln(b)\)</span>
+3. <span class="math inline">\(\ln(a^\alpha) = \alpha \ln(a)\)</span></p>
+<p>If nonlinear models: try log-linearizing!</p>
+<p><span class="math display">\[\begin{equation}
+Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\alpha) \ln(L)
+\end{equation}\]</span>
+Note: similar operations to LHS and RHS!</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:logspecifications">Table 6.2: </span>Three logarithmic transformation
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Case
+</th>
+<th style="text-align:left;">
+Population regression model
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+linear-log
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(Y_i=\beta_0 + \beta_1 \ln(X_i) + u_i\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+log_linear
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\ln(Y_i)=\beta_0 + \beta_1 (X_i) + u_i\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+log-log
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\ln(Y_i)=\beta_0 + \beta_1 \ln(X_i) + u_i\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The interpretation of the slope coefficient differs in each case.
+The interpretation is finding the marginal effect of X using the first derivative</p>
+<div id="linear-log-population-regression-model" class="section level4 hasAnchor" number="6.3.3.1">
+<h4><span class="header-section-number">6.3.3.1</span> Linear-log population regression model<a href="modeling.html#linear-log-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The linear-log population regression model is specified as:</p>
+<p><span class="math display">\[\begin{equation}
+    Y = \beta_0 + \beta_1 \ln(X)
+\end{equation}\]</span></p>
+<p>Now take first derivative:</p>
+<p><span class="math display">\[\begin{equation}
+    \frac{\partial Y}{\partial X} = \frac{\beta_1}{X}
+\end{equation}\]</span>
+so
+<span class="math display">\[\begin{equation}
+    \beta_1  = \frac{\partial Y}{\partial X / X}
+\end{equation}\]</span></p>
+<p>Example: TestScore vs. ln(Income)</p>
+<p>First defining the new regressor, <span class="math inline">\(\ln(Income)\)</span></p>
+<p>The model is now linear in <span class="math inline">\(\ln(Income)\)</span>, so the linear-log model can be estimated by OLS:
+<span class="math display">\[\begin{equation}
+        \widehat{TestScore} = 557.8 + 36.42\times \ln(Income_i)
+\end{equation}\]</span>
+so a 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase in TestScore of 0.36 points on the test.
+Standard errors, confidence intervals, <span class="math inline">\(R^2\)</span>—all the usual tools of regression apply here.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb37-1"><a href="modeling.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
+<span id="cb37-2"><a href="modeling.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr lninc, <span class="fu">r</span></span>
+<span id="cb37-3"><a href="modeling.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat</span>
+<span id="cb37-4"><a href="modeling.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scatterlnincome"></span>
+<img src="figures/scatterlnincome.png" alt="A non-linear relation" width="660" />
+<p class="caption">
+Figure 6.8: A non-linear relation
+</p>
+</div>
+</div>
+<div id="log-linear-population-regression-model" class="section level4 hasAnchor" number="6.3.3.2">
+<h4><span class="header-section-number">6.3.3.2</span> Log-linear population regression model<a href="modeling.html#log-linear-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[\begin{equation}
+    \ln(Y) = \beta_0 + \beta_1 X
+\end{equation}\]</span></p>
+<p>Now take first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>:
+<span class="math display">\[\begin{equation}
+    Y = exp( \beta_0 + \beta_1 X )
+\end{equation}\]</span>
+So
+<span class="math display">\[\begin{equation}
+    \frac{\partial Y}{\partial X} = \beta_1  exp( \beta_0 + \beta_1 X ) = \beta_1 Y
+\end{equation}\]</span>
+Thus
+<span class="math display">\[\begin{equation}
+    \beta_1  = \frac{\partial Y / Y}{\partial X }
+\end{equation}\]</span></p>
+</div>
+<div id="log-log-population-regression-model" class="section level4 hasAnchor" number="6.3.3.3">
+<h4><span class="header-section-number">6.3.3.3</span> Log-log population regression model<a href="modeling.html#log-log-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[\begin{equation}
+    \ln(Y) = \beta_0 + \beta_1 \ln(X)
+\end{equation}\]</span></p>
+<p>Now take first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>:
+<span class="math display">\[\begin{equation}
+    Y = exp( \beta_0 + \beta_1 \ln(X) )
+\end{equation}\]</span>
+So
+<span class="math display">\[\begin{equation}
+    \frac{\partial Y}{\partial X} = \beta_1 /X  exp( \beta_0 + \beta_1 \ln(X) ) = \beta_1 Y /X
+\end{equation}\]</span>
+Thus an <strong>elasticity</strong>
+<span class="math display">\[\begin{equation}
+    \beta_1  = \frac{\partial Y / Y}{\partial X / X }
+\end{equation}\]</span></p>
+<p>Example: ln( TestScore) vs. ln(Income)</p>
+<p>First define a new dependent variable, ln(TestScore), and the new regressor, ln(Income)
+The model is now a linear regression of ln(TestScore) against ln(Income), which can be estimated by OLS:
+<span class="math display">\[\begin{equation}
+\widehat{ln(TestScore)} = 6.336 + 0.0554 \times ln(Income_i)
+\end{equation}\]</span></p>
+<ul>
+<li>An 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase of .0554% in <span class="math inline">\(TestScore\)</span> (<span class="math inline">\(Income\)</span> up by a factor of 1.01, <span class="math inline">\(TestScore\)</span> up by a factor of 1.000554)</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb38-1"><a href="modeling.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
+<span id="cb38-2"><a href="modeling.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lntestscr = <span class="fu">ln</span>(testscr)</span>
+<span id="cb38-3"><a href="modeling.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr lninc, <span class="fu">r</span></span>
+<span id="cb38-4"><a href="modeling.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat1</span>
+<span id="cb38-5"><a href="modeling.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr avginc, <span class="fu">r</span></span>
+<span id="cb38-6"><a href="modeling.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat2</span>
+<span id="cb38-7"><a href="modeling.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat1 avginc, <span class="kw">sort</span>) (<span class="kw">line</span> testhat2 avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> lntestscr avginc), <span class="bn">legend</span>(<span class="kw">order</span>(1 <span class="st">&quot;log-log specification&quot;</span> 2 <span class="st">&quot;log-linear specification&quot;</span> 3 <span class="st">&quot;Observations&quot;</span>)) </span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scattercompare"></span>
+<img src="figures/scattercompare.png" alt="A non-linear relation" width="660" />
+<p class="caption">
+Figure 6.9: A non-linear relation
+</p>
+</div>
+<p>Summary: Logarithmic transformations</p>
+<p>Three cases, differing in whether <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking logarithms.
+- The regression is linear in the new variable(s) <span class="math inline">\(\ln(Y)\)</span> and/or <span class="math inline">\(\ln(X)\)</span>, and the coefficients can be estimated by OLS.
+- Hypothesis tests and confidence intervals are now implemented and interpreted “as usual”.
+- The interpretation of <span class="math inline">\(\beta_1\)</span> differs from case to case.
+- Choice of specification should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values</p>
+</div>
+</div>
+</div>
+<div id="using-fixed-effects-in-panel-data" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Using fixed effects in panel data<a href="modeling.html#using-fixed-effects-in-panel-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="conclusion-and-discussion-2" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Conclusion and discussion<a href="modeling.html#conclusion-and-discussion-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regression-analysis-in-the-social-sciences.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="specification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

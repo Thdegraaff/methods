@@ -321,17 +321,8 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="ch:modeling.html"><a href="ch:modeling.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch:modeling.html"><a href="ch:modeling.html#why-more-independent-variables"><i class="fa fa-check"></i><b>6.1</b> Why more independent variables?</a></li>
-<li class="chapter" data-level="6.2" data-path="ch:modeling.html"><a href="ch:modeling.html#multivariate-regression-analysis"><i class="fa fa-check"></i><b>6.2</b> Multivariate regression analysis</a></li>
-<li class="chapter" data-level="6.3" data-path="ch:modeling.html"><a href="ch:modeling.html#using-dummy-variables"><i class="fa fa-check"></i><b>6.3</b> Using dummy variables</a></li>
-<li class="chapter" data-level="6.4" data-path="ch:modeling.html"><a href="ch:modeling.html#non-linear-specifications"><i class="fa fa-check"></i><b>6.4</b> Non-linear specifications</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="ch:modeling.html"><a href="ch:modeling.html#polynomials"><i class="fa fa-check"></i><b>6.4.1</b> Polynomials</a></li>
-<li class="chapter" data-level="6.4.2" data-path="ch:modeling.html"><a href="ch:modeling.html#interaction-variables"><i class="fa fa-check"></i><b>6.4.2</b> Interaction variables</a></li>
-<li class="chapter" data-level="6.4.3" data-path="ch:modeling.html"><a href="ch:modeling.html#logarithms"><i class="fa fa-check"></i><b>6.4.3</b> Logarithms</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="ch:modeling.html"><a href="ch:modeling.html#using-fixed-effects-in-panel-data"><i class="fa fa-check"></i><b>6.5</b> Using fixed effects in panel data</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="ch:specification.html"><a href="ch:specification.html"><i class="fa fa-check"></i><b>7</b> Specification &amp; Assessment Issues</a>
+<li class="chapter" data-level="7" data-path="ch:specification.html"><a href="ch:specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="ch:specification.html"><a href="ch:specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
 <li class="chapter" data-level="7.2" data-path="ch:specification.html"><a href="ch:specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.2</b> Potential sources of bias</a></li>
@@ -382,27 +373,160 @@ div.csl-indent {
 <h1><span class="header-section-number">6</span> Modeling in the Social Sciences<a href="ch:modeling.html#ch:modeling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="why-more-independent-variables" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Why more independent variables?<a href="ch:modeling.html#why-more-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="multivariate-regression-analysis" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Multivariate regression analysis<a href="ch:modeling.html#multivariate-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="using-dummy-variables" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Using dummy variables<a href="ch:modeling.html#using-dummy-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="non-linear-specifications" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Non-linear specifications<a href="ch:modeling.html#non-linear-specifications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="polynomials" class="section level3 hasAnchor" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Polynomials<a href="ch:modeling.html#polynomials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="interaction-variables" class="section level3 hasAnchor" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Interaction variables<a href="ch:modeling.html#interaction-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="logarithms" class="section level3 hasAnchor" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Logarithms<a href="ch:modeling.html#logarithms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="using-fixed-effects-in-panel-data" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Using fixed effects in panel data<a href="ch:modeling.html#using-fixed-effects-in-panel-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Directed Acyclical Graphs (DAG)
+<!-- Pearl, Judea. Causality. Cambridge university press, 2009 --></p>
+<!-- ```{r, echo=FALSE, fig.cap = "Unrelated omitted variables", label='unknown'} -->
+<!-- knitr::include_graphics("./figures/unknown.png") -->
+<!-- ``` -->
+<!-- The confounding fork -->
+<!-- ```{r, echo=FALSE, fig.cap = "Related omitted variables", label='unobshet'} -->
+<!-- knitr::include_graphics("./figures/Unobshet.png") -->
+<!-- ``` -->
+<!-- **U** is a *common* cause for both student teacher ratio and testscores! -->
+<!-- \begin{equation} -->
+<!-- Y_i = \beta_0 + \beta_1 X_i + u_i -->
+<!-- \end{equation} -->
+<!-- The error $u$ arises because of factors that influence $Y$ but are not included in the regression function; so, there are *always* omitted variables. -->
+<!-- The omission of those variables can lead to **bias** in the OLS estimator. -->
+<!-- The bias in the OLS estimator that occurs as a result of an omitted factor is called omitted variable bias. For omitted variable bias to occur, the omitted factor $Z$ must be: -->
+<!-- 1. A **determinant** of $Y$ (i.e. $Z$ is part of $u$)  -->
+<!-- 2. **Correlated** with the regressor $X$ (i.e. $corr(Z,X) \neq 0$)  -->
+<!-- Both conditions must hold for the omission of $Z$ to result in omitted variable bias. -->
+<!-- In the test score example: -->
+<!-- English language ability (whether the student has English as a second language) plausibly affects standardized test scores: $Z$ is a **determinant** of $Y$. -->
+<!-- Immigrant communities tend to be less affluent and thus have smaller school budgets---and higher $STR$: $Z$ is **correlated** with $X$.  -->
+<!-- Accordingly, $\hat{\beta}_1$ is biased. What is the direction of this bias? -->
+<!-- What does common sense suggest? -->
+<!-- If common sense fails you, there is a formula  -->
+<!-- \begin{equation} -->
+<!-- \hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu} -->
+<!-- \end{equation} -->
+<!-- If an omitted factor $Z$ is both: -->
+<!-- - a determinant of $Y$ (that is, it is contained in $u$); and -->
+<!-- - correlated with $X$, -->
+<!-- then $\rho_{XU} \neq 0$ and the OLS estimator $\hat{\beta}_1$ is biased (and is not consistent). -->
+<!-- So, districts with more English learning students (*i*) do worse on standardized tests and (*ii*) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect.  -->
+<!-- Is this is actually going on in the CA data? -->
+<!-- ```{r, echo=FALSE, fig.cap = "Cross tabulation of test scores by class size and percentage English learners", label='omitca'} -->
+<!-- knitr::include_graphics("./figures/Sheet7.png") -->
+<!-- ``` -->
+<!-- *fewer* English Learners have *higher* test scores -->
+<!-- Districts with *lower* percent EL ($PctEL$) have *smaller* classes -->
+<!-- What is the effect of class size with comparable PctEL? -->
+<!-- Three ways to overcome omitted variable bias -->
+<!-- 1. Run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then $PctEL$ is still a determinant of $TestScore$, but $PctEL$ is uncorrelated with $STR$. -->
+<!-- 2. Adopt the cross tabulation approach, with finer gradations of $STR$ and $PctEL$---within each group, all classes have the same $PctEL$, so we control for $PctEL$  -->
+<!-- 3. Use a regression in which the omitted variable ($PctEL$) is no longer omitted: include $PctEL$ as an additional regressor in a multiple regression. -->
+<!-- ## Multivariate regression analysis -->
+<!-- Consider the case of two regressors: -->
+<!-- \begin{equation} -->
+<!-- Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n -->
+<!-- \end{equation} -->
+<!-- - $Y$ is the dependent variable -->
+<!-- - $X_1$, $X_2$ are the two independent variables (regressors) -->
+<!-- - $(Y_i, X_{1i}, X_{2i})$ denote the i$^{\mathrm{th}}$ observation on $Y$, $X_1$, and $X_2$. -->
+<!-- - $\beta_0$ = unknown population intercept -->
+<!-- - $\beta_1$ = effect on $Y$ of a change in $X_1$, **holding** $X_2$ constant} -->
+<!-- - $\beta_2$ = effect on $Y$ of a change in $X_2$, **holding** $X_1$ constant} -->
+<!-- - $u_i$ = the regression error (omitted factors) -->
+<!-- \begin{equation} -->
+<!-- Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+u_i, i=1,\ldots,n  -->
+<!-- \end{equation} -->
+<!-- Consider changing $X_1$ by $\Delta X_1$ while holding $X_2$: -->
+<!-- Population regression line before the change:  -->
+<!-- \begin{equation} -->
+<!-- Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2} -->
+<!-- \end{equation} -->
+<!-- Population regression line, after the change:  -->
+<!-- \begin{equation} -->
+<!-- Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}  -->
+<!-- \end{equation} -->
+<!-- - So before: $Y = \beta_0 + \beta_1 X_1  + \beta_2 X_2$ -->
+<!-- - After: $Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}$ -->
+<!-- - Difference: $\Delta Y = \beta_1 \Delta X_1$ -->
+<!-- - $\beta_1 = \frac{\Delta Y}{\Delta X_1}$ Holding $X_2$ constant -->
+<!-- - $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ Holding $X_1$ constant -->
+<!-- - $\beta_0$ predicted value of $Y$ when $X_1 = X_2 = 0$ -->
+<!-- Example: the California test score data -->
+<!-- Regression of TestScore against STR:  -->
+<!-- \begin{equation} -->
+<!-- \widehat{TestScore} = 698.9- 2.28 STR -->
+<!-- \end{equation} -->
+<!-- Now include percent English Learners in the district ($PctEL$): -->
+<!-- \begin{equation} -->
+<!-- \widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL -->
+<!-- \end{equation} -->
+<!-- What happens to the coefficient on $STR$ Why? (Note: $corr(STR, PctEL) = 0.19$) -->
+<!-- Multiple regression in STATA -->
+<!-- ```{stata, collectcode=TRUE} -->
+<!-- reg testscr str el_pct, robust -->
+<!-- ``` -->
+<!-- ### Measures of Fit for Multiple Regression -->
+<!-- Actual = predicted + residual: $Y_i = \hat{Y}_i + \hat{u_i}$ -->
+<!-- - $SER$ =std. deviation of $\hat{u}_i$ (with d.f. correction) -->
+<!-- - $RMSE$ =std. deviation of $\hat{u}_i$ (without d.f. correction) -->
+<!-- - $R^2$ = fraction of variance of $Y$ explained by $X$ -->
+<!-- - $\bar{R}^2$ = ``adjusted $R^2$'' = $R^2$ with a degrees-of-freedom correction that adjusts for estimation uncertainty; $\bar{R}^2 <R^2$ -->
+<!-- Measures of fit -->
+<!-- Test score example: -->
+<!-- \begin{eqnarray} -->
+<!-- TestScore &= &698.9- 2.28  STR \\ -->
+<!-- &&R^2 = .05, SER = 18.6 -->
+<!-- \end{eqnarray} -->
+<!-- \begin{eqnarray} -->
+<!-- TestScore &=& 686.0 - 1.10  STR - 0.65 PctEL \\ -->
+<!-- &&R^2=.426, \bar{R}^2=0.424, SER = 14.5 -->
+<!-- \end{eqnarray} -->
+<!--  What---precisely--does this tell you about the fit of regression (2) compared with regression (1)? -->
+<!-- Why are the $R^2$ and the $\bar{R}^2$  so close in (2)? -->
+<!-- ### The Least Squares Assumptions for Multiple Regression -->
+<!-- \begin{equation} -->
+<!-- Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+\ldots + \beta_k X_{ki}+u_i, i=1,\ldots,n  -->
+<!-- \end{equation} -->
+<!-- 1.  The conditional distribution of $u$ given the $X$'s has mean zero, that is, $E(u|X_1 = x_1,\ldots, X_k = x_k) = 0$. -->
+<!-- 2.  (X$_{1i}$,\ldots,X$_{ki}$,Y$_i$), i =1,\ldots,n, are i.i.d. -->
+<!-- 3.  Large outliers are rare for $X_1,\ldots, X_k$, and $Y$  -->
+<!-- 4.  There is no perfect multicollinearity. -->
+<!-- Assumption 1: the conditional mean of $u$ given the included $X$'s is zero. -->
+<!-- \begin{equation} -->
+<!-- E(u|X_1 = x_1,\ldots, X_k = x_k) = 0 -->
+<!-- \end{equation} -->
+<!-- - This has the same interpretation as in regression with a single regressor. -->
+<!-- - If an omitted variable (1) belongs in the equation (so is in $u$) and (2) is correlated with an included $X$, then this condition fails -->
+<!-- - Failure of this condition leads to omitted variable bias -->
+<!-- - The solution---if possible---is to include the omitted variable in the regression. -->
+<!-- Least squares assumption 4: no perfect multicollinearity -->
+<!-- Multicollinearity, Perfect and Imperfect -->
+<!-- Examples of perfect multicollinearity -->
+<!-- 1. First example: you include $STR$ twice. -->
+<!-- 2. Second example:  -->
+<!--     - regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise, so $B_i = 1 - D_i$ and there is perfect multicollinearity -->
+<!--     - Would there be perfect multicollinearity if the intercept (constant) were somehow dropped (that is, omitted or suppressed) in this regression? -->
+<!--    - This example is a special case of dummy variable} trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap. -->
+<!--     - Why is there perfect multicollinearity here? -->
+<!-- Solutions to the dummy variable trap: -->
+<!-- 1. Omit one of the groups (e.g. Senior), or -->
+<!-- 2. Omit the intercept -->
+<!-- What are the implications of (1) or (2) for the interpretation of the coefficients? -->
+<!-- Perfect multicollinearity usually reflects a mistake in the definitions of the regressors, or an oddity in the data -->
+<!-- - If you have perfect multicollinearity, your statistical software will let you know---either by crashing or giving an error message or by ``dropping'' one of the variables arbitrarily -->
+<!-- - The solution to perfect multicollinearity is to modify your list of regressors so that you no longer have perfect multicollinearity. -->
+<!-- Imperfect multicollinearity -->
+<!-- Imperfect and perfect multicollinearity are quite different despite the similarity of the names. -->
+<!-- Imperfect multicollinearity occurs when two or more regressors are very highly correlated. -->
+<!-- Why this term? If two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line---they are collinear---but unless the correlation is exactly $\pm$ 1, that collinearity is imperfect. -->
+<!-- Imperfect multicollinearity implies that one or more of the regression coefficients will be imprecisely estimated. -->
+<!-- - the coefficient on $X_1$ is the effect of $X_1$ holding $X_2$ constant -->
+<!-- but if $X_1$ and $X_2$ are highly correlated, there is very little variation in $X_1$ once $X_2$ is held constant -->
+<!-- - so the data are pretty much uninformative about what happens when $X_1$ changes but $X_2$ doesn't, so the variance of the OLS estimator of the coefficient on $X_1$ will be large. -->
+<!-- Imperfect multicollinearity (correctly) results in large standard errors for one or more of the OLS coefficients. -->
+<!-- ## Using dummy variables -->
+<!-- ## Non-linear specifications -->
+<!-- ### Polynomials -->
+<!-- ### Interaction variables -->
+<!-- ### Logarithms -->
+<!-- ## Using fixed effects in panel data -->
+<!-- ## Conclusion and discussion -->
 
 </div>
 </div>
