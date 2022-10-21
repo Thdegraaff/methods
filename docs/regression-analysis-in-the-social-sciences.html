@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-20" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#a-first-encounter-with-stata"><i class="fa fa-check"></i><b>5.2.1</b> A first encounter with <code>STATA</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:numevidence"><i class="fa fa-check"></i><b>5.2.2</b> Numerical evidence</a></li>
-<li class="chapter" data-level="5.2.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#always-be-smart-and-a-bit-lazy"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:smart"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a>
 <ul>
@@ -586,8 +586,8 @@ t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  
 So what does this mean again. Well, two things. First, the 95% confidence interval for <span class="math inline">\(\Delta\)</span> doesn’t include 0 and, second, the hypothesis that <span class="math inline">\(\Delta = 0\)</span> is rejected at the 5% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be reject as null-hypothesis</p>
 </div>
 </div>
-<div id="always-be-smart-and-a-bit-lazy" class="section level3 hasAnchor" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Always be smart (and a bit lazy)<a href="regression-analysis-in-the-social-sciences.html#always-be-smart-and-a-bit-lazy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sec:smart" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Always be smart (and a bit lazy)<a href="regression-analysis-in-the-social-sciences.html#sec:smart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So, why give this rather simple procedure so much attention. That is because all “classical” statistics are constructed by these three elements and all statistical computer will always give, at least, these three. And they are as well very much related with each other. Once you know two of them, you know the third one as well.</p>
 <p>Now, although the procedure is rather straightforward, it is also a bit cumbersome and prone to errors. Therefore, it is much easier to let <code>STATA</code> do it:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb12-1"><a href="regression-analysis-in-the-social-sciences.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> testscr, <span class="kw">by</span>(large) unequal</span></code></pre></div>
@@ -793,10 +793,10 @@ Figure 5.7: Critical review on the (mis)use of statistical significance
 <div id="confidence-intervals" class="section level4 hasAnchor" number="5.3.2.3">
 <h4><span class="header-section-number">5.3.2.3</span> Confidence intervals<a href="regression-analysis-in-the-social-sciences.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The exact definition of confidence intervals is a bit tricky. Namely, a 95% confidence interval for <span class="math inline">\(\hat{\beta}_1\)</span> is an interval that contains the true value of <span class="math inline">\(\beta_1\)</span> in 95% of repeated samples. That means that confidence interval do not give a probability (even though we would like to interpret it that way). But you can state that every value within a confidence interval would not be rejected as null-hypothesis, while every value outside the confidence interval would be rejected. Now, if we know both <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> (again using computer output), then a 95% confidence interval can be very easily constructed. For our regression of output of above this entails</p>
-<p><span class="math display" id="eq:olsci">\[\begin{equation*}
+<p><span class="math display" id="eq:olsci">\[\begin{equation}
 \hat{\beta}_1 \pm 1.96 \times \sigma_{\hat{\beta}_1} = -2.28 \pm 1.96 \times 0.52 = [-3.30, -1.26].
 \tag{5.8}
-\end{equation*}\]</span>
+\end{equation}\]</span>
 So, every value between <span class="math inline">\(-3.30\)</span> and <span class="math inline">\(-1.26\)</span> will <strong>not</strong> be rejected as null-hypothesis, while every value outside that interval will be rejected. Note that confidence interval is again automatically given by computer output. If one would like a confidence interval against another critical level, say against a 99% critical level, one can use the <code>level()</code> option</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="regression-analysis-in-the-social-sciences.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        420
@@ -813,14 +813,49 @@ So, every value between <span class="math inline">\(-3.30\)</span> and <span cla
        _cons |    698.933   10.36436    67.44   0.000     672.1137    725.7522
 ------------------------------------------------------------------------------</code></pre>
 </div>
+<div id="regression-with-a-dummy" class="section level4 hasAnchor" number="5.3.2.4">
+<h4><span class="header-section-number">5.3.2.4</span> Regression with a dummy<a href="regression-analysis-in-the-social-sciences.html#regression-with-a-dummy" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sometimes a regressor is binary, meaning an indicator or dichotomous (0/1) variable. Let’s go back again to Subsection <a href="regression-analysis-in-the-social-sciences.html#sec:numevidence">5.2.2</a>, where we created such a binary variable with small and large class sizes (<span class="math inline">\(X=1\)</span> if class size is small, <span class="math inline">\(X=0\)</span> if not). Other possible example are gender (<span class="math inline">\(X=1\)</span> if female, <span class="math inline">\(X=0\)</span> if male) or being treated or not (<span class="math inline">\(X=1\)</span> if treated, <span class="math inline">\(X=0\)</span> if not). We refer to these types of variables as being <strong>dummy</strong> variables—and they are very often used in the social sciences.</p>
+<p>Now, suppose we have a population regression model that looks like:</p>
+<p><span class="math display" id="eq:olsdummy">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i
+\tag{5.9}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(Y\)</span> denotes, e.g., test scores, and where <span class="math inline">\(X\)</span>, e.g., denotes a dummy variable for a large class (so, if <span class="math inline">\(STR \geq 20\)</span> then <span class="math inline">\(X_i = 1\)</span>; otherwise <span class="math inline">\(X_i = 0\)</span>), so there is then only two possibilities:</p>
+<ol style="list-style-type: decimal">
+<li>For small class size there should hold that <span class="math inline">\(X_i = 0\)</span> yielding that <span class="math inline">\(Y_i = \beta_0 + u_i\)</span>. Namely <span class="math inline">\(\beta_1 \times X_i = \beta_1 \times 0 = 0\)</span>. That means automatically that the expectation of <span class="math inline">\(Y_i\)</span> is the constant, being <span class="math inline">\(\beta_0\)</span>. Another way or writing is that the expectation of model <a href="regression-analysis-in-the-social-sciences.html#eq:olsdummy">(5.9)</a> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 0\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 0) = \beta_0\)</span>.</li>
+<li>For large classes there should hold that <span class="math inline">\(X_i = 1\)</span> yielding that <span class="math inline">\(X_i = 1\)</span>, <span class="math inline">\(Y_i = \beta_0 + \beta_1 + u_i\)</span>. This means the expectation of model <a href="regression-analysis-in-the-social-sciences.html#eq:olsdummy">(5.9)</a> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 1\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1\)</span></li>
+</ol>
+<p>So a regression with a dummy as independent variable gives two different <em>constants</em>, for each group (small/large classes) one. You can interpret this as a level-effect (only the level changes, not the slope as there is none here). The interpretation of <span class="math inline">\(\beta_1\)</span> is in this case rather special and can be denoted as:
+<span class="math display">\[\begin{equation}
+\beta_1 = \mathbb{E}(Y_i \mid X_i = 1) - \mathbb{E}(Y_i \mid X_i = 0),
+\end{equation}\]</span>
+Which is just the population difference in group means.</p>
+<p>If we go back to our example with <span class="math inline">\(X_i = 1\)</span> if <span class="math inline">\(STR \geq 20\)</span> and 0 otherwise then we get the following regression output</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb18-1"><a href="regression-analysis-in-the-social-sciences.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      16.34
+                                                Prob &gt; F          =     0.0001
+                                                R-squared         =     0.0369
+                                                Root MSE          =     18.721
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       large |   -7.37241   1.823578    -4.04   0.000    -10.95694   -3.787884
+       _cons |   657.3513   1.255147   523.72   0.000     654.8841    659.8184
+------------------------------------------------------------------------------</code></pre>
+<p>Now, note that this is the same output (<span class="math inline">\(\Delta= -7.4\)</span>, <span class="math inline">\(\sigma_\Delta = 1.82\)</span> and <span class="math inline">\(t\)</span>-statistic is <span class="math inline">\(-4.04\)</span>) as when we did the difference in means test in Subsection <a href="regression-analysis-in-the-social-sciences.html#sec:smart">5.2.3</a>. To conclude, this is just another way (and much easier) to do a difference-in-means analysis. And this directly carries over for the situation when we have additional regressors.</p>
+</div>
 </div>
 </div>
 <div id="least-squares-assumptions-for-causal-inference" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Least squares assumptions for causal inference<a href="regression-analysis-in-the-social-sciences.html#least-squares-assumptions-for-causal-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As stated at the start of Section <a href="regression-analysis-in-the-social-sciences.html#secproblem">5.2</a> applied econometrics focuses on finding a <strong>causal</strong> effect. But how do you do know that the <span class="math inline">\(\hat{\beta}_1\)</span> you estimate using the population regression model of Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:betacausal">(5.9)</a> is indeed a causal effect. In other words, if you change <span class="math inline">\(X_i\)</span> with one unit, will <span class="math inline">\(Y_i\)</span> then change with <span class="math inline">\(\beta_1\)</span> <strong>in reality</strong>?</p>
+<p>As stated at the start of Section <a href="regression-analysis-in-the-social-sciences.html#secproblem">5.2</a> applied econometrics focuses on finding a <strong>causal</strong> effect. But how do you do know that the <span class="math inline">\(\hat{\beta}_1\)</span> you estimate using the population regression model of Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:betacausal">(5.10)</a> is indeed a causal effect. In other words, if you change <span class="math inline">\(X_i\)</span> with one unit, will <span class="math inline">\(Y_i\)</span> then change with <span class="math inline">\(\beta_1\)</span> <strong>in reality</strong>?</p>
 <p><span class="math display" id="eq:betacausal">\[\begin{equation}
 Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
-\tag{5.9}
+\tag{5.10}
 \end{equation}\]</span></p>
 <p>Fortunately, there is a small set of assumptions that indeed lead to such a causal interpretation. The so-called three least squares assumptions, being:</p>
 <ol style="list-style-type: decimal">
@@ -918,10 +953,10 @@ Recall again the three least squares assumptions:</p>
 <p>But what if the errors are in fact homoskedastic? Then in fact yYou can prove that OLS has the lowest variance among estimators that are <em>linear</em> in <span class="math inline">\(Y\)</span>. The formula for the variance of <span class="math inline">\(\hat{\beta_1}\)</span> and the OLS standard error simplifies: If <span class="math inline">\(var(u_i \mid X_i=x) = \sigma_u^2\)</span>, then
 <span class="math display" id="eq:olssesimple">\[\begin{equation}
     var(\hat{\beta}_1) = \frac{\sigma_u^2}{n\sigma_X^2}
-    \tag{5.10}
+    \tag{5.11}
 \end{equation}\]</span>
 which is much simpler than Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:olsse">(5.5)</a>. Again note that <span class="math inline">\(var(\hat{\beta}_1)\)</span> is inversely proportional to <span class="math inline">\(var(X)\)</span>: more spread in <span class="math inline">\(X\)</span> means more information about <span class="math inline">\(\hat{\beta}_1\)</span>—we discussed this earlier but it is clearer from this formula.</p>
-<p>But what does this mean for estimation. Note that <code>STATA</code> does not automatically apply Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:olsse">(5.5)</a> for its standard errors, but uses the simpler version Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:olssesimple">(5.10)</a> instead. But if invoke the <code>, robust</code> option, as we already did above, <code>STATA</code> computes heteroskedasticity-robust standard errors. So if you do not, <code>STATA</code> computes homoskedasticity-only standard errors.</p>
+<p>But what does this mean for estimation. Note that <code>STATA</code> does not automatically apply Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:olsse">(5.5)</a> for its standard errors, but uses the simpler version Eq. <a href="regression-analysis-in-the-social-sciences.html#eq:olssesimple">(5.11)</a> instead. But if invoke the <code>, robust</code> option, as we already did above, <code>STATA</code> computes heteroskedasticity-robust standard errors. So if you do not, <code>STATA</code> computes homoskedasticity-only standard errors.</p>
 <p>The bottom line is that the errors are either homoskedastic or heteroskedastic and if you use heteroskedastic-robust standard errors, you are fine. Namely:</p>
 <ol style="list-style-type: decimal">
 <li>If the errors are heteroskedastic and you use the homoskedasticity-only formula for standard errors, your standard errors will be wrong (the homoskedasticity-only estimator of the variance of <span class="math inline">\(\hat{\beta}_1\)</span> is inconsistent if there is heteroskedasticity).</li>
@@ -947,7 +982,7 @@ which is much simpler than Eq. <a href="regression-analysis-in-the-social-scienc
 regression. To see this, first note that <span class="math inline">\(Y_i = \hat{Y}_i + \hat{u}_i\)</span> or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the <span class="math inline">\(R^2\)</span> is the ratio between the sample variance of <span class="math inline">\(\hat{Y}\)</span> and the sample variance of <span class="math inline">\(Y\)</span>. Here we make use of the following equity: Total sum of squares = explained “SS” + Residual “SS”, where we can now define <span class="math inline">\(R^2\)</span> as:</p>
 <p><span class="math display" id="eq:r2">\[\begin{equation}
 R^2= \frac{ESS}{TSS} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
-    \tag{5.11}
+    \tag{5.12}
 \end{equation}\]</span>
 Now if <span class="math inline">\(R^2 = 0\)</span> then that means <span class="math inline">\(ESS = 0\)</span> and if <span class="math inline">\(R^2 = 1\)</span> then that means <span class="math inline">\(ESS = TSS\)</span>. So, by definition yields <span class="math inline">\(0 \leq R^2 \leq 1\)</span>. There is one additional remark to make and that for an univariate regression model (so with single <span class="math inline">\(X\)</span> on the right side), <span class="math inline">\(R^2\)</span> equals the square of the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 </div>
@@ -956,17 +991,17 @@ Now if <span class="math inline">\(R^2 = 0\)</span> then that means <span class=
 <p>The standard error of the regression is defined as:</p>
 <p><span class="math display" id="eq:ser">\[\begin{equation}
 SER = \sqrt{\frac{1}{n-2} \sum_{i=1}^n \hat{u}_i^2}
-\tag{5.12}
+\tag{5.13}
 \end{equation}\]</span></p>
 <p>In comparison with the <span class="math inline">\(R^2\)</span>, the <span class="math inline">\(SER\)</span> is measured in the units of <span class="math inline">\(u\)</span>, which are actually the units of <span class="math inline">\(Y\)</span>. It measures the average “size” of the OLS residual (so the average ‘mistake’ made by the OLS regression line in absolute terms).</p>
 <p>Often the <em>root mean squared error</em> (<span class="math inline">\(RMSE\)</span>) is used, which is very closely related to the <span class="math inline">\(SER\)</span>:
 <span class="math display" id="eq:rmse">\[\begin{equation}
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat{u}_i^2},
-\tag{5.13}
+\tag{5.14}
 \end{equation}\]</span>
 where <span class="math inline">\(RMSE\)</span> only differs from the <span class="math inline">\(SER\)</span> in the <em>degrees of freedom</em>.</p>
 <p>If we again look at our regression output:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb18-1"><a href="regression-analysis-in-the-social-sciences.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="regression-analysis-in-the-social-sciences.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
                                                 Prob &gt; F          =     0.0000

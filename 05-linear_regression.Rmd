@@ -166,7 +166,7 @@ Finally, we can construct a 95\% confidence interval for the difference between 
 \end{equation}
 So what does this mean again. Well, two things. First, the 95\% confidence interval for $\Delta$ doesn't include 0 and, second, the hypothesis that $\Delta = 0$ is rejected at the 5\% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be reject as null-hypothesis
   
-### Always be smart (and a bit lazy)
+### Always be smart (and a bit lazy) {#sec:smart}
 
 So, why give this rather simple procedure so much attention. That is because all "classical" statistics are constructed by these three elements and all statistical computer will always give, at least, these three. And they are as well very much related with each other. Once you know two of them, you know the third one as well. 
 
@@ -364,15 +364,45 @@ knitr::include_graphics("./figures/significance.jpg")
 
 The exact definition of confidence intervals is a bit tricky. Namely, a 95\% confidence interval for $\hat{\beta}_1$ is an interval that contains the true value of $\beta_1$ in 95\% of repeated samples. That means that confidence interval do not give a probability (even though we would like to interpret it that way). But you can state that every value within a confidence interval would not be rejected as null-hypothesis, while every value outside the confidence interval would be rejected. Now, if we know both $\hat{\beta}_1$ and $\sigma_{\hat{\beta}_1}$ (again using computer output), then a 95% confidence interval can be very easily constructed. For our regression of output of above this entails
 
-\begin{equation*}
+\begin{equation}
 \hat{\beta}_1 \pm 1.96 \times \sigma_{\hat{\beta}_1} = -2.28 \pm 1.96 \times 0.52 = [-3.30, -1.26].
 (\#eq:olsci)
-\end{equation*}
+\end{equation}
 So, every value between $-3.30$ and $-1.26$ will **not** be rejected as null-hypothesis, while every value outside that interval will be rejected. Note that confidence interval is again automatically given by computer output. If one would like a confidence interval against another critical level, say against a 99% critical level, one can use the `level()` option
 
 ```{stata}
 regress testscr str, robust level(99)
 ```
+
+#### Regression with a dummy
+
+Sometimes a regressor is binary, meaning an indicator or dichotomous (0/1) variable. Let's go back again to Subsection \@ref(sec:numevidence), where we created such a binary variable with small and large class sizes ($X=1$ if class size is small, $X=0$ if not). Other possible example are gender ($X=1$ if female, $X=0$ if male) or being treated or not ($X=1$ if treated, $X=0$ if not). We refer to these types of variables as being **dummy** variables---and they are very often used in the social sciences. 
+
+Now, suppose we have a population regression model that looks like:
+
+\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i
+(\#eq:olsdummy)
+\end{equation}
+
+Where $Y$ denotes, e.g., test scores, and where $X$, e.g., denotes a dummy variable for a large class (so, if $STR \geq 20$ then $X_i = 1$; otherwise $X_i = 0$), so there is then only two possibilities:
+
+1. For small class size there should hold that $X_i = 0$ yielding that $Y_i = \beta_0 + u_i$. Namely $\beta_1 \times X_i = \beta_1 \times 0 = 0$. That means automatically that the expectation of $Y_i$ is the constant, being $\beta_0$. Another way or writing is that the expectation of model \@ref(eq:olsdummy) *conditional* on the fact that $X_i = 0$ is $\mathbb{E}(Y_i \mid X_i = 0) = \beta_0$. 
+2. For large classes there should hold that $X_i = 1$ yielding that $X_i = 1$, $Y_i = \beta_0 + \beta_1 + u_i$. This means the expectation of model \@ref(eq:olsdummy) *conditional* on the fact that $X_i = 1$ is $\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1$
+
+So a regression with a dummy as independent variable gives two different *constants*, for each group (small/large classes) one. You can interpret this as a level-effect (only the level changes, not the slope as there is none here). The interpretation of $\beta_1$ is in this case rather special and can be denoted as:
+\begin{equation}
+\beta_1 = \mathbb{E}(Y_i \mid X_i = 1) - \mathbb{E}(Y_i \mid X_i = 0),
+\end{equation}
+Which is just the population difference in group means. 
+
+If we go back to our example with $X_i = 1$ if $STR \geq 20$ and 0 otherwise then we get the following regression output
+
+```{stata}
+regress testscr large, robust
+```
+
+Now, note that this is the same output ($\Delta= -7.4$, $\sigma_\Delta = 1.82$ and $t$-statistic is $-4.04$) as when we did the difference in means test in Subsection \@ref(sec:smart). To conclude, this is just another way (and much easier) to do a difference-in-means analysis. And this directly carries over for the situation when we have additional regressors.
 
 ## Least squares assumptions for causal inference
 

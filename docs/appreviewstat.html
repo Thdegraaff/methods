@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-20" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#a-first-encounter-with-stata"><i class="fa fa-check"></i><b>5.2.1</b> A first encounter with <code>STATA</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:numevidence"><i class="fa fa-check"></i><b>5.2.2</b> Numerical evidence</a></li>
-<li class="chapter" data-level="5.2.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#always-be-smart-and-a-bit-lazy"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#sec:smart"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="regression-analysis-in-the-social-sciences.html"><a href="regression-analysis-in-the-social-sciences.html#univariate-regression"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a>
 <ul>
@@ -468,9 +468,9 @@ But this is only one throw (<span class="math inline">\(n= 1\)</span>). We would
 \Pr(\bar{Y}  = 1) &amp;= 0.78^2 &amp;= 0.61.
 \end{eqnarray}\]</span></p>
 <p>but this start to become boring as <span class="math inline">\(n\)</span> increases. Therefore, we turn to <code>STATA</code>. Let’s first check for <span class="math inline">\(n = 2\)</span>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="appreviewstat.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
-<span id="cb20-2"><a href="appreviewstat.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(2,0.78)/2 </span>
-<span id="cb20-3"><a href="appreviewstat.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb22-1"><a href="appreviewstat.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
+<span id="cb22-2"><a href="appreviewstat.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(2,0.78)/2 </span>
+<span id="cb22-3"><a href="appreviewstat.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
 <p>The first line of this code sets the number of experiments (called <code>obs</code>). So, I throw a coin twice, for 10000 times in a row. The second line generates the outcomes, which in this case are no heads (0), head once (1), or two heads (2). To arrive at probabilities I divide by 2 again. Finally, the third line gives a history of fraction (not counts). And this provides the following <code>STATA</code> output.</p>
 <div class="figure"><span style="display:block;" id="fig:coin1"></span>
 <img src="figures/coin1.png" alt="Sampling distribution when you throw a coin two times" width="660" />
@@ -479,10 +479,10 @@ Figure C.2: Sampling distribution when you throw a coin two times
 </p>
 </div>
 <p>But what if I do this a 100 times, so <span class="math inline">\(n = 100\)</span>?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb21-1"><a href="appreviewstat.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb21-2"><a href="appreviewstat.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
-<span id="cb21-3"><a href="appreviewstat.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(100,0.78)/100 </span>
-<span id="cb21-4"><a href="appreviewstat.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb23-1"><a href="appreviewstat.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb23-2"><a href="appreviewstat.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
+<span id="cb23-3"><a href="appreviewstat.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(100,0.78)/100 </span>
+<span id="cb23-4"><a href="appreviewstat.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
 <p>Note that fhe first line now clears <code>STATA</code>’s memory as I actually create a new dataset. The histogram can be seen now in Figure <a href="appreviewstat.html#fig:coin100">C.3</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:coin100"></span>
 <img src="figures/coin100.png" alt="Sampling distribution when you throw a coin 100 times" width="660" />
