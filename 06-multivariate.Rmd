@@ -1,76 +1,67 @@
 # Modeling in the Social Sciences {#modeling}
 
-## Why more independent variables?
+In Chapter \@ref(univariateregression) we discussed the origins of, working of and assumptions behind univariate regression. That is, a regression model with only one independent variable $X$ on the right hand side.^[With right hand side we mean on the right side of the equal sign $=$. It is often abbreviated with RHS.] However, and especially in the social science, you almost always see regressions many independent variables. Depending on the field, these variables can be called control variables, confounding factors or moderator variables. But why are these variables included? Is it only to improve model performance or are there other reasons? Section \@ref(sec:morevar) deals with this question where after Section \@ref(sec:multivariate) shows how you can include additional variables in a *multivariate regression model* and especially how you should interpret them. Section \@ref(sec:nonlinear) extends the multivariate regression model and shows how you can actually use this model to estimate a broad range of non-linear economic models. Section \@ref(sec:fixedeffects) discusses the use of multiple dummy variables (see again Subsection \@ref(sec:dummy)) in a way that economists refer to as *fixed effects*. The last section concludes and provides a futher discussion of the benefits and limitations of multivariate regression models. 
 
-Directed Acyclical Graphs (DAG)
-Pearl, Judea. Causality. Cambridge university press, 2009
+## Why more independent variables? {#sec:morevar}
 
-```{r, echo=FALSE, fig.cap = "Unrelated omitted variables", label='unknown'}
+So, why do we include more variables? One possible answer is because it makes a better predictive model. That is, a model that is able to explain the variation in the dependent variable $Y$ better.^[This is not entirely true. Increasing the R$^2$ explains **in-sample** variation better, not necessarily **out-of-sample**. The latter is really what matters for prediction and this is the focus of many machine learning techniques. Note that this argument is directly related with the regression towards the mean argument made in Subsection \@ref(sec:genesis).] So, the R$^2$ increases. But, as argued in Chapter \@ref(univariateregression) we are not so much interested in prediction, but more in establishing a **causal** relation between $X$ and $Y$. So, if you change $X$ (and only $X$) does $Y$ changes and then with how much?
+
+Although economists often claim that they are the only (social-)science which is focused on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl [@pearl2009causality]. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in Figure \@ref(fig:unknown). Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in Figure \@ref(fig:unknown). We also know that the R$^2$ of that regression model was rather low (5%), so by default there must be other but yet unknown factors, let us name them for now $U$, that influence test scores as well (so a directed arrow going from $U$ to test scores). 
+
+```{r fig.align="center", echo=FALSE, fig.cap = "Unrelated omitted variables", label='unknown', out.width = "600px"}
 knitr::include_graphics("./figures/unknown.png")
 ```
 
-The confounding fork
+Now we are fine with this is as long as $U$ does **not impact** the student teacher ratio. Then, there is still an isolated effect of student teacher ratio on class size and that is exactly what we want to measure. However, if there is directed arrow going from $U$ into $STR$ as depicted by Figure \@ref(fig:unobshet), then the effect of student teacher ratio is not isolated anymore. Essentially, the effect of student teacher ratio on class size is composed out of two parts:
 
-```{r, echo=FALSE, fig.cap = "Related omitted variables", label='unobshet'}
+1) The **causal** effect on student teacher ratio on class size captured by the chain $\text{STR} \longrightarrow \text{testscore}$. The one we are after.
+2) The impact of the unknown variables on test scores. As we have not modeled them in our regression model, the effect is captured by the chain $U \longrightarrow \text{STR} \longrightarrow \text{testscore}$
+
+Economists refer to this phenomenon as **omitted variable bias**, whilst in the statistical world, this is as often called confounding variables or the  **the confounding fork** [@mcelreath2020statistical] and it, unfortunately, occurs very often.
+
+```{r fig.align="center", echo=FALSE, fig.cap = "Related omitted variables", label='unobshet', out.width = "600px"}
 knitr::include_graphics("./figures/Unobshet.png")
 ```
 
-**U** is a *common* cause for both student teacher ratio and testscores!
+So, when **U** is a *common* cause for both student teacher ratio and test scores there is omitted variable bias. If we go back to our population regression model as follows:
 \begin{equation}
-Y_i = \beta_0 + \beta_1 X_i + u_i
+Y_i = \beta_0 + \beta_1 X_i + u_i,
 \end{equation}
-
-The error $u$ arises because of factors that influence $Y$ but are not included in the regression function; so, there are *always* omitted variables.
-
-The omission of those variables can lead to **bias** in the OLS estimator.
-
-The bias in the OLS estimator that occurs as a result of an omitted factor is called omitted variable bias. For omitted variable bias to occur, the omitted factor $Z$ must be:
+then we know that the error $u$ arises because of factors that influence $Y$ but are not included in the regression function; so, there are *always* omitted variables. But do not always lead to bias. For omitted variable bias to occur, the omitted factor, let's call it $Z$^[$Z$ can be both known or unknown, so that is why we change from $U$ to $Z$], must be:
 
 1. A **determinant** of $Y$ (i.e. $Z$ is part of $u$)
-2. **Correlated** with the regressor $X$ (i.e. $corr(Z,X) \neq 0$)
+2. A **determinant** of the regressor $X$ (*at least*, there should hold that $corr(Z,X) \neq 0$)^[In econometric textbooks, as, e.g, in @stock2003introduction, this condition is weakened to only being correlation ($Z$ and $X$ are correlated). However, if the directed arrow goes from $STR$ into $U$ in Figure \@ref(fig:unobshet) then that would lead to something else than omitted variables, namely to a difference between a direct ($\text{STR} \longrightarrow \text{testscore}$) and an indirect effect ($\text{STR} \longrightarrow U \longrightarrow \text{testscore}$).]
 
-Both conditions must hold for the omission of $Z$ to result in omitted variable bias.
+Thus, both conditions must hold for the omission of $Z$ to result in omitted variable bias.
 
-In the test score example:
+Now, in our Californian district school dataset we have many more variables. One of them is variable that measures the english language ability (whether the student has English as a second language). Note that in California there are many migrants, especially from Latin-America. Now, you can readily argue that not having English as first language plausibly affects standardized test scores: so, $Z$ is a **determinant** of $Y$. Moreover, immigrant communities tend to be less affluent and thus have smaller school budgets---and, therefore, higher $STR$: $Z$ is most likely as well a **determinant** of $X$.
 
-English language ability (whether the student has English as a second language) plausibly affects standardized test scores: $Z$ is a **determinant** of $Y$.
-
-Immigrant communities tend to be less affluent and thus have smaller school budgets---and higher $STR$: $Z$ is **correlated** with $X$.
-
-Accordingly, $\hat{\beta}_1$ is biased. What is the direction of this bias?
-
-What does common sense suggest?
-If common sense fails you, there is a formula
+So, most likely, our original estimation from Chapter \@ref(univariateregression), $\hat{\beta}_1$, is biased (so not the true causal effect). But can we say something about the direction that bias? Yes, but the argument tend to become very quickly rather complex. In this case, note that districts with more migrant communities tend to have (*i*) higher class sizes and (*ii*) lower test scores. So, to the original estimation they added a *negative* effect. Thus, following this reasoning, the "true" effect must be less negative. Now, especially with negative signs this becomes rather complex, so if common sense fails you, there is the following formula:
 
 \begin{equation}
-\hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu}
+\hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu},
 \end{equation}
-If an omitted factor $Z$ is both:
+where you should focus on the sign of the correlation between $X$ and the regression residual $u$ (all standard errors, $\sigma$, are always positive by default). Now, the first least squares assumption states that $\rho_{Xu} = 0$---no correlation between the regressor and the regression residual. But now there is because of omitted variable bias. And because the negative relation between immigrants communities and school performance $\rho_{Xu}$ should be negative. And because the original estimation from Chapter \@ref(univariateregression) was already negative to begin with the "true" $\beta_1$ should be less negative. In conclusion, districts with more English learning students (*i*) do worse on standardized tests and (*ii*) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect.
 
-- a determinant of $Y$ (that is, it is contained in $u$); and
-- correlated with $X$,
+You might wonder whether this is actually going on in the Californian district school data. To see this, Figure \@ref(fig:omitca) offers a cross tabulation of test scores by class size and percentage English learners. 
 
-then $\rho_{XU} \neq 0$ and the OLS estimator $\hat{\beta}_1$ is biased (and is not consistent).
-
-So, districts with more English learning students (*i*) do worse on standardized tests and (*ii*) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect.
-
-Is this is actually going on in the CA data?
-
-```{r, echo=FALSE, fig.cap = "Cross tabulation of test scores by class size and percentage English learners", label='omitca'}
+```{r fig.align="center", echo=FALSE, fig.cap = "Cross tabulation of test scores by class size and percentage English learners", label='omitca', out.width = "800px"}
 knitr::include_graphics("./figures/Sheet7.png")
 ```
 
-*fewer* English Learners have *higher* test scores
-Districts with *lower* percent EL ($PctEL$) have *smaller* classes
-What is the effect of class size with comparable PctEL?
+Now, the table depicted in Figure \@ref(fig:omitca) is complex in its various dimensions. We have our two categories of class size (small and large), together with the difference in test scores, but we now stratify this by four categories of percentage English learners. There are several important observations to make here:
 
-Three ways to overcome omitted variable bias
+1) districts with *fewer* English Learners (so less migrants) have on average *higher* test scores (what we assumed above);
+2) districts with *fewer* English Learners (so less migrants) have *smaller* classes (what we assumed above);
+3) the effect of class size with comparable percentages English learners is still (mostly negative), but not as much as we compares for all districts together (the Difference-column). This confirms our reasoning that our original estimate was too negative. 
 
-1. Run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then $PctEL$ is still a determinant of $TestScore$, but $PctEL$ is uncorrelated with $STR$.
-2. Adopt the cross tabulation approach, with finer gradations of $STR$ and $PctEL$---within each group, all classes have the same $PctEL$, so we control for $PctEL$
-3. Use a regression in which the omitted variable ($PctEL$) is no longer omitted: include $PctEL$ as an additional regressor in a multiple regression.
+No, as already mentioned above omitted variable bias occurs very often. So, how to correct for this such that the bias disappaers. In general, there are strategies:
 
-## Multivariate regression analysis
+1. we can run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then percentage English learners ($PctEL$) is still a determinant of test score, but by construction $PctEL$ should be uncorrelated with $STR$. Unfortunately, is very difficult to randomize class size and often this strategy is just not attainable as being too costly or unethical (this accounts for all sciences);
+2. we can adopt the cross tabulation approach of above, with finer gradations of $STR$ and $PctEL$. Then by construction,  within each group all classes have the same $PctEL$ so we control for $PctEL$. A disadvantages is that one needs many observations, especially when one wants to stratify upon other variables as well; 
+3. finally, and perhaps the easiest approach, we can use a population regression model in which the omitted variable ($PctEL$) is no longer omitted. We just include $PctEL$ as an additional regressor in a multiple regression model. This is what the next section deals with. Obviously, a disadvantage of this approach is that you need observations for the omitted variable. 
+
+## Multivariate regression analysis {#sec:multivariate}
 
 
 Consider the case of two regressors:
@@ -302,7 +293,7 @@ Example: Test the joint hypothesis that the population coefficients on $STR$ and
 test str el_pct
 ```
 
-## Non-linear specifications
+## Non-linear specifications {#sec:nonlinear}
 
 The $TestScore$--$STR$ relation looks linear 
 
@@ -824,7 +815,7 @@ Three cases, differing in whether $Y$ and/or $X$ is transformed by taking logari
 - The interpretation of $\beta_1$  differs from case to case.
 - Choice of specification should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values
 
-## Using fixed effects in panel data
+## Using fixed effects in panel data {#sec:fixedeffects}
 
 ## Conclusion and discussion
 

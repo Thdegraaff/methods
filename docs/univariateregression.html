@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus</title>
+  <meta name="description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  
+  <meta name="twitter:description" content="<p>This syllabus contains lecture notes for the course
+Methods and Techniques for Social and Economic Research for the program
+Earth, Economics and Sustainability</p>" />
+  
+
+<meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
+
+
+<meta name="date" content="2022-10-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="moral.html"/>
+<link rel="next" href="modeling.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what"><i class="fa fa-check"></i>What</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why"><i class="fa fa-check"></i>Why</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#for-whom"><i class="fa fa-check"></i>For Whom</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#theory-models-and-hypotheses"><i class="fa fa-check"></i><b>1.1</b> Theory, Models and Hypotheses</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#doing-research-in-the-social-sciences"><i class="fa fa-check"></i><b>1.2</b> Doing Research (in the Social Sciences)</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#work-tidy"><i class="fa fa-check"></i><b>1.2.1</b> Work tidy</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#know-where-your-stuff-is"><i class="fa fa-check"></i><b>1.2.2</b> Know where your stuff is</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#make-notes"><i class="fa fa-check"></i><b>1.2.3</b> Make notes</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#use-a-reference-manager"><i class="fa fa-check"></i><b>1.2.4</b> Use a reference manager!</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#statistical-software"><i class="fa fa-check"></i><b>1.3</b> Statistical software</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#reading-guide"><i class="fa fa-check"></i><b>1.4</b> Reading Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="surplus.html"><a href="surplus.html"><i class="fa fa-check"></i><b>2</b> Introduction to Economic Surplus</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="surplus.html"><a href="surplus.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="surplus.html"><a href="surplus.html#background"><i class="fa fa-check"></i><b>2.1.1</b> Background</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="surplus.html"><a href="surplus.html#consumer-choices-and-consumer-value"><i class="fa fa-check"></i><b>2.2</b> Consumer choices and consumer value</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="surplus.html"><a href="surplus.html#utility-functions-inverse-demand-and-demand"><i class="fa fa-check"></i><b>2.2.1</b> Utility functions, inverse demand and demand</a></li>
+<li class="chapter" data-level="2.2.2" data-path="surplus.html"><a href="surplus.html#examples-of-demand-and-inverse-demand-functions"><i class="fa fa-check"></i><b>2.2.2</b> Examples of demand and inverse demand functions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="surplus.html"><a href="surplus.html#consumer-benefits-and-surplus-in-markets"><i class="fa fa-check"></i><b>2.2.3</b> Consumer benefits and surplus in markets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="surplus.html"><a href="surplus.html#poducer-behaviour-and-surplus"><i class="fa fa-check"></i><b>2.3</b> Poducer behaviour and surplus</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="surplus.html"><a href="surplus.html#producer-cost-functions-and-cost-minimisation"><i class="fa fa-check"></i><b>2.3.1</b> Producer cost functions and cost minimisation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="surplus.html"><a href="surplus.html#specifying-and-interpreting-the-production-function"><i class="fa fa-check"></i><b>2.3.2</b> Specifying and interpreting the production function</a></li>
+<li class="chapter" data-level="2.3.3" data-path="surplus.html"><a href="surplus.html#the-cost-function"><i class="fa fa-check"></i><b>2.3.3</b> The cost function</a></li>
+<li class="chapter" data-level="2.3.4" data-path="surplus.html"><a href="surplus.html#special-case-constant-average-and-marginal-costs"><i class="fa fa-check"></i><b>2.3.4</b> Special case: constant average and marginal costs</a></li>
+<li class="chapter" data-level="2.3.5" data-path="surplus.html"><a href="surplus.html#empirical-examples"><i class="fa fa-check"></i><b>2.3.5</b> Empirical examples</a></li>
+<li class="chapter" data-level="2.3.6" data-path="surplus.html"><a href="surplus.html#from-firm-costs-to-market-inverse-supply-and-supply"><i class="fa fa-check"></i><b>2.3.6</b> From firm costs to market inverse supply and supply</a></li>
+<li class="chapter" data-level="2.3.7" data-path="surplus.html"><a href="surplus.html#producer-surplus"><i class="fa fa-check"></i><b>2.3.7</b> Producer surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="surplus.html"><a href="surplus.html#analysis-of-economic-surplus"><i class="fa fa-check"></i><b>2.4</b> Analysis of economic surplus</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="surplus.html"><a href="surplus.html#introduction-2"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="surplus.html"><a href="surplus.html#equilibrium"><i class="fa fa-check"></i><b>2.4.2</b> Equilibrium</a></li>
+<li class="chapter" data-level="2.4.3" data-path="surplus.html"><a href="surplus.html#calibration-of-equilibrium"><i class="fa fa-check"></i><b>2.4.3</b> Calibration of equilibrium</a></li>
+<li class="chapter" data-level="2.4.4" data-path="surplus.html"><a href="surplus.html#analysis-of-economic-surplus-1"><i class="fa fa-check"></i><b>2.4.4</b> Analysis of economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="surplus.html"><a href="surplus.html#external-costs-and-economic-surplus"><i class="fa fa-check"></i><b>2.5</b> External costs and economic surplus</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="surplus.html"><a href="surplus.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.5.2" data-path="surplus.html"><a href="surplus.html#general-analysis-of-the-consumer-externality-tax"><i class="fa fa-check"></i><b>2.5.2</b> General analysis of the consumer externality tax</a></li>
+<li class="chapter" data-level="2.5.3" data-path="surplus.html"><a href="surplus.html#consumer-tax-for-specific-inverse-demand-and-supply-functions"><i class="fa fa-check"></i><b>2.5.3</b> Consumer tax for specific inverse demand and supply functions</a></li>
+<li class="chapter" data-level="2.5.4" data-path="surplus.html"><a href="surplus.html#stylised-solutions-for-the-case-when-marginal-external-costs-are-proportional-to-the-equilibrium-price."><i class="fa fa-check"></i><b>2.5.4</b> Stylised solutions for the case when marginal external costs are proportional to the equilibrium price.</a></li>
+<li class="chapter" data-level="2.5.5" data-path="surplus.html"><a href="surplus.html#analysis-of-changes-in-economic-surplus-due-to-externality-taxation"><i class="fa fa-check"></i><b>2.5.5</b> Analysis of changes in economic surplus due to externality taxation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="surplus.html"><a href="surplus.html#conclusion"><i class="fa fa-check"></i><b>2.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html"><i class="fa fa-check"></i><b>3</b> Behavioural Error and Economic Surplus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-4"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#arguments"><i class="fa fa-check"></i><b>3.2</b> Arguments against neo-classical valuation and responses</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-5"><i class="fa fa-check"></i><b>3.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-a"><i class="fa fa-check"></i><b>3.2.2</b> Discussion of Premise A</a></li>
+<li class="chapter" data-level="3.2.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-b"><i class="fa fa-check"></i><b>3.2.3</b> Discussion of premise (B)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-of-premise-c"><i class="fa fa-check"></i><b>3.2.4</b> Discussion of premise C</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#choicemodelserrors"><i class="fa fa-check"></i><b>3.3</b> Behavioural choice models with errors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-8"><i class="fa fa-check"></i><b>3.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.3.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach1"><i class="fa fa-check"></i><b>3.3.2</b> Approach 1: separated decision and experienced utility</a></li>
+<li class="chapter" data-level="3.3.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach2"><i class="fa fa-check"></i><b>3.3.3</b> Approach 2: satisficing and the inverse demand curve</a></li>
+<li class="chapter" data-level="3.3.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach3"><i class="fa fa-check"></i><b>3.3.4</b> Approach 3: System I and system II thinking</a></li>
+<li class="chapter" data-level="3.3.5" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#approach4"><i class="fa fa-check"></i><b>3.3.5</b> Approach 4: direct utility weights.</a></li>
+<li class="chapter" data-level="3.3.6" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#conclusion-1"><i class="fa fa-check"></i><b>3.3.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#beherrorsurplus"><i class="fa fa-check"></i><b>3.4</b> Behavioural errors and economic social surplus</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#implications-of-behavioural-errors-for-consumer-surplus"><i class="fa fa-check"></i><b>3.4.1</b> Implications of behavioural errors for consumer surplus</a></li>
+<li class="chapter" data-level="3.4.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#the-impact-of-behaviour-error-on-supply-decisions-and-producer-surplus"><i class="fa fa-check"></i><b>3.4.2</b> The impact of behaviour error on supply decisions and producer surplus</a></li>
+<li class="chapter" data-level="3.4.3" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#totalsurplus"><i class="fa fa-check"></i><b>3.4.3</b> Behavioural error and total economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioural-error-and-policy-recommendations"><i class="fa fa-check"></i><b>3.5</b> Behavioural error and policy recommendations</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioural-errors-and-information-provision"><i class="fa fa-check"></i><b>3.5.1</b> Behavioural errors and information provision</a></li>
+<li class="chapter" data-level="3.5.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#pricing-of-internalities"><i class="fa fa-check"></i><b>3.5.2</b> Pricing of internalities</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#behavioral-errors-and-pricing-of-consumption-externalities"><i class="fa fa-check"></i><b>3.6</b> Behavioral errors and pricing of consumption externalities</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#introduction-9"><i class="fa fa-check"></i><b>3.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#a-combined-externality-internality-tax"><i class="fa fa-check"></i><b>3.6.2</b> A combined externality-internality tax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="erroreconsurplus.html"><a href="erroreconsurplus.html#discussion-and-conclusion"><i class="fa fa-check"></i><b>3.7</b> Discussion and conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="moral.html"><a href="moral.html"><i class="fa fa-check"></i><b>4</b> Moral Considerations and Economic Surplus </a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="moral.html"><a href="moral.html#introduction-10"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="moral.html"><a href="moral.html#dealing-with-moral-considerations-at-the-valuation-stage"><i class="fa fa-check"></i><b>4.2</b> Dealing with moral considerations at the valuation stage</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="moral.html"><a href="moral.html#introduction-11"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="moral.html"><a href="moral.html#ethical-checkbox-approach"><i class="fa fa-check"></i><b>4.2.2</b> Ethical checkbox approach</a></li>
+<li class="chapter" data-level="4.2.3" data-path="moral.html"><a href="moral.html#economizing-ethics-approach"><i class="fa fa-check"></i><b>4.2.3</b> Economizing ethics approach</a></li>
+<li class="chapter" data-level="4.2.4" data-path="moral.html"><a href="moral.html#ethicizing-economics-approach"><i class="fa fa-check"></i><b>4.2.4</b> Ethicizing economics approach</a></li>
+<li class="chapter" data-level="4.2.5" data-path="moral.html"><a href="moral.html#qualitative-valuation-approach"><i class="fa fa-check"></i><b>4.2.5</b> Qualitative valuation approach</a></li>
+<li class="chapter" data-level="4.2.6" data-path="moral.html"><a href="moral.html#contributions-of-the-remainder-of-this-chapter"><i class="fa fa-check"></i><b>4.2.6</b> Contributions of the remainder of this chapter</a></li>
+<li class="chapter" data-level="4.2.7" data-path="moral.html"><a href="moral.html#scope"><i class="fa fa-check"></i><b>4.2.7</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="moral.html"><a href="moral.html#redefining-the-economic-pie"><i class="fa fa-check"></i><b>4.3</b> Redefining the economic pie</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="moral.html"><a href="moral.html#the-advisory-committee"><i class="fa fa-check"></i><b>4.3.1</b> The advisory committee</a></li>
+<li class="chapter" data-level="4.3.2" data-path="moral.html"><a href="moral.html#adjusted-consumer-surplus"><i class="fa fa-check"></i><b>4.3.2</b> Adjusted consumer surplus</a></li>
+<li class="chapter" data-level="4.3.3" data-path="moral.html"><a href="moral.html#adjusted-producer-surplus"><i class="fa fa-check"></i><b>4.3.3</b> Adjusted producer surplus</a></li>
+<li class="chapter" data-level="4.3.4" data-path="moral.html"><a href="moral.html#adjusted-economic-surplus"><i class="fa fa-check"></i><b>4.3.4</b> Adjusted economic surplus</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="moral.html"><a href="moral.html#taxation-and-moral-consideration"><i class="fa fa-check"></i><b>4.4</b> Taxation and moral consideration</a></li>
+<li class="chapter" data-level="4.5" data-path="moral.html"><a href="moral.html#externality-taxation-and-moral-considerations"><i class="fa fa-check"></i><b>4.5</b> Externality taxation and moral considerations</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="moral.html"><a href="moral.html#moral-considerations-related-to-the-kind-of-externality"><i class="fa fa-check"></i><b>4.5.1</b> Moral considerations related to the kind of externality</a></li>
+<li class="chapter" data-level="4.5.2" data-path="moral.html"><a href="moral.html#application-pricing-consumer-externalities-that-are-external-to-the-market"><i class="fa fa-check"></i><b>4.5.2</b> Application: pricing consumer externalities that are external to the market</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="moral.html"><a href="moral.html#conclusion-and-discussion"><i class="fa fa-check"></i><b>4.6</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="univariateregression.html"><a href="univariateregression.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="univariateregression.html"><a href="univariateregression.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="univariateregression.html"><a href="univariateregression.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="univariateregression.html"><a href="univariateregression.html#a-first-encounter-with-stata"><i class="fa fa-check"></i><b>5.2.1</b> A first encounter with <code>STATA</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="univariateregression.html"><a href="univariateregression.html#sec:numevidence"><i class="fa fa-check"></i><b>5.2.2</b> Numerical evidence</a></li>
+<li class="chapter" data-level="5.2.3" data-path="univariateregression.html"><a href="univariateregression.html#sec:smart"><i class="fa fa-check"></i><b>5.2.3</b> Always be smart (and a bit lazy)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="univariateregression.html"><a href="univariateregression.html#sec:uniregress"><i class="fa fa-check"></i><b>5.3</b> Univariate regression</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="univariateregression.html"><a href="univariateregression.html#sec:genesis"><i class="fa fa-check"></i><b>5.3.1</b> Genesis: <em>regression towards the mean</em></a></li>
+<li class="chapter" data-level="5.3.2" data-path="univariateregression.html"><a href="univariateregression.html#regression-with-one-regressor"><i class="fa fa-check"></i><b>5.3.2</b> Regression with one regressor</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="univariateregression.html"><a href="univariateregression.html#least-squares-assumptions-for-causal-inference"><i class="fa fa-check"></i><b>5.4</b> Least squares assumptions for causal inference</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="univariateregression.html"><a href="univariateregression.html#least-squares-assumption-1-conditional-mean-independence"><i class="fa fa-check"></i><b>5.4.1</b> Least squares assumption 1: conditional mean independence</a></li>
+<li class="chapter" data-level="5.4.2" data-path="univariateregression.html"><a href="univariateregression.html#least-squares-assumption-2-independenty-and-identically-distributed"><i class="fa fa-check"></i><b>5.4.2</b> Least squares assumption 2: independenty and identically distributed</a></li>
+<li class="chapter" data-level="5.4.3" data-path="univariateregression.html"><a href="univariateregression.html#least-squares-assumption-3-large-outliers-are-rare"><i class="fa fa-check"></i><b>5.4.3</b> Least squares assumption 3: Large outliers are rare</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="univariateregression.html"><a href="univariateregression.html#other-least-squares-assumptions"><i class="fa fa-check"></i><b>5.5</b> Other least squares assumptions</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="univariateregression.html"><a href="univariateregression.html#homoskedasticity"><i class="fa fa-check"></i><b>5.5.1</b> Homoskedasticity</a></li>
+<li class="chapter" data-level="5.5.2" data-path="univariateregression.html"><a href="univariateregression.html#normal-distributed-regression-term"><i class="fa fa-check"></i><b>5.5.2</b> Normal distributed regression term</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="univariateregression.html"><a href="univariateregression.html#measures-of-fit"><i class="fa fa-check"></i><b>5.6</b> Measures of fit</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="univariateregression.html"><a href="univariateregression.html#the-regression-r2"><i class="fa fa-check"></i><b>5.6.1</b> The regression <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="univariateregression.html"><a href="univariateregression.html#the-standard-error-of-the-regression"><i class="fa fa-check"></i><b>5.6.2</b> The Standard Error of the Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="univariateregression.html"><a href="univariateregression.html#conclusion-and-discussion-1"><i class="fa fa-check"></i><b>5.7</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>6</b> Modeling in the Social Sciences</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="modeling.html"><a href="modeling.html#sec:morevar"><i class="fa fa-check"></i><b>6.1</b> Why more independent variables?</a></li>
+<li class="chapter" data-level="6.2" data-path="modeling.html"><a href="modeling.html#sec:multivariate"><i class="fa fa-check"></i><b>6.2</b> Multivariate regression analysis</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="modeling.html"><a href="modeling.html#measures-of-fit-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.1</b> Measures of Fit for Multiple Regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="modeling.html"><a href="modeling.html#the-least-squares-assumptions-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.2</b> The Least Squares Assumptions for Multiple Regression</a></li>
+<li class="chapter" data-level="6.2.3" data-path="modeling.html"><a href="modeling.html#testing-with-multivariate-regression-models"><i class="fa fa-check"></i><b>6.2.3</b> Testing with multivariate regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="modeling.html"><a href="modeling.html#sec:nonlinear"><i class="fa fa-check"></i><b>6.3</b> Non-linear specifications</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="modeling.html"><a href="modeling.html#polynomials"><i class="fa fa-check"></i><b>6.3.1</b> Polynomials</a></li>
+<li class="chapter" data-level="6.3.2" data-path="modeling.html"><a href="modeling.html#interaction-variables"><i class="fa fa-check"></i><b>6.3.2</b> Interaction variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="modeling.html"><a href="modeling.html#logarithmic-transformation"><i class="fa fa-check"></i><b>6.3.3</b> Logarithmic transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="modeling.html"><a href="modeling.html#sec:fixedeffects"><i class="fa fa-check"></i><b>6.4</b> Using fixed effects in panel data</a></li>
+<li class="chapter" data-level="6.5" data-path="modeling.html"><a href="modeling.html#conclusion-and-discussion-2"><i class="fa fa-check"></i><b>6.5</b> Conclusion and discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="specification.html"><a href="specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
+<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#presentation-of-results"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
+<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="in-conclusion.html"><a href="in-conclusion.html"><i class="fa fa-check"></i><b>8</b> In conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="apperror.html"><a href="apperror.html"><i class="fa fa-check"></i><b>A</b> Taxation in the presence of behavioural error</a></li>
+<li class="chapter" data-level="B" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html"><i class="fa fa-check"></i><b>B</b> Background calculations for Chapter @ref(moral)</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html#apptax"><i class="fa fa-check"></i><b>B.1</b> Deriving the tax that optimizes adjusted social surplus</a></li>
+<li class="chapter" data-level="B.2" data-path="background-calculations-for-chapter-refmoral.html"><a href="background-calculations-for-chapter-refmoral.html#apppricing"><i class="fa fa-check"></i><b>B.2</b> Pricing of a consumption externality</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="appreviewstat.html"><a href="appreviewstat.html"><i class="fa fa-check"></i><b>C</b> Reviewing probability and statistics</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="appreviewstat.html"><a href="appreviewstat.html#reviewing-probability"><i class="fa fa-check"></i><b>C.1</b> Reviewing probability</a>
+<ul>
+<li class="chapter" data-level="C.1.1" data-path="appreviewstat.html"><a href="appreviewstat.html#probability"><i class="fa fa-check"></i><b>C.1.1</b> Probability</a></li>
+<li class="chapter" data-level="C.1.2" data-path="appreviewstat.html"><a href="appreviewstat.html#population-random-variables"><i class="fa fa-check"></i><b>C.1.2</b> Population &amp; random variables</a></li>
+<li class="chapter" data-level="C.1.3" data-path="appreviewstat.html"><a href="appreviewstat.html#distribution-functions"><i class="fa fa-check"></i><b>C.1.3</b> Distribution functions</a></li>
+<li class="chapter" data-level="C.1.4" data-path="appreviewstat.html"><a href="appreviewstat.html#conditional-distributions-and-conditional-means"><i class="fa fa-check"></i><b>C.1.4</b> Conditional distributions and conditional means</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="appreviewstat.html"><a href="appreviewstat.html#secssampling"><i class="fa fa-check"></i><b>C.2</b> Sampling in frequentist statistics</a>
+<ul>
+<li class="chapter" data-level="C.2.1" data-path="appreviewstat.html"><a href="appreviewstat.html#the-sampling-distribution-of-bary"><i class="fa fa-check"></i><b>C.2.1</b> The sampling distribution of <span class="math inline">\(\bar{Y}\)</span></a></li>
+<li class="chapter" data-level="C.2.2" data-path="appreviewstat.html"><a href="appreviewstat.html#example-simple-binomial-random-variables"><i class="fa fa-check"></i><b>C.2.2</b> Example: simple binomial random variables</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Methods and Techniques for Social and Economic Research: Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="univariateregression" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Regression analysis in the social sciences<a href="univariateregression.html#univariateregression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-12" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction<a href="univariateregression.html#introduction-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Why should we have something as applied econometrics in the social sciences? That is because we have theories as in Chapters (<a href="surplus.html#surplus">2</a>)–(<a href="moral.html#moral">4</a>) and those theories contain variables such as in the direct utility function of equation <a href="surplus.html#eq:directutility">(2.3)</a>:</p>
+<p><span class="math display">\[\begin{equation}
+U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
+\end{equation}\]</span></p>
+<p>Here the quantities for the market good <span class="math inline">\(Q\)</span> and the outside good <span class="math inline">\(G\)</span> are to considered to be <em>known</em>—also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.</p>
+<p>This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example demand and prices. In the second part of this course and syllabus with difficulties arising from using observational data to estimate these causal effects and to rewrite models as <a href="surplus.html#eq:directutility">(2.3)</a> such that we can actually <em>use</em> data to tease out values for—in this case—<span class="math inline">\(A\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>This chapter is organised as follows. The next section addresses the problem of finding a <em>relation</em> between some <span class="math inline">\(X\)</span> and some <span class="math inline">\(Y\)</span>. Here, we follow example in the well-known textbook of @stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some <code>STATA</code> commands. At the same time this section deal as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix <a href="appreviewstat.html#appreviewstat">C</a>.</p>
+</div>
+<div id="secproblem" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> So, what is the problem?<a href="univariateregression.html#secproblem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As explained in the introduction above, applied econometrics aims to give the policy maker well-informed values for variables she needs. She needs these variables basically for two things:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Causal inference</strong>: The policy maker wants to assess the effect of a change in one variable (typically called <span class="math inline">\(X\)</span>) on another variables (often called <span class="math inline">\(Y\)</span>).</li>
+<li><strong>Prediction</strong>: If you know what variable <span class="math inline">\(X\)</span> is, what should <span class="math inline">\(Y\)</span> then be?</li>
+</ol>
+<p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what that may be) and then optimize prediction.</p>
+<p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:</p>
+<ul>
+<li>To what extent do people eat less meat if we increase the prices with 1% (using a meat-tax)?</li>
+<li>If we increase Dutch dikes with one meter, how much less flood risk will there be?</li>
+<li>How much do classes perform better is we reduce class-sizes with one student?</li>
+</ul>
+<div id="a-first-encounter-with-stata" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> A first encounter with <code>STATA</code><a href="univariateregression.html#a-first-encounter-with-stata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For this section, we will focus on the last question. And this is an important question for policy as teachers are costly, but parents value school performance very highly. To start answering this question we <em>use</em> data. In <code>STATA</code> data is in a specific format, named <code>.dta</code>. Note that this format is not in a text format and cannot be read with the human eye. To start using <code>STATA</code> we first need to set the working directory to the appropriate directory<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>. You can do this by using the dropdown menu <code>File</code> in <code>STATA</code> and click on <code>Change working directly</code> but you can also do this with the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="univariateregression.html#cb1-1" aria-hidden="true" tabindex="-1"></a>cd  <span class="st">&quot;/Users/tomba/Dropbox/Thomas/Colleges/M&amp;T_AED_2022/&quot;</span></span></code></pre></div>
+<p>Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for e.g. slides, data and tutorials. Now suppose you have the subdirectory <code>data</code> in your course folder<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> and in that data directory you have a file called <code>caschool.dta</code>.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
+<p>To import the data in STATA you make use of the <code>use</code> command (again, you can make use of the dropdown menus), as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb2-1"><a href="univariateregression.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;./data/caschool.dta&quot;</span>, <span class="kw">clear</span></span></code></pre></div>
+<p>Note that an option is added using the syntax <code>, clear</code>. The comma indicates that an option is expected and the verb <code>clear</code> indicates that memory of <code>STATA</code> should be cleared from data. That is because, <code>STATA</code> can only have one dataset in its memory.</p>
+<p>In addition, we would like to know how the dataset looks like, for example what kind of variables it contains. We do this by invoking the command <code>describe</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="univariateregression.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">describe</span></span></code></pre></div>
+<pre><code>Contains data from ./data/caschool.dta
+ Observations:           420                  
+    Variables:            18                  20 Feb 2017 13:10
+-------------------------------------------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------------------------------------------
+observat        float   %9.0g                 
+dist_cod        float   %9.0g                 
+county          str18   %18s                  
+district        str53   %53s                  
+gr_span         str8    %8s                   
+enrl_tot        float   %9.0g                 
+teachers        float   %9.0g                 
+calw_pct        float   %9.0g                 
+meal_pct        float   %9.0g                 
+computer        float   %9.0g                 
+testscr         float   %9.0g                 
+comp_stu        float   %9.0g                 
+expn_stu        float   %9.0g                 
+str             float   %9.0g                 
+avginc          float   %9.0g                 
+el_pct          float   %9.0g                 
+read_scr        float   %9.0g                 
+math_scr        float   %9.0g                 
+-------------------------------------------------------------------------------------------------------------------
+Sorted by: </code></pre>
+<p>This provides information about the amount of observations and variables and the names and types of variables. In this case variables are either a float (a real number) or a string (text). Note as well, that this kind of output is cumbersome and ugly and not fit directly for reporting. Later, we will try to make this look better in an automatic way.</p>
+<p>The command <code>summarize</code> gives descriptive statistics. Suppose that in this case we are only interested in the variables <code>testscr</code> (average testscore by district) and <code>str</code> (the student-teacher ratio by district). Then we invoke this by:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb5-1"><a href="univariateregression.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> testscr str</span></code></pre></div>
+<pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     testscr |        420    654.1565    19.05335     605.55     706.75
+         str |        420    19.64043    1.891812         14       25.8</code></pre>
+<p>Now we see descriptive statistics for two variables, containing number of observations, the mean, the standard deviation and the minimum and maximum of each variable. For first insight in the relation between class size and class performance we might want to draw a so-called scatterplot. These type of plots relate the values of two variables in a two-dimensional way by giving the values as coordinates. The following syntax will do so.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="univariateregression.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> testscr str</span></code></pre></div>
+<p>And this provides the following <code>STATA</code> output.</p>
+<div class="figure"><span style="display:block;" id="fig:scattercaschool"></span>
+<img src="figures/scatter.png" alt="A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis" width="660" />
+<p class="caption">
+Figure 5.1: A scatterplot with tests-cores on the <span class="math inline">\(y\)</span>-axis and student-teacher ratio on the <span class="math inline">\(x\)</span>-axis
+</p>
+</div>
+<p>This “cloud” of dots do not yield a clearly visible relation between class performance and class size. However, this can be deceptive. Often it is difficult to discern clear relations from raw data only. Therefore we need to resort to numerical evidence.</p>
+</div>
+<div id="sec:numevidence" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Numerical evidence<a href="univariateregression.html#sec:numevidence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To assess whether there is a relation between class performance and class size as diplayed in Figure <a href="univariateregression.html#fig:scattercaschool">5.1</a> we need numerical or statistical evidence. First, we create two groups: namely, districts with “small” (STR <span class="math inline">\(&lt;\)</span> 20) and “large” (STR <span class="math inline">\(\geq\)</span> 20) class sizes. Then we can adopt three relatively straightforward strategies here:</p>
+<ol style="list-style-type: decimal">
+<li>Estimation
+<ul>
+<li>Here, we compare the average test scores in districts with low student-teacher ratios to those with high student-teacher ratios. So, we basically try to assess whether <strong>average</strong> behaviour is different.</li>
+</ul></li>
+<li>Hypothesis testing
+<ul>
+<li>Now, we aim to <strong>test</strong> the “null” hypothesis that the mean test scores in the two types of districts are the same, against the “alternative” hypothesis that they differ.</li>
+</ul></li>
+<li>Confidence intervals
+<ul>
+<li>This strategy estimates an interval for the <strong>difference</strong> in the mean test scores, so small versus large student-teacher ratio districts.</li>
+</ul></li>
+</ol>
+<p>In <code>STATA</code> this data analysis would look like:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb8-1"><a href="univariateregression.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> large = (str &gt;= 20)</span>
+<span id="cb8-2"><a href="univariateregression.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> large, <span class="kw">summarize</span>(testscr) <span class="kw">mean</span> standard <span class="kw">obs</span></span></code></pre></div>
+<pre><code>            |         Summary of testscr
+      large |        Mean   Std. dev.         Obs
+------------+------------------------------------
+          0 |   657.35126   19.358012         238
+          1 |   649.97885   17.853364         182
+------------+------------------------------------
+      Total |   654.15655   19.053348         420</code></pre>
+<p>The first command <em>generates</em> a new variable called “large” and denotes an indicator being 0 if <span class="math inline">\(str &lt; 20\)</span> and 1 if <span class="math inline">\(str \geq 20\)</span>. The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable <code>large</code>. Of course, this output is rather ugly and it is better to make a nice table such as Table <a href="univariateregression.html#tab:smalllarge">5.1</a>.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:smalllarge">Table 5.1: </span>Descriptive statistics of small and large classes
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Class size
+</th>
+<th style="text-align:left;">
+Average score
+</th>
+<th style="text-align:left;">
+Standard deviation
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(n\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Small
+</td>
+<td style="text-align:left;">
+657.4
+</td>
+<td style="text-align:left;">
+19.4
+</td>
+<td style="text-align:left;">
+238
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Large
+</td>
+<td style="text-align:left;">
+650.0
+</td>
+<td style="text-align:left;">
+17.9
+</td>
+<td style="text-align:left;">
+182
+</td>
+</tr>
+</tbody>
+</table>
+<p>No, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference—usually denoted as <span class="math inline">\(\Delta\)</span>. Or, specifically:</p>
+<ol style="list-style-type: decimal">
+<li>For estimation: determine the <span class="math inline">\(\Delta\)</span> = difference between group means</li>
+<li>For hypothesis testing: can we <em>reject</em> the null-hypothesis that <span class="math inline">\(\Delta = 0\)</span></li>
+<li>For confidence intervals: can we construct a confidence interval for <span class="math inline">\(\Delta\)</span></li>
+</ol>
+<div id="estimation" class="section level4 hasAnchor" number="5.2.2.1">
+<h4><span class="header-section-number">5.2.2.1</span> Estimation<a href="univariateregression.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For estimation is rather straightforward as we need to calculate the <em>difference</em> between the mean test scores within each group, or:</p>
+<p><span class="math display" id="eq:estimationlarge">\[\begin{eqnarray}
+\bar{Y}_{small} - \bar{Y}_{large} &amp;=&amp; \frac{1}{n_{small}} \sum_{i=1}^{n_{small}}Y_i - \frac{1}{n_{large}} \sum_{i=1}^{n_{large}} Y_i \\
+&amp;=&amp; 657.4-650.0\\
+&amp;=&amp;7.4
+\tag{5.1}
+\end{eqnarray}\]</span></p>
+<p>This basically mean subtracting the average scores of Table <a href="univariateregression.html#tab:smalllarge">5.1</a> (later we see how to this automatically in <code>STATA</code>). Now <span class="math inline">\(\Delta = 7.4\)</span> and we then have to ask ourselves whether this is a large difference in a real-world sense? Note that testscores seem to range from 600 to 800 and do not really have a direct meaning for us. A useful trick then is to look at the standard deviation (note that if things are normally distributed, 95% of all probability mass is within the range mean, plus or minus two times the standard deviation). In this case, the difference is about <span class="math inline">\(1/3\)</span> of the standard deviation. A different way of looking at this is looking at the percentiles of testscores. In <code>STATA</code> this looks like:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb10-1"><a href="univariateregression.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabstat</span> testscr, <span class="kw">statistics</span>(p10 p25 p50 p75 p90)</span></code></pre></div>
+<pre><code>    Variable |       p10       p25       p50       p75       p90
+-------------+--------------------------------------------------
+     testscr |   630.375       640    654.45   666.675     679.1
+----------------------------------------------------------------</code></pre>
+<p>where the command <code>tabstat</code> asks for a tabulation of certain statistics and <code>px</code> gives the <span class="math inline">\(x\)</span>-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given that the difference of <span class="math inline">\(7.4\)</span> is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee cannot be answered with this analysis?</p>
+</div>
+<div id="hypothesis-testing" class="section level4 hasAnchor" number="5.2.2.2">
+<h4><span class="header-section-number">5.2.2.2</span> Hypothesis testing<a href="univariateregression.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We also test the null-hypothesis that the difference <span class="math inline">\(\Delta = 0\)</span>. For that we need a so-called difference-in-means test and compute the corresponding <span class="math inline">\(t\)</span>-statistic<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>,
+<span class="math display" id="eq:testinglarge">\[\begin{equation}
+t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }} = \frac{\bar{Y}_s - \bar{Y}_l}{SE(\bar{Y}_s - \bar{Y}_l)}
+\tag{5.2}
+\end{equation}\]</span>
+where <span class="math inline">\(SE(\bar{Y}_s - \bar{Y}_l)\)</span> is the <em>standard error</em> of
+<span class="math inline">\((\bar{Y}_s - \bar{Y}_l)\)</span>, the subscripts <span class="math inline">\(s\)</span> and <span class="math inline">\(l\)</span> refer to “small” and “large” STR districts, and <span class="math inline">\(s_s^2 = \frac{1}{n_{small}}\sum_{i=1}^{n_s}(Y_i - \bar{Y}_s)^2\)</span></p>
+<p>We can compute this difference-of-means <span class="math inline">\(t\)</span>-statistic by filling this in with the numbers of <a href="univariateregression.html#tab:smalllarge">5.1</a>:
+<span class="math display">\[\begin{equation}
+t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  = \frac{657.4 - 650.0}{\sqrt{\frac{19.4^2}{238} +\frac{17.9^2}{182} }} = \frac{7.4}{1.83} = 4.05
+\end{equation}\]</span></p>
+<p>But then what? Well, recall that we <strong>reject</strong> a null-hypothesis when the critical value is below a certain threshold (usually 5%). In this case that is equivalent with stating that <span class="math inline">\(|t|&gt;1.96\)</span>. So, we reject (at the 5% significance level) the null hypothesis that the two means are the same. We will come back to this procedure in Section xXx.</p>
+</div>
+<div id="confidence-interval" class="section level4 hasAnchor" number="5.2.2.3">
+<h4><span class="header-section-number">5.2.2.3</span> Confidence interval<a href="univariateregression.html#confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, we can construct a 95% confidence interval for the difference between the means, which is:
+<span class="math display" id="eq:cilarge">\[\begin{equation}
+(\bar{Y}_s - \bar{Y}_l)\pm 1.96 \times SE(\bar{Y}_s - \bar{Y}_l) = 7.4 \pm 1.96 \times 1.84 = (3.7, 11.0)
+\tag{5.3}
+\end{equation}\]</span>
+So what does this mean again. Well, two things. First, the 95% confidence interval for <span class="math inline">\(\Delta\)</span> doesn’t include 0 and, second, the hypothesis that <span class="math inline">\(\Delta = 0\)</span> is rejected at the 5% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be reject as null-hypothesis</p>
+</div>
+</div>
+<div id="sec:smart" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Always be smart (and a bit lazy)<a href="univariateregression.html#sec:smart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So, why give this rather simple procedure so much attention. That is because all “classical” statistics are constructed by these three elements and all statistical computer will always give, at least, these three. And they are as well very much related with each other. Once you know two of them, you know the third one as well.</p>
+<p>Now, although the procedure is rather straightforward, it is also a bit cumbersome and prone to errors. Therefore, it is much easier to let <code>STATA</code> do it:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb12-1"><a href="univariateregression.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> testscr, <span class="kw">by</span>(large) unequal</span></code></pre></div>
+<pre><code>Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     238    657.3513    1.254794    19.35801    654.8793    659.8232
+       1 |     182    649.9788    1.323379    17.85336    647.3676    652.5901
+---------+--------------------------------------------------------------------
+Combined |     420    654.1565    .9297082    19.05335    652.3291     655.984
+---------+--------------------------------------------------------------------
+    diff |             7.37241    1.823689                3.787296    10.95752
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   4.0426
+H0: diff = 0                     Satterthwaite&#39;s degrees of freedom =  403.607
+
+    Ha: diff &lt; 0                 Ha: diff != 0                 Ha: diff &gt; 0
+ Pr(T &lt; t) = 1.0000         Pr(|T| &gt; |t|) = 0.0001          Pr(T &gt; t) = 0.0000</code></pre>
+<p>So, in this case we want to assess the difference in test score by groups (being small and large classes), where we as well add the option <code>unequal</code>, which means that variance (or standard deviations) of both groups are unequal (and they are as Table <a href="univariateregression.html#tab:smalllarge">5.1</a> clearly shows).</p>
+<p>Now try to find out for yourself that this output gives you the estimation of <span class="math inline">\(\Delta\)</span> of Eq. <a href="univariateregression.html#eq:estimationlarge">(5.1)</a>, the <span class="math inline">\(t\)</span>-value and corresponding test outcome of Eq. <a href="univariateregression.html#eq:testinglarge">(5.2)</a> with the corresponding confidence intervals of Eq. <a href="univariateregression.html#eq:cilarge">(5.3)</a>.</p>
+</div>
+</div>
+<div id="sec:uniregress" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Univariate regression<a href="univariateregression.html#sec:uniregress" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The three strategies we adopted in <a href="univariateregression.html#sec:numevidence">5.2.2</a> for assessing the difference between groups directly translate to the case of regression analysis. Here we also look at estimation, hypothesis testing and confidence intervals. But before that we first look at the origin of the name regression in Subsection <a href="univariateregression.html#sec:genesis">5.3.1</a></p>
+<div id="sec:genesis" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Genesis: <em>regression towards the mean</em><a href="univariateregression.html#sec:genesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The name regression seems to have a negative connotation, as progress is in general seen as good and regress as bad. And actually this is true, the name regression was deliberatily given as to describe a negative process: in full <em>regression towards the mean</em>. The concept of regression was actually coined by Sir Francis Galton together with other statistical terms, such as correlation and deviation <span class="citation">(Senn 2011)</span>. Galton was a notorious statistician who measured everything and else, including the length of french bread and the size of human skulls.</p>
+<p>in 1886, Galton started to research the height of adult children with the height of their parents <span class="citation">(Galton 1886)</span>. The original data can be seen in the scatterplot in Figure @(fig:galton2). What Galton expected was that the relation between the height of children and that of their parents was one-to-one. On average children should receive the same height of their parents. So, in fact he expected a <span class="math inline">\(45^{\circ}\)</span> line—the red line; a line with slope equal to 1.</p>
+<div class="figure"><span style="display:block;" id="fig:galton2"></span>
+<img src="figures/Galton2.png" alt="Relation heigh fathers and height children" width="252" />
+<p class="caption">
+Figure 5.2: Relation heigh fathers and height children
+</p>
+</div>
+<p>However, he found consistently the blue line, a line with positive slope but lower than 1 (the blue line in Figure <a href="univariateregression.html#fig:galton1">5.3</a>). That entails that, <em>on average</em> tall parents get tall children but not as tall as themselves. Of course, this goes as well the other way. Short parents get short children but not as short as themselves.</p>
+<div class="figure"><span style="display:block;" id="fig:galton1"></span>
+<img src="figures/Galton1.png" alt="Relation heigh fathers and height children" width="252" />
+<p class="caption">
+Figure 5.3: Relation heigh fathers and height children
+</p>
+</div>
+<p>Galton coined this process <em>regression towards the mean</em>.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> In the end we would all converge towards the mean and all look the same. For the Victorian Sir Frances Galton and his contemporaries in an age where income classes were highly separated this was truly a horror. Especially, because his cousin was Charles Darwin who actually claimed that species <em>diverged</em>. Of course, in Galton reasoning there is a mistake as this only models genetic influence and not <em>accidental</em> differences not influenced by genetics. Note that this analysis says something the average, but not about individual differences.</p>
+<p>This regression towards the mean is now seen as a very important characteristics of regression models, and you can easily be fooled by it. It is now stated as:</p>
+<blockquote>
+<p><span class="math inline">\(\ldots\)</span> a concept that refers to the fact that if one sample of a random variable is extreme, the next sampling of the same random variable is likely to be closer to its mean</p>
+</blockquote>
+<p>For instance, everything went really well and you got a 9 for an examination. That doesn’t mean that the next time you will do equally well (you will still do, but not that well). Or, your favorite footballclub does extreme well in a particular year (Leicester comes to mind). That does not mean that the next year it will do equally well, and so forth and so on.</p>
+</div>
+<div id="regression-with-one-regressor" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Regression with one regressor<a href="univariateregression.html#regression-with-one-regressor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So, linear regression allows us to <em>estimate</em>, and make <em>inferences</em> about, <em>population</em> slope coefficients. Inference means drawing conclusions and population refers to the fact that we do not want to say something about our sample, but instead about our whole population. Ultimately our aim
+is to estimate the <strong>causal</strong> effect on <span class="math inline">\(Y\)</span> of a unit change in <span class="math inline">\(X\)</span>—but for now, just think of the problem of fitting a straight line to data on two variables, <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>Similar to Subsection <a href="univariateregression.html#sec:numevidence">5.2.2</a> we have three strategies to make inferences:</p>
+<ul>
+<li>We estimation the relation:
+<ul>
+<li>This now boils down to we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (a specific type of regression)
+<ul>
+<li>And then we have to assess the advantages and disadvantages of OLS</li>
+</ul></li>
+</ul></li>
+<li>We could refer to hypothesis testing:
+<ul>
+<li>Very often this comes down to testing where the slope is zero. Namely, it the slope is zero, then the data does not show a relation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</li>
+</ul></li>
+<li>Using confidence intervals:
+<ul>
+<li>This is related to constructing a confidence interval for the slope</li>
+</ul></li>
+</ul>
+<p>Before we look into this we first need some clarification on notation. As mentioned above, we would like to know the population regression line:</p>
+<p><span class="math display">\[\begin{equation}
+testscr = \beta_0 + \beta_1 STR,
+\end{equation}\]</span>
+where
+<span class="math display">\[\begin{eqnarray}
+    \beta_1&amp; =&amp; \text{slope of population regression line} \\
+    &amp;=&amp;   \frac{\Delta Testscore}{\Delta STR}\\
+    &amp;=&amp; \text{change in test score for a unit change in STR}
+\end{eqnarray}\]</span>
+Note the definition here of <span class="math inline">\(\beta_1\)</span>. It gives the <strong>marginal effect</strong> of a change in <span class="math inline">\(STR\)</span> on <span class="math inline">\(testscr\)</span>. So the interpretation of the parameter <span class="math inline">\(\beta_1\)</span> is very straightforward. However, we do not know the population value of <span class="math inline">\(\beta_1\)</span> and we therefore have to estimate it using data.</p>
+<p>In general, the population linear regression <em>model</em> is different as we add element <span class="math inline">\(u_1\)</span>.
+<span class="math display" id="eq:ols">\[\begin{equation}
+    Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i\ldots n
+    \tag{5.4}
+\end{equation}\]</span>
+Now, <span class="math inline">\(X\)</span> denotes the independent variable or regressor, <span class="math inline">\(Y\)</span> the dependent variable, <span class="math inline">\(\beta_0\)</span> the intercept, <span class="math inline">\(\beta_1\)</span> the slope, and <span class="math inline">\(u_i\)</span> the regression error. The regression error consists of omitted factors, or possibly measurement error in the measurement of <span class="math inline">\(Y\)</span>. In general, these omitted factors are other factors that influence <span class="math inline">\(Y\)</span>, other than the variable <span class="math inline">\(X\)</span>.</p>
+<div id="estimating-with-ols" class="section level4 hasAnchor" number="5.3.2.1">
+<h4><span class="header-section-number">5.3.2.1</span> Estimating with OLS<a href="univariateregression.html#estimating-with-ols" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To estimate the population linear regression model we apply the ordinary least squares estimator. Again, as Figure <a href="univariateregression.html#fig:unire">5.4</a> shows as well, a linear regression line is a straight line through points in a scatterplot. Actually, we want to draw that line such that the distance of all points to that line is minimized. See that in Figure <a href="univariateregression.html#fig:unire">5.4</a> the distances between the points and the line are given by the <span class="math inline">\(_i\)</span>’s, the regression errors. So, if we somehow can minimize all <span class="math inline">\(u_i\)</span>’s we are fine. But those distances could be both positive and negative and they might cancel each other out. Therefore, we first square the regression errors and then minimize (hence the name: ordinary least <em>squares</em>). Also, see from Eq. <a href="univariateregression.html#eq:ols">(5.4)</a> that:</p>
+<p><span class="math display">\[\begin{equation}
+u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\beta_0 + \beta_1 X_i) \right]^2
+\end{equation}\]</span></p>
+<div class="figure"><span style="display:block;" id="fig:unire"></span>
+<img src="figures/Lecture1_sheet8.png" alt="Drawing a straight line through data in a scatterplot" width="402" />
+<p class="caption">
+Figure 5.4: Drawing a straight line through data in a scatterplot
+</p>
+</div>
+<p>But how can we estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> from data? For that we will focus on the least squares (ordinary least squares or OLS) estimator of the unknown parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, which solves,
+<span class="math display">\[\begin{equation}
+    \min_{b_0,b_1} \sum^n_{i=1} \left[Y_i - (b_0 + b_1 X_i) \right]^2
+\end{equation}\]</span></p>
+<p>In fact, the OLS estimators of the slope <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span> and the intercept <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> are:<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<p><span class="math display">\[\begin{eqnarray}
+    \hat{\beta}_1 &amp;=&amp; \frac{\sum^n_{i=1}(X_i - \overline{X})(Y_i - \overline{Y})}{\sum^n_{i=1}(X_i - \overline{X})^2} = \frac{s_{XY}}{s^2_X}\\
+    \hat{\beta}_0 &amp;=&amp; \overline{Y} - \hat{\beta}_1\overline{X}
+\end{eqnarray}\]</span></p>
+<p>Although you do need to learn these formula’s by heart some insightful comments can be given. First, if a parameter is estimated then it gets a on top. Second, the optimal <span class="math inline">\(\hat{\beta}_1\)</span> is equal to <span class="math inline">\(\frac{s_{XY}}{s^2_X}\)</span> and this is the sampling covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the sampling variance of <span class="math inline">\(X\)</span>. This is not a correlation as the units still depend on <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and therefore the slope can be large than <span class="math inline">\(1\)</span> or smaller than <span class="math inline">\(-1\)</span>, but it does say something about the relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Third, the constant is governed by the estimated parameter <span class="math inline">\(\hat{\beta}_1\)</span></p>
+<p>From here we can predict the values <span class="math inline">\(\hat{Y}_i\)</span> and residuals <span class="math inline">\(\hat{u}_i\)</span> as they are:
+<span class="math display">\[\begin{eqnarray}
+    \hat{Y}_i &amp;=&amp; \hat{\beta}_0 + \hat{\beta}_1 X_i, \qquad i = 1, \ldots, n\\
+    \hat{u}_i &amp;=&amp; Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
+\end{eqnarray}\]</span></p>
+<p>When we apply this to our data cloud in Figure <a href="univariateregression.html#fig:scattercaschool">5.1</a> then we get the following optimal population regression line:</p>
+<div class="figure"><span style="display:block;" id="fig:cloud"></span>
+<img src="figures/Lecture1_sheet13.jpg" alt="bla"  />
+<p class="caption">
+Figure 5.5: bla
+</p>
+</div>
+<p>where the estimated slope equals <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span>, the estimated intercept equals <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span> and the total population regression line can be written as: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span>. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span>). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not any sense—it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.</p>
+<p>No how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
+<p>In <code>STATA</code> both the constant and the slope can be easily retrieved by:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb14-1"><a href="univariateregression.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      19.26
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0512
+                                                Root MSE          =     18.581
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -2.279808   .5194892    -4.39   0.000    -3.300945   -1.258671
+       _cons |    698.933   10.36436    67.44   0.000     678.5602    719.3057
+------------------------------------------------------------------------------</code></pre>
+<p>However, we will discuss the rest of this output later</p>
+</div>
+<div id="hypothesis-testing-1" class="section level4 hasAnchor" number="5.3.2.2">
+<h4><span class="header-section-number">5.3.2.2</span> Hypothesis testing<a href="univariateregression.html#hypothesis-testing-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only <strong>reject</strong> the <strong>null</strong>-hypothesis, we do not accept an hypothesis based upon one statistical test only. So, we aim to test <span class="math inline">\(H_0: E(Y) = \mu_{Y,0}\)</span> vs. <span class="math inline">\(H_1: E(Y) \neq \mu_{Y,0}\)</span>, where <span class="math inline">\(\mu_{Y,0}\)</span> is some specified quantity that we are interested in. Typically <span class="math inline">\(\mu_{Y,0} = 0\)</span> as this denotes no relation, but sometimes you could be interested in, e.g., whether <span class="math inline">\(\mu_{Y,0} = 1\)</span> when testing elasticities. Or you could be interested in other quantities.</p>
+<p>Testing statistical hypotheses is often very confusing, because of two things. First, you actually test whether the data you have corresponds with the null-hypothesis. Or, in other words:</p>
+<blockquote>
+<p>What is the probability that your data (<span class="math inline">\(D\)</span>) might be right <em>given</em> the null-hypothesis (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\Pr(D|H_0)\)</span></p>
+</blockquote>
+<p>And that is a strange concept. You first imagine a world <span class="math inline">\(H_0\)</span> with the data that it <em>should</em> provide and then test that imaginary world.</p>
+<p>Secondly, there is the notation that often works confusing. First, we have the <span class="math inline">\(p\)</span>-value which equals the probability of drawing a statistic (e.g., <span class="math inline">\(\bar{Y}\)</span>) <em>at least as adverse</em> to the null (that is: your imaginary world) as the value actually computed with your data, <strong>assuming</strong> again that the null-hypothesis is true—again, you imaginary world. Secondly, there is the significance level of a test which is a <em>pre-specified</em> probability of incorrectly rejecting the null, when the null is actually true.</p>
+<p>Now, suppose that you want to calculate the <span class="math inline">\(p\)</span>-value based on an estimated coefficient <span class="math inline">\(\hat{\beta}_1\)</span>, then you construct the following test:
+<span class="math display">\[\begin{equation}
+p\text{-value} = \Pr_{H_0}[|\hat{\beta}_1 - \beta_{1,0}| &gt; |\hat{\beta}_1^{act} - \beta_{1,0}|
+\end{equation}\]</span>
+where <span class="math inline">\(\hat{\beta}_1^{act}\)</span> is the value of <span class="math inline">\(\hat{\beta}_1\)</span> actually observed, and <span class="math inline">\(\beta_{1,0}\)</span> is the value of <span class="math inline">\(\beta_1\)</span> under the null-hypothesis (e.g., <span class="math inline">\(\beta_{1,0} = 0\)</span>). Now, this is confusing, but in words it states that if you belief the null-hypothesis (the estimated value should be then <span class="math inline">\(\hat{\beta_1}\)</span>), (<span class="math inline">\(\hat{\beta}_1^{act}\)</span>) or even more extreme values can be estimated.</p>
+<p>To test the null hypothesis <span class="math inline">\(H_0\)</span> we follow three steps. First, we need to compute the <strong>standard error</strong> of <span class="math inline">\(\hat{\beta_1}\)</span>, which is an estimator of <span class="math inline">\(\sigma_{\hat{\beta_1}}\)</span>. Using an ordinary least squares estimator, standard errors for coefficients are given by:</p>
+<p><span class="math display" id="eq:olsse">\[\begin{equation}
+\sigma_{\hat{\beta_1}} = \sqrt{\frac{1}{n} \frac{\frac{1}{n-2} \sum_{i=1}^n (X_i - \bar{X})^2 u_i^2}{\left[\frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})^2 \right]^2}},
+\tag{5.5}
+\end{equation}\]</span>
+which is a rather daunting expression.</p>
+<p>Second, we need to compute the <span class="math inline">\(t\)</span>-statistic:
+<span class="math display" id="eq:olst">\[\begin{equation}
+t = \frac{\hat{\beta}_1 - \beta_{1,0}}{SE(\hat{\beta}_1)}
+\tag{5.6}
+\end{equation}\]</span></p>
+<p>Finally, we need to calculate the <span class="math inline">\(p\)</span>-value. To do so, we need to know the sampling distribution of <span class="math inline">\(\hat{\beta}_1\)</span>, which we know is complicated if <span class="math inline">\(n\)</span> is small, but typically you have enough observations to invoke the <em>Central Limit Theorem</em>. So, if <span class="math inline">\(n\)</span> is large, you can use the normal approximation (CLT) as follows
+<span class="math display">\[\begin{eqnarray}
+                        p\text{-value}&amp; = &amp;   \Pr_{H_0}\left[\left|\hat{\beta}_1 - \beta_{1,0}\right| &gt; \left|\hat{\beta}_1^{act} - \beta_{1,0}\right|\right]\\
+            &amp; = &amp;   \Pr_{H_0}\left[\left|\frac{\hat{\beta}_1 - \beta_{1,0}}{SE(\hat{\beta}_1)}\right| &gt; \left|\frac{\hat{\beta}_1 ^{act} - \beta_{1,0}}{SE(\hat{\beta}_1)}\right|\right]\\
+            &amp; = &amp;   \Pr_{H_0}[|t| &gt; |t^{act}|]\\
+                        &amp;\simeq&amp; \text{probability under left + right } N(0,1) \text{ tails}
+\end{eqnarray}\]</span>
+where <span class="math inline">\(SE(\hat{\beta}_1)\)</span> again equals the standard error of <span class="math inline">\(\hat{\beta}_1\)</span>, denoted with <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span></p>
+<p>So, if you know <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> you can calculate this. However, computers are much faster, in doing to. For example, suppose we want to test whether <span class="math inline">\(\beta_{1,0} = 0\)</span> using the regression output displayed above which gives <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1} = 0.52\)</span>. That is step 1. Note that <code>STATA</code> already calculated the standard error of Eq. <a href="univariateregression.html#eq:olsse">(5.5)</a>. For the next step we need to compute the <span class="math inline">\(t\)</span>-statistic, which is:</p>
+<p><span class="math display" id="eq:olstemp">\[\begin{equation}
+t = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
+\tag{5.7}
+\end{equation}\]</span></p>
+<p>then the <span class="math inline">\(p\)</span>-value can be seen from Figure <a href="univariateregression.html#fig:pvalues">5.6</a>:</p>
+<div class="figure"><span style="display:block;" id="fig:pvalues"></span>
+<img src="figures/lecture_sheet9.jpg" alt="Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$"  />
+<p class="caption">
+Figure 5.6: Calculating the <span class="math inline">\(p\)</span>-value of a two-sided test when <span class="math inline">\(t^{act} = -4.38\)</span>
+</p>
+</div>
+<p>That is, for large <span class="math inline">\(n\)</span> (and typically we have that), the <span class="math inline">\(p\)</span>-value is the probability that a <span class="math inline">\(N(0,1)\)</span> random variable falls outside <span class="math inline">\(|\hat{\beta}_1^{act} - \beta_{1,0})/\sigma_{\hat{\beta}_1} | = |t|\)</span>. That is the blue areas under the normal distribution and they entail a probability <em>mass</em>. Now, if both surfaces on the sides are not larger than 2.5%, then we can reject the null-hypothesis against a 5% significance level. Now, the computer output above gives a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.000\)</span>, which a bit strange. The <span class="math inline">\(p\)</span>-value is actually not zero, but a very small number and definitely smaller than <span class="math inline">\(0.05\)</span>, so we can <em>reject</em> the null-hypothesis being <span class="math inline">\(\beta_{1,0} = 0\)</span> at a 5% significance level (and at a 1% and 0.1% significance level as well). Now, if the <span class="math inline">\(t\)</span>-statistic is exactly 1.96 in absolute value, then the <span class="math inline">\(p\)</span>-value is 0.05. So, to repeat the steps, but now using computer output for testing the hypothesis that <span class="math inline">\(\beta_1 = \beta_{1,0}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Get the standard error from computer output</li>
+<li>Compute the <span class="math inline">\(t\)</span>-statistics as in Eq. <a href="univariateregression.html#eq:olst">(5.6)</a></li>
+<li>Get the corresponding <span class="math inline">\(p\)</span>-value. Or, reject the null-hypothesis at the 5% significance level if <span class="math inline">\(|t^{act}| &gt; 1.96\)</span>.</li>
+</ol>
+<p>Now there is a link between the <span class="math inline">\(p\)</span>-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5%, then you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span> or equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span>. The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level. Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the ``yes/no’’ statement about whether the test rejects.</p>
+<p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation">(Amrhein, Greenland, and McShane 2019)</span>. Why should you use a 5% significance level, what is so special about that number? It is not better just to report coefficients and standard errors? Figure <a href="univariateregression.html#fig:significance">5.7</a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that testing does not matter, but more reporting. First of all, <span class="math inline">\(p\)</span> values in themselves do not contain that much information. In the regression output of above you <span class="math inline">\(p\)</span>-values being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could to publications being published only with <span class="math inline">\(p\)</span>-values below 0.05, leading to what is called publication bias.</p>
+<div class="figure"><span style="display:block;" id="fig:significance"></span>
+<img src="figures/significance.jpg" alt="Critical review on the (mis)use of statistical significance"  />
+<p class="caption">
+Figure 5.7: Critical review on the (mis)use of statistical significance
+</p>
+</div>
+</div>
+<div id="confidence-intervals" class="section level4 hasAnchor" number="5.3.2.3">
+<h4><span class="header-section-number">5.3.2.3</span> Confidence intervals<a href="univariateregression.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The exact definition of confidence intervals is a bit tricky. Namely, a 95% confidence interval for <span class="math inline">\(\hat{\beta}_1\)</span> is an interval that contains the true value of <span class="math inline">\(\beta_1\)</span> in 95% of repeated samples. That means that confidence interval do not give a probability (even though we would like to interpret it that way). But you can state that every value within a confidence interval would not be rejected as null-hypothesis, while every value outside the confidence interval would be rejected. Now, if we know both <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> (again using computer output), then a 95% confidence interval can be very easily constructed. For our regression of output of above this entails</p>
+<p><span class="math display" id="eq:olsci">\[\begin{equation}
+\hat{\beta}_1 \pm 1.96 \times \sigma_{\hat{\beta}_1} = -2.28 \pm 1.96 \times 0.52 = [-3.30, -1.26].
+\tag{5.8}
+\end{equation}\]</span>
+So, every value between <span class="math inline">\(-3.30\)</span> and <span class="math inline">\(-1.26\)</span> will <strong>not</strong> be rejected as null-hypothesis, while every value outside that interval will be rejected. Note that confidence interval is again automatically given by computer output. If one would like a confidence interval against another critical level, say against a 99% critical level, one can use the <code>level()</code> option</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="univariateregression.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      19.26
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0512
+                                                Root MSE          =     18.581
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [99% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -2.279808   .5194892    -4.39   0.000    -3.624061    -.935556
+       _cons |    698.933   10.36436    67.44   0.000     672.1137    725.7522
+------------------------------------------------------------------------------</code></pre>
+</div>
+<div id="sec:dummy" class="section level4 hasAnchor" number="5.3.2.4">
+<h4><span class="header-section-number">5.3.2.4</span> Regression with a dummy<a href="univariateregression.html#sec:dummy" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sometimes a regressor is binary, meaning an indicator or dichotomous (0/1) variable. Let’s go back again to Subsection <a href="univariateregression.html#sec:numevidence">5.2.2</a>, where we created such a binary variable with small and large class sizes (<span class="math inline">\(X=1\)</span> if class size is small, <span class="math inline">\(X=0\)</span> if not). Other possible example are gender (<span class="math inline">\(X=1\)</span> if female, <span class="math inline">\(X=0\)</span> if male) or being treated or not (<span class="math inline">\(X=1\)</span> if treated, <span class="math inline">\(X=0\)</span> if not). We refer to these types of variables as being <strong>dummy</strong> variables—and they are very often used in the social sciences.</p>
+<p>Now, suppose we have a population regression model that looks like:</p>
+<p><span class="math display" id="eq:olsdummy">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i
+\tag{5.9}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(Y\)</span> denotes, e.g., test scores, and where <span class="math inline">\(X\)</span>, e.g., denotes a dummy variable for a large class (so, if <span class="math inline">\(STR \geq 20\)</span> then <span class="math inline">\(X_i = 1\)</span>; otherwise <span class="math inline">\(X_i = 0\)</span>), so there is then only two possibilities:</p>
+<ol style="list-style-type: decimal">
+<li>For small class size there should hold that <span class="math inline">\(X_i = 0\)</span> yielding that <span class="math inline">\(Y_i = \beta_0 + u_i\)</span>. Namely <span class="math inline">\(\beta_1 \times X_i = \beta_1 \times 0 = 0\)</span>. That means automatically that the expectation of <span class="math inline">\(Y_i\)</span> is the constant, being <span class="math inline">\(\beta_0\)</span>. Another way or writing is that the expectation of model <a href="univariateregression.html#eq:olsdummy">(5.9)</a> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 0\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 0) = \beta_0\)</span>.</li>
+<li>For large classes there should hold that <span class="math inline">\(X_i = 1\)</span> yielding that <span class="math inline">\(X_i = 1\)</span>, <span class="math inline">\(Y_i = \beta_0 + \beta_1 + u_i\)</span>. This means the expectation of model <a href="univariateregression.html#eq:olsdummy">(5.9)</a> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 1\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1\)</span></li>
+</ol>
+<p>So a regression with a dummy as independent variable gives two different <em>constants</em>, for each group (small/large classes) one. You can interpret this as a level-effect (only the level changes, not the slope as there is none here). The interpretation of <span class="math inline">\(\beta_1\)</span> is in this case rather special and can be denoted as:
+<span class="math display">\[\begin{equation}
+\beta_1 = \mathbb{E}(Y_i \mid X_i = 1) - \mathbb{E}(Y_i \mid X_i = 0),
+\end{equation}\]</span>
+Which is just the population difference in group means.</p>
+<p>If we go back to our example with <span class="math inline">\(X_i = 1\)</span> if <span class="math inline">\(STR \geq 20\)</span> and 0 otherwise then we get the following regression output</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb18-1"><a href="univariateregression.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      16.34
+                                                Prob &gt; F          =     0.0001
+                                                R-squared         =     0.0369
+                                                Root MSE          =     18.721
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       large |   -7.37241   1.823578    -4.04   0.000    -10.95694   -3.787884
+       _cons |   657.3513   1.255147   523.72   0.000     654.8841    659.8184
+------------------------------------------------------------------------------</code></pre>
+<p>Now, note that this is the same output (<span class="math inline">\(\Delta= -7.4\)</span>, <span class="math inline">\(\sigma_\Delta = 1.82\)</span> and <span class="math inline">\(t\)</span>-statistic is <span class="math inline">\(-4.04\)</span>) as when we did the difference in means test in Subsection <a href="univariateregression.html#sec:smart">5.2.3</a>. To conclude, this is just another way (and much easier) to do a difference-in-means analysis. And this directly carries over for the situation when we have additional regressors.</p>
+</div>
+</div>
+</div>
+<div id="least-squares-assumptions-for-causal-inference" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Least squares assumptions for causal inference<a href="univariateregression.html#least-squares-assumptions-for-causal-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As stated at the start of Section <a href="univariateregression.html#secproblem">5.2</a> applied econometrics focuses on finding a <strong>causal</strong> effect. But how do you do know that the <span class="math inline">\(\hat{\beta}_1\)</span> you estimate using the population regression model of Eq. <a href="univariateregression.html#eq:betacausal">(5.10)</a> is indeed a causal effect. In other words, if you change <span class="math inline">\(X_i\)</span> with one unit, will <span class="math inline">\(Y_i\)</span> then change with <span class="math inline">\(\beta_1\)</span> <strong>in reality</strong>?</p>
+<p><span class="math display" id="eq:betacausal">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
+\tag{5.10}
+\end{equation}\]</span></p>
+<p>Fortunately, there is a small set of assumptions that indeed lead to such a causal interpretation. The so-called three least squares assumptions, being:</p>
+<ol style="list-style-type: decimal">
+<li>The conditional distribution of <span class="math inline">\(u\)</span> given <span class="math inline">\(X\)</span> has mean zero, that is, <span class="math inline">\(E(u \mid X = x) = 0\)</span>.
+<ul>
+<li>We also refer to this assumption as the <strong>conditional mean independence</strong> assumption</li>
+<li>This assumptions implies that <span class="math inline">\(\hat{\beta_1}\)</span> is truly <em>unbiased</em></li>
+</ul></li>
+<li><span class="math inline">\((X_i,Y_i), i =1 \ldots n\)</span> are i.i.d.
+<ul>
+<li>This is true if <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> are collected by simple random sampling</li>
+<li>This delivers the sampling distribution of <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span>—again with a relatively large number (say <span class="math inline">\(n &gt; 50\)</span> the sampling distribution can very well be approximated by a normal distribution</li>
+</ul></li>
+<li>Large outliers in <span class="math inline">\(X\)</span> and/or <span class="math inline">\(Y\)</span> are rare.
+<ul>
+<li>Outliers can result in meaningless values of <span class="math inline">\(\hat{\beta_1}\)</span></li>
+</ul></li>
+</ol>
+<p>We will first discuss these three least squares assumptions and then give some other assumptions as well as you frequently encounter them</p>
+<div id="least-squares-assumption-1-conditional-mean-independence" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Least squares assumption 1: conditional mean independence<a href="univariateregression.html#least-squares-assumption-1-conditional-mean-independence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This first assumptions states that <span class="math inline">\(E(u \mid X = x) = 0\)</span> and is conceptually the most difficult one to grasp. Loosely speaking, it states that the regression error <span class="math inline">\(u\)</span> is <em>not</em> related with the independent variable <span class="math inline">\(X\)</span>. They are not related with each other. Another way of looking at this is displayed in Figure <a href="univariateregression.html#fig:ass1">5.8</a>. Here, whatever the value of student-teacher ratio is, the expectation of the outcome variable (test scores) is always centered around the population regression line. So, on average, you always predict according to <em>your</em> model, for each value of <span class="math inline">\(X\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:ass1"></span>
+<img src="figures/Lecture1_sheet25.jpg" alt="Condition mean independence assumption"  />
+<p class="caption">
+Figure 5.8: Condition mean independence assumption
+</p>
+</div>
+<p>Now, when is this assumption violated. Consider again the population regression model: <span class="math inline">\(TestScore_i = \beta_0 + \beta_1 STR_i + u_i\)</span>, where <span class="math inline">\(u_i\)</span> denotes other factors. Now, these other factors can be everything and else. And you should ask yourself whether it is plausible that <span class="math inline">\(E(u|X = x) = 0\)</span> for <strong>all</strong> these other factors?</p>
+<p>This assumption lies as well at the heart of experimental settings. Namely, consider a theoretical ideal randomized controlled experiment, where:
+1. <span class="math inline">\(X\)</span> is <em>randomly</em> assigned to people (students randomly assigned to different size classes or patients randomly assigned to medical treatments).
+2. Because <span class="math inline">\(X\)</span> is assigned randomly, all other individual characteristics—the things that make up <span class="math inline">\(u\)</span>—are <em>independently</em> distributed of <span class="math inline">\(X\)</span> by definition.
+3. Thus it automatically follows that: <span class="math inline">\(E(u \mid X = x) = 0\)</span></p>
+<p>Now, both in actual experiments, or with <strong>observational</strong> data, we will need to think hard about whether <span class="math inline">\(E(u|X = x) = 0\)</span> holds. Chapters <a href="modeling.html#modeling">6</a> and <a href="specification.html#specification">7</a> provide various examples where this assumption is violated. However, if this assumption is violated it means that you have <strong>biased</strong> inference, which boils down to the fact that your estimated <span class="math inline">\(\hat{\beta_1}\)</span> is not the one that you want and that correct inference based upon this estimated cannot be done.</p>
+</div>
+<div id="least-squares-assumption-2-independenty-and-identically-distributed" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Least squares assumption 2: independenty and identically distributed<a href="univariateregression.html#least-squares-assumption-2-independenty-and-identically-distributed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The second least squares assumptions deals with actual sampling of your data, both the dependent (<span class="math inline">\(Y\)</span>) and independent (<span class="math inline">\(X\)</span>) variables. that entail that <span class="math inline">\((X_i,Y_i), i = 1 \dots n\)</span> should be <em>i.i.d.</em>. This assumptions arises automatically if the entity (individual, district) is sampled by simple <em>random sampling</em>. There are possible violations to this assumptions. For example, you sample via your friends on social media (snowballing), or observations are not independent but are correlated, which arises very frequently in the context of temporal correlation or spatial correlation.</p>
+<p>The consequence of violating the <em>i.i.d.</em> assumption is less severe then violating the conditional mean independence assumption. It leads to wrong <em>standard errors</em>, not to biased estimations.</p>
+</div>
+<div id="least-squares-assumption-3-large-outliers-are-rare" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Least squares assumption 3: Large outliers are rare<a href="univariateregression.html#least-squares-assumption-3-large-outliers-are-rare" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The third and final least square assumption for causal inference is that large outliers are rare. Large outliers are not well defined and depend on the size of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>, but in general it can be seen as an <em>extreme</em> value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>. The problem is that such a large outlier can strongly <em>influence</em> the results and in general it can be stated that OLS can be rather sensitive to an outlier. Consider the two population regression lines in <a href="univariateregression.html#fig:outlier">5.9</a>. The flat one (with <span class="math inline">\(\hat{\beta}_1 = 0)\)</span> does not take the isolated observation in the upper right corner into account. The one with the positive slope does. Now, clearly the one isolated observation in the upper right corner clearly matter to a large extent and is an important driver for the results of the ordinary least squares estimator.</p>
+<div class="figure"><span style="display:block;" id="fig:outlier"></span>
+<img src="figures/Lecture1_sheet29.jpg" alt="Effect of outliers on OLS estimations"  />
+<p class="caption">
+Figure 5.9: Effect of outliers on OLS estimations
+</p>
+</div>
+<p>However, this does not automatically entail that the isolated observation should be deleted. What it does matter is that one should go back to her data and investigate whether the outlier could be a mistake—perhaps a typo made when preparing the data or something that went amiss when converting the data from an <code>Excel</code> format to a <code>STATA</code> format.</p>
+</div>
+</div>
+<div id="other-least-squares-assumptions" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Other least squares assumptions<a href="univariateregression.html#other-least-squares-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Oftentimes, two other least squares assumptions are frequently encountered. However, keep in mind that you do <em>not</em> need them for causal inference. They are the assumptions of homoskedasticity and normality.</p>
+<div id="homoskedasticity" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Homoskedasticity<a href="univariateregression.html#homoskedasticity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Homoskedasticity is concerned with the standard errors. Its definition is if <span class="math inline">\(var(u \mid X=x)\)</span> is constant—that is, if the variance of the conditional distribution of <span class="math inline">\(u\)</span> given <span class="math inline">\(X\)</span> does not depend on <span class="math inline">\(X\)</span>—then <span class="math inline">\(u\)</span> is said to be homoskedastic. Otherwise, <span class="math inline">\(u\)</span> is heteroskedastic.</p>
+<div class="figure"><span style="display:block;" id="fig:homoskedasticity"></span>
+<img src="figures/Sheet21.png" alt="Homoskedastic standard errors" width="710" />
+<p class="caption">
+Figure 5.10: Homoskedastic standard errors
+</p>
+</div>
+<p>Consider Figure <a href="univariateregression.html#fig:homoskedasticity">5.10</a>. Clearly the variance <em>around</em> the population regression line is everywhere the same, regardless the value of student-teacher ratio (<span class="math inline">\(X\)</span>). Recall, that <span class="math inline">\(E(u \mid X=x) = 0\)</span> so <span class="math inline">\(u\)</span> satisfies Least Squares Assumption 1. Now, in addition we also assume that the variance of <span class="math inline">\(u\)</span> does not depend on <span class="math inline">\(x\)</span>. This is the case of homoskedasticity</p>
+<div class="figure"><span style="display:block;" id="fig:heteroskedasticity"></span>
+<img src="figures/Sheet22.png" alt="Heteroskedastic standard errors" width="722" />
+<p class="caption">
+Figure 5.11: Heteroskedastic standard errors
+</p>
+</div>
+<p>Now consider Figure <a href="univariateregression.html#fig:heteroskedasticity">5.11</a>. Now clearly the variance around the population regression line increases in student-teacher ratio (<span class="math inline">\(X\)</span>). So, <span class="math inline">\(E(u \mid X=x) = 0\)</span> is still satisfied, but the variance of <span class="math inline">\(u\)</span> does now depends on <span class="math inline">\(x\)</span>. <span class="math inline">\(u\)</span> is now said to be heteroskedastic.</p>
+<div class="figure"><span style="display:block;" id="fig:wages"></span>
+<img src="figures/Sheet23.png" alt="Wages versus years of education" width="488" />
+<p class="caption">
+Figure 5.12: Wages versus years of education
+</p>
+</div>
+<p>Very often data or model in the social sciences are heteroskedastic. For example, wages are usually heteroskedastic in the amount of education consumed. Figure <a href="univariateregression.html#fig:wages">5.12</a> shows the relation between years of education and wages, and the larger the years of education the larger hourly earnings (wages) are—as you would assume would be. But the variance also incrases in years of education. That is because you can easily predict wages when workers enjoyed very few years of schooling—usually those are just above minimum wages—but the spread becomes much wider when years of schooling goes up.</p>
+<div class="figure"><span style="display:block;" id="fig:heteroskedasticityca"></span>
+<img src="figures/Sheet24.png" alt="Heteroskedasticity in Californation schools?" width="645" />
+<p class="caption">
+Figure 5.13: Heteroskedasticity in Californation schools?
+</p>
+</div>
+<p>Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in Figure <a href="univariateregression.html#fig:heteroskedasticityca">5.13</a>, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity.</p>
+<p>Note that so far we have (without saying so) assumed that <span class="math inline">\(u\)</span> might be heteroskedastic
+Recall again the three least squares assumptions:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(u \mid X = x) = 0\)</span></li>
+<li><span class="math inline">\((X_i,Y_i), i =1,\ldots,n\)</span>, are i.i.d.</li>
+<li>Large outliers are rare</li>
+</ol>
+<p>They do not say anything about homo- or heteroskedasticity and Because we have not explicitly assumed homoskedastic errors, we have implicitly allowed for heteroskedasticity.</p>
+<p>But what if the errors are in fact homoskedastic? Then in fact yYou can prove that OLS has the lowest variance among estimators that are <em>linear</em> in <span class="math inline">\(Y\)</span>. The formula for the variance of <span class="math inline">\(\hat{\beta_1}\)</span> and the OLS standard error simplifies: If <span class="math inline">\(var(u_i \mid X_i=x) = \sigma_u^2\)</span>, then
+<span class="math display" id="eq:olssesimple">\[\begin{equation}
+    var(\hat{\beta}_1) = \frac{\sigma_u^2}{n\sigma_X^2}
+    \tag{5.11}
+\end{equation}\]</span>
+which is much simpler than Eq. <a href="univariateregression.html#eq:olsse">(5.5)</a>. Again note that <span class="math inline">\(var(\hat{\beta}_1)\)</span> is inversely proportional to <span class="math inline">\(var(X)\)</span>: more spread in <span class="math inline">\(X\)</span> means more information about <span class="math inline">\(\hat{\beta}_1\)</span>—we discussed this earlier but it is clearer from this formula.</p>
+<p>But what does this mean for estimation. Note that <code>STATA</code> does not automatically apply Eq. <a href="univariateregression.html#eq:olsse">(5.5)</a> for its standard errors, but uses the simpler version Eq. <a href="univariateregression.html#eq:olssesimple">(5.11)</a> instead. But if invoke the <code>, robust</code> option, as we already did above, <code>STATA</code> computes heteroskedasticity-robust standard errors. So if you do not, <code>STATA</code> computes homoskedasticity-only standard errors.</p>
+<p>The bottom line is that the errors are either homoskedastic or heteroskedastic and if you use heteroskedastic-robust standard errors, you are fine. Namely:</p>
+<ol style="list-style-type: decimal">
+<li>If the errors are heteroskedastic and you use the homoskedasticity-only formula for standard errors, your standard errors will be wrong (the homoskedasticity-only estimator of the variance of <span class="math inline">\(\hat{\beta}_1\)</span> is inconsistent if there is heteroskedasticity).</li>
+<li>The two formulas coincide (when <span class="math inline">\(n\)</span> is large) in the special case of homoskedasticity</li>
+<li>So, you should <strong>always</strong> use heteroskedasticity-robust standard errors.</li>
+</ol>
+</div>
+<div id="normal-distributed-regression-term" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Normal distributed regression term<a href="univariateregression.html#normal-distributed-regression-term" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, in many introductionary statistic courses, normal distributed error terms are assumed, which facilitates testing with small samples. So, <span class="math inline">\(u\)</span> should be distributed <span class="math inline">\(N(0,\sigma^2)\)</span>. If you have a reasonable amount of observations (<span class="math inline">\(n &gt;50\)</span>), you do not need this assumptions, and especially not for causal inferences</p>
+</div>
+</div>
+<div id="measures-of-fit" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Measures of fit<a href="univariateregression.html#measures-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A natural question that might arise is how well the population regression line fits or explains the data. For ordinary least squares estimators there are two regression statistics that provide complementary measures of the quality of fit:</p>
+<ol style="list-style-type: decimal">
+<li>The regression <strong><span class="math inline">\(R^2\)</span></strong>: This measures the fraction of the variance of <span class="math inline">\(Y\)</span> that is explained by <span class="math inline">\(X\)</span>; it is unitless and ranges between zero (no fit) and one (perfect fit)</li>
+<li>The standard error of the regression <strong><span class="math inline">\(SER\)</span></strong>: This measures the magnitude of a typical regression residual in the units of <span class="math inline">\(Y\)</span>.</li>
+</ol>
+<div id="the-regression-r2" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> The regression <span class="math inline">\(R^2\)</span><a href="univariateregression.html#the-regression-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The regression <span class="math inline">\(R^2\)</span> is the fraction of the sample variance of <span class="math inline">\(Y_i\)</span> “explained” by the
+regression. To see this, first note that <span class="math inline">\(Y_i = \hat{Y}_i + \hat{u}_i\)</span> or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the <span class="math inline">\(R^2\)</span> is the ratio between the sample variance of <span class="math inline">\(\hat{Y}\)</span> and the sample variance of <span class="math inline">\(Y\)</span>. Here we make use of the following equity: Total sum of squares = explained “SS” + Residual “SS”, where we can now define <span class="math inline">\(R^2\)</span> as:</p>
+<p><span class="math display" id="eq:r2">\[\begin{equation}
+R^2= \frac{ESS}{TSS} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
+    \tag{5.12}
+\end{equation}\]</span>
+Now if <span class="math inline">\(R^2 = 0\)</span> then that means <span class="math inline">\(ESS = 0\)</span> and if <span class="math inline">\(R^2 = 1\)</span> then that means <span class="math inline">\(ESS = TSS\)</span>. So, by definition yields <span class="math inline">\(0 \leq R^2 \leq 1\)</span>. There is one additional remark to make and that for an univariate regression model (so with single <span class="math inline">\(X\)</span> on the right side), <span class="math inline">\(R^2\)</span> equals the square of the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="the-standard-error-of-the-regression" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> The Standard Error of the Regression<a href="univariateregression.html#the-standard-error-of-the-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The standard error of the regression is defined as:</p>
+<p><span class="math display" id="eq:ser">\[\begin{equation}
+SER = \sqrt{\frac{1}{n-2} \sum_{i=1}^n \hat{u}_i^2}
+\tag{5.13}
+\end{equation}\]</span></p>
+<p>In comparison with the <span class="math inline">\(R^2\)</span>, the <span class="math inline">\(SER\)</span> is measured in the units of <span class="math inline">\(u\)</span>, which are actually the units of <span class="math inline">\(Y\)</span>. It measures the average “size” of the OLS residual (so the average ‘mistake’ made by the OLS regression line in absolute terms).</p>
+<p>Often the <em>root mean squared error</em> (<span class="math inline">\(RMSE\)</span>) is used, which is very closely related to the <span class="math inline">\(SER\)</span>:
+<span class="math display" id="eq:rmse">\[\begin{equation}
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat{u}_i^2},
+\tag{5.14}
+\end{equation}\]</span>
+where <span class="math inline">\(RMSE\)</span> only differs from the <span class="math inline">\(SER\)</span> in the <em>degrees of freedom</em>.</p>
+<p>If we again look at our regression output:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="univariateregression.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(1, 418)         =      19.26
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0512
+                                                Root MSE          =     18.581
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -2.279808   .5194892    -4.39   0.000    -3.300945   -1.258671
+       _cons |    698.933   10.36436    67.44   0.000     678.5602    719.3057
+------------------------------------------------------------------------------</code></pre>
+<p>then we see that the <span class="math inline">\(R^2 = .05\)</span>. So, only 5% of all variation in test scores is explained. This of course makes sense as potential many important variables are not included in the model. However, this does not automatically mean that the impact is biased and especially that the <span class="math inline">\(STR\)</span> is unimportant in a policy sence. Again, we focus on causal inference, not on making a good model for prediction. The <span class="math inline">\(RMSE= 18.6\)</span> indicates that the average error made is 18.6 test score units, which can be seen as sizable. In Chapter <a href="modeling.html#modeling">6</a> we include other, and important, variables and what we then of course will see is that the <span class="math inline">\(R^2\)</span> increases and the <span class="math inline">\(SER\)</span> decreases.</p>
+</div>
+</div>
+<div id="conclusion-and-discussion-1" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Conclusion and discussion<a href="univariateregression.html#conclusion-and-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Regression</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p>I suggest that for this—and every other course—you have a specific directory<a href="univariateregression.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>Often it is as well advisable to make a distinction between <em>derived</em> and <em>raw</em> data. Raw data is original data and derived data is data you have transformed or worked on. In principle, you do not want to change the original data!<a href="univariateregression.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p>This dataset can be downloaded from Canvas.<a href="univariateregression.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>page 94 of syllabus statistics<a href="univariateregression.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>Modern statisticians actually see this as a form of shrinkage.<a href="univariateregression.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>This result is given but is not all too difficult to prove. However, usually you do need these types of equations in your work.<a href="univariateregression.html#fnref29" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="moral.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

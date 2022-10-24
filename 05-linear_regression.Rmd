@@ -1,4 +1,4 @@
-# Regression analysis in the social sciences
+# Regression analysis in the social sciences {#univariateregression}
 
 ## Introduction
 
@@ -374,7 +374,7 @@ So, every value between $-3.30$ and $-1.26$ will **not** be rejected as null-hyp
 regress testscr str, robust level(99)
 ```
 
-#### Regression with a dummy
+#### Regression with a dummy {#sec:dummy}
 
 Sometimes a regressor is binary, meaning an indicator or dichotomous (0/1) variable. Let's go back again to Subsection \@ref(sec:numevidence), where we created such a binary variable with small and large class sizes ($X=1$ if class size is small, $X=0$ if not). Other possible example are gender ($X=1$ if female, $X=0$ if male) or being treated or not ($X=1$ if treated, $X=0$ if not). We refer to these types of variables as being **dummy** variables---and they are very often used in the social sciences. 
 

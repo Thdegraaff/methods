@@ -197,7 +197,7 @@ externality-taxation-and-moral-considerations
 moral-considerations-related-to-the-kind-of-externality
 application-pricing-consumer-externalities-that-are-external-to-the-market
 conclusion-and-discussion
-regression-analysis-in-the-social-sciences
+univariateregression
 introduction-12
 secproblem
 a-first-encounter-with-stata
@@ -212,7 +212,7 @@ regression-with-one-regressor
 estimating-with-ols
 hypothesis-testing-1
 confidence-intervals
-regression-with-a-dummy
+sec:dummy
 least-squares-assumptions-for-causal-inference
 least-squares-assumption-1-conditional-mean-independence
 least-squares-assumption-2-independenty-and-identically-distributed
@@ -225,12 +225,12 @@ the-regression-r2
 the-standard-error-of-the-regression
 conclusion-and-discussion-1
 modeling
-why-more-independent-variables
-multivariate-regression-analysis
+sec:morevar
+sec:multivariate
 measures-of-fit-for-multiple-regression
 the-least-squares-assumptions-for-multiple-regression
 testing-with-multivariate-regression-models
-non-linear-specifications
+sec:nonlinear
 polynomials
 interaction-variables
 interactions-between-two-binary-variables
@@ -240,7 +240,7 @@ logarithmic-transformation
 linear-log-population-regression-model
 log-linear-population-regression-model
 log-log-population-regression-model
-using-fixed-effects-in-panel-data
+sec:fixedeffects
 conclusion-and-discussion-2
 specification
 specification-of-your-model
