@@ -292,7 +292,7 @@ regress testscr str, robust
 
 However, we will discuss the rest of this output later
 
-#### Hypothesis testing
+#### Hypothesis testing {#sec:unitesting}
 
 We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only **reject** the **null**-hypothesis, we do not accept an hypothesis based upon one statistical test only. So, we aim to test $H_0: E(Y) = \mu_{Y,0}$ vs. $H_1: E(Y) \neq \mu_{Y,0}$, where $\mu_{Y,0}$ is some specified quantity that we are interested in. Typically $\mu_{Y,0} = 0$ as this denotes no relation, but sometimes you could be interested in, e.g., whether $\mu_{Y,0} = 1$ when testing elasticities. Or you could be interested in other quantities.  
 

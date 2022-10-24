@@ -75,6 +75,7 @@ eq:rmse
 fig:unknown
 fig:unobshet
 fig:omitca
+eq:testmulti
 fig:scatterlfitcaschool
 fig:scatterincome
 fig:scatterqua
@@ -210,7 +211,7 @@ sec:uniregress
 sec:genesis
 regression-with-one-regressor
 estimating-with-ols
-hypothesis-testing-1
+sec:unitesting
 confidence-intervals
 sec:dummy
 least-squares-assumptions-for-causal-inference
@@ -228,8 +229,13 @@ modeling
 sec:morevar
 sec:multivariate
 measures-of-fit-for-multiple-regression
-the-least-squares-assumptions-for-multiple-regression
+the-least-squares-assumptions-for-multivariate-regression
+multicollinearity
+perfect-multicollinearity
+imperfect-multicollinearity
 testing-with-multivariate-regression-models
+hypothesis-tests-and-confidence-intervals-for-a-single-coefficient-in-multiple-regression
+tests-of-joint-hypotheses
 sec:nonlinear
 polynomials
 interaction-variables

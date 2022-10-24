@@ -323,8 +323,8 @@ div.csl-indent {
 <li class="chapter" data-level="6.1" data-path="modeling.html"><a href="modeling.html#sec:morevar"><i class="fa fa-check"></i><b>6.1</b> Why more independent variables?</a></li>
 <li class="chapter" data-level="6.2" data-path="modeling.html"><a href="modeling.html#sec:multivariate"><i class="fa fa-check"></i><b>6.2</b> Multivariate regression analysis</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="modeling.html"><a href="modeling.html#measures-of-fit-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.1</b> Measures of Fit for Multiple Regression</a></li>
-<li class="chapter" data-level="6.2.2" data-path="modeling.html"><a href="modeling.html#the-least-squares-assumptions-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.2</b> The Least Squares Assumptions for Multiple Regression</a></li>
+<li class="chapter" data-level="6.2.1" data-path="modeling.html"><a href="modeling.html#measures-of-fit-for-multiple-regression"><i class="fa fa-check"></i><b>6.2.1</b> Measures of fit for multiple regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="modeling.html"><a href="modeling.html#the-least-squares-assumptions-for-multivariate-regression"><i class="fa fa-check"></i><b>6.2.2</b> The least squares assumptions for multivariate regression</a></li>
 <li class="chapter" data-level="6.2.3" data-path="modeling.html"><a href="modeling.html#testing-with-multivariate-regression-models"><i class="fa fa-check"></i><b>6.2.3</b> Testing with multivariate regression models</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="modeling.html"><a href="modeling.html#sec:nonlinear"><i class="fa fa-check"></i><b>6.3</b> Non-linear specifications</a>
@@ -735,8 +735,8 @@ Figure 5.5: bla
 ------------------------------------------------------------------------------</code></pre>
 <p>However, we will discuss the rest of this output later</p>
 </div>
-<div id="hypothesis-testing-1" class="section level4 hasAnchor" number="5.3.2.2">
-<h4><span class="header-section-number">5.3.2.2</span> Hypothesis testing<a href="univariateregression.html#hypothesis-testing-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="sec:unitesting" class="section level4 hasAnchor" number="5.3.2.2">
+<h4><span class="header-section-number">5.3.2.2</span> Hypothesis testing<a href="univariateregression.html#sec:unitesting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only <strong>reject</strong> the <strong>null</strong>-hypothesis, we do not accept an hypothesis based upon one statistical test only. So, we aim to test <span class="math inline">\(H_0: E(Y) = \mu_{Y,0}\)</span> vs. <span class="math inline">\(H_1: E(Y) \neq \mu_{Y,0}\)</span>, where <span class="math inline">\(\mu_{Y,0}\)</span> is some specified quantity that we are interested in. Typically <span class="math inline">\(\mu_{Y,0} = 0\)</span> as this denotes no relation, but sometimes you could be interested in, e.g., whether <span class="math inline">\(\mu_{Y,0} = 1\)</span> when testing elasticities. Or you could be interested in other quantities.</p>
 <p>Testing statistical hypotheses is often very confusing, because of two things. First, you actually test whether the data you have corresponds with the null-hypothesis. Or, in other words:</p>
 <blockquote>

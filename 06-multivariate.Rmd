@@ -63,182 +63,162 @@ No, as already mentioned above omitted variable bias occurs very often. So, how 
 
 ## Multivariate regression analysis {#sec:multivariate}
 
-
-Consider the case of two regressors:
+So, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like"
 \begin{equation}
 Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
 \end{equation}
+where:
 
 - $Y$ is the dependent variable
 - $X_1$, $X_2$ are the two independent variables (regressors)
 - $(Y_i, X_{1i}, X_{2i})$ denote the i$^{\mathrm{th}}$ observation on $Y$, $X_1$, and $X_2$.
-- $\beta_0$ = unknown population intercept
-- $\beta_1$ = effect on $Y$ of a change in $X_1$, **holding** $X_2$ constant}
-- $\beta_2$ = effect on $Y$ of a change in $X_2$, **holding** $X_1$ constant}
-- $u_i$ = the regression error (omitted factors)
+- $\beta_0$ is the  unknown population intercept
+- $\beta_1$ is the effect on $Y$ of a change in $X_1$, **holding** $X_2$ constant
+- $\beta_2$ is the effect on $Y$ of a change in $X_2$, **holding** $X_1$ constant
+- $u_i$ is the the regression error (omitted factors)
 
-
+Now the only element that changes is the interpretation of a parameter, say $\beta_1$. In this case, it can still be seen as a 'slope' parameter, although now in 3-dimensional space, but it now states specifically that the other parameter(s) should be held constant. This does facilitate the interpretation of $\beta_1$. For example, consider changing $X_1$ by $\Delta X_1$ while holding $X_2$ constant. That means that the population regression line before the change looks like:
 \begin{equation}
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+u_i, i=1,\ldots,n
+Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2},
 \end{equation}
-
-Consider changing $X_1$ by $\Delta X_1$ while holding $X_2$:
-
-Population regression line before the change:
-\begin{equation}
-Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2}
-\end{equation}
-
-Population regression line, after the change:
+whilst the population regression line, after the change, looks like:
 \begin{equation}
 Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}
 \end{equation}
+And if we take the difference, then the interpretation of $\beta_1$ boils down again to the marginal effect:$\Delta Y = \beta_1 \Delta X_1$. Or, $\beta_1 = \frac{\Delta Y}{\Delta X_1}$ when holding $X_2$ constant and, likewise, $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ when holding $X_1$ constant. $\beta_0$ is now the predicted value of $Y$ when $X_1 = X_2 = 0$
 
-- So before: $Y = \beta_0 + \beta_1 X_1  + \beta_2 X_2$
-- After: $Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}$
-- Difference: $\Delta Y = \beta_1 \Delta X_1$
-- $\beta_1 = \frac{\Delta Y}{\Delta X_1}$ Holding $X_2$ constant
-- $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ Holding $X_1$ constant
-- $\beta_0$ predicted value of $Y$ when $X_1 = X_2 = 0$
-
-Example: the California test score data
-
-Regression of TestScore against STR:
+If we do this for the the Californian school district data, then the original population regression line was estimated as:
 \begin{equation}
 \widehat{TestScore} = 698.9- 2.28 STR
 \end{equation}
-Now include percent English Learners in the district ($PctEL$):
+But if we now include include percent English Learners in the district ($PctEL$) to the model then the population regression 'line' becomes:
 \begin{equation}
 \widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL
 \end{equation}
 
-What happens to the coefficient on $STR$ Why? (Note: $corr(STR, PctEL) = 0.19$)
-
-Multiple regression in STATA
+Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). And this is what should happen as reasoned above. The `STATA` syntax for a multivariate regression model is now rather straighforward. You basically add another to the regression equation, as below:
 
 ```{stata, collectcode=TRUE}
 reg testscr str el_pct, robust
 ```
 
-### Measures of Fit for Multiple Regression
+Obviously, the effect of student teacher ration reduces with 50%! The interpretation of the rest of the statistical output, such as measures of fit and test statistics, follows in the subsections below.
 
-Actual = predicted + residual: $Y_i = \hat{Y}_i + \hat{u_i}$
-- $SER$ =std. deviation of $\hat{u}_i$ (with d.f. correction)
-- $RMSE$ =std. deviation of $\hat{u}_i$ (without d.f. correction)
-- $R^2$ = fraction of variance of $Y$ explained by $X$
-- $\bar{R}^2$ = ``adjusted $R^2$'' = $R^2$ with a degrees-of-freedom correction that adjusts for estimation uncertainty; $\bar{R}^2 <R^2$
+### Measures of fit for multiple regression
 
-Measures of fit
+In multivariate regression models, there are four commonly used measures of fit. 
 
-Test score example:
+1. The standard error of regression or the $SER$ denotes the standard deviation of $\hat{u}_i$ and includes a degrees of freedom correction (degrees of freedom in this case denotes how many variables your have used and typically is denoted with $k$. The $SER$ is defined as:
+\begin{equation}
+SER = s_{\hat{u}} = \sqrt{\frac{1}{n-k-1} \sum_{i=1}^n \hat{u}^2_i},
+\end{equation}
+where $k$ is the number of variables (including the constant) use in the regression model. Note that in the univariate regression model $k=2$---the slope coefficient and the constant.
+2. The root mean square error (RMSE) which denotes as well the stdandard deviation of $\hat{u}_i$ but now without degrees of freedom. We have seen this before in Eq. \@ref(eq:rmse) and does not change. 
+3. The $R^2$ which measures the fraction of variance of $Y$ explained by the independent variables. Again, we have seen this one before
+4. The adjusted "adjusted $R^2$" (or $\bar{R}^2$) which is equal to the $R^2$ with a degrees-of-freedom correction that adjusts for estimation uncertainty. It can be formulated as:
+\begin{equation}
+\bar{R}^2 = 1 - \frac{n-1}{n-k-1}\frac{SSR}{TSS}.
+\end{equation}
+Note that using this formulation, in a multivariate setting, it always should hold that $\bar{R}^2 <R^2$. Why do we care so much for the amount of variables that we use ($k$). That is because with each additional variable the $R^2$ always increases. And it is essential to notice that $k=n$, the $R^2 = 1$, so there is no variation left anymore. But that feels like cheating. You just have a parameter for each observation that you have, but such a model must be meaningless. Therefore, you always want to correct for the number of variables that you use. 
 
+In our Californian school district example that would amount to the following two outcomes. First for the univariate model: 
 \begin{eqnarray}
 TestScore &= &698.9- 2.28  STR \\
 &&R^2 = .05, SER = 18.6
 \end{eqnarray}
+
+And then for the multivariate model.
 
 \begin{eqnarray}
 TestScore &=& 686.0 - 1.10  STR - 0.65 PctEL \\
 &&R^2=.426, \bar{R}^2=0.424, SER = 14.5
 \end{eqnarray}
 
- What---precisely--does this tell you about the fit of regression (2) compared with regression (1)?
-Why are the $R^2$ and the $\bar{R}^2$  so close in (2)?
+Note that all measures of fit increases. The $\bar{R}^2$ now indicates that 42% of all variation in test scores are explained. That is a *huge* improvement compared to the 5% explanatory power of the univariate case. That indicates that the $PctEL$ strongly correlates with testscores. But again, we are not so much interested prediction, but want to find the causal impact of class size instead. Another thing to notice here is that the $R^2$ and the $\bar{R}^2$ are very close. That is because the number of variables is much smaller than the number of observations $k \ll n$, so that the impact of $k$ is not very big.
 
-### The Least Squares Assumptions for Multiple Regression
+A list thing is a peculiarity of `STATA`. In the regression output of above `STATA` does not provide the $\bar{R}^2$. That is because of the option `, robust`. Without that option, the regression output would look like, giving both measures of fit. 
 
+```{stata}
+reg testscr str el_pct
+```
+
+Another option is to specifically ask `STATA` to display the $\bar{R}^2$ by invoking the command `display`, then some text (text always goes between strings), and finally the thing you want to see (`e(r2_a)`). Something like:
+
+```{stata}
+display "adjusted R2 = " e(r2_a)
+```
+
+### The least squares assumptions for multivariate regression
+
+Now, it is easy to add other variables, so that the multivariate regression model now looks like:
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+\ldots + \beta_k X_{ki}+u_i, i=1,\ldots,n
 \end{equation}
+Suppose we are interested in $\beta_1$. How do we then know whether our estimation $\hat{\beta}_1$ is unbiased? For that we again resort to our least squares assumption, some of them will change a bit and we have to add a fourth one:
 
-1.  The conditional distribution of $u$ given the $X$'s has mean zero, that is, $E(u|X_1 = x_1,\ldots, X_k = x_k) = 0$.
-2.  (X$_{1i}$,\ldots,X$_{ki}$,Y$_i$), i =1,\ldots,n, are i.i.d.
-3.  Large outliers are rare for $X_1,\ldots, X_k$, and $Y$
-4.  There is no perfect multicollinearity.
+1.  The first least squares assumptions changes slightly. Now, we state that the conditional distribution of $u$ given all $X_i$'s has mean zero, that is, $E(u|X_1 = x_1,\ldots, X_k = x_k) = 0$. So, $\beta_1$ is biased even another variable $X_k$ is correlated with $u$. So, only variables has to be correlated with $u$ and then all parameters are to a certain extent biased. 
+2.  The second least squares assumption is more or less as before but now in a multivariate fashion, so the whole set of (X$_{1i}$,\ldots,X$_{ki}$,Y$_i$), i =1,\ldots,n, should be independent and identical distributed ($i.i.d$).
+3.  The third least squares assumptions states again that large outliers are rare for all variables included, so for all $X_1,\ldots, X_k$, and $Y$.
+4.  The fourth assumoption is news and states that there is no perfect multicollinearity. We discuss this further below. 
 
+#### Multicollinearity
 
-Assumption 1: the conditional mean of $u$ given the included $X$'s is zero.
+Multicollinearity comes in two flavours; perfect and imperfect. The former functions as a multivariate least squares assumptions, whilst the latter oftentimes gives the largest problems. We start the discussion with perfect multicollinearity and then continue with the case of imperfect multicollinearity. 
 
+##### Perfect multicollinearity
+
+The official definition of perfect multicollinearity is that there is a **perfect linear combination** amongst your variables. That means that there is not one optimal solution, but instead many (actually, infinitely many) more. Let us illustrate by the following example. Suppose you include $STR$ twice in your regression. Now, `STATA` produces then the following output:
+
+```{stata}
+reg testscr str str el_pct, robust
+```
+
+See that `STATA` drops one of the $STR$ variables. But why is that? See that the impact of twice this variable should be equivalent to:
 \begin{equation}
-E(u|X_1 = x_1,\ldots, X_k = x_k) = 0
+\beta_1 STR = w_1 \beta_1 STR + w_2 \beta_1 STR = (w_1 + w_2) \beta_1 STR , 
 \end{equation}
+where $w_1$ and $w_2$ are weights chosen such that they satisfy the condition that $w_1 + w_2 = 1$. But there is an infinite number of combinations that satisfy this condition! So, there is not an optimal solution and one of these variables should be dropped. 
 
-- This has the same interpretation as in regression with a single regressor.
-- If an omitted variable (1) belongs in the equation (so is in $u$) and (2) is correlated with an included $X$, then this condition fails
-- Failure of this condition leads to omitted variable bias
-- The solution---if possible---is to include the omitted variable in the regression.
+The violation of no perfect multicollearity often occurs when using dummies (see again Subsection \@ref(sec:dummy)). Suppose that we regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise. This example is slightly more complex as there is no perfect correlation between $B$ and $D$. However, the model contains as well a constant and that create a perfect linear combination, namely $B_i + D_i = 1$ and that is the definition of a constant ($\beta_1 \times 1), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
+ 
+There are possible solutions to the dummy variable trap:
 
-Least squares assumption 4: no perfect multicollinearity
-
-Multicollinearity, Perfect and Imperfect
-Examples of perfect multicollinearity
-
-1. First example: you include $STR$ twice.
-2. Second example:
-    - regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise, so $B_i = 1 - D_i$ and there is perfect multicollinearity
-    - Would there be perfect multicollinearity if the intercept (constant) were somehow dropped (that is, omitted or suppressed) in this regression?
-   - This example is a special case of dummy variable} trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
-    - Why is there perfect multicollinearity here?
-
-Solutions to the dummy variable trap:
-1. Omit one of the groups (e.g. Senior), or
+1. Omit one of the groups (e.g., the Freshmen), or
 2. Omit the intercept
 
-What are the implications of (1) or (2) for the interpretation of the coefficients?
-Perfect multicollinearity usually reflects a mistake in the definitions of the regressors, or an oddity in the data
+In most cases you omit one of the groups (typically the one with the lowest value). This give the constant then the interpretation of the average value of that left-out category, where the dummy variables are then the relative differences to that left-out category. 
 
+Now, perfect multicollinearity usually reflects a mistake in the definitions of the regressors, or an oddity in the data. And, usually this is not a problem, because if you have perfect multicollinearity, your statistical software will let you know---either by crashing or giving an error message or by "dropping" one of the variables arbitrarily and very often the solution to perfect multicollinearity is to modify your list of regressors such that you no longer have perfect multicollinearity.
 
-- If you have perfect multicollinearity, your statistical software will let you know---either by crashing or giving an error message or by ``dropping'' one of the variables arbitrarily
-- The solution to perfect multicollinearity is to modify your list of regressors so that you no longer have perfect multicollinearity.
+##### Imperfect multicollinearity
 
-Imperfect multicollinearity
-Imperfect and perfect multicollinearity are quite different despite the similarity of the names.
-Imperfect multicollinearity occurs when two or more regressors are very highly correlated.
-Why this term? If two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line---they are collinear---but unless the correlation is exactly $\pm$ 1, that collinearity is imperfect.
+Now imperfect and perfect multicollinearity are quite different despite the similarity of the names. Imperfect multicollinearity namely, occurs when two or more regressors are very highly correlated. And if two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line---they are collinear---but unless the correlation is exactly $\pm$ 1, that collinearity is imperfect. What this implies is that one or more of the regression coefficients will be imprecisely estimated. Why is that? That is because of the definition of the coefficient in a multivariate regression model. Namely, the coefficient on $X_1$ is the effect of $X_1$ **holding $X_2$ constant**, but if $X_1$ and $X_2$ are highly correlated, then there is very little variation in $X_1$ once $X_2$ is held constant. That means that the data are pretty much uninformative about what happens when $X_1$ changes but $X_2$ doesn't, so the variance of the OLS estimator of the coefficient on $X_1$ will be large. And this results in large standard errors for one or more of the OLS coefficients. But often this is very hard to detect. Are standard errors high because of imperfect multicollinearity, because the number of observations is very low, or because there is large variation in the data? The answer to this unfortunately boils down to reasoning, but before you start estimating your statistical models it always good to look at scatterplots and correlations between variables. 
 
-Imperfect multicollinearity implies that one or more of the regression coefficients will be imprecisely estimated.
-
-- the coefficient on $X_1$ is the effect of $X_1$ holding $X_2$ constant
-but if $X_1$ and $X_2$ are highly correlated, there is very little variation in $X_1$ once $X_2$ is held constant
-- so the data are pretty much uninformative about what happens when $X_1$ changes but $X_2$ doesn't, so the variance of the OLS estimator of the coefficient on $X_1$ will be large.
-
-Imperfect multicollinearity (correctly) results in large standard errors for one or more of the OLS coefficients.
+But what is a high correlation? With a reasonable amount of observations all correlations below $0.9$ can be considered fine. In practice, only correlations between variables higher than say $0.95$ start to impose problems. 
 
 ### Testing with multivariate regression models
 
-Hypothesis Tests and Confidence Intervals for a Single Coefficient in Multiple Regression
+#### Hypothesis tests and confidence intervals for a single coefficient in multiple regression
 
-$\frac{\hat{\beta}_1- E(\hat{\beta}_1)}{\sqrt{var(\hat{\beta}_1)}}$ is approximately distributed $N(0,1)$ (CLT)
+Recall from Subsection \@ref(sec:unitesting) that for hypothesis testing in a classical statistical framework we make use of the fact that $\frac{\hat{\beta}_1- E(\hat{\beta}_1)}{\sqrt{var(\hat{\beta}_1)}}$ is approximately distributed as $N(0,1)$ according to the Central Limit theorem. Thus hypotheses on $\beta_1$ can be tested using the usual $t$-statistic, and confidence intervals are constructed as $\{\hat{\beta}_1 \pm 1.96 SE (\hat{\beta}_1)\}$. And this finding carries over to the multivariate setting where for $\beta_2,\ldots, \beta_k$ we make use of the same framework. One thing to keep in mind is that $\hat{\beta}_1$ and $\hat{\beta}_2$ are generally not independently distributed---so neither are their $t$-statistics (more on this later).
 
-Thus hypotheses on $\beta_1$ can be tested using the usual $t$-statistic, and confidence intervals are constructed as $\{\hat{\beta}_1 \pm 1.96 SE (\hat{\beta}_1)\}$
-
-So too for $\beta_2,\ldots, \beta_k$.
-
-$\hat{\beta}_1$ and $\hat{\beta}_2$ are generally not independently distributed---so neither are their $t$-statistics (more on this later).
-
-Example: The California class size data
-
+Now, if we return to our Californian school district data set then we find that for the univariate case holds:
 
 \begin{equation}
-TestScore =\underbrace{698.9}_{10.4} - \underbrace{2.28}_{0.52}  STR
+TestScore =\underbrace{698.9}_{10.4} - \underbrace{2.28}_{0.52}  STR, 
 \end{equation}
+
+And the population regression "line" for the multivariate case is estimated as:
 \begin{equation}
 TestScore = \underbrace{686.0}_{8.7} - \underbrace{1.10}_{0.43} STR - \underbrace{0.650}_{0.031} PctEL
+	(\#eq:testmulti)
 \end{equation}
 
-The coefficient on $STR$ in (2) is the effect on $TestScores$ of a unit change in $STR$, holding constant the percentage of English Learners in the district
-The 95\% confidence interval for coefficient on $STR$ in (2) is $\{-1.10 \pm 1.96 \times 0.43\} = (-1.95,-0.26)$
-The $t$-statistic testing $\beta_{STR} = 0$ is $t = -1.10/0.43 = -2.54$, so we reject the hypothesis at the 5\% significance level
-\begin{verbatim}
+Remember, the coefficient on $STR$ in Eq. \@ref(eq:testmulti) is the effect on $TestScores$ of a unit change in $STR$, holding constant the percentage of English Learners in the district. The corresponding 95\% confidence interval for coefficient on $STR$ in (2) is $\{-1.10 \pm 1.96 \times 0.43\} = (-1.95,-0.26)$. And the $t$-statistic testing $\beta_{STR} = 0$ is $t = -1.10/0.43 = -2.54$, so we reject the null-hypothesis at the 5\% significance level. More evidence for the strength of the $PctEL$ variable can be seen from the fact that, under the null-hypothesis of $\beta_2 = 0$, the following must hold: $t\text{-statistic} = \frac{\hat{\beta_1}}{\sigma_{\hat{\beta_1}}} = \frac{0.65}{0.03} = 21.7$, which is a very high number for a $t$-statistic.
 
-```{stata, collectcode=TRUE}
-reg testscr str el_pct, r
-```
+#### Tests of joint hypotheses
 
-Tests of Joint Hypotheses
-
-
-Let $Expn =$ expenditures per pupil and consider the population
+So, testing of single coefficients is just as before. Now in the Californian school district dataset there is as well a variable called $Expn$ denoting the expenditures per pupil. Consider the following population
 regression model:
 \begin{equation}
 TestScore_i = \beta0 + \beta_1 STR_i + \beta_2 Expn_i + \beta_3PctEL_i + u_i
@@ -248,50 +228,24 @@ The null hypothesis that "school resources don't matter" and the alternative tha
 - $H_0:\beta_1 =0$ and $\beta_2 =0$ vs
 - $H_1:$ either $\beta_1 \neq 0$ or $\beta_2 \neq 0$ or both
 
-
-- $H_0:\beta_1 =0$ and $\beta_2 =0$ vs
-- $H_1:$ either $\beta_1 \neq 0$ or $\beta_2 \neq 0$ or both
-A joint hypothesis specifies a value for two or more coefficients, that is, it imposes a restriction on two or more coefficients.
-- In general, a joint hypothesis will involve $q$ restrictions. In the example above, $q = 2$, and the two restrictions are $\beta_1 = 0$ and $\beta_2 = 0$.
--  A "common sense" idea is to reject if either of the individual $t$-statistics exceeds 1.96 in absolute value.
-
-But this "one at a time" test isn't valid: the resulting test rejects too often under the null hypothesis (more than 5%)!
-
-Therefore, we need the $F$-statistic
-
-The $F$-statistic tests all parts of a joint hypothesis at once.
-Formula for the special case of the joint hypothesis $\beta_1 = \beta_{1,0}$ and $\beta_2 = \beta_{2,0}$ in a regression with two regressors:
+This is a joint hypothesis specifying a value for two or more coefficients, that is, it imposes a restriction on two or more coefficients. In general, a joint hypothesis will involve $q$ restrictions. In the example above, $q = 2$, and the two restrictions are $\beta_1 = 0$ and $\beta_2 = 0$. A "common sense" idea is to reject if either of the individual $t$-statistics exceeds 1.96 in absolute value. But this "one at a time" test isn't valid: the resulting test rejects too often under the null hypothesis (more than 5%)! That is because the $t$-statistics themselved are often not independent. Instead, we need a $F$-statistic, which tests all parts of a joint hypothesis at once. Unfortunately, these types of formulas can become quickly rather comples. Consider the $F$-test for the special case of the joint hypothesis $\beta_1 = \beta_{1,0}$ and $\beta_2 = \beta_{2,0}$ in a regression with two regressors:
 
 \begin{equation}
 F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat{\rho}^2_{t_1 t_2}}  \right)
 \end{equation}
 
-where $\hat{\rho}_{t_1,t_2}$ estimates the correlation between $t_1$ and $t_2$. Reject when $F$ is large (how large?)
+where $\hat{\rho}_{t_1,t_2}$ estimates the correlation between $t_1$ and $t_2$. Reject when $F$ is large (typically to be determined from large statistical tables). The F-statistic is large when $t_1$ and/or $t_2$ is large and the F-statistic corrects (in just the right way) for the correlation between $t_1$ and $t_2$. The formula for more than two $\beta$'s is nasty unless you use matrix algebra. There is a nice large-sample approximate distribution, which is the tail probability of the $\chi^2_q /q$ distribution beyond the $F$-statistic actually computed. 
 
-The F-statistic testing $\beta_1$ and $\beta_2$:
+Now, `STATA` does this in a much easier way by invoking the `test` command **right** after the regression. So, for example, we want to test the joint hypothesis that the population coefficients on $STR$ and expenditures per pupil ($expn$) are both zero, against the alternative that at least one of the population coefficients is nonzero.
 
-\begin{equation}
-F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat{\rho}^2_{t_1 t_2}}  \right)
-\end{equation}
-
-The F-statistic is large when $t_1$ and/or $t_2$ is large
-The F-statistic corrects (in just the right way) for the correlation between $t_1$ and $t_2$.
-
-The formula for more than two $\beta$'s is nasty unless you use matrix algebra.
-
-This gives the $F$-statistic a nice large-sample approximate distribution, which is 
-
-Computing the p-value using the $F$-statistic:
-
-$p$-value = tail probability of the $\chi^2_q /q$ distribution beyond the $F$-statistic actually computed.
-
-Use the `test` command **right** after the regression
-
-Example: Test the joint hypothesis that the population coefficients on $STR$ and expenditures per pupil ($expn_{stu}$) are both zero, against the alternative that at least one of the population coefficients is nonzero.
-
-```{stata,}
-test str el_pct
+```{stata}
+reg testscr str expn_stu el_pct, r 
+test str expn_stu
 ```
+
+The output shows an $F$-statistic with $q=2$ restrictions with outcome 5.43. Do not directly interpret this number, but know that $\text{Prob} > F = 0.0047$ gives the probability that under the null-hypothesis this outcome is produced. So the joint null-hypothesis that both types of expenditures are zero (at the same time), can be rejected at a 5% (and a 1%) significance level. Other types of joint tests can easily be constructed as well. For example, when you want to know whether both coefficient add up to 1, then you would state `test str + expn_stu = 1`. The final point to make is the $F$-test in the regression output itself. Here, that is for example `F(3, 416) = 147.20`. This is joint test that all variables, except the constant, have no impact. So, $\beta_i = 0$ for all $i$ at the **same time**. It not often that you come across a general regression $F$-test that does not reject the null-hypothesis. It namely implies that your independent variable do not contain information about the dependent variable. 
+
+And with the $F$-test, we now have discussed all regression outcome components displayed by `STATA`. Most of this information you do not need for your report but we will come back later to this. 
 
 ## Non-linear specifications {#sec:nonlinear}
 
