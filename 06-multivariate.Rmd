@@ -249,116 +249,92 @@ And with the $F$-test, we now have discussed all regression outcome components d
 
 ## Non-linear specifications {#sec:nonlinear}
 
-The $TestScore$--$STR$ relation looks linear 
+The model we are using is coined the *linear* regression model, and, indeed, one of the underlying assumptions is that the relations between the independent and dependent are linear. Consider the relation aain between test scores and class sizes in the Californian school district data. Using the following code (note now the `twoway` command that 'binds' a scatter plot with a population regression line): 
 
 ```{stata, echo=1, results="hide"}
 graph twoway (lfit testscr str) (scatter testscr str)
 quietly graph export figures/scatterlfit.png, replace
 ```
 
-And this provides the following `STATA` output.
+Which provides the following `STATA` output.
 
-```{r, echo=FALSE, fig.cap = "A linear relation", label='scatterlfitcaschool'}
+```{r fig.align="center", echo=FALSE, fig.cap = "A linear relation", label='scatterlfitcaschool', out.width="600px"}
 knitr::include_graphics("./figures/scatterlfit.png")
 ```
 
-But the $TestScore$--$Income$ relation looks 
+Indeed, there might be evidence that the relation depicted in Figure \@ref(fig:scatterlfitcaschool)---if anything---is linear. But, clearly that is not the case for the relation between test scores and average district income. Namely, the syntax below:
 
 ```{stata, echo=1, results="hide"}
 graph twoway (lfit testscr avginc) (scatter testscr avginc)
 quietly graph export figures/scatterincome.png, replace
 ```
-
-And this provides the following `STATA` output.
-
-```{r, echo=FALSE, fig.cap = "A non-linear relation", label='scatterincome'}
+provides the following `STATA` output.
+```{r fig.align='center', echo=FALSE, fig.cap = "A non-linear relation", label='scatterincome', out.width="600px"}
 knitr::include_graphics("./figures/scatterincome.png")
 ```
+Figure \@ref(fig:scatterincome) shows a non-linear relation, where the effect of income tapers off (note the resemble with Figure \@ref(fig:marginalutility))---or, there is a marginal decreasing effect of average district income on average school test scores. Thus, in affluent neighborhood test scores are higher, but increasingly less so. Of course, you can still try to estimate this with a linear population regression line as in Figure \@ref(fig:scatterincome), but this introduces a **bias**. The estimate does not capture that what you want. Namely, it now holds that $E(u \mid X = x) \neq 0$, because for small $X$, say $X<10$, the residuals are negative, for medium sized $X$s most residuals are positive and for large $X>40$ all residuals are negative again. So, there is a clear relation between $X$ and $u$ and they fail to be independent. This particular form of bias is coined **specification bias**. There is another issue here and that is that the effect on $Y$ of a change in $X$ depends on the value of $X$---that is, the *marginal* effect of $X$ is not constant. 
 
-Nonlinear regression population regression functions
+To remedy the specification bias, we will use nonlinear regression population regression **functions** of $X$, or we estimate a regression function that is nonlinear in $X$. Here, it is important to see that we do so by *transforming* $X$, so the population regression 'line'. The estimator still remain a linear regression model. 
 
-If a relation between $Y$ and $X$ is nonlinear:
-- The effect on $Y$ of a change in $X$ depends on the value of $X$---that is, the *marginal* effect of $X$ is not constant
-- A linear regression is misspecified
-- The estimator of the effect on $Y$ of $X$ is biased---it needn't even be right on average.
-- The solution to this is to estimate a regression function that is nonlinear in $X$
+We will analyse below two complementary and often adopted approaches:
 
-Nonlinear functions of a single independent variable
-
-We look at two complementary approaches:
-- Polynomials in $X$
-    - The effect is approximated by a quadratic, cubic, or higher-degree polynomial
-- Logarithmic transformations
-    - $Y$ and/or $X$ is transformed by taking its logarithm
-    - this gives a percentages interpretation which is often useful
+1.  Using **polynomials** to transform $X$. That means that the effect is approximated by a quadratic, cubic, or higher-degree polynomial. This approach as well governs to an extent so-called interaction effects which is a special case, where we multiply two different variables. 
+2.  Using **logarithmic** transformations of $X$, where $Y$ and/or $X$ is transformed by taking its logarithm. Here, the main focus is on the interpretation of the $\hat{\beta}$s, as they change from a unit increase interpretation to a percentages interpretation which often can be found useful. 
 
 ### Polynomials
 
-Approximate the regression function by a polynomial:
+Our first approach to non-linear specification is applying polynomials of the variables that we suspect has a non-linear impact. If that is the independent variable $X$, the we can construct the following *linear regression* model by using polynomials:
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_1 + \beta_2 X^2_i + \ldots + \beta_r X_i^r + u_i
+(\#eq:poly)
 \end{equation}
-
-This is just the linear regression model---except that the regressors are powers of $X$! Estimation, hypothesis testing, etc. proceeds as in the multiple regression model using OLS
-
-The coefficients are difficult to interpret, but the regression function itself is interpretable
-
-Example: the $TestScore$--$Income$ relation
-
-$Income_i$ = average district income in the $i^{\mathrm{th}}$ district (thousands of dollars per capita)
-Quadratic specification:
+Note again that this is just the linear regression model---except that the regressors are powers of $X$! So, in effect we transform the data---actually create new variables $X^r$---, but the specification in parameters remains linear. Estimation, hypothesis testing, etc. proceeds as in the multiple regression model using OLS. However, the coefficients are now a bit more difficult to interpret. Consider the example of above about the relation between test scores average district income, where $Income_i$ is defined as the average district income in the $i^{\mathrm{th}}$ district (thousands of dollars per capita). For a quadratic specification, we specify the linear regression model as below:
 \begin{equation}
 TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 + u_i
 \end{equation}
-Cubic specification:
+For a cubic specification the linear regression model becomes:
 \begin{equation}
 TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 +
 \beta_3 (Income_i)^3 + u_i
 \end{equation}
 
-Estimation of the quadratic
-
-
+First, we focus on the estimation of the quadratic function. In `STATA` this would look like:
 ```{stata, collectcode=TRUE}
 reg testscr c.avginc##c.avginc, r
 ```
+Now, it is straightforward to test the null-hypothesis of linearity against the alternative that the regression function is a quadratic. Namely, we only have to consider the $t$-statistic of the quadratic term. And that is larger than 1.96, so against a 5% significance level we reject the null-hypothesis of linearity. 
 
-Test the null hypothesis of linearity against the alternative that the regression function is a quadratic 
+Note by the way the syntax `c.avginc##c.avginc` which seems a bit strange. However, this particular line of code is very useful for later tabulation, plotting and other manipulations of the output. In this way `STATA` knows that there should be a quadratic effect of the same variable (`avginc`). The syntax `c.` denotes that the variable should be considered as continuous instead of as an integer (try it and behold the horrible output). There are four useful operators that you want to know when working with polynomials and interaction effect:
 
-Digression: nonlinearities and plots in stata
-	
-There are four factor-variable operators:
+- `i.` operator: this specifies that the following variable is an integers and should be considered on all its level. This actually create indicator or dummies variables
+- `c.` operator: this specifies that the following variable is a continuous variables and should be treated as continuous.
+- `#` binary operator that specifies an interaction between two variables
+- `##` binary operator that specifies both interaction between two variables and the individual variable effect
 
-- `i.` operator to specify indicators (dummies)
-- `c.` operator to treat as continuous
-- `#` binary operator to specify interactions
-- `##` binary operator to specify factorial interactions
-
-
+Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a pylonomial with a linear dimension. One way of doing this is as follows:
 ```{stata, echo=-3, results="hide"}
 predict hat1 
 scatter (testscr avginc) || (line hat1 avginc, sort)
 quietly graph export figures/scatterqua.png, replace
 ```
+where after the regression we **predict** the test scores (and name it something like `hat1`) and then we ask for a line of the prediction for each value of average district income. Note, though, that we have to `sort` the prediction from small to large to get a smooth line. And this provides the nice curved population regression line in the following `STATA` output.
 
-And this provides the following `STATA` output.
-
-```{r, echo=FALSE, fig.cap = "A non-linear relation", label='scatterqua'}
+```{r fig.align='center', echo=FALSE, fig.cap = "A non-linear relation", label='scatterqua', out.width="600px"}
 knitr::include_graphics("./figures/scatterqua.png")
 ```
 
-Compute "effects" for different values of $X$
+But what is now the marginal effect of average district income. That, now, depends on itself. Namely, $\frac{\partial \text{testscore}}{\partial \text{income}} = \beta_1 + \beta_2 \text{income}$. Another way of seeing this is to compute the effects for different values of $X$
 \begin{equation}
 \widehat{TestScore_i} = 607.3 + 3.85 Income_i - 0.0423(Income_i)^2
 \end{equation}
-Predicted change in TestScore for a change in income from \$5,000 per capita to \$6,000 per capita:
+The predicted change in test scores for a change in income from \$5,000 per capita to \$6,000 per capita then amounts to:
 \begin{eqnarray}
 \Delta \widehat{TestScore} &=& 607.3 + 3.85 \times 6 -  0.0423 \times 6^2 \\
 && - (607.3 + 3.85\times 5 - 0.0423\times 5^2)\\
 &=&3.4
 \end{eqnarray}
 
-Predicted "effects" for different values of $X$:}
+And if calculate the predicted effects for different values of $X$, then we get the following table:
 
 ```{r effectqua, echo = FALSE}
 v1 <- c(
@@ -375,25 +351,18 @@ kable(df,
   kable_styling(bootstrap_options = "striped")
 ```
 
-The "effect" of a change in income is greater at low than high income levels (perhaps, a declining marginal benefit of an increase in school budgets?)
+Thus, the effect of a change in income is greater at low than high income levels (perhaps, a declining marginal benefit of an increase in school budgets?). But, be careful here! What is the effect of a change from 65 to 66? That is quite negative and already Figure \@ref(fig:scatterqua) shows that a quadratic specification start to decline again the value of about 50; and perhaps that is not the behaviour that you want. So, with polynomials it is essential not to extrapolate outside the range of the data (and still interpret the outcome).
 
-Caution! What is the effect of a change from 65 to 66?  Don't extrapolate outside the range of the data!
-
-Estimation of a cubic
-
+The estimation of a cubic specification is straightforward:
 ```{stata, collectcode=TRUE}
 reg testscr c.avginc##c.avginc##c.avginc, r
 ```
-	
-
-Testing the null hypothesis of linearity
-
-Alternative hypothesis: the population regression is quadratic and/or cubic, that is, it is a polynomial of degree up to 3:
+Where if we now want to test the null- hypothesis of linearity, then we have to have invoke an $F$-test. Namely, the alternative hypothesis is that the population regression is quadratic and/or cubic, that is, it is a polynomial of degree up to 3, so:
 
 - $H_0$: Coefficients on $Income^2$ and $Income^3 = 0$
 - $H_1$: at least one of these coefficients is nonzero.
 
-The hypothesis that the population regression is linear is rejected at the 1% significance level against the alternative that it is a polynomial of degree up to 3.
+And the outcome below shows that the null-hypothesis that the population regression is linear is rejected at the 5% (and 1%) significance level against the alternative that it is a polynomial of degree up to 3.
 
 ```{stata, collectcode=TRUE}
 test avginc#avginc avginc#avginc#avginc  
@@ -401,240 +370,147 @@ test avginc#avginc avginc#avginc#avginc
 
 ### Interaction variables
 
-Interactions between independent variables
-
-Perhaps a class size reduction is more effective in some
-		circumstances than in others 
-	
- Perhaps smaller classes help more if there are many English
-learners, who need individual attention 
-
- That is, $\frac{\partial TestScore}{\partial STR}$ might \alert{depend} on $PctEL$
-
-More generally, $\frac{\partial Y}{\partial X_1}$ might \alert{depend} on $X_2$
+Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself $X\times X = X^2$, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, $\frac{\partial TestScore}{\partial STR}$ might \alert{depend} on $PctEL$. More generally, this subsection looks into the fact that the marginal effect of $\frac{\partial Y}{\partial X_1}$ might \alert{depend} on some other variable $X_2$.
 
 #### Interactions between two binary variables
 
+First, we look into the simplest (and perhaps most insightful) case of two binary (dummy variables). Consider therefore the following linear regression model:
 \begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} +u_i
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} +u_i, 
+\end{equation}
+where both $D_{1i}$ and $ D_{2i}$ are now considered to be binary. Now, of course, $\beta_1$ is the effect of changing $D_1=0$ to $D_1=1$. So, in this specification, this effect doesn't depend on the value of $D_2$. To allow the effect of changing $D_1$ to depend on $D_2$, we have to include the interaction term $D_{1i} \times D_{2i}$ as a regressor:
+\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times D_{2i}) + u_i
 \end{equation}
 
-$D_{1i}$ and $ D_{2i}$ are binary
-
-$\beta_1$ is the effect of changing $D_1=0$ to $D_1=1$. In this specification, this effect doesn't depend on the value of $D_2$.
-
-To allow the effect of changing $D_1$ to depend on $D_2$, include the interaction term $D_{1i} \times D_{2i}$ as a regressor:\\
-
-\begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
-D_{2i}) + u_i
-\end{equation}
-
-Interpreting the coefficients
-
-\begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
-D_{2i}) + u_i
-\end{equation}
-General rule: compare the various cases:
-
+To interpret now the coefficient $\beta_1$ we comparing the two cases for $D_1=0$ to $D_1=1$"
 \begin{eqnarray}
 E(Y_i|D_{1i}=0, D_{2i}=d_2) &=& \beta_0 + \beta_2 d_2 \\
 E(Y_i|D_{1i}=1, D_{2i}=d_2) &=& \beta_0 + \beta_1 + \beta_2 d_2 + \beta_3 d_2 
 \end{eqnarray}
-
-subtract from each other:
+If we now subtract them from each other:
 \begin{equation}
-E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 +
-\beta_3 d_2
+E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 + \beta_3 d_2
 \end{equation}
+then we have the marginal effect of $D_1$ which now depend $d_2$. The interpretation of $\beta_3$ boils down to being incremental to the effect of $D_1$, when $D_2 = 1$
 
-
-The effect of $D_1$ depends on $d_2$
-
-$\beta_3$ = increment to the effect of $D_1$, when $D_2 = 1$\\
-
-Example: $TestScore$, $STR$, English learners
-
-
-Let:
+Let us go back to our Californian school district example with the following variables to be used: test scores, student teacher ratio, and English learners. Let:
 \begin{eqnarray}
 HiSTR &=& 1 \text{ if } STR \geq 20 \text{ and } HiEL = 1 \text{ if }
 PctEL \geq 10 \\
 HiSTR &=& 0 \text{ if } STR < 20 \text{ and } HiEL = 0 \text{ if }
 PctEL < 10 \\
 \end{eqnarray}
+And if we have the estimation results we get the following outcome. 
 \begin{equation}
 \widehat{TestScore} = 664.1 - 18.2 HiEL - 1.9 HiSTR - 3.5(HiSTR \times
 HiEL)
 \end{equation}
+So, how to interpret the various parameters? Perhaps the simple way is to construct the following two-by-two table:
 
+```{r intdummies, echo = FALSE}
+v1 <- c(
+"$HiSTR = 0$", "$HiSTR = 1$"
+  )
+v2 <- c("$664.1$", "$664.1 - 1.9 = 662.2$")
+v3 <- c("$664.1 - 18.2 = 645.9$", "$664.1 - 1.9 - 18.2 - 3.5= 640.5$")
+df <- data.frame( v1, v2 , v3)
+kable(df, 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Interpretation of interaction effects with dummies',
+      col.names = c("", "$HiEL = 0$","$HiEL = 1$")
+)
+```
 
-"Effect" of $HiSTR$ when $HiEL = 0$ is $-1.9$
-
-"Effect" of $HiSTR$ when $HiEL = 1$ is $-1.9 - 3.5 = -5.4$
-
-Class size reduction is estimated to have a bigger effect when the percent of English learners is large
-
-This interaction isn't statistically significant: $t = 3.5/3.1$
-
+Now, Table \@ref(tab:intdummies) specifies for each combination (and there are exactly four of them) of $HiSTR$ and $HiEL$ the average expected test score outcome. Clearly, there are different 'marginal' effect of $HiSTR$. Namely, the effect of $HiSTR$ when $HiEL = 0$ is $-1.9$, whilst the effect of $HiSTR$ when $HiEL = 1$ is $-1.9 - 3.5 = -5.4$. This clearly points out that a class size reduction is estimated to have a bigger effect when the percent of English learners is large. However, when you estimate in `STATA` then you see that this interaction is not statistically significant, because the $t$-statistic equals $3.5/3.1 = 1.1$
 
 #### Interactions between continuous and binary variables
 
+The second case we consider is between a continuous and a binary variable. First assume the following regression model:
 \begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i +u_i
+Y_i =\beta_0 + \beta_1 X_i + \beta_2 D_i + +u_i, 
+\end{equation}
+where $D_i$ is a binary variable and $X$ is a continuous variable. As specified above, the effect on $Y$ of $X$ (holding $D$ constant) = $\beta_1$, which does not depend on $D$. To allow the effect of $X$ to depend on $D$, we can include the interaction term $D_i \times X_i$ as a regressor:
+\begin{equation}
+Y_i =\beta_0 + \beta_1 X_i + \beta_2 D_i  + \beta_3 (D_i \times X_i) + u_i
 \end{equation}
 
-
-$D_i$ is binary, $X$ is continuous
-
-As specified above, the effect on $Y$ of $X$ (holding constant $D$) = $\beta_2$, which does not depend on $D$
-
-To allow the effect of $X$ to depend on $D$, include the interaction term $D_i \times X_i$ as a regressor:
-
+What this binary-continuous interaction does is essential create two different population regression lines. Namely, for observations with $D_i= 0$ (the $D = 0$ group or the $D=0$ regression line) there is:
 \begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+Y_i = \beta_0 + \beta_1 X_i  + u_i,
 \end{equation}
-
-Binary-continuous interactions: the two regression lines
-\begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
-\end{equation}
-Observations with $D_i= 0$ (the $D = 0$ group or the $D=0$ regression line):
-\begin{equation}
-Y_i = \beta_0 + \beta_2 X_i  + u_i 
-\end{equation}
-Observations with $D_i= 1$ (the $D = 1$ group or the $D = 1$ regression line):
+Whilst for observations with $D_i= 1$ (the $D = 1$ group or the $D = 1$ regression line) the regression line comes down to:
 \begin{eqnarray}
-Y_i &=&   \beta_0 + \beta_1 + \beta_2 X_i + \beta_3 X_i + u_i \\
-			&=&  (\beta_0 + \beta_1) + (\beta_2 + \beta_3) X_i + u_i
+Y_i &=&   \beta_0 + \beta_2 + \beta_1 X_i + \beta_3 X_i + u_i \\
+			&=&  (\beta_0 + \beta_2) + (\beta_1 + \beta_3) X_i + u_i
 \end{eqnarray}
 
-
-Binary-continuous interactions, ctd.
-
-```{r, echo=FALSE, fig.cap = "A non-linear relation", label='interaction'}
+And these two population regression lines might both differ in the level (the constant) and in the slope of the line. So, there are three possibilities as depicted in Figure \@ref(fig:interaction)
+```{r fig.align='center', echo=FALSE, fig.cap = "Three possible binary-continuous interaction outcomes", label='interaction', out.width="600px"}
 knitr::include_graphics("./figures/Sheet44.jpg")
 ```
-
-Interpreting the coefficients
-
+In the first panel (a), $\beta_3 = 0$, so there is only a level effect. In the second panel (b), both $\beta_2$ and $\beta_3$ are not 0, so there is both a level and a slope effect. The last panel indicates that $\beta_2 = 0$, meaning that there is only a slope effect. But how to interpreting the coefficients now? Therefore, we take the marginal effect of
 \begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+Y =\beta_0  + \beta_1 X  +\beta_2 D+ \beta_3 (D \times X)
 \end{equation}
-
-General rule: take the marginal effect of
+which yields:
 \begin{equation}
-Y =\beta_0 +\beta_1 D + \beta_2 X + \beta_3 (D \times X)
+\frac{\partial Y}{\partial X} = \beta_1 + \beta_3 D
 \end{equation}
-\begin{equation}
-\frac{\partial Y}{\partial X} = \beta_2 + \beta_3 D
-\end{equation}
-The effect of $X$ depends on $D$ 
+Thus, the effect of $X$ depends on $D$ and $\beta_3$ is the increment to the effect of $X$, when $D = 1$ (a slope effect)
 
-$\beta_3=$ increment to the effect of $X$, when $D = 1$
-
-Example: $TestScore$, $STR$, $HiEL$ 
-
+To see this in our Californian school district example we now use the variables test scores, student teacher ratio and the as previously defined dummy variable $HiEL$ as:
 \begin{equation}
 \widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL) 
 \end{equation}
-
-
-When $HiEL = 0$:\\
-
+Now when $HiEL = 0$ the population regression line amounts to:
 \begin{equation}
 \widehat{TestScore} = 682.2 - 0.97 STR 
 \end{equation}
-
-When $HiEL = 1$:
-
+And when $HiEL = 1$ the population regression line is:
 \begin{eqnarray}
 \widehat{TestScore} &=& 682.2 - 0.97 STR + 5.6 - 1.28 STR \\
 &=& 687.8 - 2.25 STR
 \end{eqnarray}
+Thus we have two regression lines: one for each $HiSTR$ group. And the conclusion is that a class size reduction is estimated to have a larger effect when the percent of English learners (migrant communities) is large.
 
-Two regression lines: one for each $HiSTR$ group.
-
-Class size reduction is estimated to have a larger effect when the percent of English learners is large.
-
-Example, ctd: Testing hypotheses
-
-
-\begin{equation}
-\widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL)
-\end{equation}
-
-
- The two regression lines have the same slope---the coefficient on $STR \times HiEL$ is zero: $t = -1.28/0.97 = -1.32$
-
-
- The two regression lines have the same intercept---the coefficient on $HiEL$ is zero: $t = -5.6/19.5 = 0.29$
-
-
- The two regression lines are the same---population coefficient on $HiEL = 0$ and population coefficient on $STR \times HiEL = 0$: $F = 89.94 (p-value < .001)$ 
- We reject the joint hypothesis but neither individual hypothesis (how can this be?)
+Hypothesis testing is a before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of $STR \times HiEL$ being zero: the $t$-statistic of this one become $-1.28/0.97 = -1.32$ and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of $HiEL$ being zero, yielding: $t = -5.6/19.5 = 0.29$, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same---population coefficient on $HiEL = 0$ and population coefficient on yields $STR \times HiEL = 0$: $F = 89.94 (p-value < .001)$. So, we reject the joint hypothesis but neither individual hypothesis.
  
-#### Interactions between two continuous variables}
+#### Interactions between two continuous variables
 
+The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:
 \begin{itemize}
-Y_i =\beta_0 + \beta1 X_{1i} +\beta_2 {X_{2i}} +u_i
+Y_i =\beta_0 + \beta1 X_{1i} +\beta_2 {X_{2i}} +u_i,
 \end{itemize}
-
-$X_1$, $X_2$ are continuous
-
-As specified, the effect of $X_1$ doesn't depend on $X_2$
-
-As specified, the effect of $X_2$ doesn't depend on $X_1$
-
-
-To allow the effect of $X_1$ to depend on $X_2$, include the "interaction term" $X_{1i} \times X_{2i}$ as a regressor:
-
-Interpreting the coefficients:
-
+where both $X_1$, $X_2$ are continuous and as specified, the effect of $X_1$ doesn't depend on $X_2$ and the effect of $X_2$ doesn't depend on $X_1$. Now, to allow the effect of $X_1$ to depend on $X_2$, we include the interaction term $X_{1i} \times X_{2i}$ as a regressor. Where, to interpret the coefficients, we take the first derivative of $X_1$ in:
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 (X_{1i}
 \times X_{2i}) + u_i
 \end{equation}
-
-General rule: compare the various cases
-
-Now change $X_1$:
-
-subtract from each other
-
-The effect of $X_1$ depends on $X_2$ (what we wanted)
-
-$\beta_3$ = increment to the effect of $X_1$ from a unit change in $X_2$
-
+which yields:
+\begin{equation}
+\frac{\partial Y}{\partial X} = \beta_1 + \beta_3 X_2
+\end{equation}
+where $\beta_3$ should be interpreted as the increment to the effect of $X_1$ from a unit change in $X_2$. 
 
 ### Logarithmic transformation
 
-Logarithmic functions of $Y$ and/or $X$
-
- $\ln(X) =$ the natural logarithm of $X$
-Logarithmics permit modeling relations in percentage terms (like elasticities), rather than linearly.
-
-Here's why:
-
+To incorporate non-linear effect, very often logarithmic transformations are used of $Y$ and/or $X$, where typically we use $\ln(X)$ as the natural logarithm of $X$. One feature of logarithmic transformations is that they permit modeling relations in percentage terms (like elasticities), rather than linearly. That is because:
 \begin{equation}
 \ln(x+\Delta x) - \ln(x) = \ln (1 + \frac{\Delta x}{x}) \cong \frac{\Delta x}{x}
 \end{equation}
-(calculus: $\frac{d \ln(x)}{dx}=\frac{1}{x})$ 
-Numerically: $\ln(1.01) = .00995 \cong .01$;
-    - $\ln(1.10) = .0953 \cong .10$ (sort of)
-
-Rules for natural logarithms
+Note that this is an approximation, but from calculus we know that $\frac{d \ln(x)}{dx}=\frac{1}{x})$. And the above approximation works quite well for small numbers. For example, numerically: $\ln(1.01) = .00995 \cong .01$ and $\ln(1.10) = .0953 \cong .10$, where the latter is still rather close. Now remember the following rules for natural logarithms
 1. $\ln(a\times b)= \ln(a)+\ln(b)$
 2. $\ln(\frac{a}{b}) =\ln(a) - \ln(b)$
 3. $\ln(a^\alpha) = \alpha \ln(a)$
+4. $\ln(e^X) = X$.
 
-If nonlinear models: try log-linearizing!
-
+When you encounter a nonlinear model such as the ones adopted in Chapter \@ref(surplus) a strategy that often works is log-linearization. That works as follows
 \begin{equation}
-Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\alpha) \ln(L)
+Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\alpha) \ln(L), 
 \end{equation}
-Note: similar operations to LHS and RHS!
+where you take the natural logarithm on both sides. There are three different cases of logarithmic regression models as specified in Table \@ref(tab:logspecification).
 
 ```{r logspecifications, echo = FALSE}
 v1 <- c(
@@ -651,37 +527,29 @@ kable(df,
   kable_styling(bootstrap_options = "striped")
 ```
 
-The interpretation of the slope coefficient differs in each case.
-The interpretation is finding the marginal effect of X using the first derivative
+Though statistical testing remains the same, the interpretation of the slope coefficient differs in each case. To derive the interpretationwe want to find the marginal effect of $X$ using the first derivative.
 
 #### Linear-log population regression model
 
 The linear-log population regression model is specified as:	
-
 \begin{equation}
 	Y = \beta_0 + \beta_1 \ln(X)
 \end{equation}
-	
-Now take first derivative:
-	
-\begin{equation}
+Now take the first derivative:
+	\begin{equation}
 	\frac{\partial Y}{\partial X} = \frac{\beta_1}{X} 
 \end{equation}
 so 
 \begin{equation}
 	\beta_1  = \frac{\partial Y}{\partial X / X} 
 \end{equation}
+In this case that means that $\beta_1$ should be interpreted as the absolute change of $Y$ when $X$ changes with $\beta_1/100$ percent. To illustrate this, consider the case where we take natural logarithm od district income, so we define the new regressor as, $\ln(Income)$
 
-Example: TestScore vs. ln(Income)
-
-First defining the new regressor, $\ln(Income)$
-
-The model is now linear in $\ln(Income)$, so the linear-log model can be estimated by OLS:
+The model is now linear in $\ln(Income)$, so the linear-log model can be estimated by OLS, which yields
 \begin{equation}
 		\widehat{TestScore} = 557.8 + 36.42\times \ln(Income_i)
 \end{equation}
-so a 1\% increase in $Income$ is associated with an increase in TestScore of 0.36 points on the test.
-Standard errors, confidence intervals, $R^2$---all the usual tools of regression apply here.
+so an 1\% increase in $Income$ is associated with an increase in test scores of 0.36 points on the test. And again, standard errors, confidence intervals, $R^2$---all the usual tools of regression apply here. But the difficulty in plottin the new regression line remains. Consider the following `STATA` syntax, where we first have to define the new regressor by invoking the `generate` command. 
 
 ```{stata, echo=-5, results="hide"}
 gen lninc = ln(avginc)
@@ -691,37 +559,42 @@ graph twoway (line testhat avginc, sort) (scatter testscr avginc)
 quietly graph export figures/scatterlnincome.png, replace
 ```
 
-And this provides the following `STATA` output.
-
-```{r, echo=FALSE, fig.cap = "A non-linear relation", label='scatterlnincome'}
+This now provides the following `STATA` output.
+```{r fig.align='center', echo=FALSE, fig.cap = "A non-linear relation", label='scatterlnincome', out.width="600px"}
 knitr::include_graphics("./figures/scatterlnincome.png")
 ```
+
+When you compare \@ref(fig:scatterlnincome) with \@ref(fig:scatterqua) then you notice that in the case of logarithm the population remains increasing (but less and less steep). This can be considered as an advantage when you want to estimate decreasing (or increasing) return. 
+
 #### Log-linear population regression model
 
+The second case we consider is the log-linear population regression model, as specified by:
 \begin{equation}
 	\ln(Y) = \beta_0 + \beta_1 X
 \end{equation}
-	
-Now take first derivative $\frac{\partial Y}{\partial X}$:
+To find the interpretation of $\beta1_1$, we again take the first derivative $\frac{\partial Y}{\partial X}$, but first transform the model like this:
 \begin{equation}
 	Y = exp( \beta_0 + \beta_1 X )
 \end{equation}
-So
+then take the first derivative:
 \begin{equation}
 	\frac{\partial Y}{\partial X} = \beta_1  exp( \beta_0 + \beta_1 X ) = \beta_1 Y
 \end{equation}
-Thus
+and collec terms
 \begin{equation}
 	\beta_1  = \frac{\partial Y / Y}{\partial X } 
 \end{equation}
 
+The interpretation of $\beta_1$ now is that one unit change in $X$ causes a $\beta_1$ percentage in $Y$
+
 #### Log-log population regression model
 
+Finally, we have our third case, being the log-log population regression model as specified by:
 \begin{equation}
 	\ln(Y) = \beta_0 + \beta_1 \ln(X)
 \end{equation}
 
-Now take first derivative $\frac{\partial Y}{\partial X}$:
+To find the interpretation of $\beta1_1$, we again take the first derivative $\frac{\partial Y}{\partial X}$, but first transform the model like this:
 \begin{equation}
 	Y = exp( \beta_0 + \beta_1 \ln(X) )
 \end{equation}
@@ -729,20 +602,19 @@ So
 \begin{equation}
 	\frac{\partial Y}{\partial X} = \beta_1 /X  exp( \beta_0 + \beta_1 \ln(X) ) = \beta_1 Y /X
 \end{equation}
-Thus an **elasticity**
+and after collecting terms we end up with an **elasticity**:
 \begin{equation}
 	\beta_1  = \frac{\partial Y / Y}{\partial X / X } 
 \end{equation}
 
-Example: ln( TestScore) vs. ln(Income)
-
-First define a new dependent variable, ln(TestScore), and the new regressor, ln(Income)
-The model is now a linear regression of ln(TestScore) against ln(Income), which can be estimated by OLS:
+As an example consider the case when we want to regress ln(test scores) on ln(income). To do so, we first define a new dependent variable, ln(TestScore), and a new regressor, ln(Income)
+The model is now a linear regression of ln(TestScore) against ln(Income), which can be estimated by OLS as follows
 \begin{equation}
-\widehat{ln(TestScore)} = 6.336 + 0.0554 \times ln(Income_i)
+\widehat{ln(TestScore)} = 6.336 + 0.0554 \times ln(Income_i),
 \end{equation}
-		
-- An 1\% increase in $Income$ is associated with an increase of .0554\% in $TestScore$ ($Income$ up by a factor of 1.01, $TestScore$ up by a factor of 1.000554)
+where the interpretation is that an 1\% increase in $Income$ is associated with an increase of .0554\% in $TestScore$ ($Income$ up by a factor of 1.01, $TestScore$ up by a factor of 1.000554)
+
+Suppose that we now want to plot both the log-linear and the log-log specification, then we can use the following syntax:
 
 ```{stata, echo=-8, results="hide"}
 gen lninc = ln(avginc)
@@ -754,22 +626,43 @@ predict testhat2
 graph twoway (line testhat1 avginc, sort) (line testhat2 avginc, sort) (scatter lntestscr avginc), legend(order(1 "log-log specification" 2 "log-linear specification" 3 "Observations")) 
 quietly graph export figures/scattercompare.png, replace
 ```
+which provides the following `STATA` output.
 
-And this provides the following `STATA` output.
-
-```{r, echo=FALSE, fig.cap = "A non-linear relation", label='scattercompare'}
+```{r fig.align='center', echo=FALSE, fig.cap = "A non-linear relation", label='scattercompare', out.width="600px"}
 knitr::include_graphics("./figures/scattercompare.png")
 ```
+Note that the $y$-axis is on a logarithmic scale here, thus the log-linear specification is now a linear line. 
 
-Summary: Logarithmic transformations
+#### Summary: logarithmic transformations
 
-Three cases, differing in whether $Y$ and/or $X$ is transformed by taking logarithms.
-- The regression is linear in the new variable(s) $\ln(Y)$ and/or $\ln(X)$, and the coefficients can be estimated by OLS.
-- Hypothesis tests and confidence intervals are now implemented and interpreted "as usual".
-- The interpretation of $\beta_1$  differs from case to case.
-- Choice of specification should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values
+We have seen three different cases of logarithmic specification, differing in whether $Y$ and/or $X$ is transformed by taking logarithms. Now, the regression is linear in the new variable(s) $\ln(Y)$ and/or $\ln(X)$, and the coefficients can be estimated by OLS where hypothesis tests and confidence intervals are now implemented and interpreted 'as usual'. Only the interpretation of the coefficients differs from case to case and is directly related to percentage changes (growth) and elasticities. Oftentimes, the choice of specification, however, should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values. Sometimes, though, you have a structural economic model such as Equation \@ref(eq:directutility), which defines the type of specification you should use. Finally, see that in economics many models exists with decreasing or increasing return to scale and that these are very closely related with logarithmic specifications. 
 
 ## Using fixed effects in panel data {#sec:fixedeffects}
+
+Multivariate regression is a powerfull tool for controlling for the effect of variables for which we have data. But often we do not have data on what we suspect might be important---data, such as individual characteristics like ambition, intelligence, drive or stamina. Or regional of country data, where the type of soil, the ruggedness (hilliness), or population density determine to a large extent the behaviour of people living on it. If we do not have this type of data, then it not always the case that everything is lost. Especially, when we have repeated observations, so observations of the same entity throughout time. This is referred to as panel data and requires one additional subscript $t$ as in $X_{it}$ indicating the observation $X$ on individual made at time $t$. To understand why this sometimes works, we temporarily change to another dataset and that is the 'fatality' data collected by @levitt2001dangerous and deals with the relation between drunk driving and fatal accidents in the States of the US between 1982 and 1988. For this particular example we look at the impact of the 'beer tax', measured as the real tax in dollars on a case of beer, on 'fatality', measured as the number of annual traffic deaths per 10,000 people in the population of each stata. For this we first read the data and manipulate the mortality variable
+
+```{stata readfatalitydata, collectcode=TRUE, results="hide"}
+use "./data/fatality.dta", clear
+gen fatality = allmort/pop * 10000
+```
+and then run a simple regression:
+```{stata, collectcode=TRUE}
+regress fatality beertax, robust
+```
+But these outcomes are very strange. For every dollar increase in tax, number of fatal accidents per 10,000 people increases with 0.36, which is statistically significantly different from 0. What is going on here. Most likely this effect is biased because of omitted variable bias. States in the US differ widely in terms of population density, environment, institutions, religion, poverty, and so on and so forth. And Those state characteristics might influence both the variables beertax and fatality. 
+
+Fortunately, for each state we have yearly data. So, that is 7 observations per stata and we can make use of that by using fixed effects, which is a very common technique in the social sciences---especially in economics. We model the use of fixed effects in this example as follows:
+\begin{equation}
+\text{fatality}_{it} = \beta_0 + \beta_1\text{beertax}_{it} + \beta_3 S_1 + \ldots + \beta_51 S_{48} + u_{it}, 
+\end{equation}
+where $S_i$ denote indicator (dummies) for each state which constitute the fixed effects. In total there are 48 states in this dataset, so we have 48 dummies. Note that these fixed effects only depend on the state variation, not on time variation. So, essentially what these fixed effects capture is all state specific characteristics which are constant over time. And most of the characteristics' examples given above do not vary that much over time, so by using these state fixed effects we can **control** for them. In `STATA` you can estimate this in a straightforward way as `regress fatality beertax i.state, robust`, but this lots of statistical output that you are usually not interested in. Almost just as easy would be is to invoke the `areg` command, where you specifically state that the state variable should be used as dummies but not shown using `absorb(state)`:
+and then run a simple regression:
+```{stata}
+areg fatality beertax, absorb(state) robust
+```
+Now, see what happens with the coefficient of the beer tax variable. It changes sign! So from positive it becomes negative. That is how **disruptive** omitted variable bias can be. Also see that by including all these state fixed effects, the $\bar{R^2}$ now increase enormously to 91%, which does make sense because the states explain the variation in fatality rate to a large extent (e.g., compare Kansas with Connecticut).
+
+This is just a snapshot of the use of fixed effects in panel data, but for now this is enough. But for now, know that the use of fixed effects can go a long way in addressing omitted variable bias. 
 
 ## Conclusion and discussion
 

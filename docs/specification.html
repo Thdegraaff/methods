@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -338,9 +338,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="specification.html"><a href="specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
-<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#presentation-of-results"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
-<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a></li>
+<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#sec:specificationmodel"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
+<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#sec:presentation"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
+<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#sec:sourcesbias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="specification.html"><a href="specification.html#threats-to-external-validity"><i class="fa fa-check"></i><b>7.3.1</b> Threats to external validity</a></li>
+<li class="chapter" data-level="7.3.2" data-path="specification.html"><a href="specification.html#threats-to-internal-validity"><i class="fa fa-check"></i><b>7.3.2</b> Threats to internal validity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="specification.html"><a href="specification.html#sec:conclusionspec"><i class="fa fa-check"></i><b>7.4</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="in-conclusion.html"><a href="in-conclusion.html"><i class="fa fa-check"></i><b>8</b> In conclusion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -385,188 +390,161 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="specification" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">7</span> Specification and Assessment Issues<a href="specification.html#specification" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="specification-of-your-model" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Specification of your model<a href="specification.html#specification-of-your-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>How to decide which variables to include in a regression<br />
-</p>
-<p>A closer look at the test score data. We want to get an unbiased estimate of the effect on test scores of changing class size, holding constant student and school characteristics but not necessarily holding constant the budget (<em>why</em>)</p>
-<p>To do this we need to think about what variables to include and what regressions to run—and we should do this before we actually sit down at the computer. Think beforehand about your model specification.</p>
-<p>general approach to variable selection and “model specification”
-- Specify a base or benchmark model.
-- Specify a range of plausible alternative models, which include additional candidates
-- Does a candidate variable change the coefficient of interest (<span class="math inline">\(\hat{\beta}_1\)</span>)?
-- Is a candidate variable statistically significantly different from zero?
-- Use judgment, not a mechanical recipe
-- Don’t just try to maximize !</p>
-<p>Digression about measures of fit</p>
-<p>It is easy to fall into the trap of maximizing the <span class="math inline">\(\bar{R^2}\)</span>—but this loses sight of our real objective, an unbiased estimator of the class size effect. A high <span class="math inline">\(\bar{R^2}\)</span> means that the regressors explain the variation in <span class="math inline">\(Y\)</span>.
-- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that you have eliminated omitted variable bias.
-- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that you have an unbiased estimator of a causal effect <span class="math inline">\((\beta_1)\)</span>.
-- A high <span class="math inline">\(\bar{R^2}\)</span> does not mean that the included variables are statistically significant</p>
-<p>Back to the test score application:
-What variables would you want—ideally—to estimate the effect on test scores of <span class="math inline">\(STR\)</span> using school district data?</p>
-<p>Variables actually in the California class size data set:
-- student-teacher ratio (<span class="math inline">\(STR\)</span>)
-- percent English learners in the district (<span class="math inline">\(PctEL\)</span>)
-- school expenditures per pupil
-- name of the district (so we could look up average rainfall, for example)
-- percent eligible for subsidized/free lunch
-- percent on public income assistance
-- average district income</p>
-<p>Which of these variables would you want to include?</p>
-<p>More California data</p>
-<div class="figure"><span style="display:block;" id="fig:cadata"></span>
-<img src="figures/cadata.png" alt="Test scores versus various independent variables" width="578" />
+<p>This concluding chapter deals with an epistemological question, namely how to convey your key results, and an ontological question, how do you know whether what you convey is true (e.g., unbiased). To do so, we first look at specification issues in Section <a href="specification.html#sec:specificationmodel">7.1</a>. Which variables should you include? Thereafter, Section <a href="specification.html#sec:presentation">7.2</a> discusses how to present your results. And, subsequently, Section <a href="specification.html#sec:sourcesbias">7.3</a> gives a bit into the question into the validity of your results. When do you know that you really obtained estimated an <strong>unbiased</strong> parameter. The final section concludes.</p>
+<div id="sec:specificationmodel" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Specification of your model<a href="specification.html#sec:specificationmodel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A long-standing but simple question is how to decide which variables to include in a regression model. Unfortunately, the answer to this question is rather complex. A straightforward but naive approach would be to include them all! So, throw every variable in that is in your database. This, however, leads to “causal salad” <span class="citation">(McElreath 2020)</span> as displayed in Figure <a href="specification.html#fig:causalsalad">7.1</a> and can actually lead to a biased estimator. One reason for this is that if you include a variable that is related to the error term then all other parameters are biased as well.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:causalsalad"></span>
+<img src="figures/causalsalad.jpg" alt="Causal salad" width="600px" />
 <p class="caption">
-Figure 7.1: Test scores versus various independent variables
+Figure 7.1: Causal salad
 </p>
 </div>
-</div>
-<div id="presentation-of-results" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Presentation of results<a href="specification.html#presentation-of-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Digression on presentation of regression results. We have a number of regressions and we want to report them. It is awkward and difficult to read regressions written out in equation form, so instead it is conventional to report them in a table.</p>
-<p>A table of regression results should include:
-- estimated regression coefficients
-- standard errors
-- measures of fit
-- number of observations
-- relevant <span class="math inline">\(F\)</span>-statistics, if any
-- any other pertinent information.</p>
-<p>Find this information in the following table:</p>
-<div class="figure"><span style="display:block;" id="fig:catable"></span>
-<img src="figures/catable.png" alt="Various specifications of test score models" width="674" />
-<p class="caption">
-Figure 7.2: Various specifications of test score models
-</p>
-</div>
-</div>
-<div id="potential-sources-of-bias" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Potential sources of bias<a href="specification.html#potential-sources-of-bias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Is there a systematic way to assess regression studies?
-Multiple regression has some key virtues:</p>
-<ol style="list-style-type: decimal">
-<li>It provides an estimate of the marginal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</li>
-<li>It resolves the problem of omitted variable bias, if an omitted variable can be measured and included.</li>
-<li>It can handle nonlinear relations (effects that vary with the <span class="math inline">\(X\)</span>’s)</li>
-</ol>
-<p>Still, OLS might yield a <strong>biased</strong> estimator of the true causal effect—it might not yield valid inferences</p>
-<p>A framework for assessing statistical studies: internal and external validity}
-- <strong>Internal validity</strong> the statistical inferences about causal effects are valid for the population being studied.
-- <strong>External validity</strong>: the statistical inferences can be generalized from the population and setting studied to other populations and setting.</p>
-<p>Threats to external validity</p>
-<p>How far can we generalize class size results from California school districts?</p>
+<p>So, for the final time we return to our Californian school district data and now try to devise a specification that <em>mimimizes</em> the changes upon biased estimator. So, our focus is to get an unbiased estimate of the effect on test scores of changing class size, holding constant student and school characteristics but not necessarily holding constant the budget (we do not want to control for budget as this actually governs class sizes).</p>
+<p>To do this we need to think about what variables to include and what regressions to run—and we should do this before we actually sit down at the computer. Think beforehand about your model specification and try to avoid throwing everything in (your causal salad).</p>
+<p>In practice, and especially economics, most follow the following general approach to variable selection and model specification:
+1. First you specify a base or benchmark model. In this case that is the univariate regression of test scores on class size.
+2. Then you specify a range of plausible alternative models, which include additional candidate variables.
+3. Then you assess whether a candidate variable changes the coefficient of interest (<span class="math inline">\(\hat{\beta}_1\)</span>)? You keep focusing on the effect of class size!
+4. You assess whether a candidate variable is statistically significantly different from zero; so whether it has an impact of not.
+- Use judgment, not a mechanical recipe, meaning that variable statistically insignificant different from zero should not automatically be thrown out.
+- In all cases, do not just try to maximize <span class="math inline">\(\bar{R^2}\)</span>. You focus on a causal effect, not on prediction</p>
+<p>Considering the last point, tt is easy to fall into the trap of maximizing the <span class="math inline">\(\bar{R^2}\)</span>—but this loses sight of our real objective, an unbiased estimator of the class size effect. Recall that a high <span class="math inline">\(\bar{R^2}\)</span> means that the regressors explain the variation in <span class="math inline">\(Y\)</span>. It does <strong>not</strong> mean</p>
 <ul>
-<li>Differences in populations
-<ul>
-<li>California in 2005?</li>
-<li>Massachusetts in 2005?</li>
-<li>Mexico in 2005?</li>
-</ul></li>
+<li>that you have eliminated omitted variable bias;</li>
+<li>that you have an unbiased estimator of a causal effect <span class="math inline">\((\beta_1)\)</span>;</li>
+<li>that the included variables are statistically significant.</li>
 </ul>
-<p>Differences in settings
-- different legal requirements concerning special education
-- different treatment of bilingual education
-- differences in teacher characteristics</p>
-<p>Threats to validity of multiple regression analysis</p>
-<p><strong>Internal validity</strong>: the statistical inferences about causal effects are valid for the population being studied.</p>
-<p>Five Threats to the internal validity of regression studies:</p>
+<p>So, in this case, what variables would you want—ideally—to include to estimate the effect on test scores of <span class="math inline">\(STR\)</span> using school district data?</p>
+<p>There is a whole set of potential relevant variables in the California class size data set, being:</p>
+<ul>
+<li>student-teacher ratio (<span class="math inline">\(STR\)</span>)—the variable we focus on</li>
+<li>percent English learners in the district (<span class="math inline">\(PctEL\)</span>)—as a proxy for large migrant communities</li>
+<li>school expenditures per pupil—largely correlated with student-teacher ratio</li>
+<li>name of the district (so we could look up average rainfall, for example)</li>
+<li>percent eligible for subsidized/free lunch—proxies district income</li>
+<li>percent on public income assistance—proxies district income</li>
+<li>average district income—a measure for district affuency</li>
+</ul>
+So, which of these variables would you want to include?
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cadata"></span>
+<img src="figures/cadata.png" alt="Test scores versus various independent variables" width="800px" />
+<p class="caption">
+Figure 7.2: Test scores versus various independent variables
+</p>
+</div>
+<p>Looking at Figure <a href="specification.html#fig:cadata">7.2</a>, all three percentage variables (English learners, subsidized lunch, and income assistance) behave in a similar manner. But interestingly, the strongest relation is between subsidized lunch and test scores and that is at least the variable that we would like to include.</p>
+</div>
+<div id="sec:presentation" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Presentation of results<a href="specification.html#sec:presentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So, we have a number of regressions (also called specifications) and we want to report them. Often, it is awkward and difficult to read regressions written out in equation form, so instead it is conventional to report them in a table. Note that reading regression estimates from computer output is even more difficult. On top of that it is ugly and contains way too much information. Try to avoid statistical computer output as much as possible—at least in your thesis. Now, regression tables should include a couple of elements:</p>
+<ul>
+<li>The estimated regression coefficients.</li>
+<li>The standard errors or the <span class="math inline">\(t\)</span>-statistics. Having both of them is too much. Do not report <span class="math inline">\(p\)</span>-value, because often they are not informaties (being <span class="math inline">\(p = 0.000\)</span>).</li>
+<li>Some measures of fit (usually just the <span class="math inline">\(\bar{R^2}\)</span> would do).</li>
+<li>The number of observations.</li>
+<li>Some relevant <span class="math inline">\(F\)</span>-statistics, if any. Usually they are not included.</li>
+<li>Any other pertinent information but typically there is none.</li>
+</ul>
+You can find most of this information in the final estimation Table <a href="specification.html#fig:catable">7.3</a> as presented in <span class="citation">Stock, Watson, et al. (2003)</span>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:catable"></span>
+<img src="figures/catable.png" alt="Various specifications of test score models" width="800px" />
+<p class="caption">
+Figure 7.3: Various specifications of test score models
+</p>
+</div>
+<p>So, here the variable of interest (student-teacher ratio) is the first variable on top. And the table keeps focusing on that one. Moreover, specification (3) and (5) seems to be preferred as they have the highest <span class="math inline">\(\bar{R^2}\)</span>, although that is perhaps of lesser importance. What we can infer from this is that the estimate for student-teacher ratio remains robust around <span class="math inline">\(-1\)</span> and is significantly different from <span class="math inline">\(0\)</span>. Does this now mean that this effect is <strong>unbiased</strong>? Most likely not, but that is something that the next section will discuss.</p>
+</div>
+<div id="sec:sourcesbias" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Potential sources of bias<a href="specification.html#sec:sourcesbias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No to include we would like to answer the question whether there is a systematic way to assess regression studies? We already have seen that multivariate regression models have some key virtues:</p>
+<ol style="list-style-type: decimal">
+<li>They provide an estimate of the marginal effect of the variable of interest <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</li>
+<li>They resolve the problem of omitted variable bias, if an omitted variable can be measured and included.</li>
+<li>They can handle nonlinear relations (effects that vary with the <span class="math inline">\(X\)</span>’s) and therefore resolve the problem of misspecification bias.</li>
+</ol>
+<p>Still, OLS might yield a <strong>biased</strong> estimator of the true causal effect. In other words, it might not yield valid inferences. That what you want to measure is not what you actually measure. In general there is two ways to assess statistical studies: threats to internal and threats to external validity.</p>
+<ul>
+<li><strong>Internal validity</strong>: the statistical inferences about causal effects are valid for the population being studied.</li>
+<li><strong>External validity</strong>: the statistical inferences can be generalized from the population and setting studied to other populations and setting.</li>
+</ul>
+<div id="threats-to-external-validity" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Threats to external validity<a href="specification.html#threats-to-external-validity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So, above we came to a (tentative) conclsusion about the impact of class size on test scores. But we have done so in the context of Californian school districts in the year 2005. Can we extend this finding and generalize class size results from California school districts to other population, for example to that of Massachusetts or Mexico in 2005? And can we do so for differences in institutional settings as there are different legal requirements concerning special education, different treatment of bilingual education, and differences in teacher characteristics across regions and countries.</p>
+<p>We therefore always to be careful to transfer our finding to that of other settings. Note that this as well a special case of omitted variable bias but now outside the scope of our study (our population).</p>
+</div>
+<div id="threats-to-internal-validity" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Threats to internal validity<a href="specification.html#threats-to-internal-validity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In applied econometrics, the following five threats to the internal validity of regression studies are usually given (in statistics there is a different framework for this, but in most cases they come down to the same thing)</p>
 <ol style="list-style-type: decimal">
 <li>Omitted variable bias</li>
 <li>Wrong functional form</li>
-<li>Errors-in-variables bias</li>
+<li>Errors-in-variables bias or measurement error</li>
 <li>Sample selection bias</li>
 <li>Simultaneous causality bias</li>
 </ol>
-<p>All of these imply that <span class="math inline">\(E(u_i|X_{1i},\ldots,X_{ki}) \neq 0\)</span>—in which case OLS is <strong>biased</strong>.</p>
-<p>Omitted variable bias</p>
-<p>Omitted variable bias arises if an omitted variable is both: a determinant of <span class="math inline">\(Y\)</span> and correlated with at least one included regressor.
-We first discussed omitted variable bias in regression with a single <span class="math inline">\(X\)</span>, but OV bias will arise when there are multiple <span class="math inline">\(X\)</span>’s as well, if the omitted variable satisfies the two conditions above.</p>
-<p>Potential solutions to omitted variable bias</p>
+<p>All of these imply that <span class="math inline">\(E(u_i|X_{1i},\ldots,X_{ki}) \neq 0\)</span>, in which case the OLS estimates are therefore <strong>biased</strong>.</p>
+<div id="omitted-variable-bias" class="section level4 hasAnchor" number="7.3.2.1">
+<h4><span class="header-section-number">7.3.2.1</span> Omitted variable bias<a href="specification.html#omitted-variable-bias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Omitted variable bias arises if an omitted variable is both a determinant of <span class="math inline">\(Y\)</span> and a determinant of at least one included regressor. We first discussed omitted variable bias in regression with a single <span class="math inline">\(X\)</span>, but Omitted variable bias will arise when there are multiple <span class="math inline">\(X\)</span>’s as well, if the omitted variable satisfies the two conditions above. Fortunately, there are potential solutions to omitted variable bias</p>
 <ul>
 <li>If the variable can be measured, include it as an additional regressor in multiple regression;</li>
 <li>Possibly, use panel data in which each entity (individual) is observed more than once;</li>
 <li>If the variable cannot be measured, use instrumental variables regression (for later courses);</li>
 <li>Run a randomized controlled experiment.</li>
 </ul>
-<p>Wrong functional form</p>
-<p>Arises if the functional form is incorrect—for example, an interaction term is incorrectly omitted; then inferences on causal effects will be biased.</p>
-<p>Potential solutions to functional form misspecification
-- use the appropriate nonlinear specifications in <span class="math inline">\(X\)</span> (logarithms, interactions, etc.)</p>
-<p>Measurement error</p>
-<p>So far we have assumed that <span class="math inline">\(X\)</span> is measured without error. In reality, (economic) data often have measurement error</p>
-<p>Recollection errors in surveys (when did you start your current job?)</p>
-<p>Ambiguous questions problems (what was your income last year?)</p>
-<p>Intentionally false response problems with surveys (What is the current value of your financial assets? How often do you drink and drive?)</p>
-<p>Potential solutions to errors-in-variables bias</p>
+</div>
+<div id="wrong-functional-form" class="section level4 hasAnchor" number="7.3.2.2">
+<h4><span class="header-section-number">7.3.2.2</span> Wrong functional form<a href="specification.html#wrong-functional-form" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This threat to internal validity arises if the functional form is incorrect. For example, if an interaction term is incorrectly omitted, then inferences on causal effects will be biased. There is a potential solution to functional form misspecification and that is to use the appropriate nonlinear specifications in <span class="math inline">\(X\)</span> (logarithms, interactions, etc.). Sometimes this is not possible and then one has to resort to direct non-linear estimation techniques.</p>
+</div>
+<div id="errors-in-variables-bias-or-measurement-error" class="section level4 hasAnchor" number="7.3.2.3">
+<h4><span class="header-section-number">7.3.2.3</span> Errors-in-variables bias or measurement error<a href="specification.html#errors-in-variables-bias-or-measurement-error" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The third threat is measurement error or sometimes know as Errors-in-variables bias. So far we have assumed that <span class="math inline">\(X\)</span> is measured without error. In reality, (economic) data is often measured with error have measurement error. Especially surveys are prone to measurement error. For example recollection errors that arise with questions as “which month did you start your current job?”. Or ambiguous questions problems as “what was your income last year?” What is meant with latter: monthly or yearly income, gross or net income? Also respondents sometimes have an incentive not to answer honestly (intentionally false response problems) with questions as “What is the current value of your financial assets?” or “How often do you drink and drive?”. There are potential solutions to errors-in-variables bias, such as</p>
 <ul>
-<li>Obtain better data (duh)</li>
-<li>Develop a specific model of the measurement error process. This is only possible if a lot is known about the nature of the measurement error—for example a subsample of the data are cross-checked using administrative records and the discrepancies are analyzed and modelled.</li>
+<li>Obtain better data, but that is bit easy</li>
+<li>Develop a specific model of the measurement error process. This is only possible if a lot is known about the nature of the measurement error—for example a subsample of the data are cross-checked using administrative records and the discrepancies are analyzed and modeled.</li>
 <li>Instrumental variables regression.</li>
 </ul>
-<p>Sample selection bias</p>
-<p>So far we have assumed simple random sampling of the population. In some cases, simple random sampling is thwarted because the sample, in effect, <strong>selects itself</strong>.</p>
-<p>Sample selection bias arises when a selection process:
-- influences the availability of data and
-- that process is related to the dependent variable.</p>
-<div class="figure"><span style="display:block;" id="fig:Rplot"></span>
-<img src="figures/Rplot.png" alt="Relation heigh fathers and height children" width="270" />
+</div>
+<div id="sample-selection-bias" class="section level4 hasAnchor" number="7.3.2.4">
+<h4><span class="header-section-number">7.3.2.4</span> Sample selection bias<a href="specification.html#sample-selection-bias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>So far we have assumed simple random sampling of the population. In some cases, simple random sampling is thwarted because the sample, in effect, <strong>selects itself</strong>. Now, then sample selection bias arises when a selection process both influences the availability of data and if that process is related to the dependent variable. To illustrate this, I will adopt a hypothetical example given by <span class="citation">McElreath (2020)</span>. Here we want to look at the relation between trustworthy science and newsworthy science. This example is motivated by the fact that newsworthy science (clickbait in the social media) oftentimes turns out not to be true. To given a reason why this might, we first simulate an artificial database of 400 observations of both newsworthy and trustworthy. Both variable are constructed such that they are <span class="math inline">\(i.i.d.\)</span> and standard normally distributed. So, there is no relation whatsoever and, indeed, Figure <a href="specification.html#fig:Rplot">7.4</a> shows a rather random cloud plot.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Rplot"></span>
+<img src="figures/Rplot.png" alt="Random observations of newsworthy and trustworthy" width="600px" />
 <p class="caption">
-Figure 7.3: Relation heigh fathers and height children
+Figure 7.4: Random observations of newsworthy and trustworthy
 </p>
 </div>
-<div class="figure"><span style="display:block;" id="fig:Rplot01"></span>
-<img src="figures/Rplot01.png" alt="Relation heigh fathers and height children" width="270" />
+<p>But what if editors on social media have a decision rule: scientific output should be either thrustworthy or newsworthy, and preferably both. So, as a rule of thumb the select only the top 10% scientific outcomes , so the ones that score in the top 10% when both scores are added up (<span class="math inline">\(\text{trustworthy} + \text{newsworthy}\)</span>). If we now depict the selected ones in grey in Figure <a href="specification.html#fig:Rplot01">7.5</a>, then clearly suddenly a negative relation emerges between newsworthiness and thrustworthiness. And that negative relation is caused by the selection (external) editors make. So, if there is a selection somewhere in the process, estimates of what you want to estimates can quickly become biased.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Rplot01"></span>
+<img src="figures/Rplot01.png" alt="Negative relation amongst the selected points" width="600px" />
 <p class="caption">
-Figure 7.4: Relation heigh fathers and height children
+Figure 7.5: Negative relation amongst the selected points
 </p>
 </div>
-<p>Example 1: aircraft noise externality</p>
-<p>To what extent do people ``value’’ aircraft noise ?
-Empirical strategy
-Sampling scheme: collect housing prices close to Schiphol airport (Zwanenburg) and compare them with identical houses further away (Schagen)</p>
-<p>Data: Housing prices for North-Holland since 1985</p>
-<ul>
-<li>Estimator: average mean difference between Zwanenburg and Schagen location</li>
-<li>Is there sample selection bias?</li>
-</ul>
-<p>Example 2: returns to education
-- What is the return to an additional year of education?
-- Empirical strategy:
-- Sampling scheme: simple random sample of employed college grads (employed, so we have wage data)
-- Data: earnings and years of education
-- Estimator: regress <span class="math inline">\(\ln(Earnings)\)</span> on <span class="math inline">\(YearsEducation\)</span></p>
-<p>Ignore issues of omitted variable bias and measurement error—is there sample selection bias?</p>
-<p>Potential solutions to sample selection bias
-- Collect the sample in a way that avoids sample selection.
-- aircraft noise: look at people who moved between Schagen and Zwanenburg.
-- Returns to education example: sample college graduates, not workers (include the unemployed)</p>
-<p>Randomized controlled experiment.</p>
-<ul>
-<li>Construct a model of the sample selection problem and estimate that model (we won’t do this).</li>
-</ul>
-<p>Simultaneous causality bias in equations</p>
+<p>This process occurs more often than you might think. Consider the two following examples:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Aircraft noise externality</strong>. Here the question is to what extent people “value” aircraft noise (that is in a negative sense)? To aim for an answer we adopt the following empirical strategy; we collect housing prices close to Schiphol airport (say Zwanenburg) and compare them with identical houses further away (say Schagen). We have data for individual housing prices (including characteristics) since 1985. As an estimator we assess then the average mean difference between the Zwanenburg and Schagen location. Now the question is whether there is sample selection bias. And indeed there is and that is caused by the fact that humans react on their own situation based upon their preferences. In this case, they react by means of moving residence. So, those who have strong negative preference regarding aircraft noise are the first to move out Zwanenburg (if possible). So the population in both locations is not identical, instead they sorted spatially.</p></li>
+<li><p><strong>Returns to education</strong>. The question here is rather straightforward and involved the monetary returns to an additional year of education. As empirical strategy we collect data of all employed workers in the Netherlands (actually this data exists and is called micro-data), including worker characteristics, years of education, and hourly wages. Our approach is here to regress <span class="math inline">\(\ln(Earnings)\)</span> on <span class="math inline">\(YearsEducation\)</span> and a large set of other characteristics. Now, ignore issues of omitted variable bias and measurement error, then the question is: is there sample selection bias? And, indeed, there is again, as you only sample those people who are employed and not the unemployed (they have no current wage). And this leads to a different population than you wanted in the first place.</p></li>
+</ol>
+<p>In there there are some potential solutions to sample selection bias and most of them deal with data issues. For example, you might want to collect the sample in a way that avoids sample selection. For example you might want to focus on those people who moved between Schagen and Zwanenburg or you include the unemployed as well in the returns to education example.</p>
+</div>
+<div id="simultaneous-causality-bias-in-equations" class="section level4 hasAnchor" number="7.3.2.5">
+<h4><span class="header-section-number">7.3.2.5</span> Simultaneous causality bias in equations<a href="specification.html#simultaneous-causality-bias-in-equations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, our last threat to causality is simultaneous or reverse causality bias. This means that the causal effect might go either way as in the following system</p>
 <ul>
 <li>Causal effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span>: <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_i + u_i\)</span></li>
-<li>Causal effect on <span class="math inline">\(X\)</span> of <span class="math inline">\(Y\)</span>: <span class="math inline">\(X_i = \gamma_0 + \gamma_1 Y_i + v_i\)</span><br />
-Large <span class="math inline">\(u_i\)</span> means large <span class="math inline">\(Y_i\)</span>, which implies large <span class="math inline">\(X_i\)</span> (if <span class="math inline">\(\gamma_1&gt;0\)</span>)
-Thus <span class="math inline">\(corr(X_i,u_i) \neq 0\)</span>
-Thus <span class="math inline">\(\hat{\beta_1}\)</span> is biased and inconsistent.
-Example: A district with particularly bad test scores given the <span class="math inline">\(STR\)</span> (negative <span class="math inline">\(u_i\)</span>) receives extra resources, thereby lowering its <span class="math inline">\(STR\)</span>; so <span class="math inline">\(STR_i\)</span> and <span class="math inline">\(u_i\)</span> are correlated</li>
+<li>Causal effect on <span class="math inline">\(X\)</span> of <span class="math inline">\(Y\)</span>: <span class="math inline">\(X_i = \gamma_0 + \gamma_1 Y_i + v_i\)</span></li>
 </ul>
-<p>Potential solutions to simultaneous causality bias
-Randomized controlled experiment. Because <span class="math inline">\(X_i\)</span> is chosen at random by the experimenter, there is no feedback from the outcome variable to <span class="math inline">\(Y_i\)</span> (assuming perfect compliance).
-Develop and estimate a complete model of both directions of causality. This is the idea behind many large macro models (e.g. Federal Reserve Bank-US). This is extremely difficult in practice.</p>
-<ul>
-<li>Use instrumental variables regression to estimate the causal effect of interest (effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>, ignoring effect of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span>).</li>
-</ul>
-<p>OLS is a powerful tool and often used in all social sciences, but it hinges upon three assumptions from which <span class="math inline">\(E(u_i|X_{1i},\ldots,X_{ki}) = 0\)</span> is difficult to satisfy in reality because:</p>
-<ol style="list-style-type: decimal">
-<li>Omitted variable bias</li>
-<li>Wrong functional form</li>
-<li>Errors-in-variables bias</li>
-<li>Sample selection bias</li>
-<li>Simultaneous causality bias</li>
-</ol>
+<p>Where a large <span class="math inline">\(u_i\)</span> means a large <span class="math inline">\(Y_i\)</span>, which implies large <span class="math inline">\(X_i\)</span> (if <span class="math inline">\(\gamma_1&gt;0\)</span>) and therefore, by definition, <span class="math inline">\(corr(X_i,u_i) \neq 0\)</span>. Thus, <span class="math inline">\(\hat{\beta_1}\)</span> is biased and inconsistent. In our Californian school district example it might as well be that a district with particularly bad test scores given the <span class="math inline">\(STR\)</span> (negative <span class="math inline">\(u_i\)</span>) receives extra resources, thereby lowering its <span class="math inline">\(STR\)</span>; so <span class="math inline">\(STR_i\)</span> and <span class="math inline">\(u_i\)</span> are then correlated</p>
+<p>There are some potential solutions to simultaneous causality bias</p>
+<p>The first and always the best one is to conduct a randomized controlled experiment. Because,if <span class="math inline">\(X_i\)</span> is chosen at random by the experimenter, there is no feedback from the outcome variable to <span class="math inline">\(Y_i\)</span> (assuming perfect compliance). Secondly, you can develop and estimate a complete model of both directions of causality. This is the idea behind many large macro models (e.g. those of the Federal Reserve Bank in the US). This is difficult in practice. Finally, you can use instrumental variables regression again to estimate the causal effect of interest (effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>, ignoring effect of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span>). But that is not for this course.</p>
+</div>
+</div>
+</div>
+<div id="sec:conclusionspec" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Concluding remarks<a href="specification.html#sec:conclusionspec" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -338,9 +338,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="specification.html"><a href="specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
-<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#presentation-of-results"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
-<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a></li>
+<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#sec:specificationmodel"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
+<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#sec:presentation"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
+<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#sec:sourcesbias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="specification.html"><a href="specification.html#threats-to-external-validity"><i class="fa fa-check"></i><b>7.3.1</b> Threats to external validity</a></li>
+<li class="chapter" data-level="7.3.2" data-path="specification.html"><a href="specification.html#threats-to-internal-validity"><i class="fa fa-check"></i><b>7.3.2</b> Threats to internal validity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="specification.html"><a href="specification.html#sec:conclusionspec"><i class="fa fa-check"></i><b>7.4</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="in-conclusion.html"><a href="in-conclusion.html"><i class="fa fa-check"></i><b>8</b> In conclusion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -665,57 +670,48 @@ F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat
 </div>
 <div id="sec:nonlinear" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Non-linear specifications<a href="modeling.html#sec:nonlinear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(STR\)</span> relation looks linear</p>
+<p>The model we are using is coined the <em>linear</em> regression model, and, indeed, one of the underlying assumptions is that the relations between the independent and dependent are linear. Consider the relation aain between test scores and class sizes in the Californian school district data. Using the following code (note now the <code>twoway</code> command that ‘binds’ a scatter plot with a population regression line):</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb32-1"><a href="modeling.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">lfit</span> testscr str) (<span class="kw">scatter</span> testscr str)</span></code></pre></div>
-<p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scatterlfitcaschool"></span>
-<img src="figures/scatterlfit.png" alt="A linear relation" width="660" />
+<p>Which provides the following <code>STATA</code> output.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterlfitcaschool"></span>
+<img src="figures/scatterlfit.png" alt="A linear relation" width="600px" />
 <p class="caption">
 Figure 6.4: A linear relation
 </p>
 </div>
-<p>But the <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(Income\)</span> relation looks</p>
+<p>Indeed, there might be evidence that the relation depicted in Figure <a href="modeling.html#fig:scatterlfitcaschool">6.4</a>—if anything—is linear. But, clearly that is not the case for the relation between test scores and average district income. Namely, the syntax below:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb33-1"><a href="modeling.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">lfit</span> testscr avginc) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
-<p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scatterincome"></span>
-<img src="figures/scatterincome.png" alt="A non-linear relation" width="660" />
+provides the following <code>STATA</code> output.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterincome"></span>
+<img src="figures/scatterincome.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
 Figure 6.5: A non-linear relation
 </p>
 </div>
-<p>Nonlinear regression population regression functions</p>
-<p>If a relation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> is nonlinear:
-- The effect on <span class="math inline">\(Y\)</span> of a change in <span class="math inline">\(X\)</span> depends on the value of <span class="math inline">\(X\)</span>—that is, the <em>marginal</em> effect of <span class="math inline">\(X\)</span> is not constant
-- A linear regression is misspecified
-- The estimator of the effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> is biased—it needn’t even be right on average.
-- The solution to this is to estimate a regression function that is nonlinear in <span class="math inline">\(X\)</span></p>
-<p>Nonlinear functions of a single independent variable</p>
-<p>We look at two complementary approaches:
-- Polynomials in <span class="math inline">\(X\)</span>
-- The effect is approximated by a quadratic, cubic, or higher-degree polynomial
-- Logarithmic transformations
-- <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking its logarithm
-- this gives a percentages interpretation which is often useful</p>
+<p>Figure <a href="modeling.html#fig:scatterincome">6.5</a> shows a non-linear relation, where the effect of income tapers off (note the resemble with Figure <a href="introduction.html#fig:marginalutility">1.1</a>)—or, there is a marginal decreasing effect of average district income on average school test scores. Thus, in affluent neighborhood test scores are higher, but increasingly less so. Of course, you can still try to estimate this with a linear population regression line as in Figure <a href="modeling.html#fig:scatterincome">6.5</a>, but this introduces a <strong>bias</strong>. The estimate does not capture that what you want. Namely, it now holds that <span class="math inline">\(E(u \mid X = x) \neq 0\)</span>, because for small <span class="math inline">\(X\)</span>, say <span class="math inline">\(X&lt;10\)</span>, the residuals are negative, for medium sized <span class="math inline">\(X\)</span>s most residuals are positive and for large <span class="math inline">\(X&gt;40\)</span> all residuals are negative again. So, there is a clear relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> and they fail to be independent. This particular form of bias is coined <strong>specification bias</strong>. There is another issue here and that is that the effect on <span class="math inline">\(Y\)</span> of a change in <span class="math inline">\(X\)</span> depends on the value of <span class="math inline">\(X\)</span>—that is, the <em>marginal</em> effect of <span class="math inline">\(X\)</span> is not constant.</p>
+<p>To remedy the specification bias, we will use nonlinear regression population regression <strong>functions</strong> of <span class="math inline">\(X\)</span>, or we estimate a regression function that is nonlinear in <span class="math inline">\(X\)</span>. Here, it is important to see that we do so by <em>transforming</em> <span class="math inline">\(X\)</span>, so the population regression ‘line’. The estimator still remain a linear regression model.</p>
+<p>We will analyse below two complementary and often adopted approaches:</p>
+<ol style="list-style-type: decimal">
+<li>Using <strong>polynomials</strong> to transform <span class="math inline">\(X\)</span>. That means that the effect is approximated by a quadratic, cubic, or higher-degree polynomial. This approach as well governs to an extent so-called interaction effects which is a special case, where we multiply two different variables.</li>
+<li>Using <strong>logarithmic</strong> transformations of <span class="math inline">\(X\)</span>, where <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking its logarithm. Here, the main focus is on the interpretation of the <span class="math inline">\(\hat{\beta}\)</span>s, as they change from a unit increase interpretation to a percentages interpretation which often can be found useful.</li>
+</ol>
 <div id="polynomials" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Polynomials<a href="modeling.html#polynomials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Approximate the regression function by a polynomial:
-<span class="math display">\[\begin{equation}
+<p>Our first approach to non-linear specification is applying polynomials of the variables that we suspect has a non-linear impact. If that is the independent variable <span class="math inline">\(X\)</span>, the we can construct the following <em>linear regression</em> model by using polynomials:
+<span class="math display" id="eq:poly">\[\begin{equation}
 Y_i = \beta_0 + \beta_1 X_1 + \beta_2 X^2_i + \ldots + \beta_r X_i^r + u_i
-\end{equation}\]</span></p>
-<p>This is just the linear regression model—except that the regressors are powers of <span class="math inline">\(X\)</span>! Estimation, hypothesis testing, etc. proceeds as in the multiple regression model using OLS</p>
-<p>The coefficients are difficult to interpret, but the regression function itself is interpretable</p>
-<p>Example: the <span class="math inline">\(TestScore\)</span>–<span class="math inline">\(Income\)</span> relation</p>
-<p><span class="math inline">\(Income_i\)</span> = average district income in the <span class="math inline">\(i^{\mathrm{th}}\)</span> district (thousands of dollars per capita)
-Quadratic specification:
+\tag{6.2}
+\end{equation}\]</span>
+Note again that this is just the linear regression model—except that the regressors are powers of <span class="math inline">\(X\)</span>! So, in effect we transform the data—actually create new variables <span class="math inline">\(X^r\)</span>—, but the specification in parameters remains linear. Estimation, hypothesis testing, etc. proceeds as in the multiple regression model using OLS. However, the coefficients are now a bit more difficult to interpret. Consider the example of above about the relation between test scores average district income, where <span class="math inline">\(Income_i\)</span> is defined as the average district income in the <span class="math inline">\(i^{\mathrm{th}}\)</span> district (thousands of dollars per capita). For a quadratic specification, we specify the linear regression model as below:
 <span class="math display">\[\begin{equation}
 TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 + u_i
 \end{equation}\]</span>
-Cubic specification:
+For a cubic specification the linear regression model becomes:
 <span class="math display">\[\begin{equation}
 TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 +
 \beta_3 (Income_i)^3 + u_i
 \end{equation}\]</span></p>
-<p>Estimation of the quadratic</p>
+<p>First, we focus on the estimation of the quadratic function. In <code>STATA</code> this would look like:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb34-1"><a href="modeling.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc, <span class="fu">r</span></span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(2, 417)         =     428.52
@@ -733,35 +729,35 @@ c.avginc#c.avginc |  -.0423085   .0047803    -8.85   0.000     -.051705   -.0329
                   |
             _cons |   607.3017   2.901754   209.29   0.000     601.5978    613.0056
 -----------------------------------------------------------------------------------</code></pre>
-<p>Test the null hypothesis of linearity against the alternative that the regression function is a quadratic</p>
-<p>Digression: nonlinearities and plots in stata</p>
-<p>There are four factor-variable operators:</p>
+<p>Now, it is straightforward to test the null-hypothesis of linearity against the alternative that the regression function is a quadratic. Namely, we only have to consider the <span class="math inline">\(t\)</span>-statistic of the quadratic term. And that is larger than 1.96, so against a 5% significance level we reject the null-hypothesis of linearity.</p>
+<p>Note by the way the syntax <code>c.avginc##c.avginc</code> which seems a bit strange. However, this particular line of code is very useful for later tabulation, plotting and other manipulations of the output. In this way <code>STATA</code> knows that there should be a quadratic effect of the same variable (<code>avginc</code>). The syntax <code>c.</code> denotes that the variable should be considered as continuous instead of as an integer (try it and behold the horrible output). There are four useful operators that you want to know when working with polynomials and interaction effect:</p>
 <ul>
-<li><code>i.</code> operator to specify indicators (dummies)</li>
-<li><code>c.</code> operator to treat as continuous</li>
-<li><code>#</code> binary operator to specify interactions</li>
-<li><code>##</code> binary operator to specify factorial interactions</li>
+<li><code>i.</code> operator: this specifies that the following variable is an integers and should be considered on all its level. This actually create indicator or dummies variables</li>
+<li><code>c.</code> operator: this specifies that the following variable is a continuous variables and should be treated as continuous.</li>
+<li><code>#</code> binary operator that specifies an interaction between two variables</li>
+<li><code>##</code> binary operator that specifies both interaction between two variables and the individual variable effect</li>
 </ul>
+<p>Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a pylonomial with a linear dimension. One way of doing this is as follows:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb36-1"><a href="modeling.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> hat1 </span>
 <span id="cb36-2"><a href="modeling.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> (testscr avginc) || (<span class="kw">line</span> hat1 avginc, <span class="kw">sort</span>)</span></code></pre></div>
-<p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scatterqua"></span>
-<img src="figures/scatterqua.png" alt="A non-linear relation" width="660" />
+<p>where after the regression we <strong>predict</strong> the test scores (and name it something like <code>hat1</code>) and then we ask for a line of the prediction for each value of average district income. Note, though, that we have to <code>sort</code> the prediction from small to large to get a smooth line. And this provides the nice curved population regression line in the following <code>STATA</code> output.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterqua"></span>
+<img src="figures/scatterqua.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
 Figure 6.6: A non-linear relation
 </p>
 </div>
-<p>Compute “effects” for different values of <span class="math inline">\(X\)</span>
+<p>But what is now the marginal effect of average district income. That, now, depends on itself. Namely, <span class="math inline">\(\frac{\partial \text{testscore}}{\partial \text{income}} = \beta_1 + \beta_2 \text{income}\)</span>. Another way of seeing this is to compute the effects for different values of <span class="math inline">\(X\)</span>
 <span class="math display">\[\begin{equation}
 \widehat{TestScore_i} = 607.3 + 3.85 Income_i - 0.0423(Income_i)^2
 \end{equation}\]</span>
-Predicted change in TestScore for a change in income from $5,000 per capita to $6,000 per capita:
+The predicted change in test scores for a change in income from $5,000 per capita to $6,000 per capita then amounts to:
 <span class="math display">\[\begin{eqnarray}
 \Delta \widehat{TestScore} &amp;=&amp; 607.3 + 3.85 \times 6 -  0.0423 \times 6^2 \\
 &amp;&amp; - (607.3 + 3.85\times 5 - 0.0423\times 5^2)\\
 &amp;=&amp;3.4
 \end{eqnarray}\]</span></p>
-<p>Predicted “effects” for different values of <span class="math inline">\(X\)</span>:}</p>
+<p>And if calculate the predicted effects for different values of <span class="math inline">\(X\)</span>, then we get the following table:</p>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:effectqua">Table 6.1: </span>Effect of <span class="math inline">\(X\)</span>
@@ -803,9 +799,8 @@ from 45 to 46
 </tr>
 </tbody>
 </table>
-<p>The “effect” of a change in income is greater at low than high income levels (perhaps, a declining marginal benefit of an increase in school budgets?)</p>
-<p>Caution! What is the effect of a change from 65 to 66? Don’t extrapolate outside the range of the data!</p>
-<p>Estimation of a cubic</p>
+<p>Thus, the effect of a change in income is greater at low than high income levels (perhaps, a declining marginal benefit of an increase in school budgets?). But, be careful here! What is the effect of a change from 65 to 66? That is quite negative and already Figure <a href="modeling.html#fig:scatterqua">6.6</a> shows that a quadratic specification start to decline again the value of about 50; and perhaps that is not the behaviour that you want. So, with polynomials it is essential not to extrapolate outside the range of the data (and still interpret the outcome).</p>
+<p>The estimation of a cubic specification is straightforward:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb37-1"><a href="modeling.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc##c.avginc, <span class="fu">r</span></span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(3, 416)         =     270.18
@@ -825,13 +820,12 @@ c.avginc#c.avginc#c.avginc |   .0006855   .0003471     1.98   0.049     3.26e-06
                            |
                      _cons |    600.079   5.102062   117.61   0.000     590.0499     610.108
 --------------------------------------------------------------------------------------------</code></pre>
-<p>Testing the null hypothesis of linearity</p>
-<p>Alternative hypothesis: the population regression is quadratic and/or cubic, that is, it is a polynomial of degree up to 3:</p>
+<p>Where if we now want to test the null- hypothesis of linearity, then we have to have invoke an <span class="math inline">\(F\)</span>-test. Namely, the alternative hypothesis is that the population regression is quadratic and/or cubic, that is, it is a polynomial of degree up to 3, so:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: Coefficients on <span class="math inline">\(Income^2\)</span> and <span class="math inline">\(Income^3 = 0\)</span></li>
 <li><span class="math inline">\(H_1\)</span>: at least one of these coefficients is nonzero.</li>
 </ul>
-<p>The hypothesis that the population regression is linear is rejected at the 1% significance level against the alternative that it is a polynomial of degree up to 3.</p>
+<p>And the outcome below shows that the null-hypothesis that the population regression is linear is rejected at the 5% (and 1%) significance level against the alternative that it is a polynomial of degree up to 3.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb39-1"><a href="modeling.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> avginc#avginc avginc#avginc#avginc  </span></code></pre></div>
 <pre><code> ( 1)  c.avginc#c.avginc = 0
  ( 2)  c.avginc#c.avginc#c.avginc = 0
@@ -841,169 +835,168 @@ c.avginc#c.avginc#c.avginc |   .0006855   .0003471     1.98   0.049     3.26e-06
 </div>
 <div id="interaction-variables" class="section level3 hasAnchor" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> Interaction variables<a href="modeling.html#interaction-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Interactions between independent variables</p>
-<p>Perhaps a class size reduction is more effective in some
-circumstances than in others</p>
-<p>Perhaps smaller classes help more if there are many English
-learners, who need individual attention</p>
-<p>That is, <span class="math inline">\(\frac{\partial TestScore}{\partial STR}\)</span> might on <span class="math inline">\(PctEL\)</span></p>
-<p>More generally, <span class="math inline">\(\frac{\partial Y}{\partial X_1}\)</span> might on <span class="math inline">\(X_2\)</span></p>
+<p>Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself <span class="math inline">\(X\times X = X^2\)</span>, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, <span class="math inline">\(\frac{\partial TestScore}{\partial STR}\)</span> might on <span class="math inline">\(PctEL\)</span>. More generally, this subsection looks into the fact that the marginal effect of <span class="math inline">\(\frac{\partial Y}{\partial X_1}\)</span> might on some other variable <span class="math inline">\(X_2\)</span>.</p>
 <div id="interactions-between-two-binary-variables" class="section level4 hasAnchor" number="6.3.2.1">
 <h4><span class="header-section-number">6.3.2.1</span> Interactions between two binary variables<a href="modeling.html#interactions-between-two-binary-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} +u_i
-\end{equation}\]</span></p>
-<p><span class="math inline">\(D_{1i}\)</span> and $ D_{2i}$ are binary</p>
-<p><span class="math inline">\(\beta_1\)</span> is the effect of changing <span class="math inline">\(D_1=0\)</span> to <span class="math inline">\(D_1=1\)</span>. In this specification, this effect doesn’t depend on the value of <span class="math inline">\(D_2\)</span>.</p>
-<p>To allow the effect of changing <span class="math inline">\(D_1\)</span> to depend on <span class="math inline">\(D_2\)</span>, include the interaction term <span class="math inline">\(D_{1i} \times D_{2i}\)</span> as a regressor:\</p>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
-D_{2i}) + u_i
-\end{equation}\]</span></p>
-<p>Interpreting the coefficients</p>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times
-D_{2i}) + u_i
+<p>First, we look into the simplest (and perhaps most insightful) case of two binary (dummy variables). Consider therefore the following linear regression model:
+<span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} +u_i,
 \end{equation}\]</span>
-General rule: compare the various cases:</p>
-<p><span class="math display">\[\begin{eqnarray}
+where both <span class="math inline">\(D_{1i}\)</span> and $ D_{2i}$ are now considered to be binary. Now, of course, <span class="math inline">\(\beta_1\)</span> is the effect of changing <span class="math inline">\(D_1=0\)</span> to <span class="math inline">\(D_1=1\)</span>. So, in this specification, this effect doesn’t depend on the value of <span class="math inline">\(D_2\)</span>. To allow the effect of changing <span class="math inline">\(D_1\)</span> to depend on <span class="math inline">\(D_2\)</span>, we have to include the interaction term <span class="math inline">\(D_{1i} \times D_{2i}\)</span> as a regressor:
+<span class="math display">\[\begin{equation}
+Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times D_{2i}) + u_i
+\end{equation}\]</span></p>
+<p>To interpret now the coefficient <span class="math inline">\(\beta_1\)</span> we comparing the two cases for <span class="math inline">\(D_1=0\)</span> to <span class="math inline">\(D_1=1\)</span>”
+<span class="math display">\[\begin{eqnarray}
 E(Y_i|D_{1i}=0, D_{2i}=d_2) &amp;=&amp; \beta_0 + \beta_2 d_2 \\
 E(Y_i|D_{1i}=1, D_{2i}=d_2) &amp;=&amp; \beta_0 + \beta_1 + \beta_2 d_2 + \beta_3 d_2
-\end{eqnarray}\]</span></p>
-<p>subtract from each other:
+\end{eqnarray}\]</span>
+If we now subtract them from each other:
 <span class="math display">\[\begin{equation}
-E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 +
-\beta_3 d_2
-\end{equation}\]</span></p>
-<p>The effect of <span class="math inline">\(D_1\)</span> depends on <span class="math inline">\(d_2\)</span></p>
-<p><span class="math inline">\(\beta_3\)</span> = increment to the effect of <span class="math inline">\(D_1\)</span>, when <span class="math inline">\(D_2 = 1\)</span>\</p>
-<p>Example: <span class="math inline">\(TestScore\)</span>, <span class="math inline">\(STR\)</span>, English learners</p>
-<p>Let:
+E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 + \beta_3 d_2
+\end{equation}\]</span>
+then we have the marginal effect of <span class="math inline">\(D_1\)</span> which now depend <span class="math inline">\(d_2\)</span>. The interpretation of <span class="math inline">\(\beta_3\)</span> boils down to being incremental to the effect of <span class="math inline">\(D_1\)</span>, when <span class="math inline">\(D_2 = 1\)</span></p>
+<p>Let us go back to our Californian school district example with the following variables to be used: test scores, student teacher ratio, and English learners. Let:
 <span class="math display">\[\begin{eqnarray}
 HiSTR &amp;=&amp; 1 \text{ if } STR \geq 20 \text{ and } HiEL = 1 \text{ if }
 PctEL \geq 10 \\
 HiSTR &amp;=&amp; 0 \text{ if } STR &lt; 20 \text{ and } HiEL = 0 \text{ if }
 PctEL &lt; 10 \\
 \end{eqnarray}\]</span>
+And if we have the estimation results we get the following outcome.
 <span class="math display">\[\begin{equation}
 \widehat{TestScore} = 664.1 - 18.2 HiEL - 1.9 HiSTR - 3.5(HiSTR \times
 HiEL)
-\end{equation}\]</span></p>
-<p>“Effect” of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 0\)</span> is <span class="math inline">\(-1.9\)</span></p>
-<p>“Effect” of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 1\)</span> is <span class="math inline">\(-1.9 - 3.5 = -5.4\)</span></p>
-<p>Class size reduction is estimated to have a bigger effect when the percent of English learners is large</p>
-<p>This interaction isn’t statistically significant: <span class="math inline">\(t = 3.5/3.1\)</span></p>
+\end{equation}\]</span>
+So, how to interpret the various parameters? Perhaps the simple way is to construct the following two-by-two table:</p>
+<table>
+<caption>
+<span id="tab:intdummies">Table 6.2: </span>Interpretation of interaction effects with dummies
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(HiEL = 0\)</span>
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(HiEL = 1\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(HiSTR = 0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(664.1\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(664.1 - 18.2 = 645.9\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(HiSTR = 1\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(664.1 - 1.9 = 662.2\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(664.1 - 1.9 - 18.2 - 3.5= 640.5\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now, Table <a href="modeling.html#tab:intdummies">6.2</a> specifies for each combination (and there are exactly four of them) of <span class="math inline">\(HiSTR\)</span> and <span class="math inline">\(HiEL\)</span> the average expected test score outcome. Clearly, there are different ‘marginal’ effect of <span class="math inline">\(HiSTR\)</span>. Namely, the effect of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 0\)</span> is <span class="math inline">\(-1.9\)</span>, whilst the effect of <span class="math inline">\(HiSTR\)</span> when <span class="math inline">\(HiEL = 1\)</span> is <span class="math inline">\(-1.9 - 3.5 = -5.4\)</span>. This clearly points out that a class size reduction is estimated to have a bigger effect when the percent of English learners is large. However, when you estimate in <code>STATA</code> then you see that this interaction is not statistically significant, because the <span class="math inline">\(t\)</span>-statistic equals <span class="math inline">\(3.5/3.1 = 1.1\)</span></p>
 </div>
 <div id="interactions-between-continuous-and-binary-variables" class="section level4 hasAnchor" number="6.3.2.2">
 <h4><span class="header-section-number">6.3.2.2</span> Interactions between continuous and binary variables<a href="modeling.html#interactions-between-continuous-and-binary-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i +u_i
-\end{equation}\]</span></p>
-<p><span class="math inline">\(D_i\)</span> is binary, <span class="math inline">\(X\)</span> is continuous</p>
-<p>As specified above, the effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> (holding constant <span class="math inline">\(D\)</span>) = <span class="math inline">\(\beta_2\)</span>, which does not depend on <span class="math inline">\(D\)</span></p>
-<p>To allow the effect of <span class="math inline">\(X\)</span> to depend on <span class="math inline">\(D\)</span>, include the interaction term <span class="math inline">\(D_i \times X_i\)</span> as a regressor:</p>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
-\end{equation}\]</span></p>
-<p>Binary-continuous interactions: the two regression lines
+<p>The second case we consider is between a continuous and a binary variable. First assume the following regression model:
 <span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
+Y_i =\beta_0 + \beta_1 X_i + \beta_2 D_i + +u_i,
 \end{equation}\]</span>
-Observations with <span class="math inline">\(D_i= 0\)</span> (the <span class="math inline">\(D = 0\)</span> group or the <span class="math inline">\(D=0\)</span> regression line):
+where <span class="math inline">\(D_i\)</span> is a binary variable and <span class="math inline">\(X\)</span> is a continuous variable. As specified above, the effect on <span class="math inline">\(Y\)</span> of <span class="math inline">\(X\)</span> (holding <span class="math inline">\(D\)</span> constant) = <span class="math inline">\(\beta_1\)</span>, which does not depend on <span class="math inline">\(D\)</span>. To allow the effect of <span class="math inline">\(X\)</span> to depend on <span class="math inline">\(D\)</span>, we can include the interaction term <span class="math inline">\(D_i \times X_i\)</span> as a regressor:
 <span class="math display">\[\begin{equation}
-Y_i = \beta_0 + \beta_2 X_i  + u_i
+Y_i =\beta_0 + \beta_1 X_i + \beta_2 D_i  + \beta_3 (D_i \times X_i) + u_i
+\end{equation}\]</span></p>
+<p>What this binary-continuous interaction does is essential create two different population regression lines. Namely, for observations with <span class="math inline">\(D_i= 0\)</span> (the <span class="math inline">\(D = 0\)</span> group or the <span class="math inline">\(D=0\)</span> regression line) there is:
+<span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i  + u_i,
 \end{equation}\]</span>
-Observations with <span class="math inline">\(D_i= 1\)</span> (the <span class="math inline">\(D = 1\)</span> group or the <span class="math inline">\(D = 1\)</span> regression line):
+Whilst for observations with <span class="math inline">\(D_i= 1\)</span> (the <span class="math inline">\(D = 1\)</span> group or the <span class="math inline">\(D = 1\)</span> regression line) the regression line comes down to:
 <span class="math display">\[\begin{eqnarray}
-Y_i &amp;=&amp;   \beta_0 + \beta_1 + \beta_2 X_i + \beta_3 X_i + u_i \\
-            &amp;=&amp;  (\beta_0 + \beta_1) + (\beta_2 + \beta_3) X_i + u_i
+Y_i &amp;=&amp;   \beta_0 + \beta_2 + \beta_1 X_i + \beta_3 X_i + u_i \\
+            &amp;=&amp;  (\beta_0 + \beta_2) + (\beta_1 + \beta_3) X_i + u_i
 \end{eqnarray}\]</span></p>
-<p>Binary-continuous interactions, ctd.</p>
-<div class="figure"><span style="display:block;" id="fig:interaction"></span>
-<img src="figures/Sheet44.jpg" alt="A non-linear relation"  />
+And these two population regression lines might both differ in the level (the constant) and in the slope of the line. So, there are three possibilities as depicted in Figure <a href="modeling.html#fig:interaction">6.7</a>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:interaction"></span>
+<img src="figures/Sheet44.jpg" alt="Three possible binary-continuous interaction outcomes" width="600px" />
 <p class="caption">
-Figure 6.7: A non-linear relation
+Figure 6.7: Three possible binary-continuous interaction outcomes
 </p>
 </div>
-<p>Interpreting the coefficients</p>
-<p><span class="math display">\[\begin{equation}
-Y_i =\beta_0 +\beta_1 D_i + \beta_2 X_i + \beta_3 (D_i \times X_i) + u_i
-\end{equation}\]</span></p>
-<p>General rule: take the marginal effect of
+<p>In the first panel (a), <span class="math inline">\(\beta_3 = 0\)</span>, so there is only a level effect. In the second panel (b), both <span class="math inline">\(\beta_2\)</span> and <span class="math inline">\(\beta_3\)</span> are not 0, so there is both a level and a slope effect. The last panel indicates that <span class="math inline">\(\beta_2 = 0\)</span>, meaning that there is only a slope effect. But how to interpreting the coefficients now? Therefore, we take the marginal effect of
 <span class="math display">\[\begin{equation}
-Y =\beta_0 +\beta_1 D + \beta_2 X + \beta_3 (D \times X)
+Y =\beta_0  + \beta_1 X  +\beta_2 D+ \beta_3 (D \times X)
 \end{equation}\]</span>
+which yields:
 <span class="math display">\[\begin{equation}
-\frac{\partial Y}{\partial X} = \beta_2 + \beta_3 D
+\frac{\partial Y}{\partial X} = \beta_1 + \beta_3 D
 \end{equation}\]</span>
-The effect of <span class="math inline">\(X\)</span> depends on <span class="math inline">\(D\)</span></p>
-<p><span class="math inline">\(\beta_3=\)</span> increment to the effect of <span class="math inline">\(X\)</span>, when <span class="math inline">\(D = 1\)</span></p>
-<p>Example: <span class="math inline">\(TestScore\)</span>, <span class="math inline">\(STR\)</span>, <span class="math inline">\(HiEL\)</span></p>
-<p><span class="math display">\[\begin{equation}
+Thus, the effect of <span class="math inline">\(X\)</span> depends on <span class="math inline">\(D\)</span> and <span class="math inline">\(\beta_3\)</span> is the increment to the effect of <span class="math inline">\(X\)</span>, when <span class="math inline">\(D = 1\)</span> (a slope effect)</p>
+<p>To see this in our Californian school district example we now use the variables test scores, student teacher ratio and the as previously defined dummy variable <span class="math inline">\(HiEL\)</span> as:
+<span class="math display">\[\begin{equation}
 \widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL)
-\end{equation}\]</span></p>
-<p>When <span class="math inline">\(HiEL = 0\)</span>:\</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}\]</span>
+Now when <span class="math inline">\(HiEL = 0\)</span> the population regression line amounts to:
+<span class="math display">\[\begin{equation}
 \widehat{TestScore} = 682.2 - 0.97 STR
-\end{equation}\]</span></p>
-<p>When <span class="math inline">\(HiEL = 1\)</span>:</p>
-<p><span class="math display">\[\begin{eqnarray}
+\end{equation}\]</span>
+And when <span class="math inline">\(HiEL = 1\)</span> the population regression line is:
+<span class="math display">\[\begin{eqnarray}
 \widehat{TestScore} &amp;=&amp; 682.2 - 0.97 STR + 5.6 - 1.28 STR \\
 &amp;=&amp; 687.8 - 2.25 STR
-\end{eqnarray}\]</span></p>
-<p>Two regression lines: one for each <span class="math inline">\(HiSTR\)</span> group.</p>
-<p>Class size reduction is estimated to have a larger effect when the percent of English learners is large.</p>
-<p>Example, ctd: Testing hypotheses</p>
-<p><span class="math display">\[\begin{equation}
-\widehat{TestScore} = 682.2 - 0.97 STR + 5.6 HiEL - 1.28(STR \times HiEL)
-\end{equation}\]</span></p>
-<p>The two regression lines have the same slope—the coefficient on <span class="math inline">\(STR \times HiEL\)</span> is zero: <span class="math inline">\(t = -1.28/0.97 = -1.32\)</span></p>
-<p>The two regression lines have the same intercept—the coefficient on <span class="math inline">\(HiEL\)</span> is zero: <span class="math inline">\(t = -5.6/19.5 = 0.29\)</span></p>
-<p>The two regression lines are the same—population coefficient on <span class="math inline">\(HiEL = 0\)</span> and population coefficient on <span class="math inline">\(STR \times HiEL = 0\)</span>: <span class="math inline">\(F = 89.94 (p-value &lt; .001)\)</span>
-We reject the joint hypothesis but neither individual hypothesis (how can this be?)</p>
+\end{eqnarray}\]</span>
+Thus we have two regression lines: one for each <span class="math inline">\(HiSTR\)</span> group. And the conclusion is that a class size reduction is estimated to have a larger effect when the percent of English learners (migrant communities) is large.</p>
+<p>Hypothesis testing is a before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of <span class="math inline">\(STR \times HiEL\)</span> being zero: the <span class="math inline">\(t\)</span>-statistic of this one become <span class="math inline">\(-1.28/0.97 = -1.32\)</span> and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of <span class="math inline">\(HiEL\)</span> being zero, yielding: <span class="math inline">\(t = -5.6/19.5 = 0.29\)</span>, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same—population coefficient on <span class="math inline">\(HiEL = 0\)</span> and population coefficient on yields <span class="math inline">\(STR \times HiEL = 0\)</span>: <span class="math inline">\(F = 89.94 (p-value &lt; .001)\)</span>. So, we reject the joint hypothesis but neither individual hypothesis.</p>
 </div>
 <div id="interactions-between-two-continuous-variables" class="section level4 hasAnchor" number="6.3.2.3">
-<h4><span class="header-section-number">6.3.2.3</span> Interactions between two continuous variables}<a href="modeling.html#interactions-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are continuous</p>
-<p>As specified, the effect of <span class="math inline">\(X_1\)</span> doesn’t depend on <span class="math inline">\(X_2\)</span></p>
-<p>As specified, the effect of <span class="math inline">\(X_2\)</span> doesn’t depend on <span class="math inline">\(X_1\)</span></p>
-<p>To allow the effect of <span class="math inline">\(X_1\)</span> to depend on <span class="math inline">\(X_2\)</span>, include the “interaction term” <span class="math inline">\(X_{1i} \times X_{2i}\)</span> as a regressor:</p>
-<p>Interpreting the coefficients:</p>
-<p><span class="math display">\[\begin{equation}
+<h4><span class="header-section-number">6.3.2.3</span> Interactions between two continuous variables<a href="modeling.html#interactions-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:
+<p>where both <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are continuous and as specified, the effect of <span class="math inline">\(X_1\)</span> doesn’t depend on <span class="math inline">\(X_2\)</span> and the effect of <span class="math inline">\(X_2\)</span> doesn’t depend on <span class="math inline">\(X_1\)</span>. Now, to allow the effect of <span class="math inline">\(X_1\)</span> to depend on <span class="math inline">\(X_2\)</span>, we include the interaction term <span class="math inline">\(X_{1i} \times X_{2i}\)</span> as a regressor. Where, to interpret the coefficients, we take the first derivative of <span class="math inline">\(X_1\)</span> in:
+<span class="math display">\[\begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 (X_{1i}
 \times X_{2i}) + u_i
-\end{equation}\]</span></p>
-<p>General rule: compare the various cases</p>
-<p>Now change <span class="math inline">\(X_1\)</span>:</p>
-<p>subtract from each other</p>
-<p>The effect of <span class="math inline">\(X_1\)</span> depends on <span class="math inline">\(X_2\)</span> (what we wanted)</p>
-<p><span class="math inline">\(\beta_3\)</span> = increment to the effect of <span class="math inline">\(X_1\)</span> from a unit change in <span class="math inline">\(X_2\)</span></p>
+\end{equation}\]</span>
+which yields:
+<span class="math display">\[\begin{equation}
+\frac{\partial Y}{\partial X} = \beta_1 + \beta_3 X_2
+\end{equation}\]</span>
+where <span class="math inline">\(\beta_3\)</span> should be interpreted as the increment to the effect of <span class="math inline">\(X_1\)</span> from a unit change in <span class="math inline">\(X_2\)</span>.</p>
 </div>
 </div>
 <div id="logarithmic-transformation" class="section level3 hasAnchor" number="6.3.3">
 <h3><span class="header-section-number">6.3.3</span> Logarithmic transformation<a href="modeling.html#logarithmic-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Logarithmic functions of <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span></p>
-<p><span class="math inline">\(\ln(X) =\)</span> the natural logarithm of <span class="math inline">\(X\)</span>
-Logarithmics permit modeling relations in percentage terms (like elasticities), rather than linearly.</p>
-<p>Here’s why:</p>
-<p><span class="math display">\[\begin{equation}
+<p>To incorporate non-linear effect, very often logarithmic transformations are used of <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span>, where typically we use <span class="math inline">\(\ln(X)\)</span> as the natural logarithm of <span class="math inline">\(X\)</span>. One feature of logarithmic transformations is that they permit modeling relations in percentage terms (like elasticities), rather than linearly. That is because:
+<span class="math display">\[\begin{equation}
 \ln(x+\Delta x) - \ln(x) = \ln (1 + \frac{\Delta x}{x}) \cong \frac{\Delta x}{x}
 \end{equation}\]</span>
-(calculus: <span class="math inline">\(\frac{d \ln(x)}{dx}=\frac{1}{x})\)</span>
-Numerically: <span class="math inline">\(\ln(1.01) = .00995 \cong .01\)</span>;
-- <span class="math inline">\(\ln(1.10) = .0953 \cong .10\)</span> (sort of)</p>
-<p>Rules for natural logarithms
+Note that this is an approximation, but from calculus we know that <span class="math inline">\(\frac{d \ln(x)}{dx}=\frac{1}{x})\)</span>. And the above approximation works quite well for small numbers. For example, numerically: <span class="math inline">\(\ln(1.01) = .00995 \cong .01\)</span> and <span class="math inline">\(\ln(1.10) = .0953 \cong .10\)</span>, where the latter is still rather close. Now remember the following rules for natural logarithms
 1. <span class="math inline">\(\ln(a\times b)= \ln(a)+\ln(b)\)</span>
 2. <span class="math inline">\(\ln(\frac{a}{b}) =\ln(a) - \ln(b)\)</span>
-3. <span class="math inline">\(\ln(a^\alpha) = \alpha \ln(a)\)</span></p>
-<p>If nonlinear models: try log-linearizing!</p>
-<p><span class="math display">\[\begin{equation}
-Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\alpha) \ln(L)
+3. <span class="math inline">\(\ln(a^\alpha) = \alpha \ln(a)\)</span>
+4. <span class="math inline">\(\ln(e^X) = X\)</span>.</p>
+<p>When you encounter a nonlinear model such as the ones adopted in Chapter <a href="surplus.html#surplus">2</a> a strategy that often works is log-linearization. That works as follows
+<span class="math display">\[\begin{equation}
+Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\alpha) \ln(L),
 \end{equation}\]</span>
-Note: similar operations to LHS and RHS!</p>
+where you take the natural logarithm on both sides. There are three different cases of logarithmic regression models as specified in Table <a href="#tab:logspecification"><strong>??</strong></a>.</p>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:logspecifications">Table 6.2: </span>Three logarithmic transformation
+<span id="tab:logspecifications">Table 6.3: </span>Three logarithmic transformation
 </caption>
 <thead>
 <tr>
@@ -1042,66 +1035,67 @@ log-log
 </tr>
 </tbody>
 </table>
-<p>The interpretation of the slope coefficient differs in each case.
-The interpretation is finding the marginal effect of X using the first derivative</p>
+<p>Though statistical testing remains the same, the interpretation of the slope coefficient differs in each case. To derive the interpretationwe want to find the marginal effect of <span class="math inline">\(X\)</span> using the first derivative.</p>
 <div id="linear-log-population-regression-model" class="section level4 hasAnchor" number="6.3.3.1">
 <h4><span class="header-section-number">6.3.3.1</span> Linear-log population regression model<a href="modeling.html#linear-log-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The linear-log population regression model is specified as:</p>
-<p><span class="math display">\[\begin{equation}
+<p>The linear-log population regression model is specified as:
+<span class="math display">\[\begin{equation}
     Y = \beta_0 + \beta_1 \ln(X)
-\end{equation}\]</span></p>
-<p>Now take first derivative:</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}\]</span>
+Now take the first derivative:
+<span class="math display">\[\begin{equation}
     \frac{\partial Y}{\partial X} = \frac{\beta_1}{X}
 \end{equation}\]</span>
 so
 <span class="math display">\[\begin{equation}
     \beta_1  = \frac{\partial Y}{\partial X / X}
-\end{equation}\]</span></p>
-<p>Example: TestScore vs. ln(Income)</p>
-<p>First defining the new regressor, <span class="math inline">\(\ln(Income)\)</span></p>
-<p>The model is now linear in <span class="math inline">\(\ln(Income)\)</span>, so the linear-log model can be estimated by OLS:
+\end{equation}\]</span>
+In this case that means that <span class="math inline">\(\beta_1\)</span> should be interpreted as the absolute change of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X\)</span> changes with <span class="math inline">\(\beta_1/100\)</span> percent. To illustrate this, consider the case where we take natural logarithm od district income, so we define the new regressor as, <span class="math inline">\(\ln(Income)\)</span></p>
+<p>The model is now linear in <span class="math inline">\(\ln(Income)\)</span>, so the linear-log model can be estimated by OLS, which yields
 <span class="math display">\[\begin{equation}
         \widehat{TestScore} = 557.8 + 36.42\times \ln(Income_i)
 \end{equation}\]</span>
-so a 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase in TestScore of 0.36 points on the test.
-Standard errors, confidence intervals, <span class="math inline">\(R^2\)</span>—all the usual tools of regression apply here.</p>
+so an 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase in test scores of 0.36 points on the test. And again, standard errors, confidence intervals, <span class="math inline">\(R^2\)</span>—all the usual tools of regression apply here. But the difficulty in plottin the new regression line remains. Consider the following <code>STATA</code> syntax, where we first have to define the new regressor by invoking the <code>generate</code> command.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb41-1"><a href="modeling.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
 <span id="cb41-2"><a href="modeling.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr lninc, <span class="fu">r</span></span>
 <span id="cb41-3"><a href="modeling.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat</span>
 <span id="cb41-4"><a href="modeling.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
-<p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scatterlnincome"></span>
-<img src="figures/scatterlnincome.png" alt="A non-linear relation" width="660" />
+This now provides the following <code>STATA</code> output.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterlnincome"></span>
+<img src="figures/scatterlnincome.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
 Figure 6.8: A non-linear relation
 </p>
 </div>
+<p>When you compare <a href="modeling.html#fig:scatterlnincome">6.8</a> with <a href="modeling.html#fig:scatterqua">6.6</a> then you notice that in the case of logarithm the population remains increasing (but less and less steep). This can be considered as an advantage when you want to estimate decreasing (or increasing) return.</p>
 </div>
 <div id="log-linear-population-regression-model" class="section level4 hasAnchor" number="6.3.3.2">
 <h4><span class="header-section-number">6.3.3.2</span> Log-linear population regression model<a href="modeling.html#log-linear-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[\begin{equation}
+<p>The second case we consider is the log-linear population regression model, as specified by:
+<span class="math display">\[\begin{equation}
     \ln(Y) = \beta_0 + \beta_1 X
-\end{equation}\]</span></p>
-<p>Now take first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>:
+\end{equation}\]</span>
+To find the interpretation of <span class="math inline">\(\beta1_1\)</span>, we again take the first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>, but first transform the model like this:
 <span class="math display">\[\begin{equation}
     Y = exp( \beta_0 + \beta_1 X )
 \end{equation}\]</span>
-So
+then take the first derivative:
 <span class="math display">\[\begin{equation}
     \frac{\partial Y}{\partial X} = \beta_1  exp( \beta_0 + \beta_1 X ) = \beta_1 Y
 \end{equation}\]</span>
-Thus
+and collec terms
 <span class="math display">\[\begin{equation}
     \beta_1  = \frac{\partial Y / Y}{\partial X }
 \end{equation}\]</span></p>
+<p>The interpretation of <span class="math inline">\(\beta_1\)</span> now is that one unit change in <span class="math inline">\(X\)</span> causes a <span class="math inline">\(\beta_1\)</span> percentage in <span class="math inline">\(Y\)</span></p>
 </div>
 <div id="log-log-population-regression-model" class="section level4 hasAnchor" number="6.3.3.3">
 <h4><span class="header-section-number">6.3.3.3</span> Log-log population regression model<a href="modeling.html#log-log-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[\begin{equation}
+<p>Finally, we have our third case, being the log-log population regression model as specified by:
+<span class="math display">\[\begin{equation}
     \ln(Y) = \beta_0 + \beta_1 \ln(X)
 \end{equation}\]</span></p>
-<p>Now take first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>:
+<p>To find the interpretation of <span class="math inline">\(\beta1_1\)</span>, we again take the first derivative <span class="math inline">\(\frac{\partial Y}{\partial X}\)</span>, but first transform the model like this:
 <span class="math display">\[\begin{equation}
     Y = exp( \beta_0 + \beta_1 \ln(X) )
 \end{equation}\]</span>
@@ -1109,19 +1103,17 @@ So
 <span class="math display">\[\begin{equation}
     \frac{\partial Y}{\partial X} = \beta_1 /X  exp( \beta_0 + \beta_1 \ln(X) ) = \beta_1 Y /X
 \end{equation}\]</span>
-Thus an <strong>elasticity</strong>
+and after collecting terms we end up with an <strong>elasticity</strong>:
 <span class="math display">\[\begin{equation}
     \beta_1  = \frac{\partial Y / Y}{\partial X / X }
 \end{equation}\]</span></p>
-<p>Example: ln( TestScore) vs. ln(Income)</p>
-<p>First define a new dependent variable, ln(TestScore), and the new regressor, ln(Income)
-The model is now a linear regression of ln(TestScore) against ln(Income), which can be estimated by OLS:
+<p>As an example consider the case when we want to regress ln(test scores) on ln(income). To do so, we first define a new dependent variable, ln(TestScore), and a new regressor, ln(Income)
+The model is now a linear regression of ln(TestScore) against ln(Income), which can be estimated by OLS as follows
 <span class="math display">\[\begin{equation}
-\widehat{ln(TestScore)} = 6.336 + 0.0554 \times ln(Income_i)
-\end{equation}\]</span></p>
-<ul>
-<li>An 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase of .0554% in <span class="math inline">\(TestScore\)</span> (<span class="math inline">\(Income\)</span> up by a factor of 1.01, <span class="math inline">\(TestScore\)</span> up by a factor of 1.000554)</li>
-</ul>
+\widehat{ln(TestScore)} = 6.336 + 0.0554 \times ln(Income_i),
+\end{equation}\]</span>
+where the interpretation is that an 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase of .0554% in <span class="math inline">\(TestScore\)</span> (<span class="math inline">\(Income\)</span> up by a factor of 1.01, <span class="math inline">\(TestScore\)</span> up by a factor of 1.000554)</p>
+<p>Suppose that we now want to plot both the log-linear and the log-log specification, then we can use the following syntax:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb42-1"><a href="modeling.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
 <span id="cb42-2"><a href="modeling.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lntestscr = <span class="fu">ln</span>(testscr)</span>
 <span id="cb42-3"><a href="modeling.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr lninc, <span class="fu">r</span></span>
@@ -1129,24 +1121,66 @@ The model is now a linear regression of ln(TestScore) against ln(Income), which 
 <span id="cb42-5"><a href="modeling.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr avginc, <span class="fu">r</span></span>
 <span id="cb42-6"><a href="modeling.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat2</span>
 <span id="cb42-7"><a href="modeling.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat1 avginc, <span class="kw">sort</span>) (<span class="kw">line</span> testhat2 avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> lntestscr avginc), <span class="bn">legend</span>(<span class="kw">order</span>(1 <span class="st">&quot;log-log specification&quot;</span> 2 <span class="st">&quot;log-linear specification&quot;</span> 3 <span class="st">&quot;Observations&quot;</span>)) </span></code></pre></div>
-<p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scattercompare"></span>
-<img src="figures/scattercompare.png" alt="A non-linear relation" width="660" />
+<p>which provides the following <code>STATA</code> output.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scattercompare"></span>
+<img src="figures/scattercompare.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
 Figure 6.9: A non-linear relation
 </p>
 </div>
-<p>Summary: Logarithmic transformations</p>
-<p>Three cases, differing in whether <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking logarithms.
-- The regression is linear in the new variable(s) <span class="math inline">\(\ln(Y)\)</span> and/or <span class="math inline">\(\ln(X)\)</span>, and the coefficients can be estimated by OLS.
-- Hypothesis tests and confidence intervals are now implemented and interpreted “as usual”.
-- The interpretation of <span class="math inline">\(\beta_1\)</span> differs from case to case.
-- Choice of specification should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values</p>
+<p>Note that the <span class="math inline">\(y\)</span>-axis is on a logarithmic scale here, thus the log-linear specification is now a linear line.</p>
+</div>
+<div id="summary-logarithmic-transformations" class="section level4 hasAnchor" number="6.3.3.4">
+<h4><span class="header-section-number">6.3.3.4</span> Summary: logarithmic transformations<a href="modeling.html#summary-logarithmic-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We have seen three different cases of logarithmic specification, differing in whether <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(X\)</span> is transformed by taking logarithms. Now, the regression is linear in the new variable(s) <span class="math inline">\(\ln(Y)\)</span> and/or <span class="math inline">\(\ln(X)\)</span>, and the coefficients can be estimated by OLS where hypothesis tests and confidence intervals are now implemented and interpreted ‘as usual’. Only the interpretation of the coefficients differs from case to case and is directly related to percentage changes (growth) and elasticities. Oftentimes, the choice of specification, however, should be guided by judgment (which interpretation makes the most sense in your application?), tests, and plotting predicted values. Sometimes, though, you have a structural economic model such as Equation <a href="surplus.html#eq:directutility">(2.3)</a>, which defines the type of specification you should use. Finally, see that in economics many models exists with decreasing or increasing return to scale and that these are very closely related with logarithmic specifications.</p>
 </div>
 </div>
 </div>
 <div id="sec:fixedeffects" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Using fixed effects in panel data<a href="modeling.html#sec:fixedeffects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Multivariate regression is a powerfull tool for controlling for the effect of variables for which we have data. But often we do not have data on what we suspect might be important—data, such as individual characteristics like ambition, intelligence, drive or stamina. Or regional of country data, where the type of soil, the ruggedness (hilliness), or population density determine to a large extent the behaviour of people living on it. If we do not have this type of data, then it not always the case that everything is lost. Especially, when we have repeated observations, so observations of the same entity throughout time. This is referred to as panel data and requires one additional subscript <span class="math inline">\(t\)</span> as in <span class="math inline">\(X_{it}\)</span> indicating the observation <span class="math inline">\(X\)</span> on individual made at time <span class="math inline">\(t\)</span>. To understand why this sometimes works, we temporarily change to another dataset and that is the ‘fatality’ data collected by <span class="citation">Levitt and Porter (2001)</span> and deals with the relation between drunk driving and fatal accidents in the States of the US between 1982 and 1988. For this particular example we look at the impact of the ‘beer tax’, measured as the real tax in dollars on a case of beer, on ‘fatality’, measured as the number of annual traffic deaths per 10,000 people in the population of each stata. For this we first read the data and manipulate the mortality variable</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb43-1"><a href="modeling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;./data/fatality.dta&quot;</span>, <span class="kw">clear</span></span>
+<span id="cb43-2"><a href="modeling.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> fatality = allmort/pop * 10000</span></code></pre></div>
+<p>and then run a simple regression:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb44-1"><a href="modeling.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> fatality beertax, <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        336
+                                                F(1, 334)         =      47.59
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0934
+                                                Root MSE          =     .54374
+
+------------------------------------------------------------------------------
+             |               Robust
+    fatality | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     beertax |   .3646054   .0528524     6.90   0.000     .2606399     .468571
+       _cons |   1.853308   .0471297    39.32   0.000     1.760599    1.946016
+------------------------------------------------------------------------------</code></pre>
+<p>But these outcomes are very strange. For every dollar increase in tax, number of fatal accidents per 10,000 people increases with 0.36, which is statistically significantly different from 0. What is going on here. Most likely this effect is biased because of omitted variable bias. States in the US differ widely in terms of population density, environment, institutions, religion, poverty, and so on and so forth. And Those state characteristics might influence both the variables beertax and fatality.</p>
+<p>Fortunately, for each state we have yearly data. So, that is 7 observations per stata and we can make use of that by using fixed effects, which is a very common technique in the social sciences—especially in economics. We model the use of fixed effects in this example as follows:
+<span class="math display">\[\begin{equation}
+\text{fatality}_{it} = \beta_0 + \beta_1\text{beertax}_{it} + \beta_3 S_1 + \ldots + \beta_51 S_{48} + u_{it},
+\end{equation}\]</span>
+where <span class="math inline">\(S_i\)</span> denote indicator (dummies) for each state which constitute the fixed effects. In total there are 48 states in this dataset, so we have 48 dummies. Note that these fixed effects only depend on the state variation, not on time variation. So, essentially what these fixed effects capture is all state specific characteristics which are constant over time. And most of the characteristics’ examples given above do not vary that much over time, so by using these state fixed effects we can <strong>control</strong> for them. In <code>STATA</code> you can estimate this in a straightforward way as <code>regress fatality beertax i.state, robust</code>, but this lots of statistical output that you are usually not interested in. Almost just as easy would be is to invoke the <code>areg</code> command, where you specifically state that the state variable should be used as dummies but not shown using <code>absorb(state)</code>:
+and then run a simple regression:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb46-1"><a href="modeling.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> fatality beertax, absorb(state) <span class="kw">robust</span></span></code></pre></div>
+<pre><code>Linear regression, absorbing indicators             Number of obs     =    336
+Absorbed variable: state                            No. of categories =     48
+                                                    F(1, 287)         =  10.41
+                                                    Prob &gt; F          = 0.0014
+                                                    R-squared         = 0.9050
+                                                    Adj R-squared     = 0.8891
+                                                    Root MSE          = 0.1899
+
+------------------------------------------------------------------------------
+             |               Robust
+    fatality | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     beertax |  -.6558737   .2032797    -3.23   0.001    -1.055982   -.2557655
+       _cons |   2.377075   .1051516    22.61   0.000     2.170109    2.584041
+------------------------------------------------------------------------------</code></pre>
+<p>Now, see what happens with the coefficient of the beer tax variable. It changes sign! So from positive it becomes negative. That is how <strong>disruptive</strong> omitted variable bias can be. Also see that by including all these state fixed effects, the <span class="math inline">\(\bar{R^2}\)</span> now increase enormously to 91%, which does make sense because the states explain the variation in fatality rate to a large extent (e.g., compare Kansas with Connecticut).</p>
+<p>This is just a snapshot of the use of fixed effects in panel data, but for now this is enough. But for now, know that the use of fixed effects can go a long way in addressing omitted variable bias.</p>
 </div>
 <div id="conclusion-and-discussion-2" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Conclusion and discussion<a href="modeling.html#conclusion-and-discussion-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>

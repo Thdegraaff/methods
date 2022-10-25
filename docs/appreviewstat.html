@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -338,9 +338,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="specification.html"><a href="specification.html"><i class="fa fa-check"></i><b>7</b> Specification and Assessment Issues</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#specification-of-your-model"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
-<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#presentation-of-results"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
-<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#potential-sources-of-bias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a></li>
+<li class="chapter" data-level="7.1" data-path="specification.html"><a href="specification.html#sec:specificationmodel"><i class="fa fa-check"></i><b>7.1</b> Specification of your model</a></li>
+<li class="chapter" data-level="7.2" data-path="specification.html"><a href="specification.html#sec:presentation"><i class="fa fa-check"></i><b>7.2</b> Presentation of results</a></li>
+<li class="chapter" data-level="7.3" data-path="specification.html"><a href="specification.html#sec:sourcesbias"><i class="fa fa-check"></i><b>7.3</b> Potential sources of bias</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="specification.html"><a href="specification.html#threats-to-external-validity"><i class="fa fa-check"></i><b>7.3.1</b> Threats to external validity</a></li>
+<li class="chapter" data-level="7.3.2" data-path="specification.html"><a href="specification.html#threats-to-internal-validity"><i class="fa fa-check"></i><b>7.3.2</b> Threats to internal validity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="specification.html"><a href="specification.html#sec:conclusionspec"><i class="fa fa-check"></i><b>7.4</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="in-conclusion.html"><a href="in-conclusion.html"><i class="fa fa-check"></i><b>8</b> In conclusion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -473,9 +478,9 @@ But this is only one throw (<span class="math inline">\(n= 1\)</span>). We would
 \Pr(\bar{Y}  = 1) &amp;= 0.78^2 &amp;= 0.61.
 \end{eqnarray}\]</span></p>
 <p>but this start to become boring as <span class="math inline">\(n\)</span> increases. Therefore, we turn to <code>STATA</code>. Let’s first check for <span class="math inline">\(n = 2\)</span>.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb43-1"><a href="appreviewstat.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
-<span id="cb43-2"><a href="appreviewstat.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(2,0.78)/2 </span>
-<span id="cb43-3"><a href="appreviewstat.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb48-1"><a href="appreviewstat.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
+<span id="cb48-2"><a href="appreviewstat.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(2,0.78)/2 </span>
+<span id="cb48-3"><a href="appreviewstat.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
 <p>The first line of this code sets the number of experiments (called <code>obs</code>). So, I throw a coin twice, for 10000 times in a row. The second line generates the outcomes, which in this case are no heads (0), head once (1), or two heads (2). To arrive at probabilities I divide by 2 again. Finally, the third line gives a history of fraction (not counts). And this provides the following <code>STATA</code> output.</p>
 <div class="figure"><span style="display:block;" id="fig:coin1"></span>
 <img src="figures/coin1.png" alt="Sampling distribution when you throw a coin two times" width="660" />
@@ -484,10 +489,10 @@ Figure C.2: Sampling distribution when you throw a coin two times
 </p>
 </div>
 <p>But what if I do this a 100 times, so <span class="math inline">\(n = 100\)</span>?</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb44-1"><a href="appreviewstat.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb44-2"><a href="appreviewstat.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
-<span id="cb44-3"><a href="appreviewstat.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(100,0.78)/100 </span>
-<span id="cb44-4"><a href="appreviewstat.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb49-1"><a href="appreviewstat.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb49-2"><a href="appreviewstat.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000</span>
+<span id="cb49-3"><a href="appreviewstat.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> Y = rbinomial(100,0.78)/100 </span>
+<span id="cb49-4"><a href="appreviewstat.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="kw">hist</span>(Y), fraction</span></code></pre></div>
 <p>Note that fhe first line now clears <code>STATA</code>’s memory as I actually create a new dataset. The histogram can be seen now in Figure <a href="appreviewstat.html#fig:coin100">C.3</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:coin100"></span>
 <img src="figures/coin100.png" alt="Sampling distribution when you throw a coin 100 times" width="660" />
