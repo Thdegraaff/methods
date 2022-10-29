@@ -4,22 +4,22 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus</title>
+  <title>5 Regression Analysis in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus</title>
   <meta name="description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
 Earth, Economics and Sustainability</p>" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta property="og:title" content="5 Regression Analysis in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
 Earth, Economics and Sustainability</p>" />
-  
+  <meta name="github-repo" content="Thdegraaff/methods" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Regression analysis in the social sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta name="twitter:title" content="5 Regression Analysis in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
   
   <meta name="twitter:description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
@@ -286,7 +286,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="moral.html"><a href="moral.html#conclusion-and-discussion"><i class="fa fa-check"></i><b>4.6</b> Conclusion and discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="univariateregression.html"><a href="univariateregression.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
+<li class="chapter" data-level="5" data-path="univariateregression.html"><a href="univariateregression.html"><i class="fa fa-check"></i><b>5</b> Regression Analysis in the Social Sciences</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="univariateregression.html"><a href="univariateregression.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
 <li class="chapter" data-level="5.2" data-path="univariateregression.html"><a href="univariateregression.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a>
@@ -390,25 +390,25 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="univariateregression" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Regression analysis in the social sciences<a href="univariateregression.html#univariateregression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">5</span> Regression Analysis in the Social Sciences<a href="univariateregression.html#univariateregression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="introduction-12" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Introduction<a href="univariateregression.html#introduction-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Why should we have something as applied econometrics in the social sciences? That is because we have theories as in Chapters (<a href="surplus.html#surplus">2</a>)–(<a href="moral.html#moral">4</a>) and those theories contain variables such as in the direct utility function of equation <a href="surplus.html#eq:directutility">(2.3)</a>:</p>
 <p><span class="math display">\[\begin{equation}
 U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
 \end{equation}\]</span></p>
-<p>Here the quantities for the market good <span class="math inline">\(Q\)</span> and the outside good <span class="math inline">\(G\)</span> are to considered to be <em>known</em>—also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.</p>
-<p>This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example demand and prices. In the second part of this course and syllabus with difficulties arising from using observational data to estimate these causal effects and to rewrite models as <a href="surplus.html#eq:directutility">(2.3)</a> such that we can actually <em>use</em> data to tease out values for—in this case—<span class="math inline">\(A\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
-<p>This chapter is organised as follows. The next section addresses the problem of finding a <em>relation</em> between some <span class="math inline">\(X\)</span> and some <span class="math inline">\(Y\)</span>. Here, we follow example in the well-known textbook of @stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some <code>STATA</code> commands. At the same time this section deal as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix <a href="appreviewstat.html#appreviewstat">D</a>.</p>
+<p>Here, the quantities for the market good <span class="math inline">\(Q\)</span> and the outside good <span class="math inline">\(G\)</span> are considered to be <em>known</em>—also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which economists want to maximise.</p>
+<p>This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example demand and prices. Therefore, the second part of this course and syllabus deals with difficulties arising from using observational data to estimate these causal effects and to rewrite models as <a href="surplus.html#eq:directutility">(2.3)</a> such that we can actually <em>use</em> data to tease out values for—in this case—<span class="math inline">\(A\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>This chapter is organised as follows. The next section addresses the problem of finding a <em>relation</em> between some <span class="math inline">\(X\)</span> and some <span class="math inline">\(Y\)</span>. Here, we follow an example from the well-known textbook of @stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some <code>STATA</code> commands. To do so, this section deals as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix <a href="appreviewstat.html#appreviewstat">D</a>.</p>
 </div>
 <div id="secproblem" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> So, what is the problem?<a href="univariateregression.html#secproblem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As explained in the introduction above, applied econometrics aims to give the policy maker well-informed values for variables she needs. She needs these variables basically for two things:</p>
+<p>As explained in the introduction above, applied econometrics aims to give the policy maker well-informed, and evidence based, values for variables she needs. She needs these variables basically for two separate things:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Causal inference</strong>: The policy maker wants to assess the effect of a change in one variable (typically called <span class="math inline">\(X\)</span>) on another variables (often called <span class="math inline">\(Y\)</span>).</li>
 <li><strong>Prediction</strong>: If you know what variable <span class="math inline">\(X\)</span> is, what should <span class="math inline">\(Y\)</span> then be?</li>
 </ol>
-<p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what that may be) and then optimize prediction.</p>
+<p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction.</p>
 <p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:</p>
 <ul>
 <li>To what extent do people eat less meat if we increase the prices with 1% (using a meat-tax)?</li>
@@ -462,8 +462,8 @@ Sorted by: </code></pre>
 <p>Now we see descriptive statistics for two variables, containing number of observations, the mean, the standard deviation and the minimum and maximum of each variable. For first insight in the relation between class size and class performance we might want to draw a so-called scatterplot. These type of plots relate the values of two variables in a two-dimensional way by giving the values as coordinates. The following syntax will do so.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="univariateregression.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> testscr str</span></code></pre></div>
 <p>And this provides the following <code>STATA</code> output.</p>
-<div class="figure"><span style="display:block;" id="fig:scattercaschool"></span>
-<img src="figures/scatter.png" alt="A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis" width="660" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scattercaschool"></span>
+<img src="figures/scatter.png" alt="A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis" width="600px" />
 <p class="caption">
 Figure 5.1: A scatterplot with tests-cores on the <span class="math inline">\(y\)</span>-axis and student-teacher ratio on the <span class="math inline">\(x\)</span>-axis
 </p>
@@ -472,7 +472,7 @@ Figure 5.1: A scatterplot with tests-cores on the <span class="math inline">\(y\
 </div>
 <div id="sec:numevidence" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Numerical evidence<a href="univariateregression.html#sec:numevidence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To assess whether there is a relation between class performance and class size as diplayed in Figure <a href="univariateregression.html#fig:scattercaschool">5.1</a> we need numerical or statistical evidence. First, we create two groups: namely, districts with “small” (STR <span class="math inline">\(&lt;\)</span> 20) and “large” (STR <span class="math inline">\(\geq\)</span> 20) class sizes. Then we can adopt three relatively straightforward strategies here:</p>
+<p>To assess whether there is a relation between class performance and class size as diplayed in Figure <a href="univariateregression.html#fig:scattercaschool">5.1</a> we need numerical or statistical evidence. Before we start to engage in regression analysis, we first perform a rather simple analysis, but the underlying mechanisms are identical to that of regression analysis. We first create two groups: namely, districts with “small” (STR <span class="math inline">\(&lt;\)</span> 20) and “large” (STR <span class="math inline">\(\geq\)</span> 20) class sizes. Then we can adopt three relatively straightforward strategies here:</p>
 <ol style="list-style-type: decimal">
 <li>Estimation
 <ul>
@@ -549,7 +549,7 @@ Large
 </tr>
 </tbody>
 </table>
-<p>No, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference—usually denoted as <span class="math inline">\(\Delta\)</span>. Or, specifically:</p>
+<p>Now, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference—usually denoted as <span class="math inline">\(\Delta\)</span>. Or, specifically:</p>
 <ol style="list-style-type: decimal">
 <li>For estimation: determine the <span class="math inline">\(\Delta\)</span> = difference between group means</li>
 <li>For hypothesis testing: can we <em>reject</em> the null-hypothesis that <span class="math inline">\(\Delta = 0\)</span></li>
@@ -557,7 +557,7 @@ Large
 </ol>
 <div id="estimation" class="section level4 hasAnchor" number="5.2.2.1">
 <h4><span class="header-section-number">5.2.2.1</span> Estimation<a href="univariateregression.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For estimation is rather straightforward as we need to calculate the <em>difference</em> between the mean test scores within each group, or:</p>
+<p>Estimation is rather straightforward as we need to calculate the <em>difference</em> between the mean test scores within each group, or:</p>
 <p><span class="math display" id="eq:estimationlarge">\[\begin{eqnarray}
 \bar{Y}_{small} - \bar{Y}_{large} &amp;=&amp; \frac{1}{n_{small}} \sum_{i=1}^{n_{small}}Y_i - \frac{1}{n_{large}} \sum_{i=1}^{n_{large}} Y_i \\
 &amp;=&amp; 657.4-650.0\\
@@ -570,7 +570,7 @@ Large
 -------------+--------------------------------------------------
      testscr |   630.375       640    654.45   666.675     679.1
 ----------------------------------------------------------------</code></pre>
-<p>where the command <code>tabstat</code> asks for a tabulation of certain statistics and <code>px</code> gives the <span class="math inline">\(x\)</span>-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given that the difference of <span class="math inline">\(7.4\)</span> is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee cannot be answered with this analysis?</p>
+<p>where the command <code>tabstat</code> asks for a tabulation of certain statistics and <code>px</code> gives the <span class="math inline">\(x\)</span>-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given that, the difference of <span class="math inline">\(7.4\)</span> is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer with this analysis.</p>
 </div>
 <div id="hypothesis-testing" class="section level4 hasAnchor" number="5.2.2.2">
 <h4><span class="header-section-number">5.2.2.2</span> Hypothesis testing<a href="univariateregression.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -585,7 +585,7 @@ where <span class="math inline">\(SE(\bar{Y}_s - \bar{Y}_l)\)</span> is the <em>
 <span class="math display">\[\begin{equation}
 t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  = \frac{657.4 - 650.0}{\sqrt{\frac{19.4^2}{238} +\frac{17.9^2}{182} }} = \frac{7.4}{1.83} = 4.05
 \end{equation}\]</span></p>
-<p>But then what? Well, recall that we <strong>reject</strong> a null-hypothesis when the critical value is below a certain threshold (usually 5%). In this case that is equivalent with stating that <span class="math inline">\(|t|&gt;1.96\)</span>. So, we reject (at the 5% significance level) the null hypothesis that the two means are the same. We will come back to this procedure in Section xXx.</p>
+<p>But then what? Well, recall that we <strong>reject</strong> a null-hypothesis when the critical value is below a certain threshold (usually 5%). In this case that is equivalent with stating that <span class="math inline">\(|t|&gt;1.96\)</span>. So, we reject (at the 5% significance level) the null hypothesis that the two means are the same. We will come back to this procedure in Section <a href="univariateregression.html#sec:unitesting">5.3.2.2</a>.</p>
 </div>
 <div id="confidence-interval" class="section level4 hasAnchor" number="5.2.2.3">
 <h4><span class="header-section-number">5.2.2.3</span> Confidence interval<a href="univariateregression.html#confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -594,7 +594,7 @@ t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  
 (\bar{Y}_s - \bar{Y}_l)\pm 1.96 \times SE(\bar{Y}_s - \bar{Y}_l) = 7.4 \pm 1.96 \times 1.84 = (3.7, 11.0)
 \tag{5.3}
 \end{equation}\]</span>
-So what does this mean again. Well, two things. First, the 95% confidence interval for <span class="math inline">\(\Delta\)</span> doesn’t include 0 and, second, the hypothesis that <span class="math inline">\(\Delta = 0\)</span> is rejected at the 5% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be reject as null-hypothesis</p>
+So what does this mean again. Well, two things. First, the 95% confidence interval for <span class="math inline">\(\Delta\)</span> doesn’t include 0 and, second, the hypothesis that <span class="math inline">\(\Delta = 0\)</span> is rejected at the 5% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be rejected as null-hypothesis.</p>
 </div>
 </div>
 <div id="sec:smart" class="section level3 hasAnchor" number="5.2.3">
@@ -628,16 +628,16 @@ H0: diff = 0                     Satterthwaite&#39;s degrees of freedom =  403.6
 <div id="sec:genesis" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Genesis: <em>regression towards the mean</em><a href="univariateregression.html#sec:genesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The name regression seems to have a negative connotation, as progress is in general seen as good and regress as bad. And actually this is true, the name regression was deliberatily given as to describe a negative process: in full <em>regression towards the mean</em>. The concept of regression was actually coined by Sir Francis Galton together with other statistical terms, such as correlation and deviation <span class="citation">(Senn 2011)</span>. Galton was a notorious statistician who measured everything and else, including the length of french bread and the size of human skulls.</p>
-<p>in 1886, Galton started to research the height of adult children with the height of their parents <span class="citation">(Galton 1886)</span>. The original data can be seen in the scatterplot in Figure @(fig:galton2). What Galton expected was that the relation between the height of children and that of their parents was one-to-one. On average children should receive the same height of their parents. So, in fact he expected a <span class="math inline">\(45^{\circ}\)</span> line—the red line; a line with slope equal to 1.</p>
-<div class="figure"><span style="display:block;" id="fig:galton2"></span>
-<img src="figures/Galton2.png" alt="Relation heigh fathers and height children" width="252" />
+<p>in 1886, Galton started to research the height of adult children with the height of their parents <span class="citation">(Galton 1886)</span>. The original data can be seen in the scatterplot in Figure <a href="univariateregression.html#fig:galton2">5.2</a>. What Galton expected was that the relation between the height of children and that of their parents was a one-to-one relation. On average children should receive the same height of their parents. So, in fact he expected a <span class="math inline">\(45^{\circ}\)</span> line—the red line; a line with slope equal to 1.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:galton2"></span>
+<img src="figures/Galton2.png" alt="Relation heigh fathers and height children" width="600px" />
 <p class="caption">
 Figure 5.2: Relation heigh fathers and height children
 </p>
 </div>
 <p>However, he found consistently the blue line, a line with positive slope but lower than 1 (the blue line in Figure <a href="univariateregression.html#fig:galton1">5.3</a>). That entails that, <em>on average</em> tall parents get tall children but not as tall as themselves. Of course, this goes as well the other way. Short parents get short children but not as short as themselves.</p>
-<div class="figure"><span style="display:block;" id="fig:galton1"></span>
-<img src="figures/Galton1.png" alt="Relation heigh fathers and height children" width="252" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:galton1"></span>
+<img src="figures/Galton1.png" alt="Relation heigh fathers and height children" width="600px" />
 <p class="caption">
 Figure 5.3: Relation heigh fathers and height children
 </p>
@@ -647,7 +647,7 @@ Figure 5.3: Relation heigh fathers and height children
 <blockquote>
 <p><span class="math inline">\(\ldots\)</span> a concept that refers to the fact that if one sample of a random variable is extreme, the next sampling of the same random variable is likely to be closer to its mean</p>
 </blockquote>
-<p>For instance, everything went really well and you got a 9 for an examination. That doesn’t mean that the next time you will do equally well (you will still do, but not that well). Or, your favorite footballclub does extreme well in a particular year (Leicester comes to mind). That does not mean that the next year it will do equally well, and so forth and so on.</p>
+<p>For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do, but not that well). Or, your favorite footballclub does extreme well in a particular year (Leicester City FC comes to mind who became premier league champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.</p>
 </div>
 <div id="regression-with-one-regressor" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Regression with one regressor<a href="univariateregression.html#regression-with-one-regressor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -657,10 +657,8 @@ is to estimate the <strong>causal</strong> effect on <span class="math inline">\
 <ul>
 <li>We estimation the relation:
 <ul>
-<li>This now boils down to we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (a specific type of regression)
-<ul>
+<li>This now boils down to the question how we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (OLS—a specific an most common type of regression analysis)</li>
 <li>And then we have to assess the advantages and disadvantages of OLS</li>
-</ul></li>
 </ul></li>
 <li>We could refer to hypothesis testing:
 <ul>
@@ -694,8 +692,8 @@ Now, <span class="math inline">\(X\)</span> denotes the independent variable or 
 <p><span class="math display">\[\begin{equation}
 u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\beta_0 + \beta_1 X_i) \right]^2
 \end{equation}\]</span></p>
-<div class="figure"><span style="display:block;" id="fig:unire"></span>
-<img src="figures/Lecture1_sheet8.png" alt="Drawing a straight line through data in a scatterplot" width="402" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unire"></span>
+<img src="figures/Lecture1_sheet8.png" alt="Drawing a straight line through data in a scatterplot" width="600px" />
 <p class="caption">
 Figure 5.4: Drawing a straight line through data in a scatterplot
 </p>
@@ -716,14 +714,14 @@ Figure 5.4: Drawing a straight line through data in a scatterplot
     \hat{u}_i &amp;=&amp; Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
 \end{eqnarray}\]</span></p>
 <p>When we apply this to our data cloud in Figure <a href="univariateregression.html#fig:scattercaschool">5.1</a> then we get the following optimal population regression line:</p>
-<div class="figure"><span style="display:block;" id="fig:cloud"></span>
-<img src="figures/Lecture1_sheet13.jpg" alt="bla"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cloud"></span>
+<img src="figures/Lecture1_sheet13.jpg" alt="Scatterplot and estimated regression line" width="600px" />
 <p class="caption">
-Figure 5.5: bla
+Figure 5.5: Scatterplot and estimated regression line
 </p>
 </div>
-<p>where the estimated slope equals <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span>, the estimated intercept equals <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span> and the total population regression line can be written as: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span>. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span>). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not any sense—it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.</p>
-<p>No how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
+<p>where the estimated slope equals <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span>, the estimated intercept equals <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span> and the total population regression line can be written as: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span>. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span>). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not make any sense—it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.</p>
+<p>Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
 <p>In <code>STATA</code> both the constant and the slope can be easily retrieved by:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb14-1"><a href="univariateregression.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        420
@@ -739,7 +737,7 @@ Figure 5.5: bla
          str |  -2.279808   .5194892    -4.39   0.000    -3.300945   -1.258671
        _cons |    698.933   10.36436    67.44   0.000     678.5602    719.3057
 ------------------------------------------------------------------------------</code></pre>
-<p>However, we will discuss the rest of this output later</p>
+<p>We will discuss the rest of this output later.</p>
 </div>
 <div id="sec:unitesting" class="section level4 hasAnchor" number="5.3.2.2">
 <h4><span class="header-section-number">5.3.2.2</span> Hypothesis testing<a href="univariateregression.html#sec:unitesting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -780,8 +778,8 @@ t = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 \tag{5.7}
 \end{equation}\]</span></p>
 <p>then the <span class="math inline">\(p\)</span>-value can be seen from Figure <a href="univariateregression.html#fig:pvalues">5.6</a>:</p>
-<div class="figure"><span style="display:block;" id="fig:pvalues"></span>
-<img src="figures/lecture_sheet9.jpg" alt="Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pvalues"></span>
+<img src="figures/lecture_sheet9.jpg" alt="Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$" width="600px" />
 <p class="caption">
 Figure 5.6: Calculating the <span class="math inline">\(p\)</span>-value of a two-sided test when <span class="math inline">\(t^{act} = -4.38\)</span>
 </p>
@@ -794,8 +792,8 @@ Figure 5.6: Calculating the <span class="math inline">\(p\)</span>-value of a tw
 </ol>
 <p>Now there is a link between the <span class="math inline">\(p\)</span>-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5%, then you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span> or equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span>. The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level. Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the ``yes/no’’ statement about whether the test rejects.</p>
 <p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation">(Amrhein, Greenland, and McShane 2019)</span>. Why should you use a 5% significance level, what is so special about that number? It is not better just to report coefficients and standard errors? Figure <a href="univariateregression.html#fig:significance">5.7</a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that testing does not matter, but more reporting. First of all, <span class="math inline">\(p\)</span> values in themselves do not contain that much information. In the regression output of above you <span class="math inline">\(p\)</span>-values being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could to publications being published only with <span class="math inline">\(p\)</span>-values below 0.05, leading to what is called publication bias.</p>
-<div class="figure"><span style="display:block;" id="fig:significance"></span>
-<img src="figures/significance.jpg" alt="Critical review on the (mis)use of statistical significance"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:significance"></span>
+<img src="figures/significance.jpg" alt="Critical review on the (mis)use of statistical significance" width="600px" />
 <p class="caption">
 Figure 5.7: Critical review on the (mis)use of statistical significance
 </p>
@@ -889,8 +887,8 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <div id="least-squares-assumption-1-conditional-mean-independence" class="section level3 hasAnchor" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Least squares assumption 1: conditional mean independence<a href="univariateregression.html#least-squares-assumption-1-conditional-mean-independence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This first assumptions states that <span class="math inline">\(E(u \mid X = x) = 0\)</span> and is conceptually the most difficult one to grasp. Loosely speaking, it states that the regression error <span class="math inline">\(u\)</span> is <em>not</em> related with the independent variable <span class="math inline">\(X\)</span>. They are not related with each other. Another way of looking at this is displayed in Figure <a href="univariateregression.html#fig:ass1">5.8</a>. Here, whatever the value of student-teacher ratio is, the expectation of the outcome variable (test scores) is always centered around the population regression line. So, on average, you always predict according to <em>your</em> model, for each value of <span class="math inline">\(X\)</span>.</p>
-<div class="figure"><span style="display:block;" id="fig:ass1"></span>
-<img src="figures/Lecture1_sheet25.jpg" alt="Condition mean independence assumption"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ass1"></span>
+<img src="figures/Lecture1_sheet25.jpg" alt="Condition mean independence assumption" width="600px" />
 <p class="caption">
 Figure 5.8: Condition mean independence assumption
 </p>
@@ -910,8 +908,8 @@ Figure 5.8: Condition mean independence assumption
 <div id="least-squares-assumption-3-large-outliers-are-rare" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Least squares assumption 3: Large outliers are rare<a href="univariateregression.html#least-squares-assumption-3-large-outliers-are-rare" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The third and final least square assumption for causal inference is that large outliers are rare. Large outliers are not well defined and depend on the size of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>, but in general it can be seen as an <em>extreme</em> value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>. The problem is that such a large outlier can strongly <em>influence</em> the results and in general it can be stated that OLS can be rather sensitive to an outlier. Consider the two population regression lines in <a href="univariateregression.html#fig:outlier">5.9</a>. The flat one (with <span class="math inline">\(\hat{\beta}_1 = 0)\)</span> does not take the isolated observation in the upper right corner into account. The one with the positive slope does. Now, clearly the one isolated observation in the upper right corner clearly matter to a large extent and is an important driver for the results of the ordinary least squares estimator.</p>
-<div class="figure"><span style="display:block;" id="fig:outlier"></span>
-<img src="figures/Lecture1_sheet29.jpg" alt="Effect of outliers on OLS estimations"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:outlier"></span>
+<img src="figures/Lecture1_sheet29.jpg" alt="Effect of outliers on OLS estimations" width="600px" />
 <p class="caption">
 Figure 5.9: Effect of outliers on OLS estimations
 </p>
@@ -925,29 +923,29 @@ Figure 5.9: Effect of outliers on OLS estimations
 <div id="homoskedasticity" class="section level3 hasAnchor" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Homoskedasticity<a href="univariateregression.html#homoskedasticity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Homoskedasticity is concerned with the standard errors. Its definition is if <span class="math inline">\(var(u \mid X=x)\)</span> is constant—that is, if the variance of the conditional distribution of <span class="math inline">\(u\)</span> given <span class="math inline">\(X\)</span> does not depend on <span class="math inline">\(X\)</span>—then <span class="math inline">\(u\)</span> is said to be homoskedastic. Otherwise, <span class="math inline">\(u\)</span> is heteroskedastic.</p>
-<div class="figure"><span style="display:block;" id="fig:homoskedasticity"></span>
-<img src="figures/Sheet21.png" alt="Homoskedastic standard errors" width="710" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:homoskedasticity"></span>
+<img src="figures/Sheet21.png" alt="Homoskedastic standard errors" width="600px" />
 <p class="caption">
 Figure 5.10: Homoskedastic standard errors
 </p>
 </div>
 <p>Consider Figure <a href="univariateregression.html#fig:homoskedasticity">5.10</a>. Clearly the variance <em>around</em> the population regression line is everywhere the same, regardless the value of student-teacher ratio (<span class="math inline">\(X\)</span>). Recall, that <span class="math inline">\(E(u \mid X=x) = 0\)</span> so <span class="math inline">\(u\)</span> satisfies Least Squares Assumption 1. Now, in addition we also assume that the variance of <span class="math inline">\(u\)</span> does not depend on <span class="math inline">\(x\)</span>. This is the case of homoskedasticity</p>
-<div class="figure"><span style="display:block;" id="fig:heteroskedasticity"></span>
-<img src="figures/Sheet22.png" alt="Heteroskedastic standard errors" width="722" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:heteroskedasticity"></span>
+<img src="figures/Sheet22.png" alt="Heteroskedastic standard errors" width="600px" />
 <p class="caption">
 Figure 5.11: Heteroskedastic standard errors
 </p>
 </div>
 <p>Now consider Figure <a href="univariateregression.html#fig:heteroskedasticity">5.11</a>. Now clearly the variance around the population regression line increases in student-teacher ratio (<span class="math inline">\(X\)</span>). So, <span class="math inline">\(E(u \mid X=x) = 0\)</span> is still satisfied, but the variance of <span class="math inline">\(u\)</span> does now depends on <span class="math inline">\(x\)</span>. <span class="math inline">\(u\)</span> is now said to be heteroskedastic.</p>
-<div class="figure"><span style="display:block;" id="fig:wages"></span>
-<img src="figures/Sheet23.png" alt="Wages versus years of education" width="488" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:wages"></span>
+<img src="figures/Sheet23.png" alt="Wages versus years of education" width="600px" />
 <p class="caption">
 Figure 5.12: Wages versus years of education
 </p>
 </div>
 <p>Very often data or model in the social sciences are heteroskedastic. For example, wages are usually heteroskedastic in the amount of education consumed. Figure <a href="univariateregression.html#fig:wages">5.12</a> shows the relation between years of education and wages, and the larger the years of education the larger hourly earnings (wages) are—as you would assume would be. But the variance also incrases in years of education. That is because you can easily predict wages when workers enjoyed very few years of schooling—usually those are just above minimum wages—but the spread becomes much wider when years of schooling goes up.</p>
-<div class="figure"><span style="display:block;" id="fig:heteroskedasticityca"></span>
-<img src="figures/Sheet24.png" alt="Heteroskedasticity in Californation schools?" width="645" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:heteroskedasticityca"></span>
+<img src="figures/Sheet24.png" alt="Heteroskedasticity in Californation schools?" width="600px" />
 <p class="caption">
 Figure 5.13: Heteroskedasticity in Californation schools?
 </p>
@@ -1068,9 +1066,9 @@ where <span class="math inline">\(RMSE\)</span> only differs from the <span clas
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,

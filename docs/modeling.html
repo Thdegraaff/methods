@@ -16,7 +16,7 @@ Earth, Economics and Sustainability</p>" />
   <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
 Earth, Economics and Sustainability</p>" />
-  
+  <meta name="github-repo" content="Thdegraaff/methods" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6 Modeling in the Social Sciences | Methods and Techniques for Social and Economic Research: Syllabus" />
@@ -286,7 +286,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="moral.html"><a href="moral.html#conclusion-and-discussion"><i class="fa fa-check"></i><b>4.6</b> Conclusion and discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="univariateregression.html"><a href="univariateregression.html"><i class="fa fa-check"></i><b>5</b> Regression analysis in the social sciences</a>
+<li class="chapter" data-level="5" data-path="univariateregression.html"><a href="univariateregression.html"><i class="fa fa-check"></i><b>5</b> Regression Analysis in the Social Sciences</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="univariateregression.html"><a href="univariateregression.html#introduction-12"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
 <li class="chapter" data-level="5.2" data-path="univariateregression.html"><a href="univariateregression.html#secproblem"><i class="fa fa-check"></i><b>5.2</b> So, what is the problem?</a>
@@ -590,7 +590,7 @@ Linear regression                               Number of obs     =        420
 \beta_1 STR = w_1 \beta_1 STR + w_2 \beta_1 STR = (w_1 + w_2) \beta_1 STR ,
 \end{equation}\]</span>
 where <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span> are weights chosen such that they satisfy the condition that <span class="math inline">\(w_1 + w_2 = 1\)</span>. But there is an infinite number of combinations that satisfy this condition! So, there is not an optimal solution and one of these variables should be dropped.</p>
-<p>The violation of no perfect multicollearity often occurs when using dummies (see again Subsection <a href="univariateregression.html#sec:dummy">5.3.2.4</a>). Suppose that we regress <span class="math inline">\(TestScore\)</span> on a constant, <span class="math inline">\(D\)</span>, and <span class="math inline">\(B\)</span>, where:<span class="math inline">\(D_i =1\)</span> if <span class="math inline">\(STR \leq 20\)</span>, <span class="math inline">\(=0\)</span> otherwise ; <span class="math inline">\(B_i =1\)</span> if <span class="math inline">\(STR&gt;20\)</span>, <span class="math inline">\(= 0\)</span> otherwise. This example is slightly more complex as there is no perfect correlation between <span class="math inline">\(B\)</span> and <span class="math inline">\(D\)</span>. However, the model contains as well a constant and that create a perfect linear combination, namely <span class="math inline">\(B_i + D_i = 1\)</span> and that is the definition of a constant ($_1 ), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive—that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity—the dummy variable trap.</p>
+<p>The violation of no perfect multicollearity often occurs when using dummies (see again Subsection <a href="univariateregression.html#sec:dummy">5.3.2.4</a>). Suppose that we regress <span class="math inline">\(TestScore\)</span> on a constant, <span class="math inline">\(D\)</span>, and <span class="math inline">\(B\)</span>, where:<span class="math inline">\(D_i =1\)</span> if <span class="math inline">\(STR \leq 20\)</span>, <span class="math inline">\(=0\)</span> otherwise ; <span class="math inline">\(B_i =1\)</span> if <span class="math inline">\(STR&gt;20\)</span>, <span class="math inline">\(= 0\)</span> otherwise. This example is slightly more complex as there is no perfect correlation between <span class="math inline">\(B\)</span> and <span class="math inline">\(D\)</span>. However, the model contains as well a constant and that create a perfect linear combination, namely <span class="math inline">\(B_i + D_i = 1\)</span> and that is the definition of a constant (<span class="math inline">\(\beta_1 \times 1\)</span>), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive—that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity—the dummy variable trap.</p>
 <p>There are possible solutions to the dummy variable trap:</p>
 <ol style="list-style-type: decimal">
 <li>Omit one of the groups (e.g., the Freshmen), or</li>
@@ -836,7 +836,7 @@ c.avginc#c.avginc#c.avginc |   .0006855   .0003471     1.98   0.049     3.26e-06
 </div>
 <div id="interaction-variables" class="section level3 hasAnchor" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> Interaction variables<a href="modeling.html#interaction-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself <span class="math inline">\(X\times X = X^2\)</span>, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, <span class="math inline">\(\frac{\partial TestScore}{\partial STR}\)</span> might on <span class="math inline">\(PctEL\)</span>. More generally, this subsection looks into the fact that the marginal effect of <span class="math inline">\(\frac{\partial Y}{\partial X_1}\)</span> might on some other variable <span class="math inline">\(X_2\)</span>.</p>
+<p>Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself <span class="math inline">\(X\times X = X^2\)</span>, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, <span class="math inline">\(\frac{\partial TestScore}{\partial STR}\)</span> might depend on <span class="math inline">\(PctEL\)</span>. More generally, this subsection looks into the fact that the marginal effect of <span class="math inline">\(\frac{\partial Y}{\partial X_1}\)</span> might depend on some other variable <span class="math inline">\(X_2\)</span>.</p>
 <div id="interactions-between-two-binary-variables" class="section level4 hasAnchor" number="6.3.2.1">
 <h4><span class="header-section-number">6.3.2.1</span> Interactions between two binary variables<a href="modeling.html#interactions-between-two-binary-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>First, we look into the simplest (and perhaps most insightful) case of two binary (dummy variables). Consider therefore the following linear regression model:
@@ -966,8 +966,11 @@ Thus we have two regression lines: one for each <span class="math inline">\(HiST
 </div>
 <div id="interactions-between-two-continuous-variables" class="section level4 hasAnchor" number="6.3.2.3">
 <h4><span class="header-section-number">6.3.2.3</span> Interactions between two continuous variables<a href="modeling.html#interactions-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:
-<p>where both <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are continuous and as specified, the effect of <span class="math inline">\(X_1\)</span> doesn’t depend on <span class="math inline">\(X_2\)</span> and the effect of <span class="math inline">\(X_2\)</span> doesn’t depend on <span class="math inline">\(X_1\)</span>. Now, to allow the effect of <span class="math inline">\(X_1\)</span> to depend on <span class="math inline">\(X_2\)</span>, we include the interaction term <span class="math inline">\(X_{1i} \times X_{2i}\)</span> as a regressor. Where, to interpret the coefficients, we take the first derivative of <span class="math inline">\(X_1\)</span> in:
+<p>The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:
+<span class="math display">\[\begin{equation}
+Y_i =\beta_0 + \beta1 X_{1i} +\beta_2 {X_{2i}} +u_i,
+\end{equation}\]</span>
+where both <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> are continuous and as specified, the effect of <span class="math inline">\(X_1\)</span> doesn’t depend on <span class="math inline">\(X_2\)</span> and the effect of <span class="math inline">\(X_2\)</span> doesn’t depend on <span class="math inline">\(X_1\)</span>. Now, to allow the effect of <span class="math inline">\(X_1\)</span> to depend on <span class="math inline">\(X_2\)</span>, we include the interaction term <span class="math inline">\(X_{1i} \times X_{2i}\)</span> as a regressor. Where, to interpret the coefficients, we take the first derivative of <span class="math inline">\(X_1\)</span> in:
 <span class="math display">\[\begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 (X_{1i}
 \times X_{2i}) + u_i
@@ -1020,7 +1023,7 @@ linear-log
 </tr>
 <tr>
 <td style="text-align:left;">
-log_linear
+log-linear
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(\ln(Y_i)=\beta_0 + \beta_1 (X_i) + u_i\)</span>
@@ -1219,9 +1222,9 @@ Absorbed variable: state                            No. of categories =     48
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,

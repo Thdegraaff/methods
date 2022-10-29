@@ -1222,7 +1222,7 @@ v7 <- c(
   $Q^\\ast e^{\\frac{-B(1+c_e)}{\\alpha + b}}$", 
   "$\\frac{1}{\\alpha + b} \\ln \\left[\\frac{A}{B(1 + c_e)} \\right]$\n
   or:\n
-  $Q^\\ast - B c_e \\frac{\alpha}{\\alpha + b}$"
+  $Q^\\ast - B c_e \\frac{\\alpha}{\\alpha + b}$"
 )
 df <- data.frame( v1, v2, v3, v4, v5, v6, v7 )
 kable(df, 

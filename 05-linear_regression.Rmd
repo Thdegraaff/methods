@@ -1,4 +1,4 @@
-# Regression analysis in the social sciences {#univariateregression}
+# Regression Analysis in the Social Sciences {#univariateregression}
 
 ## Introduction
 
@@ -8,20 +8,20 @@ Why should we have something as applied econometrics in the social sciences? Tha
 U(Q,G) = \frac{A}{\alpha}\left( 1- e^{-\alpha Q} \right ) + BG.
 \end{equation}
 
-Here the quantities for the market good $Q$ and the outside good $G$ are to considered to be *known*---also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which an economist want to maximise.  
+Here, the quantities for the market good $Q$ and the outside good $G$ are considered to be *known*---also often referred to as data. In theoretical work they are fictional or sometimes simulated. A certain amount of consumption of the market good and the outside good lead then some level of utility which economists want to maximise.  
 
-This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring **causal** effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon $X$ on $Y$. However, we almost always only have observational data on, for example demand and prices. In the second part of this course and syllabus with difficulties arising from using observational data to estimate these causal effects and to rewrite models as \@ref(eq:directutility) such that we can actually *use* data to tease out values for---in this case---$A$ and $\alpha$.
+This second part of the course is therefore about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring **causal** effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon $X$ on $Y$. However, we almost always only have observational data on, for example demand and prices. Therefore, the second part of this course and syllabus deals with difficulties arising from using observational data to estimate these causal effects and to rewrite models as \@ref(eq:directutility) such that we can actually *use* data to tease out values for---in this case---$A$ and $\alpha$.
 
-This chapter is organised as follows. The next section addresses the problem of finding a *relation* between some $X$ and some $Y$. Here, we follow example in the well-known textbook of \@stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some `STATA` commands. At the same time this section deal as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix \@ref(appreviewstat). 
+This chapter is organised as follows. The next section addresses the problem of finding a *relation* between some $X$ and some $Y$. Here, we follow an example from the well-known textbook of \@stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some `STATA` commands. To do so, this section deals as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and provide only the basic concepts most important for this course in Appendix \@ref(appreviewstat). 
 
 ## So, what is the problem? {#secproblem}
 
-As explained in the introduction above, applied econometrics aims to give the policy maker well-informed values for variables she needs. She needs these variables basically for two things:
+As explained in the introduction above, applied econometrics aims to give the policy maker well-informed, and evidence based, values for variables she needs. She needs these variables basically for two separate things:
 
 1. **Causal inference**: The policy maker wants to assess the effect of a change in one variable (typically called $X$) on another variables (often called $Y$).
 2. **Prediction**: If you know what variable $X$ is, what should $Y$ then be?
 
-Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the **true** causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what that may be) and then optimize prediction. 
+Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the **true** causal effect) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction. 
 
 Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:
 
@@ -70,7 +70,7 @@ quietly graph export figures/scatter.png, replace
 
 And this provides the following `STATA` output.
 
-```{r, echo=FALSE, fig.cap = "A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis", label='scattercaschool'}
+```{r fig.align='center', echo=FALSE, fig.cap = "A scatterplot with tests-cores on the $y$-axis and student-teacher ratio on the $x$-axis", label='scattercaschool', out.width="600px"}
 knitr::include_graphics("./figures/scatter.png")
 ```
 
@@ -78,7 +78,7 @@ This "cloud" of dots do not yield a clearly visible relation between class perfo
 
 ### Numerical evidence {#sec:numevidence}
 
-To assess whether there is a relation between class performance and class size as diplayed in Figure \@ref(fig:scattercaschool) we need numerical or statistical evidence. First, we create two groups: namely, districts with "small" (STR $<$ 20) and "large" (STR $\geq$ 20) class sizes. Then we can adopt three relatively straightforward strategies here:
+To assess whether there is a relation between class performance and class size as diplayed in Figure \@ref(fig:scattercaschool) we need numerical or statistical evidence. Before we start to engage in regression analysis, we first perform a rather simple analysis, but the underlying mechanisms are identical to that of regression analysis. We first create two groups: namely, districts with "small" (STR $<$ 20) and "large" (STR $\geq$ 20) class sizes. Then we can adopt three relatively straightforward strategies here:
 
 1. Estimation
     - Here, we compare the average test scores in districts with low student-teacher ratios to those with high student-teacher ratios. So, we basically try to assess whether **average** behaviour is different.
@@ -115,7 +115,7 @@ kable(df,
   kable_styling(bootstrap_options = "striped")
 ```
 			
-No, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference---usually denoted as $\Delta$. Or, specifically: 
+Now, for all three strategies (estimation, testing, confidence intervals) we want to know something about the difference---usually denoted as $\Delta$. Or, specifically: 
 
 1. For estimation: determine the $\Delta$ = difference between group means
 2. For hypothesis testing: can we *reject* the null-hypothesis that  $\Delta = 0$
@@ -123,7 +123,7 @@ No, for all three strategies (estimation, testing, confidence intervals) we want
 
 #### Estimation
 
-For estimation is rather straightforward as we need to calculate the *difference* between the mean test scores within each group, or:
+Estimation is rather straightforward as we need to calculate the *difference* between the mean test scores within each group, or:
 
 \begin{eqnarray}
 \bar{Y}_{small} - \bar{Y}_{large} &=& \frac{1}{n_{small}} \sum_{i=1}^{n_{small}}Y_i - \frac{1}{n_{large}} \sum_{i=1}^{n_{large}} Y_i \\
@@ -138,7 +138,7 @@ This basically mean subtracting the average scores of Table \@ref(tab:smalllarge
 tabstat testscr, statistics(p10 p25 p50 p75 p90)
 ```
 
-where the command `tabstat` asks for a tabulation of certain statistics and `px` gives the $x$-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given that the difference of $7.4$ is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee cannot be answered with this analysis?
+where the command `tabstat` asks for a tabulation of certain statistics and `px` gives the $x$-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given that, the difference of $7.4$ is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer with this analysis.
 
 #### Hypothesis testing
 
@@ -155,7 +155,7 @@ We can compute this difference-of-means $t$-statistic by filling this in with th
 t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  = \frac{657.4 - 650.0}{\sqrt{\frac{19.4^2}{238} +\frac{17.9^2}{182} }} = \frac{7.4}{1.83} = 4.05
 \end{equation}
 
-But then what? Well, recall that we **reject** a null-hypothesis when the critical value is below a certain threshold (usually 5%). In this case that is equivalent with stating that $|t|>1.96$. So, we reject (at the 5% significance level) the null hypothesis that the two means are the same. We will come back to this procedure in Section xXx.
+But then what? Well, recall that we **reject** a null-hypothesis when the critical value is below a certain threshold (usually 5%). In this case that is equivalent with stating that $|t|>1.96$. So, we reject (at the 5% significance level) the null hypothesis that the two means are the same. We will come back to this procedure in Section \@ref(sec:unitesting).
 
 #### Confidence interval
 
@@ -164,7 +164,7 @@ Finally, we can construct a 95\% confidence interval for the difference between 
 (\bar{Y}_s - \bar{Y}_l)\pm 1.96 \times SE(\bar{Y}_s - \bar{Y}_l) = 7.4 \pm 1.96 \times 1.84 = (3.7, 11.0)
 (\#eq:cilarge)
 \end{equation}
-So what does this mean again. Well, two things. First, the 95\% confidence interval for $\Delta$ doesn't include 0 and, second, the hypothesis that $\Delta = 0$ is rejected at the 5\% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be reject as null-hypothesis
+So what does this mean again. Well, two things. First, the 95\% confidence interval for $\Delta$ doesn't include 0 and, second, the hypothesis that $\Delta = 0$ is rejected at the 5\% level. We will come back to confidence intervals as well, but for now a confidence interval can be seen as an interval of numbers that will not be rejected as null-hypothesis.
   
 ### Always be smart (and a bit lazy) {#sec:smart}
 
@@ -188,15 +188,15 @@ The three strategies we adopted in \@ref(sec:numevidence) for assessing the diff
 
 The name regression seems to have a negative connotation, as progress is in general seen as good and regress as bad. And actually this is true, the name regression was deliberatily given as to describe a negative process: in full *regression towards the mean*. The concept of regression was actually coined by Sir Francis Galton together with other statistical terms, such as correlation and deviation [@senn2011francis]. Galton was a notorious statistician who measured everything and else, including the length of french bread and the size of human skulls. 
 
-in 1886, Galton started to research the height of adult children with the height of their parents [@galton1886regression]. The original data can be seen in the scatterplot in Figure @\ref(fig:galton2). What Galton expected was that the relation between the height of children and that of their parents was one-to-one. On average children should receive the same height of their parents. So, in fact he expected a $45^{\circ}$ line---the red line; a line with slope equal to 1. 
+in 1886, Galton started to research the height of adult children with the height of their parents [@galton1886regression]. The original data can be seen in the scatterplot in Figure \@ref(fig:galton2). What Galton expected was that the relation between the height of children and that of their parents was a one-to-one relation. On average children should receive the same height of their parents. So, in fact he expected a $45^{\circ}$ line---the red line; a line with slope equal to 1. 
 
-```{r, echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='galton2'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='galton2', out.width="600px"}
 knitr::include_graphics("./figures/Galton2.png")
 ```
 
 However, he found consistently the blue line, a line with positive slope but lower than 1 (the blue line in Figure \@ref(fig:galton1)). That entails that, *on average* tall parents get tall children but not as tall as themselves. Of course, this goes as well the other way. Short parents get short children but not as short as themselves. 
 
-```{r, echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='galton1'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='galton1', out.width="600px"}
 knitr::include_graphics("./figures/Galton1.png")
 ```
 
@@ -206,7 +206,7 @@ This regression towards the mean is now seen as a very important characteristics
 
 > $\ldots$ a concept that refers to the fact that if one sample of a random variable is extreme, the next sampling of the same random variable is likely to be closer to its mean
 
-For instance, everything went really well and you got a 9 for an examination. That doesn't mean that the next time you will do equally well (you will still do, but not that well). Or, your favorite footballclub does extreme well in a particular year (Leicester comes to mind). That does not mean that the next year it will do equally well, and so forth and so on.
+For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do, but not that well). Or, your favorite footballclub does extreme well in a particular year (Leicester City FC comes to mind who became premier league champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.
 
 ### Regression with one regressor
 
@@ -216,8 +216,8 @@ is to estimate the **causal** effect on $Y$ of a unit change in $X$---but for no
 Similar to Subsection \@ref(sec:numevidence) we have three strategies to make inferences:
 
 - We estimation the relation:
-    - This now boils down to we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (a specific type of regression)
-		- And then we have to assess the advantages and disadvantages of OLS
+    - This now boils down to the question how we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (OLS---a specific an most common type of regression analysis)
+    - And then we have to assess the advantages and disadvantages of OLS
 - We could refer to hypothesis testing:
     - Very often this comes down to testing where the slope is zero. Namely, it the slope is zero, then the data does not show a relation between $Y$ and $X$.
 - Using confidence intervals:
@@ -251,7 +251,7 @@ To estimate the population linear regression model we apply the ordinary least s
 u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\beta_0 + \beta_1 X_i) \right]^2
 \end{equation}
 
-```{r, echo=FALSE, fig.cap = "Drawing a straight line through data in a scatterplot", label='unire'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Drawing a straight line through data in a scatterplot", label='unire', out.width="600px"}
 knitr::include_graphics("./figures/Lecture1_sheet8.png")
 ```
 
@@ -277,12 +277,12 @@ From here we can predict the values $\hat{Y}_i$ and residuals $\hat{u}_i$ as the
 
 When we apply this to our data cloud in Figure \@ref(fig:scattercaschool) then we get the following optimal population regression line:
 
-```{r, echo=FALSE, fig.cap = "bla", label='cloud'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Scatterplot and estimated regression line", label='cloud', out.width="600px"}
 knitr::include_graphics("./figures/Lecture1_sheet13.jpg")
 ```
-where the estimated slope equals $\hat{\beta}_1 = -2.28$, the estimated intercept equals $\hat{\beta}_0 = 698.9$ and the total population regression line can be written as: $\widehat{TestScore} = 698.9 - 2.28 \times STR$. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, $\frac{\Delta TestScore}{\Delta STR} =-2.28$). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not any sense---it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.
+where the estimated slope equals $\hat{\beta}_1 = -2.28$, the estimated intercept equals $\hat{\beta}_0 = 698.9$ and the total population regression line can be written as: $\widehat{TestScore} = 698.9 - 2.28 \times STR$. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, $\frac{\Delta TestScore}{\Delta STR} =-2.28$). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not make any sense---it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.
 
-No how to fill in predictions? One of the districts in the data set is Antelope (CA) for which $STR = 19.33$ and $TestScore = 657.8$ Then the predicted value for the testscore is $\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8$ and the resulting residual is $\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0$
+Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which $STR = 19.33$ and $TestScore = 657.8$ Then the predicted value for the testscore is $\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8$ and the resulting residual is $\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0$
 
 In `STATA` both the constant and the slope can be easily retrieved by:
 
@@ -290,7 +290,7 @@ In `STATA` both the constant and the slope can be easily retrieved by:
 regress testscr str, robust
 ```
 
-However, we will discuss the rest of this output later
+We will discuss the rest of this output later.
 
 #### Hypothesis testing {#sec:unitesting}
 
@@ -343,7 +343,7 @@ t = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 
 then the $p$-value can be seen from Figure \@ref(fig:pvalues):
 
-```{r, echo=FALSE, fig.cap = "Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$", label='pvalues'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$", label='pvalues', out.width="600px"}
 knitr::include_graphics("./figures/lecture_sheet9.jpg")
 ```
 
@@ -357,7 +357,7 @@ Now there is a link between the $p$-value and the significance level. The signif
 
 But recently there has been some debate about using $p$-values [@amrhein2019scientists]. Why should you use a 5% significance level, what is so special about that number? It is not better just to report coefficients and standard errors? Figure \@ref(fig:significance) shows a figure from the journal Nature and how scientists across all fields nowadays see $p$-values and statistical significance. This is not to say that testing does not matter, but more reporting. First of all, $p$ values in themselves do not contain that much information. In the regression output of above you $p$-values being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could to publications being published only with $p$-values below 0.05, leading to what is called publication bias. 
 
-```{r, echo=FALSE, fig.cap = "Critical review on the (mis)use of statistical significance", label='significance'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Critical review on the (mis)use of statistical significance", label='significance', out.width="600px"}
 knitr::include_graphics("./figures/significance.jpg")
 ```
 #### Confidence intervals
@@ -430,7 +430,7 @@ We will first discuss these three least squares assumptions and then give some o
 
 This first assumptions states that $E(u \mid X = x) = 0$ and is conceptually the most difficult one to grasp. Loosely speaking, it states that the regression error $u$ is *not* related with the independent variable $X$. They are not related with each other. Another way of looking at this is displayed in Figure \@ref(fig:ass1). Here, whatever the value of student-teacher ratio is, the expectation of the outcome variable (test scores) is always centered around the population regression line. So, on average, you always predict according to *your* model, for each value of $X$.
 
-```{r, echo=FALSE, fig.cap = "Condition mean independence assumption", label='ass1'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Condition mean independence assumption", label='ass1', out.width="600px"}
 knitr::include_graphics("./figures/Lecture1_sheet25.jpg")
 ```
 
@@ -453,7 +453,7 @@ The consequence of violating the *i.i.d.* assumption is less severe then violati
 
 The third and final least square assumption for causal inference is that large outliers are rare. Large outliers are not well defined and depend on the size of both $Y$ and $X$, but in general it can be seen as an *extreme* value of $X$ or $Y$. The problem is that such a large outlier can strongly *influence* the results and in general it can be stated that OLS can be rather sensitive to an outlier. Consider the two population regression lines in \@ref(fig:outlier). The flat one (with $\hat{\beta}_1 = 0)$ does not take the isolated observation in the upper right corner into account. The one with the positive slope does. Now, clearly the one isolated observation in the upper right corner clearly matter to a large extent and is an important driver for the results of the ordinary least squares estimator.
 
-```{r, echo=FALSE, fig.cap = "Effect of outliers on OLS estimations", label='outlier'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Effect of outliers on OLS estimations", label='outlier', out.width="600px"}
 knitr::include_graphics("./figures/Lecture1_sheet29.jpg")
 ```
 
@@ -467,25 +467,25 @@ Oftentimes, two other least squares assumptions are frequently encountered. Howe
 
 Homoskedasticity is concerned with the standard errors. Its definition is if $var(u \mid X=x)$ is constant---that is, if the variance of the conditional distribution of $u$ given $X$ does not depend on $X$---then $u$ is said to be homoskedastic.  Otherwise, $u$ is heteroskedastic. 
 
-```{r, echo=FALSE, fig.cap = "Homoskedastic standard errors", label='homoskedasticity'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Homoskedastic standard errors", label='homoskedasticity', out.width="600px"}
 knitr::include_graphics("./figures/Sheet21.png")
 ```
 
 Consider Figure \@ref(fig:homoskedasticity). Clearly the variance *around* the population regression line is everywhere the same, regardless the value of student-teacher ratio ($X$). Recall, that $E(u \mid X=x) = 0$ so $u$ satisfies Least Squares Assumption 1. Now, in addition we also assume that the variance of $u$ does not depend on $x$. This is the case of homoskedasticity
 
-```{r, echo=FALSE, fig.cap = "Heteroskedastic standard errors", label='heteroskedasticity'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Heteroskedastic standard errors", label='heteroskedasticity', out.width="600px"}
 knitr::include_graphics("./figures/Sheet22.png")
 ```
 
 Now consider Figure \@ref(fig:heteroskedasticity). Now clearly the variance around the population regression line increases in student-teacher ratio ($X$). So, $E(u \mid X=x) = 0$ is still satisfied, but the variance of $u$ does now depends on $x$. $u$ is now said to be heteroskedastic. 
 
-```{r, echo=FALSE, fig.cap = "Wages versus years of education", label='wages'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Wages versus years of education", label='wages', out.width="600px"}
 knitr::include_graphics("./figures/Sheet23.png")
 ```
 
 Very often data or model in the social sciences are heteroskedastic. For example, wages are usually heteroskedastic in the amount of education consumed. Figure \@ref(fig:wages) shows the relation between years of education and wages, and the larger the years of education the larger hourly earnings (wages) are---as you would assume would be. But the variance also incrases in years of education. That is because you can easily predict wages when workers enjoyed very few years of schooling---usually those are just above minimum wages---but the spread becomes much wider when years of schooling goes up.
 
-```{r, echo=FALSE, fig.cap = "Heteroskedasticity in Californation schools?", label='heteroskedasticityca'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Heteroskedasticity in Californation schools?", label='heteroskedasticityca', out.width="600px"}
 knitr::include_graphics("./figures/Sheet24.png")
 ```
 

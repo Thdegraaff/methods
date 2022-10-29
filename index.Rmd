@@ -3,6 +3,8 @@ title: "Methods and Techniques for Social and Economic Research: Syllabus"
 author: "Paul Koster & Thomas de Graaff"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+url: https\://thomasdegraaff.nl/methods/docs/
+github-repo: "Thdegraaff/methods"
 output: 
   bookdown::gitbook:
     config:
@@ -25,9 +27,9 @@ output:
         family: sans
         size: 2
       sharing:
-        facebook: true
-        github: false
-        twitter: true
+        facebook: false
+        github: true
+        twitter: false
         linkedin: false
         weibo: false
         instapaper: false
@@ -35,8 +37,8 @@ output:
         whatsapp: false
         all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
       info: true
-  # bookdown::pdf_book:
-  #   keep_tex: true
+  bookdown::pdf_book:
+    keep_tex: true
   # bookdown::bs4_book:
   #   config: 
   #     toc:
@@ -59,6 +61,15 @@ description: |
   Methods and Techniques for Social and Economic Research for the program
   Earth, Economics and Sustainability 
 biblio-style: apalike
+toolbar:
+  position: fixed
+edit : null
+download: null
+search:
+  engine: lunr # or fuse
+      # options to control/tune search engine behavior (for
+      # fuse.js, refer to https://fusejs.io/api/options.html)
+  options: null
 #csl: chicago-fullnote-bibliography.csl
 ---
 

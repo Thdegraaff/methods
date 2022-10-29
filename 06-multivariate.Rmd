@@ -179,7 +179,7 @@ See that `STATA` drops one of the $STR$ variables. But why is that? See that the
 \end{equation}
 where $w_1$ and $w_2$ are weights chosen such that they satisfy the condition that $w_1 + w_2 = 1$. But there is an infinite number of combinations that satisfy this condition! So, there is not an optimal solution and one of these variables should be dropped. 
 
-The violation of no perfect multicollearity often occurs when using dummies (see again Subsection \@ref(sec:dummy)). Suppose that we regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise. This example is slightly more complex as there is no perfect correlation between $B$ and $D$. However, the model contains as well a constant and that create a perfect linear combination, namely $B_i + D_i = 1$ and that is the definition of a constant ($\beta_1 \times 1), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
+The violation of no perfect multicollearity often occurs when using dummies (see again Subsection \@ref(sec:dummy)). Suppose that we regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise. This example is slightly more complex as there is no perfect correlation between $B$ and $D$. However, the model contains as well a constant and that create a perfect linear combination, namely $B_i + D_i = 1$ and that is the definition of a constant ($\beta_1 \times 1$), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
  
 There are possible solutions to the dummy variable trap:
 
@@ -370,7 +370,7 @@ test avginc#avginc avginc#avginc#avginc
 
 ### Interaction variables
 
-Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself $X\times X = X^2$, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, $\frac{\partial TestScore}{\partial STR}$ might \alert{depend} on $PctEL$. More generally, this subsection looks into the fact that the marginal effect of $\frac{\partial Y}{\partial X_1}$ might \alert{depend} on some other variable $X_2$.
+Using interaction variables is a special case of polynomial effects. Namely, instead of multiply a variable with itself $X\times X = X^2$, you now multiple a variable with another variable. And you want to do this to take into account interactions between independent variables. Assume, for example, that a class size reduction is more effective in some circumstances than in others (which is quite conceivable). Perhaps smaller classes help more if there are many English learners (i.e., large migrant communities), who need more individual attention. That is, $\frac{\partial TestScore}{\partial STR}$ might depend on $PctEL$. More generally, this subsection looks into the fact that the marginal effect of $\frac{\partial Y}{\partial X_1}$ might depend on some other variable $X_2$.
 
 #### Interactions between two binary variables
 
@@ -480,9 +480,9 @@ Hypothesis testing is a before. To test whether the two regression lines have th
 #### Interactions between two continuous variables
 
 The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:
-\begin{itemize}
+\begin{equation}
 Y_i =\beta_0 + \beta1 X_{1i} +\beta_2 {X_{2i}} +u_i,
-\end{itemize}
+\end{equation}
 where both $X_1$, $X_2$ are continuous and as specified, the effect of $X_1$ doesn't depend on $X_2$ and the effect of $X_2$ doesn't depend on $X_1$. Now, to allow the effect of $X_1$ to depend on $X_2$, we include the interaction term $X_{1i} \times X_{2i}$ as a regressor. Where, to interpret the coefficients, we take the first derivative of $X_1$ in:
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 (X_{1i}
@@ -514,7 +514,7 @@ where you take the natural logarithm on both sides. There are three different ca
 
 ```{r logspecifications, echo = FALSE}
 v1 <- c(
-"linear-log", "log_linear", "log-log"
+"linear-log", "log-linear", "log-log"
   )
 v2 <- c("$Y_i=\\beta_0 + \\beta_1 \\ln(X_i) + u_i$", "$\\ln(Y_i)=\\beta_0 + \\beta_1 (X_i) + u_i$ ", "$\\ln(Y_i)=\\beta_0 + \\beta_1 \\ln(X_i) + u_i$")
 df <- data.frame( v1, v2 )
