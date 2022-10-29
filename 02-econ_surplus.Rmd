@@ -1,35 +1,35 @@
 # Introduction to Economic Surplus {#surplus}
 
-Practical cost-benefit analysis is widely used in applied economic analysis and often employs a definition of economic surplus that adds up consumer and producer surplus and potential external costs. These lecture notes discuss the behavioural assumptions underlying this calculation and show how to operationalise the definition of economic surplus to derive economic surplus changes and externality taxes. It employs a mathematical approach suitable applied economic partial equilibrium analysis.
+Practical cost-benefit analysis is widely used in applied economic analysis and often employs a definition of economic surplus that adds up consumer and producer surplus and potential external costs. This chapter discusses the behavioral assumptions underlying this calculation and show how to operationalize the definition of economic surplus to derive economic surplus changes and externality taxes. It employs a mathematical approach suitable applied to economic partial equilibrium analysis.
 
 ## Introduction 
 
 ### Background
 
-These lecture notes introduce the classical economic perspective on economic surplus. Economic surplus is a quantitative estimate of the value that markets generate for society according to economists. Besides analysing the impacts of economic policies for societies (do policies have effects and do they work as intended?), one of the core tasks of economists is to give recommendations about what is supposed to be valuable for society (do policies add value?). 
+This chapter introduces the classical economic perspective on economic surplus. Economic surplus is a quantitative estimate of the value that markets generate for society according to economists. Besides analysing the impacts of economic policies for societies (do policies have effects and do they work as intended?), one of the core tasks of economists is to give recommendations about what is supposed to be valuable for society (do policies add value?). 
 
-Economic analyses of the value that markets generate also are important in debates about sustainability. What economists contribute to this debate is that they seek to analyse behavioural choices of consumers and producers using statistical techniques and mathematical modelling and that they come up with quantitative estimates of value. The contribution of these lecture notes is that we move from conceptual analysis of market figures to mathematical descriptions and connections to statistical measurement. We do so for partial equilibrium analysis, meaning that we focus on the analysis of a market for a single good.
+Economic analyses of the value that markets generate also are important in debates about sustainability. What economists contribute to this debate is that they seek to analyse behavioural choices of consumers and producers using statistical techniques and mathematical modelling and that they come up with quantitative estimates of value. The contribution of this chapter is that we move from conceptual analysis of market figures to mathematical descriptions and connections to statistical measurement. We do so for partial equilibrium analysis, meaning that we focus on the analysis of a market for a single good (with multiple good, issues of substitution and complementarity comes into play).
 
-Four conceptual pillars of economic analysis are important for applied economic analysis of surplus and the lecture notes of this week try to emphasize the structural relation between these pillars along the road:
+Four conceptual pillars of economic analysis are important for applied economic analysis of surplus and this chapter aims to emphasize the structural relation between these pillars along the road:
 
-1.	**Optimization**: market actors choose their best (feasible) option.
-2.	**Equilibrium**: market actors choose their best feasible option when interacting with others.
-3.	**Empiricism**: behavioural models need to be tested with data.
-4.	**Choice-based normativity**: choices express value of market actors and value of market actors is equal to value for society. 
+i.	**Optimization**: market actors choose their best (feasible) option.
+ii.	**Equilibrium**: market actors choose their best feasible option when interacting with others.
+iii.	**Empiricism**: behavioural models need to be tested with data.
+iv.	**Choice-based normativity**: choices express value of market actors and value of market actors is equal to value for society. 
 
-The first core principle states that consumers and producers optimize when they make their choices. For consumers this implies it is assumed that they maximize their utility. A mathematical description of utility is captured by the direct utility function which maps consumption quantities and remaining money to some cardinal number. We will discuss the mathematical behavioural model underlying consumer optimization in Section II and discuss the implications for consumer value in markets. We also show at some points how this model of consumer behaviour relates to pillar (*iii*). 
+The first core principle states that consumers and producers optimize when they make their choices. For consumers this implies it is assumed that they maximize their utility. A mathematical description of utility is captured by the direct utility function which maps consumption quantities and remaining money to some cardinal number. We will discuss the mathematical behavioural model underlying consumer optimization in Section \@ref(sec:conchoices) and discuss the implications for consumer value in markets. We also show at some points how this model of consumer behaviour relates to pillar (iii). 
 
-For producers, pillar (*i*) implies that they minimize their costs given a production target when they are assumed to be price-takers. Section III discusses the basic cost-minimization model of producers and the implications for producer value in markets. 
+For producers, pillar (i) implies that they minimize their costs given a production target when they are assumed to be price-takers. Section \@ref(sec:procbeh) discusses the basic cost-minimization model of producers and the implications for producer value in markets. 
 
-The second core principle states that equilibrium in markets results from the behavioural choices and *interaction* of consumers and producers. Section IV of these lecture notes discuss partial equilibrium and implications for total economic value in markets. The discussion in these sections of the lecture notes is conceptually speaking rather basic as substitution to other markets is ignored. Some complexity is added by connecting equilibrium to the third pillar of empiricism. It is very important for you to understand the core concepts and assumptions and the calibration underlying a basic partial equilibrium model in order to understand the extensions that are provided in the weeks that follow. 
+The second core principle states that equilibrium in markets results from the behavioral choices and *interaction* of consumers and producers. Section \@ref(sec:econsurplus) of these lecture notes discuss partial equilibrium and implications for total economic value in markets. The discussion in these sections of the lecture notes is conceptually speaking rather basic as substitution to other markets is ignored. Some complexity is added by connecting equilibrium to the third pillar of empiricism. It is very important for you to understand the core concepts and assumptions and the calibration underlying a basic partial equilibrium model in order to understand the extensions that are provided in the weeks that follow. 
 
 The third pillar is discussed along the way. Empirical analysis can be used to estimate the structural parameters of observed demand functions and production functions using regression techniques. These techniques relate mathematical narratives of choice behaviour to empirical data. The mathematical structure that is imposed sometimes requires that parameters in regression have particular values. Hypothesis testing can be used to see which model fits the data better. Calibration can be used to connect estimated elasticities from the literature to market demand and supply functions. Examples are provided to show how you can obtain quantitative estimates of total economic value.
 
-Section V applies the model of market value and introduces the idea of external costs. This is a key concept in environmental economics and analyses of sustainability. From an economic perspective, external costs resulting from market trade lower the value of a market and can be a motivating factor for regulatory intervention of a government. For a classical economist a sustainable market is a market where external costs are correctly priced.  Section V discusses the regulation of an environmental externality in a market and thereby provides the necessary bridge between the economic theory and your bachelor program. Analytical examples are provided to show how you can obtain quantitative estimates of total economic value.
+Section \@ref(sec:extcosts) applies the model of market value and introduces the idea of external costs. This is a key concept in environmental economics and analyses of sustainability. From an economic perspective, external costs resulting from market trade lower the value of a market and can be a motivating factor for regulatory intervention of a government. For a classical economist a sustainable market is a market where external costs are correctly priced.  Section \@ref(sec:extcosts) discusses the regulation of an environmental externality in a market and thereby provides the necessary bridge between the economic theory and your bachelor program. Analytical examples are provided to show how you can obtain quantitative estimates of total economic value.
 
-We will come back to the four pillars in the weeks that follow where we zoom in on the impact of bounded rationality and other views on normativity. 
+We will come back to the four pillars in the chapters that follow where we zoom in on the impact of bounded rationality and other views on normativity. 
 
-## Consumer choices and consumer value
+## Consumer choices and consumer value {#sec:conchoices}
 
 ### Utility functions, inverse demand and demand
 
@@ -60,10 +60,10 @@ U \left(Q, \frac{Y-pQ}{p_G} \right)
 The optimal choice of the quantity of the market good is governed by the utility of consumption (first argument) and the disutility of spending money on the market good (second argument). Optimal consumption can be derived by setting the total derivative with respect to the market quantity to 0:
 
 \begin{equation}
-\frac{dU}{dQ} = U_Q - \frac{P}{P_G}U_G = 0
+\frac{dU}{dQ} = U_Q - \frac{p}{p_G}U_G = 0
 \end{equation}
 
-Here, $U_Q=\frac{\partial U}{\partial Q}$ is the marginal utility of consuming the market good. Here we use the notation $\frac{dU}{dQ}$ for the total derivative (both arguments of the utility function), and the notation $\frac{\partial U}{\partial Q}$ for the partial derivative with respect to $Q$ (only the first argument). Marginal utility of consumption is the slope of the direct utility function with respect to the first argument $Q$. Furthermore, $U_G=\frac{\partial U}{\partial G}$ is the marginal utility of consumption of the outside good. This is equal to the price of the outside good multiplied with the marginal utility of income $p_G \frac{\partial U}{\partial Y}$. The second part of the first-order condition therefore captures the disutility of paying a price $p$ for the market good. It also accounts for the relative price of the market good compared to the price for the basket of goods. From the first-order condition an implicit expression for the inverse demand curve can be derived. This expression shows that the ratio of prices is equal to the ration of marginal utilities.
+Here, $U_Q=\frac{\partial U}{\partial Q}$ is the marginal utility of consuming the market good. Here we use the notation $\frac{dU}{dQ}$ for the total derivative (both arguments of the utility function), and the notation $\frac{\partial U}{\partial Q}$ for the partial derivative with respect to $Q$ (only the first argument). Marginal utility of consumption is the slope of the direct utility function with respect to the first argument $Q$. Furthermore, $U_G=\frac{\partial U}{\partial G}$ is the marginal utility of consumption of the outside good. This is equal to the price of the outside good multiplied with the marginal utility of income $p_G \frac{\partial U}{\partial Y}$. The second part of the first-order condition therefore captures the disutility of paying a price $p$ for the market good. It also accounts for the relative price of the market good compared to the price for the basket of goods. From the first-order condition an implicit expression for the inverse demand curve can be derived. This expression shows that the ratio of prices is equal to the ratio of marginal utilities.
 
 \begin{equation}
 \frac{p}{p_G} = \frac{U_Q}{U_G} \longleftrightarrow p = p_G\frac{U_Q}{U_G}
@@ -112,7 +112,7 @@ The direct utility is concave^[Remember, concave function have decreasing margin
 
 The intuitive appeal of the assumption of concavity is that the additional utility gained from consuming an additional unit of the market good is decreasing in the consumption level. This implies that the *marginal utility* of consuming the market good is positive, but decreasing. For example, people might enjoy eating meat, but the additional enjoyment of meat consumption decreases in the consumption level. At some point meat saturation kicks in and marginal utility becomes (close to) 0. 
 
-In line with pillar (*1.*), the consumer is assumed to maximize utility while accounting for the budget constraint. From the budget constraint we can obtain the consumption level of the outside good: 
+In line with pillar (i), the consumer is assumed to maximize utility while accounting for the budget constraint. From the budget constraint we can obtain the consumption level of the outside good: 
 
 \begin{equation}
 Y - pQ - G = 0 \longleftrightarrow G= Y - pQ.
@@ -253,7 +253,7 @@ Q(p) = \frac{A}{A+B}\frac{Y}{p} - \frac{A}{A+B}\frac{1}{p}\underline{G} = \frac{
 Log-linearizing this demand function gives the following regression equation:
 
 \begin{equation}
-\ln Q = \ln \frac{A}{A+B} + \ln(Y - \underline{G} - \ln p + \epsilon).
+\ln Q = \ln \frac{A}{A+B} + \ln(Y - \underline{G}) - \ln p + \epsilon.
 \end{equation}
 
 Demand is not linear in the log of the net spendable income anymore as first the necessary spending on the outside good should be accounted for. The price coefficient and the coefficient for $\ln (Y - \underline{G})$ still enter with a coefficient equal to $1$. For applied work this means that if the Stone-Geary model of behaviour is correct, one first should subtract spending on basic goods $\underline{G}$ from the net spendable income, and introduce the logged variable as an explanatory variable in the regression.
@@ -273,7 +273,6 @@ Consider for example the Cobb-Douglas demand that is developed in section \@ref(
 \begin{equation}
 Q^D(p) = \sum_{n= 1}^{N}\frac{A_n}{A_n+B_n} Y_n \frac{1}{p}=\frac{1}{p} \sum_{n= 1}^{N}\frac{A_n}{A_n+B_n} Y_n.
 \end{equation}
-
 
 Although aggregation is possible, it requires additional analytical assumption to be neatly done.
 
@@ -295,14 +294,14 @@ The definition of an elasticity is as follows: for a 1% increase in the market p
 
 We illustrate the concept of price elasticity of demand using an example.  @brons2002price give an overview of price elasticities of demand for air travel. Figure \@ref(fig:brons) below is from their paper.
 
-```{r, echo=FALSE, fig.cap = "Overview of studies on the price elasticities of market demand for air travel", label='brons'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Overview of studies on the price elasticities of market demand for air travel", label='brons', out.width="600px"}
 knitr::include_graphics("./figures/brons.png")
 ```
 For short distance air travel the median value of the price elasticity is $-1.5$. This implies that for short distance travel a $1$% increase in the price will reduce air travel for these trips with $1.5$%. For medium-distance trips the median price elasticity of market demand is given by $-1.4$ implying that a $1$% increase in the price reduces demand with $1.4$%. For long-distance flights the median is $-0.8$, implying that a $1$% increase in the price reduces demand with $0.8$%. For the assumed numbers above, long-distance flight demand is therefore inelastic whereas short distance and medium distance flights have elastic demands. are therefore less sensitive to the price compared to travellers. 
 
 Another example of estimated price elasticities comes from a meta-analysis of @andreyeva2010impact. They give a summary of estimates of absolute price elasticities of demand for food categories in the US (displayed in Figure \@ref(fig:foodelas)). All food categories have inelastic demand as elasticities are in between $0$ and $-1$. The estimated price elasticities are between $-0.27$ (eggs) and $-0.81$ (food away from home). A $1$% increase in the price of eggs therefore results in $0.27$% lower demand. For beef the estimated elasticity is $-0.75$, implying that a $1$% increase in the price for beef results in a $0.75$% lower demand. Uncertainty in the estimates is reported with the 95% confidence intervals.
 
-```{r, echo=FALSE, fig.cap = "Price elasticity estimates for food categories. ", label='foodelas'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Price elasticity estimates for food categories. ", label='foodelas', out.width="600px"}
 knitr::include_graphics("./figures/foodelasticities.png")
 ```
 
@@ -392,7 +391,7 @@ CS=5,252,798-2 \times 200,000=1,252,798 \text{ euros per year}.
 
 To conclude: the mathematical analysis of consumer choice behaviour is useful to structure our thinking about consumer behaviour and the origins of the market inverse demand curve. This market inverse demand curve can be interpreted as the MWTP of a group of consumers with MWTPs sorted from high to low and can be estimated using regression techniques or studied using survey questions. Mathematical modelling can be employed to relate estimated parameters in regressions to the calculation of (changes) in consumer benefits where it is important to account for the dimensions of the variables.
 
-## Poducer behaviour and surplus
+## Poducer behaviour and surplus {#sec:procbeh}
 
 ### 	Producer cost functions and cost minimisation 
 
@@ -507,7 +506,7 @@ The three first-order conditions are given by:
 \frac{\partial H}{\partial L} &= \omega - \lambda\frac{\alpha_L}{\partial L}TK^{\alpha_K}L^{\alpha_L}= 0.\\
 \end{align}
 
-The first condition ensures that the production target is reached. The second condition equates the marginal costs of capital to the marginal benefits of capital. The third condition equates the marginal costs of labour to the marginal benefits of labour. In Appendix A we show that the optimal capital and labour are given by:
+The first condition ensures that the production target is reached. The second condition equates the marginal costs of capital to the marginal benefits of capital. The third condition equates the marginal costs of labour to the marginal benefits of labour. In Appendix \@ref(appderivation) we show that the optimal capital and labour are given by:
 
 \begin{align}
 K^\ast &= \frac{Q}{T}^{\frac{1}{\alpha_K+\alpha_L}}\frac{\omega}{r}^{\frac{\alpha_L}{\alpha_K+\alpha_L}}\frac{\alpha_K}{\alpha_L}^{\frac{\alpha_L}{\alpha_K+\alpha_L}},\\
@@ -641,7 +640,7 @@ For a 1% increase in the market price, the market supply will change with $\kapp
 
 Not all estimates are significant (confidence intervals are not reported). For Pittsburgh, the elasticity is estimated at 1.43 and significant at the 1% level. This implies that a 1% increase in the price of housing will lead to 1.43% increase in the housing supply in Pittsburgh. For Atlanta, housing supply is more elastic: a 1% increase in the price of housing leads to an estimated 21.6% increase in housing supply. Later we will see how elasticities are related to policies related to prices. 
 
-```{r, echo=FALSE, fig.cap = "Price elasticities of housing supply ", label='green'}
+```{r fig.align='center', echo=FALSE, fig.cap = "Price elasticities of housing supply ", label='green', out.width="400px"}
 knitr::include_graphics("./figures/green.png")
 ```
 
@@ -670,7 +669,7 @@ PS  &= p^\ast Q^\ast - \int_0^{Q^\ast} \frac{B}{T}r^{\alpha_K}\omega^{1-\alpha_L
 
 This requires input on the equilibrium price and quantity, the technology parameter, the input prices and the production elasticity of substitution.
 
-## Analysis of economic surplus
+## Analysis of economic surplus {#sec:econsurplus}
 
 ### Introduction
 
@@ -736,7 +735,7 @@ v4 <- c(
 Parameter assumptions:
 $B>0$,$B<A$.\n
 Regression (log-linear):\n
-$MC = \\ln B  +b \\ln Q + \\epsilon$",
+$\\ln MC = \\ln B  +b Q + \\epsilon$",
 "$s(Q)=BQ^b$\n
 Parameter assumptions:
 $B>0$\n
@@ -774,9 +773,67 @@ kable(df,
   kable_styling(bootstrap_options = "striped", font_size = 10)
 ```
 
-Table 2 gives the calibrated parameters for the inverse demand and inverse supply functions based on information on the equilibrium elasticities and the equilibrium price and quantity. Equilibrium elasticities can be obtained from the literature or from an empirical analysis of demand and supply data. Equilibrium prices and quantities can be observed for the market that you are interested in.
+Table \@ref(tab:calibrated) gives the calibrated parameters for the inverse demand and inverse supply functions based on information on the equilibrium elasticities and the equilibrium price and quantity. Equilibrium elasticities can be obtained from the literature or from an empirical analysis of demand and supply data. Equilibrium prices and quantities can be observed for the market that you are interested in.
 
-[INSERT TABLE HERE]
+```{r calibrated, echo = FALSE}
+v1 <- c("Case I: Exponential inverse demand and exponential inverse supply",
+  "Case II: Constant elasticity inverse demand and inverse supply",
+  "Case III: Logged inverse demand and inverse supply",
+  "Case IV: linear inverse demand and inverse supply"
+)
+v2 <- c(
+  "$p(Q)=Ae^{-\\alpha Q}$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$.\n
+Regression (log-linear):\n
+$\\ln p = \\ln A - \\alpha Q + \\epsilon$",
+"$p(Q) = AQ^{-\\alpha}$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$.\n
+Regression (log-log):\n
+$\\ln p = \\ln A - \\alpha \\ln Q + \\epsilon$",
+"$p(Q)=A-\\alpha \\ln Q$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$.\n
+Regression (linear-log):\n
+$p=A- \\alpha \\ln Q + \\epsilon$ ",
+"$p(Q)=A- \\alpha Q$\n
+Regression (linear-linear):\n
+$p=A-\\alpha Q+ \\epsilon$ "
+)
+v3 <- c(
+  "$A = p^\\ast e^{\\alpha Q^\\ast}$",
+  "$A = p^\\ast Q^{\\ast^\\alpha}$",
+  "$A = p^\\ast + \\alpha \\ln Q^\\ast$",
+  "$A = p^\\ast + \\alpha Q^\\ast$"
+)
+v4 <- c(
+  "$\\alpha = - \\frac{1}{\\epsilon^\\ast} \\frac{1}{Q^\\ast}$\n$\\frac{1}{\\alpha} = -\\epsilon^\\ast Q^\\ast$",
+  "$\\alpha = - \\frac{1}{\\epsilon^\\ast}$\n$\\frac{1}{\\alpha} = -\\epsilon^\\ast$",
+  "$\\alpha = - \\frac{1}{\\epsilon^\\ast}p^\\ast$",
+  "$\\alpha = - \\frac{1}{\\epsilon^\\ast}\\frac{p^\\ast}{Q^\\ast}$"
+)
+v5 <- c(
+  "$B = p^\\ast e^{- b Q^\\ast}$",
+  "$B = p^\\ast Q^{\\ast -b}$",
+  "$B = p^\\ast - b \\ln Q^\\ast$",
+  "$B = p^\\ast - b Q^\\ast$"
+)
+v6 <- c(
+  "$b = - \\frac{1}{\\kappa^\\ast} \\frac{1}{Q^\\ast}$\n$\\frac{1}{b} = -\\kappa^\\ast Q^\\ast$",
+  "$b = - \\frac{1}{\\kappa^\\ast}$\n$\\frac{1}{\\alpha} = -\\kappa^\\ast$",
+  "$b = - \\frac{1}{\\kappa^\\ast}p^\\ast$",
+  "$b = - \\frac{1}{\\kappa^\\ast}\\frac{p^\\ast}{Q^\\ast}$"
+)
+df <- data.frame( v1, v2, v3, v4, v5, v6 )
+kable(df, 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Calibrated model parameters for commonly used inverse demand and inverse supply functions',
+      col.names = c("Case description", "Inverse demand",	"$A$", "$\\alpha$ and $1/\\alpha$", "$B$", "$b$ and $1/b$")
+) %>%
+  kable_styling(bootstrap_options = "striped", font_size = 10)
+```
 
 The parameters $A$ and $B$ can be calibrated using the identities for the inverse demand and inverse supply at the equilibrium. The parameters $a$ and $b$ can be calibrated using the equations we have for the price elasticities for specified demand and supply functions (see Table \@ref(tab:demand)). 
 To illustrate how a market can be calibrated using elasticities from the literature we provide an example of case I: exponential inverse demand and inverse supply functions. Table  \@ref(tab:calibration) shows information we have about the equilibrium elasticities for vegan nuggets.
@@ -828,12 +885,12 @@ kable(df,
 Using the calibrated inverse demand and inverse supply function one can derive the consumer benefits, the producer costs and economic surplus as we will see in the next section. The important insight here is that model parameters can be calibrated using empirical observations of equilibrium prices and quantity and empirical estimates of the equilibrium elasticities. This provides the bridge between theoretical and conceptual models and empirical observations.
 
 ### 	Analysis of economic surplus
-Economic surplus (ES) generated in the market is given by the sum of consumer surplus and producer surplus. It seeks to combine pillar (3.) with a particular view on normativity (pillar 4.): for the calculation of economic surplus it is assumed that:
+Economic surplus (ES) generated in the market is given by the sum of consumer surplus and producer surplus. It seeks to combine pillar (iii) with a particular view on normativity (pillar (iv)): for the calculation of economic surplus it is assumed that:
 
 1. The choices of market actors express their value attached to the market products;
 2. Choice value can be fully counted as economic surplus because the choices of market actors are 'good'.
 
-We come back to these assumptions in weeks 2 and 3.
+We come back to these assumptions in Chapters \@ref(erroreconsurplus and \@ref(moral).
 
 Mathematically, economic surplus is defined by:
 
@@ -854,7 +911,7 @@ At this point it is also useful to investigate the point for which economic surp
 \frac{\partial ES}{\partial Q^\ast} = p(Q^\ast) - s(Q^\ast) = 0
 \end{equation}
 
-This is equal to the equilibrium condition which states that marginal benefits are equal to marginal costs. The expression shows that economic surplus in the market is optimal when marginal consumer benefits are equal to marginal costs in equilibrium. In the absence of other costs and considerations, one can conclude with Adam Smith from this equation that free trade will result in the maximum economic surplus. However, one should keep in mind that together with the assumptions on rationality, equilibrium is imposed rather than empirically supported using data analysis and that particular pillar (4.) assumptions on normativity are made that might not hold in practice.
+This is equal to the equilibrium condition which states that marginal benefits are equal to marginal costs. The expression shows that economic surplus in the market is optimal when marginal consumer benefits are equal to marginal costs in equilibrium. In the absence of other costs and considerations, one can conclude with Adam Smith from this equation that free trade will result in the maximum economic surplus. However, one should keep in mind that together with the assumptions on rationality, equilibrium is imposed rather than empirically supported using data analysis and that particular pillar (iv) assumptions on normativity are made that might not hold in practice.
 
 Integral calculus can be employed to derive economic surplus for particular specifications of the inverse demand and the inverse supply curve. We will illustrate this for an example. Suppose the inverse supply curve is exponentially increasing in quantity and given by:
 
@@ -877,32 +934,61 @@ ES &= \underbrace{\int_0^{Q^\ast} Ae^{-\alpha Q} dQ}_\text{Total consumer benefi
 &= \frac{1}{\alpha}A\left(1 - e^{-\alpha Q^\ast} \right) -\frac{1}{b}B\left(e^{b Q^\ast} - 1 \right).
 \end{align}
 
-This shows that economic surplus in the market can be written as a function of the observed equilibrium quantity and the structural parameters of the inverse demand and the inverse supply function. In the previous sub-section, we calibrated these structural parameters using information on equilibrium prices and equilibrium demand and the equilibrium demand and supply elasticities (see Table 4). We can now use these parameters to derive the consumer benefits, the producer costs and the total economic surplus in the market for vegan nuggets. Table 5 provides an extension of Table 4 and shows the results. We leave it to the reader to develop examples for the other cases 2--4.
+This shows that economic surplus in the market can be written as a function of the observed equilibrium quantity and the structural parameters of the inverse demand and the inverse supply function. In the previous sub-section, we calibrated these structural parameters using information on equilibrium prices and equilibrium demand and the equilibrium demand and supply elasticities (see Table \@ref(tab:modelparameters)). We can now use these parameters to derive the consumer benefits, the producer costs and the total economic surplus in the market for vegan nuggets. Table \@ref(tab:econsurplusexample) provides an extension of Table \@ref(tab:modelparameters) and shows the results. We leave it to the reader to develop examples for the other cases 2--4.
 
-[INSERT TABLE HERE]
+```{r econsurplusexample, echo = FALSE}
+v1 <- c("Consumer benefits (euros per year)",
+"Producer costs (euros per year)",
+"Consumer surplus (euros per year)",
+"Producer surplus (euros per year)",
+"Economic surplus (euros per year)"
+)
+v2 <- c(
+  "$\\frac{1}{\\alpha}A[1-e^{-\\alpha Q^\\ast}] = 160,000 \\times 10.12 \\times [1 - e^{\\frac{200,000}{160,000}}]$\n
+  $= 1,155,519 \\text{ euros}$",
+  "$\\frac{1}{b}B(e^{bQ^\\ast} - 1) = 220,000 \\times 1.17 \\times (e^{\\frac{200,000}{220,000}} + 1)$\n
+  $380,956 \\text{ eurors}$",
+  "$CS = CB - CC$\n
+   $\\frac{1}{\\alpha}A[1-e^{-\\alpha Q^\\ast}] - p^\\ast Q^\\ast = 1,155,519 - 580,000$\n
+   $= 575,519 \\text{ euros}$",
+  "$PS = PB - PC$\n
+   $p^\\ast Q^\\ast - \\frac{1}{b}B(e^{bQ^\\ast} - 1) = 580,000 - 380,956$\n
+   $= 199,044 \\text{ euros}$",
+  "$ES = CB - PC = 774,563 \\text{ euros}$\n
+   $= CS + PS= 774,563 \\text{ euros}$"
+)
+df <- data.frame( v1, v2 )
+kable(df, 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Economic surplus (example)',
+      col.names = c("Variable explanation", "Value")
+) %>%
+  kable_styling(bootstrap_options = "striped")
+```
 
-## External costs and economic surplus
+## External costs and economic surplus {#sec:extcosts}
 
 ### Introduction
 
 In the previous section we investigated mathematically the economic surplus that markets generate. This economic surplus is generated assuming free trade possibilities and equilibrium and is only related to the decisions of consumers and producers. It therefore does not account for potential other costs and benefits that fall outside the market and does not include other considerations related to rationality and normativity. 
 
-More specifically, and related to sustainability, a challenge for the model developed in the previous section can be environmental costs that fall outside of the market. Examples of negative *external costs* of meat production/consumption for the environment are CO2 pollution, animal welfare, soil erosion, water pollution and air pollution (see @godfray2018meat).  External costs provide euro values of these negative impacts in order to make the impacts comparable with the market surplus of consumers and producers.
+More specifically, and related to sustainability, a challenge for the model developed in the previous section can be environmental costs that fall outside of the market. Examples of negative *external costs* of meat production/consumption for the environment are CO2 pollution, animal welfare, soil erosion, water pollution and air pollution [see @godfray2018meat].  External costs provide euro values of these negative impacts in order to make the impacts comparable with the market surplus of consumers and producers.
 
-Economists have argued that these costs should be added to economic surplus in order to give an honest account of the surplus that markets generate. This addition of *external costs* entails a particular pillar (4.) assumption on responsibility which will be discussed in the third week. In order to account for external costs ($EC$), we add the term $e(Q^\ast)$ to the economic surplus. Economic surplus is defined as:
+Economists have argued that these costs should be added to economic surplus in order to give an honest account of the surplus that markets generate. This addition of *external costs* entails a particular pillar (iv) assumption on responsibility which will be discussed in Chapter \@ref(moral). In order to account for external costs ($EC$), we add the term $e(Q^\ast)$ to the economic surplus. Economic surplus is defined as:
 
 \begin{align}
 ES &= CS + PS - EC \\
 &= \underbrace{\int_0^{Q^\ast} p(Q)dQ}_\text{Total consumer benefits} - \underbrace{\underbrace{\int^{Q^\ast}_0 s(Q)dQ}_\text{Total consumer costs} - \underbrace{e(Q^\ast)}_\text{Total external costs}}_\text{Total social costs}.
 \end{align}
 
-Besides this, we also define the marginal external costs $MEC(Q)=\frac{\partial e(Q)}{\partial Q}$, which show, ---loosely speaking---, with how much total external costs change for a change in the quantity. The total social costs are then defined as the producer costs and the external costs. The marginal social costs are given by the first derivative of the total social costs. This first derivative is equal to $s(Q)+MEC(Q)$ which signifies that marginal external costs are economically speaking just another cost component above the producer costs. Again, we can investigate optimality of the extended economic surplus function by investigating the first derivative:
+Besides this, we also define the marginal external costs $MEC(Q)=\frac{\partial e(Q)}{\partial Q}$, which show---loosely speaking---with how much total external costs change for a change in the quantity. The total social costs are then defined as the producer costs and the external costs. The marginal social costs are given by the first derivative of the total social costs. This first derivative is equal to $s(Q)+MEC(Q)$ which signifies that marginal external costs are economically speaking just another cost component above the producer costs. Again, we can investigate optimality of the extended economic surplus function by investigating the first derivative:
 
 \begin{equation}
 \frac{\partial ES}{\partial Q^\ast} = p(Q^\ast) - s(Q^\ast - MEC(Q^\ast) = 0.
 \end{equation}
 
-This condition is different from the condition in the previous section because of the added external costs. The condition shows that---given the model assumptions---optimal economic surplus cannot be reached without intervention in the market because the behaviour of consumers and producers leads to $p(Q^\ast)-s(Q^\ast)=0$. When marginal external costs are positive, the derivative is negative, showing that improvements in economic surplus can be obtained when demand decreases. In short, this means that when positive (marginal) external costs are ignored by market actors the prices for the market goods are too low. When there are marginal external benefits, $MEC(Q^\ast )<0$, and market prices are too high.
+This condition is different from the condition in the previous section because of the added external costs. The condition shows that---given the model assumptions---optimal economic surplus cannot be reached without intervention in the market because the behaviour of consumers and producers leads to $p(Q^\ast)-s(Q^\ast)=0$. When marginal external costs are positive, the derivative is negative, showing that improvements in economic surplus can be obtained when demand decreases. In short, this means that when positive (marginal) external costs are ignored by market actors the prices for the market goods are too low. When there are marginal external benefits, $MEC(Q^\ast )<0$, market prices are too high.
 
 ### General analysis of the consumer externality tax
 
@@ -1050,9 +1136,103 @@ The challenge is the to find a solution for $Q^{* R}$ for the following equation
 p(Q^{* R}) = s^{* R} (1 + c_e)
 \end{equation}
 
-Analytical expressions can then be obtained for common combinations of inverse demand and inverse supply functions. Table 6 gives the specifications of inverse demand and inverse supply, the equilibrium values for the unregulated equilibrium, and the equilibrium values for the regulated equilibrium. The parameter values can be obtained using the calibration procedure discussed earlier.
+Analytical expressions can then be obtained for common combinations of inverse demand and inverse supply functions. Table \@ref(tab:priceregulation) gives the specifications of inverse demand and inverse supply, the equilibrium values for the unregulated equilibrium, and the equilibrium values for the regulated equilibrium. The parameter values can be obtained using the calibration procedure discussed earlier.
 
-[INSERT TABLE HERE]
+```{r priceregulation, echo = FALSE}
+v1 <- c("Case I: Exponential inverse demand and exponential inverse supply",
+  "Case II: Constant elasticity inverse demand and inverse supply",
+  "Case III: Logged inverse demand and inverse supply",
+  "Case IV: linear inverse demand and inverse supply"
+)
+v2 <- c(
+  "$p(Q)=Ae^{-\\alpha Q}$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$\n
+Regression (log-linear):\n
+$\\ln p = \\ln A - \\alpha Q + \\epsilon$",
+"$p(Q) = AQ^{-\\alpha}$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$\n
+Regression (log-log):\n
+$\\ln p = \\ln A - \\alpha \\ln Q + \\epsilon$",
+"$p(Q)=A-\\alpha \\ln Q$\n
+Parameter assumptions:
+$A>0$, $\\alpha>0$\n
+Regression (linear-log):\n
+$p=A- \\alpha \\ln Q + \\epsilon$ ",
+"$p(Q)=A- \\alpha Q$\n
+Regression (linear-linear):\n
+$p=A-\\alpha Q+ \\epsilon$ "
+)
+v3 <- c(
+"$MC(Q) = s(Q)=Be^{bQ}$\n
+Parameter assumptions:
+$B>0$,$B<A$.\n
+Regression (log-linear):\n
+$\\ln MC = \\ln B  +b Q + \\epsilon$",
+"$s(Q)=BQ^b$\n
+Parameter assumptions:
+$B>0$\n
+Regression (log-log):\n
+$\\ln MC = \\ln B + b \\ln Q + \\epsilon$",
+"$s(Q) = B + b \\ln Q$\n
+Parameter assumptions:
+$B>0$\n
+Regression (linear-log):\n
+$MC = B + b \\ln Q + \\epsilon$",
+"$s(Q)=B+bQ$\n
+Regression (linear-linear):\n
+$MC=B+bQ+\\epsilon$"
+)
+v4 <- c(
+  "$A^{\\frac{b}{\\alpha + b}}B^{\\frac{\\alpha}{\\alpha + b}}$", 
+  "$A^{\\frac{b}{\\alpha + b}}B^{\\frac{\\alpha}{\\alpha + b}}$", 
+  "$A \\frac{b}{\\alpha + b} B \\frac{\\alpha}{\\alpha + b}$", 
+  "$A \\frac{b}{\\alpha + b} B \\frac{\\alpha}{\\alpha + b}$"
+)
+v5 <- c(
+  "$\\frac{1}{\\alpha + b} \\ln \\left[\\frac{A}{B}\\right]$", 
+  "$\\left(\\frac{A}{B}\\right)^{\\frac{1}{\\alpha + b}}$", 
+  "$e^{\\frac{A-B}{\\alpha + b}}$", 
+  "$\\frac{A - B}{\\alpha + b}$"
+)
+v6 <- c(
+  "$A^{\\frac{b}{\\alpha + b}}B^{\\frac{\\alpha}{\\alpha + b}} \\left(1 + c_e\\right)^{\\frac{\\alpha}{\\alpha + b}}$\n
+  or:\n
+  $p^\\ast \\left(1 + c_e\\right)^{\\frac{\\alpha}{\\alpha + b}}$", 
+  "$A^{\\frac{b}{\\alpha + b}}B^{\\frac{\\alpha}{\\alpha + b}} \\left(1 + c_e\\right)^{\\frac{\\alpha}{\\alpha + b}}$\n
+  or:\n
+  $p^\\ast \\left(1 + c_e\\right)^{\\frac{\\alpha}{\\alpha + b}}$", 
+  "$A \\frac{b}{\\alpha + b} B \\frac{\\alpha}{\\alpha + b} + c_e \\frac{\\alpha}{\\alpha + b}$\n
+  or:\n
+  $p^\\ast + c_e \\frac{\\alpha}{\\alpha + b}$",  
+  "$A \\frac{b}{\\alpha + b} B \\frac{\\alpha}{\\alpha + b} + c_e \\frac{\\alpha}{\\alpha + b}$\n
+  or:\n
+  $p^\\ast + c_e \\frac{\\alpha}{\\alpha + b}$"
+)
+v7 <- c(
+  "$\\frac{1}{\\alpha + b} \\ln \\left[\\frac{A}{B(1 + c_e)} \\right]$\n
+  or:\n
+  $Q^\\ast - \\frac{1}{\\alpha + b} \\ln [1 + c_e]$", 
+  "$\\left(\\frac{A}{B(1 + c_e)} \\right)^\\frac{1}{\\alpha + b}$\n
+  or:\n
+  $Q^\\ast (1 + c_e)^{\\frac{-1}{\\alpha + b}}$", 
+  "$e^{\\frac{A - B(1+c_e)}{\\alpha +b}}$\n
+  or:\n
+  $Q^\\ast e^{\\frac{-B(1+c_e)}{\\alpha + b}}$", 
+  "$\\frac{1}{\\alpha + b} \\ln \\left[\\frac{A}{B(1 + c_e)} \\right]$\n
+  or:\n
+  $Q^\\ast - B c_e \\frac{\alpha}{\\alpha + b}$"
+)
+df <- data.frame( v1, v2, v3, v4, v5, v6, v7 )
+kable(df, 
+      align="l", 
+      booktabs=TRUE, escape = F, 
+      caption = 'Equilibrium prices and quantities with and without regulation assuming a tax that is proportional to $p^{\\ast R}$',
+      col.names = c("Case description", "Inverse demand",	"Inverse supply", "$p^\\ast$", "$Q^\\ast$", "$p^{\\ast R}$", "$Q^\\ast R$")
+) %>%
+  kable_styling(bootstrap_options = "striped", font_size = 10)
+```
 
 ### Analysis of changes in economic surplus due to externality taxation
 

@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 In conclusion | Methods and Techniques for Social and Economic Research: Syllabus</title>
+  <title>A Derivation of the optimal cost function | Methods and Techniques for Social and Economic Research: Syllabus</title>
   <meta name="description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
 Earth, Economics and Sustainability</p>" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 In conclusion | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta property="og:title" content="A Derivation of the optimal cost function | Methods and Techniques for Social and Economic Research: Syllabus" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This syllabus contains lecture notes for the course
@@ -19,7 +19,7 @@ Earth, Economics and Sustainability</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 In conclusion | Methods and Techniques for Social and Economic Research: Syllabus" />
+  <meta name="twitter:title" content="A Derivation of the optimal cost function | Methods and Techniques for Social and Economic Research: Syllabus" />
   
   <meta name="twitter:description" content="<p>This syllabus contains lecture notes for the course
 Methods and Techniques for Social and Economic Research for the program
@@ -36,8 +36,8 @@ Earth, Economics and Sustainability</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="specification.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="references.html"/>
+<link rel="next" href="apperror.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -389,17 +389,81 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="in-conclusion" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> In conclusion<a href="in-conclusion.html#in-conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-
+<div id="appderivation" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">A</span> Derivation of the optimal cost function<a href="appderivation.html#appderivation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Lagrangian function is written as:</p>
+<p><span class="math display">\[\begin{equation}
+H = r K + \omega L + \lambda(Q - T K^{\alpha_K} L^{\alpha_L})
+\end{equation}\]</span></p>
+<p>The three first-order conditions are given by:</p>
+<p><span class="math display">\[\begin{align}
+  \frac{\partial H}{\partial \lambda} =&amp; Q - T K^{\alpha_K} L^{\alpha_L} = 0\\
+  \frac{\partial H}{\partial K} =&amp; r - \lambda \frac{\alpha_K}{K}T K^{\alpha_K} L^{\alpha_L} = 0\\
+  \frac{\partial H}{\partial L} =&amp; \omega - \lambda \frac{\alpha_L}{L}T K^{\alpha_K} L^{\alpha_L} =0
+\end{align}\]</span></p>
+<p>Solving the second first-order condition for the Lagrangian multiplier gives:</p>
+<p><span class="math display">\[\begin{equation}
+\lambda = \frac{r}{\frac{\alpha_K}{K} T K^{\alpha_K} L^{\alpha_L}} = r \alpha_K^{-1} T^{-1} K^{1-\alpha_K} L^{-\alpha_L}
+\end{equation}\]</span></p>
+<p>Substituting this intermediate solution in the third first-order condition gives:</p>
+<p><span class="math display">\[\begin{equation}
+\omega - \frac{r}{\frac{\alpha_K}{K}T K^{\alpha_K} L^{\alpha_L}}\frac{\alpha_L}{L}T K^{\alpha_K} L^{\alpha_L} \longleftrightarrow \omega = r \frac{\frac{\alpha_L}{L}}{\frac{\alpha_K}{K}}
+\end{equation}\]</span></p>
+<p>Solving this equation for labour <span class="math inline">\(L\)</span> gives:</p>
+<p><span class="math display">\[\begin{equation}
+L = \frac{r}{\omega} \frac{\alpha_L}{\frac{\alpha_K}{K}} = K \frac{r}{\omega} \frac{\alpha_L}{\alpha_K}
+\end{equation}\]</span></p>
+<p>Substituting this intermediate solution in the first first-order condition gives:</p>
+<p><span class="math display">\[\begin{equation}
+Q - T K^{\alpha_K} \left(K\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} = Q - T K^{\alpha_K + \alpha_L} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} =0
+\end{equation}\]</span></p>
+<p>Solving this equation for capital gives:</p>
+<p><span class="math display">\[\begin{eqnarray}
+K^{\alpha_K + \alpha_L} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} &amp;=&amp; \frac{Q}{T} \\
+K^{\alpha_K + \alpha_L}  &amp;=&amp; \frac{Q}{T} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{-\alpha_L}
+\end{eqnarray}\]</span></p>
+<p>Which leads to the following expression for optimal <span class="math inline">\(K^*\)</span>:</p>
+<p><span class="math display">\[\begin{eqnarray}
+K^* &amp;=&amp; \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&amp;=&amp;\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&amp;=&amp;\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&amp;=&amp;\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{eqnarray}\]</span></p>
+<p>Substituting this in the intermediate solution for labour gives:</p>
+<p><span class="math display">\[\begin{equation}
+L^* = K^* \frac{r}{\omega} \frac{\alpha_L}{\alpha_K} = \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}}\frac{r}{\omega} \frac{\alpha_L}{\alpha_K} = \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{equation}\]</span></p>
+<p>The last step is to simplify the exponent:</p>
+<p><span class="math display">\[\begin{eqnarray}
+L^* &amp;=&amp; \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \\
+&amp;=&amp; \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{eqnarray}\]</span></p>
+<p>Using the inputs, we can derive the optimal cost function which expresses the costs of the firm as a function of target quantities and production parameters:</p>
+<p><span class="math display">\[\begin{eqnarray}
+C(K^*, L^*) &amp;=&amp; r K^* + \omega L^* \\
+&amp;=&amp;r \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} + \omega  \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{eqnarray}\]</span></p>
+<p>Now note that:</p>
+<p><span class="math display">\[\begin{eqnarray}
+r\left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} &amp;=&amp; r \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{- \frac{\alpha_L}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K + \alpha_L}{\alpha_K + \alpha_L}-\frac{\alpha_L}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{ \frac{\alpha_K}{\alpha_K + \alpha_L}} \\
+\omega\left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} &amp;=&amp; \omega
+\omega^{-\frac{\alpha_K}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}} =
+\omega^{\frac{\alpha_K + \alpha_L}{\alpha_K + \alpha_L}-\frac{\alpha_K}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}}
+\end{eqnarray}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray}
+C(K^*, L^*) &amp;=&amp; r K^* + \omega L^* \\
+&amp;=&amp; \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}}
+\omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}}
+\left(\left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}  +  \left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\right)
+\end{eqnarray}\]</span></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="specification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="apperror.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

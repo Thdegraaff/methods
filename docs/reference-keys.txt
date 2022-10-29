@@ -12,8 +12,11 @@ fig:brons
 fig:foodelas
 fig:green
 tab:demand
+tab:calibrated
 tab:calibration
 tab:modelparameters
+tab:econsurplusexample
+tab:priceregulation
 fig:cadario
 eq:focutility
 eq:focdu
@@ -112,7 +115,7 @@ reading-guide
 surplus
 introduction-1
 background
-consumer-choices-and-consumer-value
+sec:conchoices
 utility-functions-inverse-demand-and-demand
 examples-of-demand-and-inverse-demand-functions
 the-exponential-linear-utility-function
@@ -124,7 +127,7 @@ market-demand-and-elasticities
 deriving-consumer-benefits
 deriving-changes-in-consumer-benefits.
 deriving-consumer-surplus
-poducer-behaviour-and-surplus
+sec:procbeh
 producer-cost-functions-and-cost-minimisation
 specifying-and-interpreting-the-production-function
 the-cost-function
@@ -132,12 +135,12 @@ special-case-constant-average-and-marginal-costs
 empirical-examples
 from-firm-costs-to-market-inverse-supply-and-supply
 producer-surplus
-analysis-of-economic-surplus
+sec:econsurplus
 introduction-2
 equilibrium
 calibration-of-equilibrium
-analysis-of-economic-surplus-1
-external-costs-and-economic-surplus
+analysis-of-economic-surplus
+sec:extcosts
 introduction-3
 general-analysis-of-the-consumer-externality-tax
 consumer-tax-for-specific-inverse-demand-and-supply-functions
@@ -265,6 +268,7 @@ sample-selection-bias
 simultaneous-causality-bias-in-equations
 sec:conclusionspec
 in-conclusion
+appderivation
 apperror
 background-calculations-for-chapter-refmoral
 apptax

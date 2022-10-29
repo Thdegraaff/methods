@@ -1,5 +1,98 @@
 # (APPENDIX) Appendix {-}
 
+# Derivation of the optimal cost function {#appderivation}
+
+The Lagrangian function is written as:
+
+\begin{equation}
+H = r K + \omega L + \lambda(Q - T K^{\alpha_K} L^{\alpha_L})
+\end{equation}
+
+The three first-order conditions are given by:
+
+\begin{align}
+  \frac{\partial H}{\partial \lambda} =& Q - T K^{\alpha_K} L^{\alpha_L} = 0\\
+  \frac{\partial H}{\partial K} =& r - \lambda \frac{\alpha_K}{K}T K^{\alpha_K} L^{\alpha_L} = 0\\
+  \frac{\partial H}{\partial L} =& \omega - \lambda \frac{\alpha_L}{L}T K^{\alpha_K} L^{\alpha_L} =0
+\end{align}
+
+Solving the second first-order condition for the Lagrangian multiplier gives:
+
+\begin{equation}
+\lambda = \frac{r}{\frac{\alpha_K}{K} T K^{\alpha_K} L^{\alpha_L}} = r \alpha_K^{-1} T^{-1} K^{1-\alpha_K} L^{-\alpha_L}
+\end{equation}
+
+Substituting this intermediate solution in the third first-order condition gives:
+
+\begin{equation}
+\omega - \frac{r}{\frac{\alpha_K}{K}T K^{\alpha_K} L^{\alpha_L}}\frac{\alpha_L}{L}T K^{\alpha_K} L^{\alpha_L} \longleftrightarrow \omega = r \frac{\frac{\alpha_L}{L}}{\frac{\alpha_K}{K}}
+\end{equation}
+
+Solving this equation for labour $L$ gives:
+
+\begin{equation}
+L = \frac{r}{\omega} \frac{\alpha_L}{\frac{\alpha_K}{K}} = K \frac{r}{\omega} \frac{\alpha_L}{\alpha_K} 
+\end{equation}
+
+Substituting this intermediate solution in the first first-order condition gives:
+
+\begin{equation}
+Q - T K^{\alpha_K} \left(K\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} = Q - T K^{\alpha_K + \alpha_L} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} =0
+\end{equation}
+
+Solving this equation for capital gives:
+
+\begin{eqnarray}
+K^{\alpha_K + \alpha_L} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\alpha_L} &=& \frac{Q}{T} \\
+K^{\alpha_K + \alpha_L}  &=& \frac{Q}{T} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{-\alpha_L} 
+\end{eqnarray}
+
+Which leads to the following expression for optimal $K^*$:
+
+\begin{eqnarray}
+K^* &=& \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&=&\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&=&\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}} \\
+&=&\left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} 
+\end{eqnarray}
+
+Substituting this in the intermediate solution for labour gives:
+
+\begin{equation}
+L^* = K^* \frac{r}{\omega} \frac{\alpha_L}{\alpha_K} = \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{-\alpha_L}{\alpha_K + \alpha_L}}\frac{r}{\omega} \frac{\alpha_L}{\alpha_K} = \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{equation}
+
+The last step is to simplify the exponent: 
+
+\begin{eqnarray}
+L^* &=& \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \\
+&=& \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{eqnarray}
+
+Using the inputs, we can derive the optimal cost function which expresses the costs of the firm as a function of target quantities and production parameters:
+
+\begin{eqnarray}
+C(K^*, L^*) &=& r K^* + \omega L^* \\
+&=&r \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} \left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} + \omega  \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}} \left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}
+\end{eqnarray}
+
+Now note that:
+
+\begin{eqnarray}
+r\left(\frac{\omega}{r}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} &=& r \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{- \frac{\alpha_L}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K + \alpha_L}{\alpha_K + \alpha_L}-\frac{\alpha_L}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{ \frac{\alpha_K}{\alpha_K + \alpha_L}} \\
+\omega\left(\frac{r}{\omega}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}} &=& \omega
+\omega^{-\frac{\alpha_K}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}} = 
+\omega^{\frac{\alpha_K + \alpha_L}{\alpha_K + \alpha_L}-\frac{\alpha_K}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}} = \omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}}
+\end{eqnarray}
+
+\begin{eqnarray}
+C(K^*, L^*) &=& r K^* + \omega L^* \\
+&=& \left(\frac{Q}{T}\right)^{\frac{1}{\alpha_K + \alpha_L}}
+\omega^{\frac{\alpha_L}{\alpha_K + \alpha_L}} r^{\frac{\alpha_K}{\alpha_K + \alpha_L}}
+\left(\left(\frac{\alpha_K}{\alpha_L}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}  +  \left( \frac{\alpha_L}{\alpha_K}\right)^{\frac{\alpha_L}{\alpha_K + \alpha_L}}\right) 
+\end{eqnarray}
+
+
 # Taxation in the presence of behavioural error {#apperror}
 
 The policy goal is to optimize economic surplus subject to the constraint that marginal decision benefits are equal to the consumer price and the supply price is equal to the marginal decision costs. Define the Lagrangian function as:
