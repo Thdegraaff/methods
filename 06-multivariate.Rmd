@@ -1,23 +1,23 @@
 # Modeling in the Social Sciences {#modeling}
 
-In Chapter \@ref(univariateregression) we discussed the origins of, working of and assumptions behind univariate regression. That is, a regression model with only one independent variable $X$ on the right hand side.^[With right hand side we mean on the right side of the equal sign $=$. It is often abbreviated with RHS.] However, and especially in the social science, you almost always see regressions many independent variables. Depending on the field, these variables can be called control variables, confounding factors or moderator variables. But why are these variables included? Is it only to improve model performance or are there other reasons? Section \@ref(sec:morevar) deals with this question where after Section \@ref(sec:multivariate) shows how you can include additional variables in a *multivariate regression model* and especially how you should interpret them. Section \@ref(sec:nonlinear) extends the multivariate regression model and shows how you can actually use this model to estimate a broad range of non-linear economic models. Section \@ref(sec:fixedeffects) discusses the use of multiple dummy variables (see again Subsection \@ref(sec:dummy)) in a way that economists refer to as *fixed effects*. The last section concludes and provides a futher discussion of the benefits and limitations of multivariate regression models. 
+In Chapter \@ref(univariateregression) we discussed the origins of, working of, and assumptions behind univariate regression. That is, a regression model with only one independent variable $X$ on the right hand side.^[With right hand side we mean on the right side of the equal sign $=$. It is often abbreviated with RHS.] However, and especially in the social sciences, you almost always see regressions with many independent variables. Depending on the field, these variables can be called control variables, confounding factors or moderator variables. But why are these variables included? Is it only to improve model performance or are there other reasons? Section \@ref(sec:morevar) deals with this question whereafter Section \@ref(sec:multivariate) shows how you can include additional variables in a *multivariate regression model* and especially how you should interpret them. Section \@ref(sec:nonlinear) extends the multivariate regression model and shows how you can actually use this model to estimate a broad range of linear and non-linear economic models. Section \@ref(sec:fixedeffects) discusses the use of multiple dummy variables (see again Subsection \@ref(sec:dummy)) in a way that economists refer to as *fixed effects*. The last section concludes and provides a further discussion of the benefits and limitations of multivariate regression models. 
 
 ## Why more independent variables? {#sec:morevar}
 
 So, why do we include more variables? One possible answer is because it makes a better predictive model. That is, a model that is able to explain the variation in the dependent variable $Y$ better.^[This is not entirely true. Increasing the R$^2$ explains **in-sample** variation better, not necessarily **out-of-sample**. The latter is really what matters for prediction and this is the focus of many machine learning techniques. Note that this argument is directly related with the regression towards the mean argument made in Subsection \@ref(sec:genesis).] So, the R$^2$ increases. But, as argued in Chapter \@ref(univariateregression) we are not so much interested in prediction, but more in establishing a **causal** relation between $X$ and $Y$. So, if you change $X$ (and only $X$) does $Y$ changes and then with how much?
 
-Although economists often claim that they are the only (social-)science which is focused on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl [@pearl2009causality]. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in Figure \@ref(fig:unknown). Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in Figure \@ref(fig:unknown). We also know that the R$^2$ of that regression model was rather low (5%), so by default there must be other but yet unknown factors, let us name them for now $U$, that influence test scores as well (so a directed arrow going from $U$ to test scores). 
+Although economists often claim that they are the only (social-)science that focuses on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl [@pearl2009causality]. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is a graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in Figure \@ref(fig:unknown). Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in Figure \@ref(fig:unknown). We also know that the R$^2$ of that regression model was rather low (5%), so by default there must be other but yet unknown factors, let us name them for now $U$ (often as well referred to as unobservables), that influence test scores as well (so a directed arrow going from $U$ to test scores). 
 
 ```{r fig.align="center", echo=FALSE, fig.cap = "Unrelated omitted variables", label='unknown', out.width = "600px"}
 knitr::include_graphics("./figures/unknown.png")
 ```
 
-Now we are fine with this is as long as $U$ does **not impact** the student teacher ratio. Then, there is still an isolated effect of student teacher ratio on class size and that is exactly what we want to measure. However, if there is directed arrow going from $U$ into $STR$ as depicted by Figure \@ref(fig:unobshet), then the effect of student teacher ratio is not isolated anymore. Essentially, the effect of student teacher ratio on class size is composed out of two parts:
+Now we are fine with this is as long as $U$ does **not impact** the student teacher ratio. Then, there is still an isolated effect of student teacher ratio on class size and that is exactly what we want to measure. However, if there is a directed arrow going from $U$ into $STR$ as depicted by Figure \@ref(fig:unobshet), then the effect of student teacher ratio is not isolated anymore. Essentially, the effect of student teacher ratio on class size is composed out of two parts:
 
 1) The **causal** effect on student teacher ratio on class size captured by the chain $\text{STR} \longrightarrow \text{testscore}$. The one we are after.
 2) The impact of the unknown variables on test scores. As we have not modeled them in our regression model, the effect is captured by the chain $U \longrightarrow \text{STR} \longrightarrow \text{testscore}$
 
-Economists refer to this phenomenon as **omitted variable bias**, whilst in the statistical world, this is as often called confounding variables or the  **the confounding fork** [@mcelreath2020statistical] and it, unfortunately, occurs very often.
+Economists refer to this phenomenon as **omitted variable bias**, whilst in the statistical world, this is as often called confounding variables or the  **confounding fork** [@mcelreath2020statistical] and it, unfortunately, occurs very often.
 
 ```{r fig.align="center", echo=FALSE, fig.cap = "Related omitted variables", label='unobshet', out.width = "600px"}
 knitr::include_graphics("./figures/Unobshet.png")
@@ -27,7 +27,7 @@ So, when **U** is a *common* cause for both student teacher ratio and test score
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_i + u_i,
 \end{equation}
-then we know that the error $u$ arises because of factors that influence $Y$ but are not included in the regression function; so, there are *always* omitted variables. But do not always lead to bias. For omitted variable bias to occur, the omitted factor, let's call it $Z$^[$Z$ can be both known or unknown, so that is why we change from $U$ to $Z$], must be:
+then we know that the error $u$ arises because of factors that influence $Y$ but are not included in the regression function; so, there are *always* omitted variables. But they do not always lead to bias. For omitted variable bias to occur, the omitted factor, let's call it $Z$^[$Z$ can be both known or unknown, so that is why we change from $U$ to $Z$], must be:
 
 1. A **determinant** of $Y$ (i.e. $Z$ is part of $u$)
 2. A **determinant** of the regressor $X$ (*at least*, there should hold that $corr(Z,X) \neq 0$)^[In econometric textbooks, as, e.g, in @stock2003introduction, this condition is weakened to only being correlation ($Z$ and $X$ are correlated). However, if the directed arrow goes from $STR$ into $U$ in Figure \@ref(fig:unobshet) then that would lead to something else than omitted variables, namely to a difference between a direct ($\text{STR} \longrightarrow \text{testscore}$) and an indirect effect ($\text{STR} \longrightarrow U \longrightarrow \text{testscore}$).]
@@ -36,12 +36,12 @@ Thus, both conditions must hold for the omission of $Z$ to result in omitted var
 
 Now, in our Californian district school dataset we have many more variables. One of them is variable that measures the english language ability (whether the student has English as a second language). Note that in California there are many migrants, especially from Latin-America. Now, you can readily argue that not having English as first language plausibly affects standardized test scores: so, $Z$ is a **determinant** of $Y$. Moreover, immigrant communities tend to be less affluent and thus have smaller school budgets---and, therefore, higher $STR$: $Z$ is most likely as well a **determinant** of $X$.
 
-So, most likely, our original estimation from Chapter \@ref(univariateregression), $\hat{\beta}_1$, is biased (so not the true causal effect). But can we say something about the direction that bias? Yes, but the argument tend to become very quickly rather complex. In this case, note that districts with more migrant communities tend to have (*i*) higher class sizes and (*ii*) lower test scores. So, to the original estimation they added a *negative* effect. Thus, following this reasoning, the "true" effect must be less negative. Now, especially with negative signs this becomes rather complex, so if common sense fails you, there is the following formula:
+So, most likely, our original estimation from Chapter \@ref(univariateregression), $\hat{\beta}_1$, is biased (so not the true causal effect). But can we say something about the direction of that bias? Yes, but the argument tends to become very quickly rather complex. In this case, note that districts with more migrant communities tend to have (*i*) higher class sizes and (*ii*) lower test scores. So, to the original estimation they added a *negative* effect. Thus, following this reasoning, the "true" effect must be less negative. Now, especially with negative signs this becomes rather complex, so if common sense fails you, then there is the following formula:
 
 \begin{equation}
 \hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu},
 \end{equation}
-where you should focus on the sign of the correlation between $X$ and the regression residual $u$ (all standard errors, $\sigma$, are always positive by default). Now, the first least squares assumption states that $\rho_{Xu} = 0$---no correlation between the regressor and the regression residual. But now there is because of omitted variable bias. And because the negative relation between immigrants communities and school performance $\rho_{Xu}$ should be negative. And because the original estimation from Chapter \@ref(univariateregression) was already negative to begin with the "true" $\beta_1$ should be less negative. In conclusion, districts with more English learning students (*i*) do worse on standardized tests and (*ii*) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect.
+where you should focus on the sign of the correlation between $X$ and the regression residual $u$ (all standard errors, $\sigma$, are always positive by default). Now, the first least squares assumption states that $\rho_{Xu} = 0$---no correlation between the regressor and the regression residual. But now there is correlation because of omitted variable bias. And because there is a negative relation between immigrants communities and school performance, $\rho_{Xu}$ should be negative. Furthermore, because the original estimation from Chapter \@ref(univariateregression) was already negative to begin with the "true" $\beta_1$ should be less negative. In conclusion, districts with more English learning students (*i*) do worse on standardized tests and (*ii*) have bigger classes (smaller budgets), so ignoring the English learning factor results in overstating the class size effect (in an absolute sense).
 
 You might wonder whether this is actually going on in the Californian district school data. To see this, Figure \@ref(fig:omitca) offers a cross tabulation of test scores by class size and percentage English learners. 
 
@@ -53,17 +53,17 @@ Now, the table depicted in Figure \@ref(fig:omitca) is complex in its various di
 
 1) districts with *fewer* English Learners (so less migrants) have on average *higher* test scores (what we assumed above);
 2) districts with *fewer* English Learners (so less migrants) have *smaller* classes (what we assumed above);
-3) the effect of class size with comparable percentages English learners is still (mostly negative), but not as much as we compares for all districts together (the Difference-column). This confirms our reasoning that our original estimate was too negative. 
+3) the effect of class size with comparable percentages English learners is still (mostly negative), but not as much as we compare for all districts together (the *Difference*-column). This confirms our reasoning that our original estimate was too negative. 
 
-No, as already mentioned above omitted variable bias occurs very often. So, how to correct for this such that the bias disappaers. In general, there are strategies:
+No, as already mentioned above, omitted variable bias occurs very often. So, how to correct for this such that the bias disappaers. In general, there are three strategies:
 
-1. we can run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then percentage English learners ($PctEL$) is still a determinant of test score, but by construction $PctEL$ should be uncorrelated with $STR$. Unfortunately, is very difficult to randomize class size and often this strategy is just not attainable as being too costly or unethical (this accounts for all sciences);
-2. we can adopt the cross tabulation approach of above, with finer gradations of $STR$ and $PctEL$. Then by construction,  within each group all classes have the same $PctEL$ so we control for $PctEL$. A disadvantages is that one needs many observations, especially when one wants to stratify upon other variables as well; 
-3. finally, and perhaps the easiest approach, we can use a population regression model in which the omitted variable ($PctEL$) is no longer omitted. We just include $PctEL$ as an additional regressor in a multiple regression model. This is what the next section deals with. Obviously, a disadvantage of this approach is that you need observations for the omitted variable. 
+1. we can run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then percentage English learners ($PctEL$) is still a determinant of test scores, but by construction $PctEL$ should be uncorrelated with $STR$. Unfortunately, is it very difficult to randomize class size in reality  and often this strategy is just not attainable as being too costly or unethical (this accounts for all sciences);
+2. we can adopt the cross tabulation approach of above, with finer gradations of $STR$ and $PctEL$. Then by construction, within each group all classes have the same $PctEL$ so we control for $PctEL$. A disadvantages is that one needs many observations, especially when one wants to stratify upon other variables as well; 
+3. finally, and perhaps the easiest approach, we can use a population regression model in which the omitted variable ($PctEL$) is no longer omitted. We just include $PctEL$ as an additional regressor in a multiple regression model. This is what the next section deals with. Obviously, a disadvantage of this approach is that you need observations for the omitted variable (but that also accounts for method 2). 
 
 ## Multivariate regression analysis {#sec:multivariate}
 
-So, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like"
+So, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like:
 \begin{equation}
 Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
 \end{equation}
@@ -77,7 +77,7 @@ where:
 - $\beta_2$ is the effect on $Y$ of a change in $X_2$, **holding** $X_1$ constant
 - $u_i$ is the the regression error (omitted factors)
 
-Now the only element that changes is the interpretation of a parameter, say $\beta_1$. In this case, it can still be seen as a 'slope' parameter, although now in 3-dimensional space, but it now states specifically that the other parameter(s) should be held constant. This does facilitate the interpretation of $\beta_1$. For example, consider changing $X_1$ by $\Delta X_1$ while holding $X_2$ constant. That means that the population regression line before the change looks like:
+Now, the only element that changes is the interpretation of a parameter, say $\beta_1$. In this case, it can still be seen as a 'slope' parameter, although now in 3-dimensional space, but it now states specifically that the other parameter(s) should be held constant. This does facilitate the interpretation of $\beta_1$. For example, consider changing $X_1$ by $\Delta X_1$ while holding $X_2$ constant. That means that the population regression line before the change looks like:
 \begin{equation}
 Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2},
 \end{equation}
@@ -96,7 +96,7 @@ But if we now include include percent English Learners in the district ($PctEL$)
 \widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL
 \end{equation}
 
-Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). And this is what should happen as reasoned above. The `STATA` syntax for a multivariate regression model is now rather straighforward. You basically add another to the regression equation, as below:
+Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). That indicates that the original regression suffers from omitted variable bias. And this is what should happen as reasoned above. The `STATA` syntax for a multivariate regression model is now rather straightforward. You basically add another to the regression equation, as below:
 
 ```{stata, collectcode=TRUE}
 reg testscr str el_pct, robust
@@ -106,7 +106,7 @@ Obviously, the effect of student teacher ration reduces with 50%! The interpreta
 
 ### Measures of fit for multiple regression
 
-In multivariate regression models, there are four commonly used measures of fit. 
+In multivariate regression models, there are four commonly used measures of fit, three of them we have seen before. 
 
 1. The standard error of regression or the $SER$ denotes the standard deviation of $\hat{u}_i$ and includes a degrees of freedom correction (degrees of freedom in this case denotes how many variables your have used and typically is denoted with $k$. The $SER$ is defined as:
 \begin{equation}
@@ -119,7 +119,7 @@ where $k$ is the number of variables (including the constant) use in the regress
 \begin{equation}
 \bar{R}^2 = 1 - \frac{n-1}{n-k-1}\frac{SSR}{TSS}.
 \end{equation}
-Note that using this formulation, in a multivariate setting, it always should hold that $\bar{R}^2 <R^2$. Why do we care so much for the amount of variables that we use ($k$). That is because with each additional variable the $R^2$ always increases. And it is essential to notice that $k=n$, the $R^2 = 1$, so there is no variation left anymore. But that feels like cheating. You just have a parameter for each observation that you have, but such a model must be meaningless. Therefore, you always want to correct for the number of variables that you use. 
+Note that using this formulation, in a multivariate setting, it always should hold that $\bar{R}^2 <R^2$. But why do we care so much for the amount of variables that we use (denoted with $k$). That is because with each additional variable the $R^2$ always increases. And it is essential to notice that when $k=n$, the $R^2 = 1$, so there is no variation left anymore. But that feels like cheating. You just have a parameter for each observation that you have, but such a model must be meaningless. Therefore, you always want to correct for the number of variables that you use. 
 
 In our Californian school district example that would amount to the following two outcomes. First for the univariate model: 
 \begin{eqnarray}
@@ -134,9 +134,9 @@ TestScore &=& 686.0 - 1.10  STR - 0.65 PctEL \\
 &&R^2=.426, \bar{R}^2=0.424, SER = 14.5
 \end{eqnarray}
 
-Note that all measures of fit increases. The $\bar{R}^2$ now indicates that 42% of all variation in test scores are explained. That is a *huge* improvement compared to the 5% explanatory power of the univariate case. That indicates that the $PctEL$ strongly correlates with testscores. But again, we are not so much interested prediction, but want to find the causal impact of class size instead. Another thing to notice here is that the $R^2$ and the $\bar{R}^2$ are very close. That is because the number of variables is much smaller than the number of observations $k \ll n$, so that the impact of $k$ is not very big.
+Note that all measures of fit increases. The $\bar{R}^2$ now indicates that 42% of all variation in test scores are explained. That is a *huge* improvement compared to the 5% explanatory power of the univariate case. That indicates that the $PctEL$ strongly correlates with testscores. But again, we are not so much interested in prediction, but want to find the causal impact of class size instead. Another thing to notice here is that the $R^2$ and the $\bar{R}^2$ are very close. That is because the number of variables is much smaller than the number of observations $k \ll n$, so that the impact of $k$ is not very big.
 
-A list thing is a peculiarity of `STATA`. In the regression output of above `STATA` does not provide the $\bar{R}^2$. That is because of the option `, robust`. Without that option, the regression output would look like, giving both measures of fit. 
+A final remark concerns a peculiarity of `STATA`. In the regression output of above, `STATA` does not provide the $\bar{R}^2$. That is because of the option `, robust`. Without that option, the regression output would give both measures of fit. 
 
 ```{stata}
 reg testscr str el_pct
@@ -150,24 +150,24 @@ display "adjusted R2 = " e(r2_a)
 
 ### The least squares assumptions for multivariate regression
 
-Now, it is easy to add other variables, so that the multivariate regression model now looks like:
+Thus, it is easy to add other variables, so that the multivariate regression model now looks like:
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+\ldots + \beta_k X_{ki}+u_i, i=1,\ldots,n
 \end{equation}
 Suppose we are interested in $\beta_1$. How do we then know whether our estimation $\hat{\beta}_1$ is unbiased? For that we again resort to our least squares assumption, some of them will change a bit and we have to add a fourth one:
 
-1.  The first least squares assumptions changes slightly. Now, we state that the conditional distribution of $u$ given all $X_i$'s has mean zero, that is, $E(u|X_1 = x_1,\ldots, X_k = x_k) = 0$. So, $\beta_1$ is biased even another variable $X_k$ is correlated with $u$. So, only variables has to be correlated with $u$ and then all parameters are to a certain extent biased. 
-2.  The second least squares assumption is more or less as before but now in a multivariate fashion, so the whole set of (X$_{1i}$,\ldots,X$_{ki}$,Y$_i$), i =1,\ldots,n, should be independent and identical distributed ($i.i.d$).
+1.  The first least squares assumptions changes slightly. Now, we state that the conditional distribution of $u$ given all $X_i$'s has mean zero, that is, $E(u|X_1 = x_1,\ldots, X_k = x_k) = 0$. So, $\beta_1$ is biased even another variable $X_k$ is correlated with $u$. So, only of the variables $X_i$ has to be correlated with $u$ and then all parameters are to a certain extent biased. 
+2.  The second least squares assumption is more or less as before but now in a multivariate fashion, so the whole set of (X$_{1i}$,\ldots,X$_{ki}$,Y$_i$), with $i =1,\ldots,n$, should be independent and identical distributed ($i.i.d$).
 3.  The third least squares assumptions states again that large outliers are rare for all variables included, so for all $X_1,\ldots, X_k$, and $Y$.
-4.  The fourth assumoption is news and states that there is no perfect multicollinearity. We discuss this further below. 
+4.  The fourth assumption is new and states that there is no perfect multicollinearity. We discuss this further below. 
 
 #### Multicollinearity
 
-Multicollinearity comes in two flavours; perfect and imperfect. The former functions as a multivariate least squares assumptions, whilst the latter oftentimes gives the largest problems. We start the discussion with perfect multicollinearity and then continue with the case of imperfect multicollinearity. 
+Multicollinearity comes in two flavours; perfect and imperfect. The former functions as a multivariate least squares assumptions whilst the latter oftentimes gives the largest problems. We start the discussion with perfect multicollinearity and then continue with the case of imperfect multicollinearity. 
 
 ##### Perfect multicollinearity
 
-The official definition of perfect multicollinearity is that there is a **perfect linear combination** amongst your variables. That means that there is not one optimal solution, but instead many (actually, infinitely many) more. Let us illustrate by the following example. Suppose you include $STR$ twice in your regression. Now, `STATA` produces then the following output:
+The official definition of perfect multicollinearity is that there is a **perfect linear combination** amongst your variables. That means that there is not one optimal solution, but instead many (actually, infinitely many) more. Let us illustrate this by the following example. Suppose you include $STR$ twice in your regression. Now, `STATA` produces then the following output:
 
 ```{stata}
 reg testscr str str el_pct, robust
@@ -179,11 +179,22 @@ See that `STATA` drops one of the $STR$ variables. But why is that? See that the
 \end{equation}
 where $w_1$ and $w_2$ are weights chosen such that they satisfy the condition that $w_1 + w_2 = 1$. But there is an infinite number of combinations that satisfy this condition! So, there is not an optimal solution and one of these variables should be dropped. 
 
-The violation of no perfect multicollearity often occurs when using dummies (see again Subsection \@ref(sec:dummy)). Suppose that we regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise. This example is slightly more complex as there is no perfect correlation between $B$ and $D$. However, the model contains as well a constant and that create a perfect linear combination, namely $B_i + D_i = 1$ and that is the definition of a constant ($\beta_1 \times 1$), so there is perfect multicollinearity in the model. Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (Freshmen, Sophomores, Juniors, Seniors, Other). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
+The violation of no perfect multicollearity often occurs when using dummies (see again Subsection \@ref(sec:dummy)). Suppose that we regress $TestScore$ on a constant, $D$, and $B$, where:$D_i =1$ if $STR \leq 20$, $=0$ otherwise ; $B_i =1$ if $STR>20$, $= 0$ otherwise. This example is slightly more complex as there is no perfect correlation between $B$ and $D$. However, the model contains as well a constant and that create a perfect linear combination, namely $B_i + D_i = 1$ and that is the definition of a constant ($\beta_1 \times 1$), so there is perfect multicollinearity in the model. 
+
+A different way of seeing this is to consider the following regression model and note that by definition $D_i = 1- B_i$:
+
+\begin{align}
+Testscr_i &= \beta_0 + \beta_1 D_i + \beta_2 B_i + u_i\\
+          &= \beta_0 + \beta_1 D_i + \beta_2 (1 - D_i) + u_i\\
+          &= (\beta_0 + \beta_2) + (\beta_1 - \beta_2) D_i + u_i.
+\end{align}
+Suppose that the true constant equals $680$ and the slope parameter equals $7$. Then it is not difficult to see that there is an **infinite** amount of combinations possible of values for $\beta_0, \beta_1$ and $\beta_2$ that leads to these numbers.
+
+Now, this example is a special case of the so-called dummy variable trap. Suppose you have a set of multiple binary (dummy) variables, which are mutually exclusive and exhaustive---that is, there are multiple categories and every observation falls in one and only one category (e.g., infant, child, teenager, adult). If you include all these dummy variables and a constant, you will have perfect multicollinearity---the dummy variable trap.
  
 There are possible solutions to the dummy variable trap:
 
-1. Omit one of the groups (e.g., the Freshmen), or
+1. Omit one of the groups (e.g., the infants), or
 2. Omit the intercept
 
 In most cases you omit one of the groups (typically the one with the lowest value). This give the constant then the interpretation of the average value of that left-out category, where the dummy variables are then the relative differences to that left-out category. 
@@ -192,7 +203,7 @@ Now, perfect multicollinearity usually reflects a mistake in the definitions of 
 
 ##### Imperfect multicollinearity
 
-Now imperfect and perfect multicollinearity are quite different despite the similarity of the names. Imperfect multicollinearity namely, occurs when two or more regressors are very highly correlated. And if two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line---they are collinear---but unless the correlation is exactly $\pm$ 1, that collinearity is imperfect. What this implies is that one or more of the regression coefficients will be imprecisely estimated. Why is that? That is because of the definition of the coefficient in a multivariate regression model. Namely, the coefficient on $X_1$ is the effect of $X_1$ **holding $X_2$ constant**, but if $X_1$ and $X_2$ are highly correlated, then there is very little variation in $X_1$ once $X_2$ is held constant. That means that the data are pretty much uninformative about what happens when $X_1$ changes but $X_2$ doesn't, so the variance of the OLS estimator of the coefficient on $X_1$ will be large. And this results in large standard errors for one or more of the OLS coefficients. But often this is very hard to detect. Are standard errors high because of imperfect multicollinearity, because the number of observations is very low, or because there is large variation in the data? The answer to this unfortunately boils down to reasoning, but before you start estimating your statistical models it always good to look at scatterplots and correlations between variables. 
+Now imperfect and perfect multicollinearity are quite different despite the similarity of the names. Imperfect multicollinearity, namely, occurs when two or more regressors are very highly correlated. And if two regressors are very highly correlated, then their scatterplot will pretty much look like a straight line---they are collinear---but unless the correlation is exactly $\pm$ 1, that collinearity is imperfect. What this implies is that one or more of the regression coefficients will be imprecisely estimated. Why is that? That is because of the definition of the coefficient in a multivariate regression model. Namely, the coefficient on $X_1$ is the effect of $X_1$ **holding $X_2$ constant**, but if $X_1$ and $X_2$ are highly correlated, then there is very little variation in $X_1$ once $X_2$ is held constant. That means that the data are pretty much uninformative about what happens when $X_1$ changes but $X_2$ doesn't, so the variance of the OLS estimator of the coefficient on $X_1$ will be large. And this results in large standard errors for one or more of the OLS coefficients. But often this is very hard to detect. Are standard errors high because of imperfect multicollinearity, because the number of observations is very low, or because there is large variation in the data? The answer to this unfortunately boils down to reasoning, but before you start estimating your statistical models it always good to look at scatterplots and correlations between variables. 
 
 But what is a high correlation? With a reasonable amount of observations all correlations below $0.9$ can be considered fine. In practice, only correlations between variables higher than say $0.95$ start to impose problems. 
 
@@ -228,13 +239,13 @@ The null hypothesis that "school resources don't matter" and the alternative tha
 - $H_0:\beta_1 =0$ and $\beta_2 =0$ vs
 - $H_1:$ either $\beta_1 \neq 0$ or $\beta_2 \neq 0$ or both
 
-This is a joint hypothesis specifying a value for two or more coefficients, that is, it imposes a restriction on two or more coefficients. In general, a joint hypothesis will involve $q$ restrictions. In the example above, $q = 2$, and the two restrictions are $\beta_1 = 0$ and $\beta_2 = 0$. A "common sense" idea is to reject if either of the individual $t$-statistics exceeds 1.96 in absolute value. But this "one at a time" test isn't valid: the resulting test rejects too often under the null hypothesis (more than 5%)! That is because the $t$-statistics themselved are often not independent. Instead, we need a $F$-statistic, which tests all parts of a joint hypothesis at once. Unfortunately, these types of formulas can become quickly rather comples. Consider the $F$-test for the special case of the joint hypothesis $\beta_1 = \beta_{1,0}$ and $\beta_2 = \beta_{2,0}$ in a regression with two regressors:
+This is a joint hypothesis specifying a value for two or more coefficients. That is, it imposes a restriction on two or more coefficients. In general, a joint hypothesis will involve $q$ restrictions. In the example above, $q = 2$, and the two restrictions are $\beta_1 = 0$ and $\beta_2 = 0$. A "common sense" idea is to reject if either of the individual $t$-statistics exceeds 1.96 in absolute value. But this "one at a time" test isn't valid: the resulting test rejects too often under the null hypothesis (more than 5%)! That is because the $t$-statistics themselves are often not independent. Instead, we need a $F$-statistic, which tests all parts of a joint hypothesis at once. Unfortunately, these types of formulas can become quickly rather complex. Consider the $F$-test for the special case of the joint hypothesis $\beta_1 = \beta_{1,0}$ and $\beta_2 = \beta_{2,0}$ in a regression with two regressors:
 
 \begin{equation}
 F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat{\rho}^2_{t_1 t_2}}  \right)
 \end{equation}
 
-where $\hat{\rho}_{t_1,t_2}$ estimates the correlation between $t_1$ and $t_2$. Reject when $F$ is large (typically to be determined from large statistical tables). The F-statistic is large when $t_1$ and/or $t_2$ is large and the F-statistic corrects (in just the right way) for the correlation between $t_1$ and $t_2$. The formula for more than two $\beta$'s is nasty unless you use matrix algebra. There is a nice large-sample approximate distribution, which is the tail probability of the $\chi^2_q /q$ distribution beyond the $F$-statistic actually computed. 
+where $\hat{\rho}_{t_1,t_2}$ estimates the correlation between $t_1$ and $t_2$. Reject when $F$ is large (typically to be determined from large statistical tables). The F-statistic is large when $t_1$ and/or $t_2$ is large and the F-statistic corrects (in just the right way) for the correlation between $t_1$ and $t_2$. The formula for more than two $\beta$'s is nasty unless you use matrix algebra. There is a nice large-sample ($n>50$) approximate distribution, which is the tail probability of the $\chi^2_q /q$ distribution beyond the $F$-statistic actually computed. 
 
 Now, `STATA` does this in a much easier way by invoking the `test` command **right** after the regression. So, for example, we want to test the joint hypothesis that the population coefficients on $STR$ and expenditures per pupil ($expn$) are both zero, against the alternative that at least one of the population coefficients is nonzero.
 
@@ -243,13 +254,13 @@ reg testscr str expn_stu el_pct, r
 test str expn_stu
 ```
 
-The output shows an $F$-statistic with $q=2$ restrictions with outcome 5.43. Do not directly interpret this number, but know that $\text{Prob} > F = 0.0047$ gives the probability that under the null-hypothesis this outcome is produced. So the joint null-hypothesis that both types of expenditures are zero (at the same time), can be rejected at a 5% (and a 1%) significance level. Other types of joint tests can easily be constructed as well. For example, when you want to know whether both coefficient add up to 1, then you would state `test str + expn_stu = 1`. The final point to make is the $F$-test in the regression output itself. Here, that is for example `F(3, 416) = 147.20`. This is joint test that all variables, except the constant, have no impact. So, $\beta_i = 0$ for all $i$ at the **same time**. It not often that you come across a general regression $F$-test that does not reject the null-hypothesis. It namely implies that your independent variable do not contain information about the dependent variable. 
+The output shows an $F$-statistic with $q=2$ restrictions with outcome 5.43. Do not directly interpret this number, but know that $\text{Prob} > F = 0.0047$ gives the probability that under the null-hypothesis this outcome is produced. So the joint null-hypothesis that both types of expenditures are zero (at the same time), can be rejected at a 5% (and a 1%) significance level. Other types of joint tests can easily be constructed as well. For example, when you want to know whether both coefficient add up to 1, then you would state `test str + expn_stu = 1`. The final point to make is the $F$-test in the regression output itself. Here, that is for example `F(3, 416) = 147.20`. This is a joint test that all variables, except the constant, have no impact. So, $\beta_i = 0$ for all $i$ at the **same time**. It not often that you come across a general regression $F$-test that does not reject the null-hypothesis. It namely implies that your independent variables do not contain any information about the dependent variable. 
 
 And with the $F$-test, we now have discussed all regression outcome components displayed by `STATA`. Most of this information you do not need for your report but we will come back later to this. 
 
 ## Non-linear specifications {#sec:nonlinear}
 
-The model we are using is coined the *linear* regression model, and, indeed, one of the underlying assumptions is that the relations between the independent and dependent are linear. Consider the relation aain between test scores and class sizes in the Californian school district data. Using the following code (note now the `twoway` command that 'binds' a scatter plot with a population regression line): 
+The model we are using is coined the *linear* regression model, and, indeed, one of the underlying assumptions is that the relations between the independent and dependent are linear. Consider the relation again between test scores and class sizes in the Californian school district data. Using the following code (note now the `twoway` command that 'binds' a scatter plot with a population regression line): 
 
 ```{stata, echo=1, results="hide"}
 graph twoway (lfit testscr str) (scatter testscr str)
@@ -274,7 +285,7 @@ knitr::include_graphics("./figures/scatterincome.png")
 ```
 Figure \@ref(fig:scatterincome) shows a non-linear relation, where the effect of income tapers off (note the resemble with Figure \@ref(fig:marginalutility))---or, there is a marginal decreasing effect of average district income on average school test scores. Thus, in affluent neighborhood test scores are higher, but increasingly less so. Of course, you can still try to estimate this with a linear population regression line as in Figure \@ref(fig:scatterincome), but this introduces a **bias**. The estimate does not capture that what you want. Namely, it now holds that $E(u \mid X = x) \neq 0$, because for small $X$, say $X<10$, the residuals are negative, for medium sized $X$s most residuals are positive and for large $X>40$ all residuals are negative again. So, there is a clear relation between $X$ and $u$ and they fail to be independent. This particular form of bias is coined **specification bias**. There is another issue here and that is that the effect on $Y$ of a change in $X$ depends on the value of $X$---that is, the *marginal* effect of $X$ is not constant. 
 
-To remedy the specification bias, we will use nonlinear regression population regression **functions** of $X$, or we estimate a regression function that is nonlinear in $X$. Here, it is important to see that we do so by *transforming* $X$, so the population regression 'line'. The estimator still remain a linear regression model. 
+To remedy the specification bias, we will use nonlinear regression population regression **functions** of $X$, or we estimate a regression function that is nonlinear in $X$. Here, it is important to see that we do so by *transforming* $X$, so the population regression 'line'. The estimator still remains a linear regression model. 
 
 We will analyse below two complementary and often adopted approaches:
 
@@ -383,7 +394,7 @@ where both $D_{1i}$ and $ D_{2i}$ are now considered to be binary. Now, of cours
 Y_i =\beta_0 +\beta_1 D_{1i} + \beta_2 D_{2i} + \beta_3 (D_{1i} \times D_{2i}) + u_i
 \end{equation}
 
-To interpret now the coefficient $\beta_1$ we comparing the two cases for $D_1=0$ to $D_1=1$"
+To interpret now the coefficient $\beta_1$ we compare the two cases for $D_1=0$ to $D_1=1$"
 \begin{eqnarray}
 E(Y_i|D_{1i}=0, D_{2i}=d_2) &=& \beta_0 + \beta_2 d_2 \\
 E(Y_i|D_{1i}=1, D_{2i}=d_2) &=& \beta_0 + \beta_1 + \beta_2 d_2 + \beta_3 d_2 
@@ -392,7 +403,7 @@ If we now subtract them from each other:
 \begin{equation}
 E(Y_i|D_{1i}=1, D_{2i}=d2) - E(Y_i|D_{1i}=0, D_{2i}=d_2) = \beta_1 + \beta_3 d_2
 \end{equation}
-then we have the marginal effect of $D_1$ which now depend $d_2$. The interpretation of $\beta_3$ boils down to being incremental to the effect of $D_1$, when $D_2 = 1$
+then we have the marginal effect of $D_1$ which now depends on $d_2$. The interpretation of $\beta_3$ boils down to being incremental to the effect of $D_1$, when $D_2 = 1$
 
 Let us go back to our Californian school district example with the following variables to be used: test scores, student teacher ratio, and English learners. Let:
 \begin{eqnarray}
@@ -423,7 +434,7 @@ kable(df,
 )
 ```
 
-Now, Table \@ref(tab:intdummies) specifies for each combination (and there are exactly four of them) of $HiSTR$ and $HiEL$ the average expected test score outcome. Clearly, there are different 'marginal' effect of $HiSTR$. Namely, the effect of $HiSTR$ when $HiEL = 0$ is $-1.9$, whilst the effect of $HiSTR$ when $HiEL = 1$ is $-1.9 - 3.5 = -5.4$. This clearly points out that a class size reduction is estimated to have a bigger effect when the percent of English learners is large. However, when you estimate in `STATA` then you see that this interaction is not statistically significant, because the $t$-statistic equals $3.5/3.1 = 1.1$
+Now, Table \@ref(tab:intdummies) specifies for each combination (and there are exactly four of them) of $HiSTR$ and $HiEL$ the average expected test score outcome. Clearly, there are different 'marginal' effects of $HiSTR$. Namely, the effect of $HiSTR$ when $HiEL = 0$ is $-1.9$, whilst the effect of $HiSTR$ when $HiEL = 1$ is $-1.9 - 3.5 = -5.4$. This points out that a class size reduction is estimated to have a bigger effect when the percent of English learners is large. However, when you estimate this in `STATA` then you see that this interaction is not statistically significant, because the $t$-statistic equals $3.5/3.1 = 1.1$
 
 #### Interactions between continuous and binary variables
 
@@ -494,7 +505,7 @@ which yields:
 \end{equation}
 where $\beta_3$ should be interpreted as the increment to the effect of $X_1$ from a unit change in $X_2$. 
 
-### Logarithmic transformation
+### Logarithmic transformations
 
 To incorporate non-linear effect, very often logarithmic transformations are used of $Y$ and/or $X$, where typically we use $\ln(X)$ as the natural logarithm of $X$. One feature of logarithmic transformations is that they permit modeling relations in percentage terms (like elasticities), rather than linearly. That is because:
 \begin{equation}

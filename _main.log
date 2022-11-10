@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.29)  29 OCT 2022 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.29)  10 NOV 2022 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1651,13 +1651,13 @@ Overfull \hbox (64.49881pt too wide) in paragraph at lines 3850--3850
 .8754     703.189[] 
  []
 
-
+[157]
 Overfull \hbox (64.49881pt too wide) in paragraph at lines 3850--3850
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
-[157] [158]
+[158]
 Overfull \hbox (64.49881pt too wide) in paragraph at lines 3918--3918
 []      \T1/lmtt/m/n/10 Source |       SS           df       MS      Number of 
 obs   =       420[] 
@@ -1735,9 +1735,6 @@ Overfull \hbox (64.49881pt too wide) in paragraph at lines 3918--3918
 -----------------[] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [159]
 Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
 []\T1/lmtt/m/n/10 Linear regression                               Number of obs
@@ -1750,7 +1747,7 @@ Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
      =     223.82[] 
  []
 
-
+[160]
 Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
 []                                                \T1/lmtt/m/n/10 Prob > F     
      =     0.0000[] 
@@ -1774,7 +1771,7 @@ Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
 -----------------[] 
  []
 
-[160]
+
 Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
 []     \T1/lmtt/m/n/10 testscr | Coefficient  std. err.      t    P>|t|     [95
 % conf. interval][] 
@@ -1810,497 +1807,501 @@ Overfull \hbox (64.49881pt too wide) in paragraph at lines 3988--3988
 -----------------[] 
  []
 
-[161] [162] [163]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+[161]
+Underfull \vbox (badness 2181) has occurred while \output is active []
+
+[162] [163]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []\T1/lmtt/m/n/10 Linear regression                               Number of obs
      =        420[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []                                                \T1/lmtt/m/n/10 F(3, 416)    
      =     147.20[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []                                                \T1/lmtt/m/n/10 Prob > F     
      =     0.0000[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []                                                \T1/lmtt/m/n/10 R-squared    
      =     0.4366[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []                                                \T1/lmtt/m/n/10 Root MSE     
      =     14.353[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []     \T1/lmtt/m/n/10 testscr | Coefficient  std. err.      t    P>|t|     [95
 % conf. interval][] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []\T1/lmtt/m/n/10 -------------+-----------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []         \T1/lmtt/m/n/10 str |  -.2863992   .4820728    -0.59   0.553    -1.2
 34002     .661203[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []    \T1/lmtt/m/n/10 expn_stu |   .0038679   .0015807     2.45   0.015     .00
 07607    .0069751[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []      \T1/lmtt/m/n/10 el_pct |  -.6560227   .0317844   -20.64   0.000    -.71
 85008   -.5935446[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []       \T1/lmtt/m/n/10 _cons |   649.5779   15.45834    42.02   0.000     619
 .1917    679.9641[] 
  []
 
-
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4100--4100
+[164]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4111--4111
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
-[164]
-<./figures/scatterlfit.png, id=1776, 662.475pt x 481.8pt>
+<./figures/scatterlfit.png, id=1779, 662.475pt x 481.8pt>
 File: ./figures/scatterlfit.png Graphic file (type png)
 <use ./figures/scatterlfit.png>
-Package pdftex.def Info: ./figures/scatterlfit.png  used on input line 4121.
+Package pdftex.def Info: ./figures/scatterlfit.png  used on input line 4132.
 (pdftex.def)             Requested size: 602.27701pt x 438.01964pt.
 
-Overfull \hbox (257.27701pt too wide) in paragraph at lines 4121--4122
+Overfull \hbox (257.27701pt too wide) in paragraph at lines 4132--4133
  [][] 
  []
 
-<./figures/scatterincome.png, id=1778, 662.475pt x 481.8pt>
+<./figures/scatterincome.png, id=1781, 662.475pt x 481.8pt>
 File: ./figures/scatterincome.png Graphic file (type png)
 <use ./figures/scatterincome.png>
-Package pdftex.def Info: ./figures/scatterincome.png  used on input line 4140.
+Package pdftex.def Info: ./figures/scatterincome.png  used on input line 4151.
 (pdftex.def)             Requested size: 602.27701pt x 438.01964pt.
 
-Overfull \hbox (257.27701pt too wide) in paragraph at lines 4140--4141
+Overfull \hbox (257.27701pt too wide) in paragraph at lines 4151--4152
  [][] 
  []
 
-[165] [166 <./figures/scatterlfit.png>] [167 <./figures/scatterincome.png>]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4205--4205
+[165] [166 <./figures/scatterlfit.png>] [167 <./figures/scatterincome.png>] [16
+8]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4216--4216
 []\T1/lmtt/m/n/10 Linear regression                               Number of obs
      =        420[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4216--4216
 []                                                \T1/lmtt/m/n/10 F(2, 417)    
      =     428.52[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4216--4216
 []                                                \T1/lmtt/m/n/10 Prob > F     
      =     0.0000[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4216--4216
 []                                                \T1/lmtt/m/n/10 R-squared    
      =     0.5562[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4216--4216
 []                                                \T1/lmtt/m/n/10 Root MSE     
      =     12.724[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 ----------------------[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []          \T1/lmtt/m/n/10 testscr | Coefficient  std. err.      t    P>|t|   
   [95% conf. interval][] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []\T1/lmtt/m/n/10 ------------------+------------------------------------------
 ----------------------[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []           \T1/lmtt/m/n/10 avginc |   3.850995   .2680941    14.36   0.000   
    3.32401    4.377979[] 
  []
 
-[168]
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []\T1/lmtt/m/n/10 c.avginc#c.avginc |  -.0423085   .0047803    -8.85   0.000   
   -.051705   -.0329119[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []            \T1/lmtt/m/n/10 _cons |   607.3017   2.901754   209.29   0.000   
   601.5978    613.0056[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 4205--4205
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 4216--4216
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 ----------------------[] 
  []
 
-<./figures/scatterqua.png, id=1808, 662.475pt x 481.8pt>
+[169]
+<./figures/scatterqua.png, id=1816, 662.475pt x 481.8pt>
 File: ./figures/scatterqua.png Graphic file (type png)
 <use ./figures/scatterqua.png>
-Package pdftex.def Info: ./figures/scatterqua.png  used on input line 4236.
+Package pdftex.def Info: ./figures/scatterqua.png  used on input line 4247.
 (pdftex.def)             Requested size: 602.27701pt x 438.01964pt.
 
-Overfull \hbox (257.27701pt too wide) in paragraph at lines 4236--4237
+Overfull \hbox (257.27701pt too wide) in paragraph at lines 4247--4248
  [][] 
  []
 
-[169] [170 <./figures/scatterqua.png>]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4300--4300
+[170] [171 <./figures/scatterqua.png>]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4311--4311
 []\T1/lmtt/m/n/10 Linear regression                               Number of obs
      =        420[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4311--4311
 []                                                \T1/lmtt/m/n/10 F(3, 416)    
      =     270.18[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4311--4311
 []                                                \T1/lmtt/m/n/10 Prob > F     
      =     0.0000[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4311--4311
 []                                                \T1/lmtt/m/n/10 R-squared    
      =     0.5584[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4311--4311
 []                                                \T1/lmtt/m/n/10 Root MSE     
      =     12.707[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -------------------------------[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []                   \T1/lmtt/m/n/10 testscr | Coefficient  std. err.      t   
  P>|t|     [95% conf. interval][] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []\T1/lmtt/m/n/10 ---------------------------+---------------------------------
 -------------------------------[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []                    \T1/lmtt/m/n/10 avginc |   5.018677   .7073504     7.10  
  0.000      3.62825    6.409103[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []         \T1/lmtt/m/n/10 c.avginc#c.avginc |  -.0958052   .0289537    -3.31  
  0.001     -.152719   -.0388913[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []\T1/lmtt/m/n/10 c.avginc#c.avginc#c.avginc |   .0006855   .0003471     1.98  
  0.049     3.26e-06    .0013677[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []                     \T1/lmtt/m/n/10 _cons |    600.079   5.102062   117.61  
  0.000     590.0499     610.108[] 
  []
 
 
-Overfull \hbox (137.9986pt too wide) in paragraph at lines 4300--4300
+Overfull \hbox (137.9986pt too wide) in paragraph at lines 4311--4311
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -------------------------------[] 
  []
 
-[171] [172] [173]
-<./figures/Sheet44.jpg, id=1852, 545.3976pt x 412.9026pt>
+[172] [173]
+<./figures/Sheet44.jpg, id=1851, 545.3976pt x 412.9026pt>
 File: ./figures/Sheet44.jpg Graphic file (type jpg)
 <use ./figures/Sheet44.jpg>
-Package pdftex.def Info: ./figures/Sheet44.jpg  used on input line 4412.
+Package pdftex.def Info: ./figures/Sheet44.jpg  used on input line 4423.
 (pdftex.def)             Requested size: 545.42953pt x 412.92677pt.
 
-Overfull \hbox (200.42953pt too wide) in paragraph at lines 4412--4413
+Overfull \hbox (200.42953pt too wide) in paragraph at lines 4423--4424
  [][] 
  []
 
 [174] [175 <./figures/Sheet44.jpg>] [176]
 
 LaTeX Warning: Reference `tab:logspecification' on page 177 undefined on input 
-line 4481.
+line 4492.
 
 [177]
-<./figures/scatterlnincome.png, id=1896, 662.475pt x 481.8pt>
+<./figures/scatterlnincome.png, id=1894, 662.475pt x 481.8pt>
 File: ./figures/scatterlnincome.png Graphic file (type png)
 <use ./figures/scatterlnincome.png>
-Package pdftex.def Info: ./figures/scatterlnincome.png  used on input line 4536
+Package pdftex.def Info: ./figures/scatterlnincome.png  used on input line 4547
 .
 (pdftex.def)             Requested size: 602.27701pt x 438.01964pt.
 
-Overfull \hbox (257.27701pt too wide) in paragraph at lines 4536--4537
+Overfull \hbox (257.27701pt too wide) in paragraph at lines 4547--4548
  [][] 
  []
 
 [178] [179 <./figures/scatterlnincome.png>]
-<./figures/scattercompare.png, id=1919, 662.475pt x 481.8pt>
+<./figures/scattercompare.png, id=1915, 662.475pt x 481.8pt>
 File: ./figures/scattercompare.png Graphic file (type png)
 <use ./figures/scattercompare.png>
-Package pdftex.def Info: ./figures/scattercompare.png  used on input line 4613.
+Package pdftex.def Info: ./figures/scattercompare.png  used on input line 4624.
 
 (pdftex.def)             Requested size: 602.27701pt x 438.01964pt.
 
-Overfull \hbox (257.27701pt too wide) in paragraph at lines 4613--4614
+Overfull \hbox (257.27701pt too wide) in paragraph at lines 4624--4625
  [][] 
  []
 
-[180] [181 <./figures/scattercompare.png>]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+[180] [181] [182 <./figures/scattercompare.png>]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []\T1/lmtt/m/n/10 Linear regression                               Number of obs
      =        336[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []                                                \T1/lmtt/m/n/10 F(1, 334)    
      =      47.59[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []                                                \T1/lmtt/m/n/10 Prob > F     
      =     0.0000[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []                                                \T1/lmtt/m/n/10 R-squared    
      =     0.0934[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []                                                \T1/lmtt/m/n/10 Root MSE     
      =     .54374[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []    \T1/lmtt/m/n/10 fatality | Coefficient  std. err.      t    P>|t|     [95
 % conf. interval][] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []\T1/lmtt/m/n/10 -------------+-----------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []     \T1/lmtt/m/n/10 beertax |   .3646054   .0528524     6.90   0.000     .26
 06399     .468571[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []       \T1/lmtt/m/n/10 _cons |   1.853308   .0471297    39.32   0.000     1.7
 60599    1.946016[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4661--4661
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4672--4672
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
-[182]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []\T1/lmtt/m/n/10 Linear regression, absorbing indicators             Number of
  obs     =    336[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []\T1/lmtt/m/n/10 Absorbed variable: state                            No. of ca
 tegories =     48[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []                                                    \T1/lmtt/m/n/10 F(1, 287)
          =  10.41[] 
  []
 
-
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+[183]
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []                                                    \T1/lmtt/m/n/10 Prob > F 
          = 0.0014[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []                                                    \T1/lmtt/m/n/10 R-squared
          = 0.9050[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []                                                    \T1/lmtt/m/n/10 Adj R-squ
 ared     = 0.8891[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []                                                    \T1/lmtt/m/n/10 Root MSE 
          = 0.1899[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []    \T1/lmtt/m/n/10 fatality | Coefficient  std. err.      t    P>|t|     [95
 % conf. interval][] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []\T1/lmtt/m/n/10 -------------+-----------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []     \T1/lmtt/m/n/10 beertax |  -.6558737   .2032797    -3.23   0.001    -1.0
 55982   -.2557655[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []       \T1/lmtt/m/n/10 _cons |   2.377075   .1051516    22.61   0.000     2.1
 70109    2.584041[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 4694--4694
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 4705--4705
 []\T1/lmtt/m/n/10 -------------------------------------------------------------
 -----------------[] 
  []
 
-[183] [184]
+[184]
 Chapter 7.
-<./figures/causalsalad.jpg, id=1956, 269.005pt x 188.705pt>
+<./figures/causalsalad.jpg, id=1959, 269.005pt x 188.705pt>
 File: ./figures/causalsalad.jpg Graphic file (type jpg)
 <use ./figures/causalsalad.jpg>
-Package pdftex.def Info: ./figures/causalsalad.jpg  used on input line 4715.
+Package pdftex.def Info: ./figures/causalsalad.jpg  used on input line 4726.
 (pdftex.def)             Requested size: 269.00433pt x 188.70453pt.
 [185
 
 ] [186 <./figures/causalsalad.jpg>]
-<./figures/cadata.png, id=1967, 556.9608pt x 458.6736pt>
+<./figures/cadata.png, id=1970, 556.9608pt x 458.6736pt>
 File: ./figures/cadata.png Graphic file (type png)
 <use ./figures/cadata.png>
-Package pdftex.def Info: ./figures/cadata.png  used on input line 4772.
+Package pdftex.def Info: ./figures/cadata.png  used on input line 4783.
 (pdftex.def)             Requested size: 556.97641pt x 458.68646pt.
 
-Overfull \hbox (211.97641pt too wide) in paragraph at lines 4772--4773
+Overfull \hbox (211.97641pt too wide) in paragraph at lines 4783--4784
  [][] 
  []
 
-<./figures/catable.png, id=1970, 649.4664pt x 490.4724pt>
+<./figures/catable.png, id=1973, 649.4664pt x 490.4724pt>
 File: ./figures/catable.png Graphic file (type png)
 <use ./figures/catable.png>
-Package pdftex.def Info: ./figures/catable.png  used on input line 4806.
+Package pdftex.def Info: ./figures/catable.png  used on input line 4817.
 (pdftex.def)             Requested size: 649.46481pt x 490.47119pt.
 
-Overfull \hbox (304.46481pt too wide) in paragraph at lines 4806--4807
+Overfull \hbox (304.46481pt too wide) in paragraph at lines 4817--4818
  [][] 
  []
 
 [187] [188 <./figures/cadata.png>] [189 <./figures/catable.png>] [190] [191]
-<./figures/Rplot.png, id=2017, 542.025pt x 406.51875pt>
+<./figures/Rplot.png, id=2020, 542.025pt x 406.51875pt>
 File: ./figures/Rplot.png Graphic file (type png)
 <use ./figures/Rplot.png>
-Package pdftex.def Info: ./figures/Rplot.png  used on input line 4914.
-(pdftex.def)             Requested size: 542.0402pt x 406.53015pt.
-
-Overfull \hbox (197.0402pt too wide) in paragraph at lines 4914--4915
- [][] 
- []
-
-<./figures/Rplot01.png, id=2019, 542.025pt x 406.51875pt>
-File: ./figures/Rplot01.png Graphic file (type png)
-<use ./figures/Rplot01.png>
-Package pdftex.def Info: ./figures/Rplot01.png  used on input line 4925.
+Package pdftex.def Info: ./figures/Rplot.png  used on input line 4925.
 (pdftex.def)             Requested size: 542.0402pt x 406.53015pt.
 
 Overfull \hbox (197.0402pt too wide) in paragraph at lines 4925--4926
+ [][] 
+ []
+
+<./figures/Rplot01.png, id=2022, 542.025pt x 406.51875pt>
+File: ./figures/Rplot01.png Graphic file (type png)
+<use ./figures/Rplot01.png>
+Package pdftex.def Info: ./figures/Rplot01.png  used on input line 4936.
+(pdftex.def)             Requested size: 542.0402pt x 406.53015pt.
+
+Overfull \hbox (197.0402pt too wide) in paragraph at lines 4936--4937
  [][] 
  []
 
@@ -2313,23 +2314,23 @@ Appendix A.
 [201
 
 ]
-Overfull \hbox (22.60823pt too wide) detected at line 5200
+Overfull \hbox (22.60823pt too wide) detected at line 5211
 [][]\OML/lmm/m/it/10 L[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 K[][][] \OT1/lmr/m/
 n/10 = [][] [][] [][] = [][] [][]
  []
 
 [202]
-Overfull \hbox (89.94415pt too wide) in alignment at lines 5211--5214
+Overfull \hbox (89.94415pt too wide) in alignment at lines 5222--5225
  [][][] []
  []
 
 
-Overfull \hbox (23.2023pt too wide) in alignment at lines 5218--5223
+Overfull \hbox (23.2023pt too wide) in alignment at lines 5229--5234
  [][][] []
  []
 
 
-Overfull \hbox (3.24286pt too wide) in alignment at lines 5225--5230
+Overfull \hbox (3.24286pt too wide) in alignment at lines 5236--5241
  [][][] []
  []
 
@@ -2349,53 +2350,53 @@ Appendix C.
 
 ]
 
-LaTeX Warning: Reference `MORAL' on page 208 undefined on input line 5340.
+LaTeX Warning: Reference `MORAL' on page 208 undefined on input line 5351.
 
 [208]
 Appendix D.
 [209
 
 ] [210]
-<./figures/Sheet27.png, id=2238, 486.1362pt x 518.8986pt>
+<./figures/Sheet27.png, id=2241, 486.1362pt x 518.8986pt>
 File: ./figures/Sheet27.png Graphic file (type png)
 <use ./figures/Sheet27.png>
-Package pdftex.def Info: ./figures/Sheet27.png  used on input line 5412.
+Package pdftex.def Info: ./figures/Sheet27.png  used on input line 5423.
 (pdftex.def)             Requested size: 486.14984pt x 518.91315pt.
 
-Overfull \hbox (141.14984pt too wide) in paragraph at lines 5412--5412
+Overfull \hbox (141.14984pt too wide) in paragraph at lines 5423--5423
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 4.85759pt on input line 5413.
+LaTeX Warning: Float too large for page by 4.85759pt on input line 5424.
 
 [211] [212 <./figures/Sheet27.png>]
 Underfull \vbox (badness 1701) has occurred while \output is active []
 
 [213]
-<./figures/coin1.png, id=2263, 662.475pt x 481.8pt>
+<./figures/coin1.png, id=2266, 662.475pt x 481.8pt>
 File: ./figures/coin1.png Graphic file (type png)
 <use ./figures/coin1.png>
-Package pdftex.def Info: ./figures/coin1.png  used on input line 5473.
+Package pdftex.def Info: ./figures/coin1.png  used on input line 5484.
 (pdftex.def)             Requested size: 662.49359pt x 481.8135pt.
 
-Overfull \hbox (317.49359pt too wide) in paragraph at lines 5473--5473
+Overfull \hbox (317.49359pt too wide) in paragraph at lines 5484--5484
 [][] 
  []
 
 [214] [215 <./figures/coin1.png>]
-<./figures/coin100.png, id=2280, 662.475pt x 481.8pt>
+<./figures/coin100.png, id=2283, 662.475pt x 481.8pt>
 File: ./figures/coin100.png Graphic file (type png)
 <use ./figures/coin100.png>
-Package pdftex.def Info: ./figures/coin100.png  used on input line 5490.
+Package pdftex.def Info: ./figures/coin100.png  used on input line 5501.
 (pdftex.def)             Requested size: 662.49359pt x 481.8135pt.
 
-Overfull \hbox (317.49359pt too wide) in paragraph at lines 5490--5490
+Overfull \hbox (317.49359pt too wide) in paragraph at lines 5501--5501
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5518--5520
+Underfull \hbox (badness 10000) in paragraph at lines 5529--5531
 
  []
 
@@ -2405,11 +2406,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17705 strings out of 478268
- 288603 string characters out of 5846347
- 612877 words of memory out of 5000000
+ 17710 strings out of 478268
+ 288672 string characters out of 5846347
+ 612878 words of memory out of 5000000
  33957 multiletter control sequences out of 15000+600000
- 597935 words of font info for 333 fonts, out of 8000000 for 9000
+ 598029 words of font info for 334 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,22n,77p,2158b,520s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
@@ -2442,10 +2443,10 @@ lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy5.pfb>
 22/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2022/texmf-d
 ist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on _main.pdf (217 pages, 6147849 bytes).
+Output written on _main.pdf (217 pages, 6148761 bytes).
 PDF statistics:
- 2854 PDF objects out of 2984 (max. 8388607)
- 2469 compressed objects within 25 object streams
- 1140 named destinations out of 1200 (max. 500000)
+ 2858 PDF objects out of 2984 (max. 8388607)
+ 2473 compressed objects within 25 object streams
+ 1143 named destinations out of 1200 (max. 500000)
  66244 words of extra memory for PDF output out of 74296 (max. 10000000)
 
