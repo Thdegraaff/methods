@@ -322,7 +322,7 @@ Note by the way the syntax `c.avginc##c.avginc` which seems a bit strange. Howev
 - `#` binary operator that specifies an interaction between two variables
 - `##` binary operator that specifies both interaction between two variables and the individual variable effect
 
-Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a pylonomial with a linear dimension. One way of doing this is as follows:
+Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a polynomial with a linear dimension. One way of doing this is as follows:
 ```{stata, echo=-3, results="hide"}
 predict hat1 
 scatter (testscr avginc) || (line hat1 avginc, sort)
@@ -486,8 +486,26 @@ And when $HiEL = 1$ the population regression line is:
 \end{eqnarray}
 Thus we have two regression lines: one for each $HiSTR$ group. And the conclusion is that a class size reduction is estimated to have a larger effect when the percent of English learners (migrant communities) is large.
 
-Hypothesis testing is a before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of $STR \times HiEL$ being zero: the $t$-statistic of this one become $-1.28/0.97 = -1.32$ and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of $HiEL$ being zero, yielding: $t = -5.6/19.5 = 0.29$, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same---population coefficient on $HiEL = 0$ and population coefficient on yields $STR \times HiEL = 0$: $F = 89.94 (p-value < .001)$. So, we reject the joint hypothesis but neither individual hypothesis.
- 
+Hypothesis testing is as before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of $STR \times HiEL$ being zero: the $t$-statistic of this one become $-1.28/0.97 = -1.32$ and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of $HiEL$ being zero, yielding: $t = -5.6/19.5 = 0.29$, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same---population coefficient on $HiEL = 0$ and population coefficient on yields $STR \times HiEL = 0$: $F = 89.94 (p-value < .001)$. So, we reject the joint hypothesis but neither individual hypothesis.
+
+Finally, the question may arise how to draw such lines as in Figure \@ref(fig:interaction). For this the following code is very useful:
+
+```{stata, collectcode=TRUE, echo = 1:4}
+gen hiel = (el_pct >= 10)
+reg testscr c.str##i.hiel, r
+margins hiel, at(str=( 14 ( 2 ) 26 ))
+marginsplot
+quietly graph export figures/interactionplot.png, replace
+```
+
+So, first, we generate a new dummy variable `hiel` as discussed above. Then we regress testscores on class size, the new `hiel` dummy variable and the interaction using the two hashtags. We then ask for the marginal effect of `hiel`, so for both values of it (being 0 and 1), for all class sizes between 14 and 26 (with steps of 2). Finally, we ask for the plots of the margins using the command `marginsplot`. This provides the following `STATA` plot.
+
+```{r fig.align='center', echo=FALSE, fig.cap = "Predicted population regression lines of districts with large and small percentage english learners", label='interactionplot', out.width="600px"}
+knitr::include_graphics("./figures/interactionplot.png")
+```
+
+Clearly, Figure \@ref(fig:interactionplot) shows that district with more English learners (containing larger migrant communities) have lower test scores overall. Above that, class size seems to have a large negative effect on districts with more English learners as the slope is more negative.  
+
 #### Interactions between two continuous variables
 
 The last case are interaction between two continuous variables and that is always a difficult case of interpret. Starting again with the model:

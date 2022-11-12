@@ -29,7 +29,7 @@ Earth, Economics and Sustainability</p>" />
 <meta name="author" content="Paul Koster &amp; Thomas de Graaff" />
 
 
-<meta name="date" content="2022-11-10" />
+<meta name="date" content="2022-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -746,7 +746,7 @@ c.avginc#c.avginc |  -.0423085   .0047803    -8.85   0.000     -.051705   -.0329
 <li><code>#</code> binary operator that specifies an interaction between two variables</li>
 <li><code>##</code> binary operator that specifies both interaction between two variables and the individual variable effect</li>
 </ul>
-<p>Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a pylonomial with a linear dimension. One way of doing this is as follows:</p>
+<p>Plotting, non-linear population regression lines are a bit tricky. Namely, you want to combine a polynomial with a linear dimension. One way of doing this is as follows:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb36-1"><a href="modeling.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> hat1 </span>
 <span id="cb36-2"><a href="modeling.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> (testscr avginc) || (<span class="kw">line</span> hat1 avginc, <span class="kw">sort</span>)</span></code></pre></div>
 <p>where after the regression we <strong>predict</strong> the test scores (and name it something like <code>hat1</code>) and then we ask for a line of the prediction for each value of average district income. Note, though, that we have to <code>sort</code> the prediction from small to large to get a smooth line. And this provides the nice curved population regression line in the following <code>STATA</code> output.</p>
@@ -970,7 +970,75 @@ And when <span class="math inline">\(HiEL = 1\)</span> the population regression
 &amp;=&amp; 687.8 - 2.25 STR
 \end{eqnarray}\]</span>
 Thus we have two regression lines: one for each <span class="math inline">\(HiSTR\)</span> group. And the conclusion is that a class size reduction is estimated to have a larger effect when the percent of English learners (migrant communities) is large.</p>
-<p>Hypothesis testing is a before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of <span class="math inline">\(STR \times HiEL\)</span> being zero: the <span class="math inline">\(t\)</span>-statistic of this one become <span class="math inline">\(-1.28/0.97 = -1.32\)</span> and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of <span class="math inline">\(HiEL\)</span> being zero, yielding: <span class="math inline">\(t = -5.6/19.5 = 0.29\)</span>, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same—population coefficient on <span class="math inline">\(HiEL = 0\)</span> and population coefficient on yields <span class="math inline">\(STR \times HiEL = 0\)</span>: <span class="math inline">\(F = 89.94 (p-value &lt; .001)\)</span>. So, we reject the joint hypothesis but neither individual hypothesis.</p>
+<p>Hypothesis testing is as before. To test whether the two regression lines have the same slope, the null-hypothesis boils down to the coefficient of <span class="math inline">\(STR \times HiEL\)</span> being zero: the <span class="math inline">\(t\)</span>-statistic of this one become <span class="math inline">\(-1.28/0.97 = -1.32\)</span> and thus we do not reject this test. To test whether the two regression lines have the same intercept, the null-hypothesis becomes the coefficient of <span class="math inline">\(HiEL\)</span> being zero, yielding: <span class="math inline">\(t = -5.6/19.5 = 0.29\)</span>, so we do not reject that null-hypothesis either. Interestingly, the null-hypothesis that the two regression lines are the same—population coefficient on <span class="math inline">\(HiEL = 0\)</span> and population coefficient on yields <span class="math inline">\(STR \times HiEL = 0\)</span>: <span class="math inline">\(F = 89.94 (p-value &lt; .001)\)</span>. So, we reject the joint hypothesis but neither individual hypothesis.</p>
+<p>Finally, the question may arise how to draw such lines as in Figure <a href="modeling.html#fig:interaction">6.7</a>. For this the following code is very useful:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb41-1"><a href="modeling.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> hiel = (el_pct &gt;= 10)</span>
+<span id="cb41-2"><a href="modeling.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.str##i.hiel, <span class="fu">r</span></span>
+<span id="cb41-3"><a href="modeling.html#cb41-3" aria-hidden="true" tabindex="-1"></a>margins hiel, <span class="fu">at</span>(str=( 14 ( 2 ) 26 ))</span>
+<span id="cb41-4"><a href="modeling.html#cb41-4" aria-hidden="true" tabindex="-1"></a>marginsplot</span></code></pre></div>
+<pre><code>Linear regression                               Number of obs     =        420
+                                                F(3, 416)         =      63.67
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.3103
+                                                Root MSE          =      15.88
+
+------------------------------------------------------------------------------
+             |               Robust
+     testscr | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         str |  -.9684601   .5891016    -1.64   0.101    -2.126447    .1895268
+      1.hiel |   5.639141   19.51456     0.29   0.773    -32.72029    43.99857
+             |
+  hiel#c.str |
+          1  |  -1.276613   .9669194    -1.32   0.187     -3.17727    .6240436
+             |
+       _cons |   682.2458   11.86781    57.49   0.000     658.9175    705.5742
+------------------------------------------------------------------------------
+
+
+Adjusted predictions                                       Number of obs = 420
+Model VCE: Robust
+
+Expression: Linear prediction, predict()
+1._at: str = 14
+2._at: str = 16
+3._at: str = 18
+4._at: str = 20
+5._at: str = 22
+6._at: str = 24
+7._at: str = 26
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    _at#hiel |
+        1 0  |   668.6874   3.701457   180.66   0.000     661.4115    675.9633
+        1 1  |    656.454    4.85794   135.13   0.000     646.9048    666.0031
+        2 0  |   666.7505   2.577328   258.70   0.000     661.6843    671.8167
+        2 1  |   651.9638   3.391411   192.24   0.000     645.2974    658.6302
+        3 0  |   664.8136   1.536485   432.68   0.000     661.7933    667.8338
+        3 1  |   647.4737   2.026549   319.50   0.000     643.4901    651.4572
+        4 0  |   662.8766   .9248105   716.77   0.000     661.0588    664.6945
+        4 1  |   642.9835    1.18965   540.48   0.000      640.645     645.322
+        5 0  |   660.9397   1.458111   453.28   0.000     658.0735    663.8059
+        5 1  |   638.4934   1.851156   344.92   0.000     634.8546    642.1321
+        6 0  |   659.0028   2.484598   265.24   0.000     654.1189    663.8867
+        6 1  |   634.0032    3.18456   199.09   0.000     627.7434    640.2631
+        7 0  |   657.0659   3.605093   182.26   0.000     649.9794    664.1523
+        7 1  |   629.5131    4.64319   135.58   0.000      620.386    638.6401
+------------------------------------------------------------------------------
+
+
+Variables that uniquely identify margins: str hiel</code></pre>
+<p>So, first, we generate a new dummy variable <code>hiel</code> as discussed above. Then we regress testscores on class size, the new <code>hiel</code> dummy variable and the interaction using the two hashtags. We then ask for the marginal effect of <code>hiel</code>, so for both values of it (being 0 and 1), for all class sizes between 14 and 26 (with steps of 2). Finally, we ask for the plots of the margins using the command <code>marginsplot</code>. This provides the following <code>STATA</code> plot.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:interactionplot"></span>
+<img src="figures/interactionplot.png" alt="Predicted population regression lines of districts with large and small percentage english learners" width="600px" />
+<p class="caption">
+Figure 6.8: Predicted population regression lines of districts with large and small percentage english learners
+</p>
+</div>
+<p>Clearly, Figure <a href="modeling.html#fig:interactionplot">6.8</a> shows that district with more English learners (containing larger migrant communities) have lower test scores overall. Above that, class size seems to have a large negative effect on districts with more English learners as the slope is more negative.</p>
 </div>
 <div id="interactions-between-two-continuous-variables" class="section level4 hasAnchor" number="6.3.2.3">
 <h4><span class="header-section-number">6.3.2.3</span> Interactions between two continuous variables<a href="modeling.html#interactions-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1068,18 +1136,18 @@ In this case that means that <span class="math inline">\(\beta_1\)</span> should
         \widehat{TestScore} = 557.8 + 36.42\times \ln(Income_i)
 \end{equation}\]</span>
 so an 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase in test scores of 0.36 points on the test. And again, standard errors, confidence intervals, <span class="math inline">\(R^2\)</span>—all the usual tools of regression apply here. But the difficulty in plottin the new regression line remains. Consider the following <code>STATA</code> syntax, where we first have to define the new regressor by invoking the <code>generate</code> command.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb41-1"><a href="modeling.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
-<span id="cb41-2"><a href="modeling.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr lninc, <span class="fu">r</span></span>
-<span id="cb41-3"><a href="modeling.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat</span>
-<span id="cb41-4"><a href="modeling.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb43-1"><a href="modeling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
+<span id="cb43-2"><a href="modeling.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr lninc, <span class="fu">r</span></span>
+<span id="cb43-3"><a href="modeling.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat</span>
+<span id="cb43-4"><a href="modeling.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> testscr avginc)</span></code></pre></div>
 This now provides the following <code>STATA</code> output.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterlnincome"></span>
 <img src="figures/scatterlnincome.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
-Figure 6.8: A non-linear relation
+Figure 6.9: A non-linear relation
 </p>
 </div>
-<p>When you compare <a href="modeling.html#fig:scatterlnincome">6.8</a> with <a href="modeling.html#fig:scatterqua">6.6</a> then you notice that in the case of logarithm the population remains increasing (but less and less steep). This can be considered as an advantage when you want to estimate decreasing (or increasing) return.</p>
+<p>When you compare <a href="modeling.html#fig:scatterlnincome">6.9</a> with <a href="modeling.html#fig:scatterqua">6.6</a> then you notice that in the case of logarithm the population remains increasing (but less and less steep). This can be considered as an advantage when you want to estimate decreasing (or increasing) return.</p>
 </div>
 <div id="log-linear-population-regression-model" class="section level4 hasAnchor" number="6.3.3.2">
 <h4><span class="header-section-number">6.3.3.2</span> Log-linear population regression model<a href="modeling.html#log-linear-population-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1126,18 +1194,18 @@ The model is now a linear regression of ln(TestScore) against ln(Income), which 
 \end{equation}\]</span>
 where the interpretation is that an 1% increase in <span class="math inline">\(Income\)</span> is associated with an increase of .0554% in <span class="math inline">\(TestScore\)</span> (<span class="math inline">\(Income\)</span> up by a factor of 1.01, <span class="math inline">\(TestScore\)</span> up by a factor of 1.000554)</p>
 <p>Suppose that we now want to plot both the log-linear and the log-log specification, then we can use the following syntax:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb42-1"><a href="modeling.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
-<span id="cb42-2"><a href="modeling.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lntestscr = <span class="fu">ln</span>(testscr)</span>
-<span id="cb42-3"><a href="modeling.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr lninc, <span class="fu">r</span></span>
-<span id="cb42-4"><a href="modeling.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat1</span>
-<span id="cb42-5"><a href="modeling.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr avginc, <span class="fu">r</span></span>
-<span id="cb42-6"><a href="modeling.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat2</span>
-<span id="cb42-7"><a href="modeling.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat1 avginc, <span class="kw">sort</span>) (<span class="kw">line</span> testhat2 avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> lntestscr avginc), <span class="bn">legend</span>(<span class="kw">order</span>(1 <span class="st">&quot;log-log specification&quot;</span> 2 <span class="st">&quot;log-linear specification&quot;</span> 3 <span class="st">&quot;Observations&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb44-1"><a href="modeling.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lninc = <span class="fu">ln</span>(avginc)</span>
+<span id="cb44-2"><a href="modeling.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> lntestscr = <span class="fu">ln</span>(testscr)</span>
+<span id="cb44-3"><a href="modeling.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr lninc, <span class="fu">r</span></span>
+<span id="cb44-4"><a href="modeling.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat1</span>
+<span id="cb44-5"><a href="modeling.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> lntestscr avginc, <span class="fu">r</span></span>
+<span id="cb44-6"><a href="modeling.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> testhat2</span>
+<span id="cb44-7"><a href="modeling.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (<span class="kw">line</span> testhat1 avginc, <span class="kw">sort</span>) (<span class="kw">line</span> testhat2 avginc, <span class="kw">sort</span>) (<span class="kw">scatter</span> lntestscr avginc), <span class="bn">legend</span>(<span class="kw">order</span>(1 <span class="st">&quot;log-log specification&quot;</span> 2 <span class="st">&quot;log-linear specification&quot;</span> 3 <span class="st">&quot;Observations&quot;</span>)) </span></code></pre></div>
 <p>which provides the following <code>STATA</code> output.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:scattercompare"></span>
 <img src="figures/scattercompare.png" alt="A non-linear relation" width="600px" />
 <p class="caption">
-Figure 6.9: A non-linear relation
+Figure 6.10: A non-linear relation
 </p>
 </div>
 <p>Note that the <span class="math inline">\(y\)</span>-axis is on a logarithmic scale here, thus the log-linear specification is now a linear line.</p>
@@ -1151,10 +1219,10 @@ Figure 6.9: A non-linear relation
 <div id="sec:fixedeffects" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Using fixed effects in panel data<a href="modeling.html#sec:fixedeffects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Multivariate regression is a powerfull tool for controlling for the effect of variables for which we have data. But often we do not have data on what we suspect might be important—data, such as individual characteristics like ambition, intelligence, drive or stamina. Or regional of country data, where the type of soil, the ruggedness (hilliness), or population density determine to a large extent the behaviour of people living on it. If we do not have this type of data, then it not always the case that everything is lost. Especially, when we have repeated observations, so observations of the same entity throughout time. This is referred to as panel data and requires one additional subscript <span class="math inline">\(t\)</span> as in <span class="math inline">\(X_{it}\)</span> indicating the observation <span class="math inline">\(X\)</span> on individual made at time <span class="math inline">\(t\)</span>. To understand why this sometimes works, we temporarily change to another dataset and that is the ‘fatality’ data collected by <span class="citation">Levitt and Porter (2001)</span> and deals with the relation between drunk driving and fatal accidents in the States of the US between 1982 and 1988. For this particular example we look at the impact of the ‘beer tax’, measured as the real tax in dollars on a case of beer, on ‘fatality’, measured as the number of annual traffic deaths per 10,000 people in the population of each stata. For this we first read the data and manipulate the mortality variable</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb43-1"><a href="modeling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;./data/fatality.dta&quot;</span>, <span class="kw">clear</span></span>
-<span id="cb43-2"><a href="modeling.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> fatality = allmort/pop * 10000</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb45-1"><a href="modeling.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;./data/fatality.dta&quot;</span>, <span class="kw">clear</span></span>
+<span id="cb45-2"><a href="modeling.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> fatality = allmort/pop * 10000</span></code></pre></div>
 <p>and then run a simple regression:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb44-1"><a href="modeling.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> fatality beertax, <span class="kw">robust</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb46-1"><a href="modeling.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> fatality beertax, <span class="kw">robust</span></span></code></pre></div>
 <pre><code>Linear regression                               Number of obs     =        336
                                                 F(1, 334)         =      47.59
                                                 Prob &gt; F          =     0.0000
@@ -1175,7 +1243,7 @@ Figure 6.9: A non-linear relation
 \end{equation}\]</span>
 where <span class="math inline">\(S_i\)</span> denote indicator (dummies) for each state which constitute the fixed effects. In total there are 48 states in this dataset, so we have 48 dummies. Note that these fixed effects only depend on the state variation, not on time variation. So, essentially what these fixed effects capture is all state specific characteristics which are constant over time. And most of the characteristics’ examples given above do not vary that much over time, so by using these state fixed effects we can <strong>control</strong> for them. In <code>STATA</code> you can estimate this in a straightforward way as <code>regress fatality beertax i.state, robust</code>, but this lots of statistical output that you are usually not interested in. Almost just as easy would be is to invoke the <code>areg</code> command, where you specifically state that the state variable should be used as dummies but not shown using <code>absorb(state)</code>:
 and then run a simple regression:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb46-1"><a href="modeling.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> fatality beertax, absorb(state) <span class="kw">robust</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb48-1"><a href="modeling.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> fatality beertax, absorb(state) <span class="kw">robust</span></span></code></pre></div>
 <pre><code>Linear regression, absorbing indicators             Number of obs     =    336
 Absorbed variable: state                            No. of categories =     48
                                                     F(1, 287)         =  10.41
