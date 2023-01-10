@@ -2,7 +2,7 @@
 
 ## Introduction
 
-These lecture notes introduce another definition of economic surplus ('the economic pie’) that allows for moral considerations. It specifically investigates moral considerations related to the normative validity of counting costs and benefits of consumers and producers and external costs as economic social surplus. Why is this important? In the first week we have seen that the classical perspective of economic value rests on four pillars: (*i*) optimisation, (*ii*) equilibrium, (*iii*) empiricism and (*iv*) choice-based normativity. The implication of this perspective is that choices of market actors perfectly track value for society. 
+These lecture notes introduce another definition of economic surplus ('the economic pie') that allows for moral considerations. It specifically investigates moral considerations related to the normative validity of counting costs and benefits of consumers and producers and external costs as economic social surplus. Why is this important? In the first week we have seen that the classical perspective of economic value rests on four pillars: (*i*) optimisation, (*ii*) equilibrium, (*iii*) empiricism and (*iv*) choice-based normativity. The implication of this perspective is that choices of market actors perfectly track value for society. 
 
 The second week provided an extended perspective using insights from psychology. According to this perspective there can be a difference between choice-based value and experienced based value. Given particular assumptions it can be justified that experienced value is the right metric to measure instead of choice-based value. As we have seen, this has implications for policy interventions related to information provision and externality taxation.
 
