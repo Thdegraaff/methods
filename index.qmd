@@ -1,0 +1,47 @@
+# Preface {.unnumbered}
+
+## What {-}
+
+This syllabus provides the course material for the first part of the course **Methods and Techiques for Social and Economic Research**. With this course we would like to bridge the gap between on the one hand applied statistics and (micro-economic) modeling and on the other hand putting all this in practice when performing empirical research. As such this course can as well be seen as preparation for the bachelor thesis. But above all, the course aims to provide students with some tools that we see as very useful for research; not only in the socio-economic sciences but outside them as well.
+
+As we only have a limited amount of time available for this course, the amount of topics we can deal with is by its nature restricted. We decided to focus in the first three week on the basics of applied econometrics and as such this first part builds upon the foundations of the statistics course in the first period of the second year. But now we challenge the student to build more elaborate statistical models where specific attention is given to *presentation* and *interpretation* of the results. The last three parts of the course move on to economic welfare from a behavioral perspective. Not only is the concept of economic welfare central to all most all economic theories, the behavioral perspective allows for more *reflection* on the neo-classical assumptions typically made in introductionary economic courses. 
+
+## Why {-}
+
+Although there are many and very good introductory textbooks on economic models and applied econometrics, the combination of the two is seldom seen. Apart from that there are two reasons why we wanted to write our own material. First, usually less time is spent on why certain, and a first sight very restrictive, *assumptions* are made. We want to bridge that gap and provide the student with more intuition on where models, evidence, and finally perhaps the "truth" (if there is such a thing) comes from. Second, how to *present* statistical evidence and the *interpretation* of that evidence is very important but usually not given much attention.
+
+## How {-}
+
+
+
+## For whom {-}
+
+This syllabus assumes that the reader has a basic working knowledge of statistics and some calculus (typically those method courses students enjoy in their first year). The book can however be read as stand-alone, although that requires some more attentive reading and practising. Where we think it is necessary we provide (references to) background material. For the course **Methods and Techiques for Social and Economic Research** both types of syllabi should be read **in total** and it might be wise to read the relevant material *before* the respective lecture. The big advantage of course is that lectures and reading material now really go one to one. 
+
+```{r}
+#| include: FALSE
+#| warning: FALSE
+#| message: FALSE
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'Statamarkdown', 'kableExtra', 'tidyverse'
+), 'packages.bib')
+```
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+#| echo: FALSE
+library(kableExtra)
+library(tidyverse)
+```
+
+```{r}
+#| label: stata_setup
+#| warning: FALSE
+#| message: FALSE
+#| echo: FALSE
+library(Statamarkdown)
+stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE" # Mac OS
+knitr::opts_chunk$set(engine.path = list(stata = stataexe))
+```

@@ -1,0 +1,41 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Applied econometric methods"
+  author: "Thomas de Graaff"
+  date: "09/18/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - linear_regression.qmd
+    - multivariate.qmd
+    - assessment.qmd
+    - conclusion.qmd
+    - references.qmd
+  appendices:
+    - appendix.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    fontsize: 1.0em
+    include-in-header:
+      - text: |
+          <script>
+          window.MathJax = {
+            tex: {
+              tags: 'ams'
+            }
+          };
+          </script>
+    theme: cosmo
+    toc-depth: 4
+
+  pdf:
+    documentclass: scrreprt
+
+
+
