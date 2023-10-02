@@ -174,6 +174,9 @@ window.MathJax = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied econometric methods</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Applied-econometric-methods.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -313,15 +316,15 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 \label{eq:directutility}
 \end{equation}\]</span></p>
 <p>Here, the quantities of the goods <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are considered to be <strong>known</strong>—also often referred to as <strong>data</strong>. In theoretical work they are fictional or sometimes simulated. The parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <strong>not known</strong> and we often want to <strong>estimate</strong> them. If we know what the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> should be, then we can calculate what utility a certain amount of consumption of both goods gives and then, for example, assess which combination of goods gives maximum utility.</p>
-<p>This course is about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example, demand and prices.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Therefore, this course and syllabus deals with (<em>i</em>) difficulties arising from using observational data to estimate these causal effects and (<em>ii</em>) rewriting models as (<span class="math inline">\(\ref{eq:directutility}\)</span>) such that we can actually <em>use</em> data to tease out values for—in this case—<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+<p>This course is about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring <strong>causal</strong> effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. However, we almost always only have observational data on, for example, demand and prices.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Therefore, this course and syllabus deals with (<em>i</em>) how to estimate parameter value of in this case—<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, (<em>ii</em>) rewriting models as (<span class="math inline">\(\ref{eq:directutility}\)</span>) such that we can actually <em>use</em> data to tease out values for—again, in this case—<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, and (<em>iii</em>) difficulties arising from using observational data to estimate these causal effects.</p>
 <p>This chapter is organised as follows. The next section addresses the problem of finding a <em>relation</em> between some <span class="math inline">\(X\)</span> and some <span class="math inline">\(Y\)</span>. Here, we follow an example from the well-known textbook of <span class="citation" data-cites="stock2003introduction">Stock, Watson, et al. (<a href="references.html#ref-stock2003introduction" role="doc-biblioref">2003</a>)</span> where we look at the relation between school class size and school class performance. At the same time, we also introduce some <code>STATA</code> commands. To do so, this section deals as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and that we provide only the basic concepts most important for this course in <a href="appendix.html"><span>Appendix&nbsp;A</span></a>.</p>
 </section>
 <section id="sec-problem" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-problem"><span class="header-section-number">2.2</span> So, what is the problem?</h2>
 <p>As explained in the introduction above, applied econometrics aims to give the policy maker well-informed, and evidence based, values for variables she needs. She needs these variables basically for two separate things:</p>
 <ol type="1">
-<li><strong>Causal inference</strong>: The policy maker wants to assess the effect of a change in one variable (typically called <span class="math inline">\(X\)</span>) on another variables (often called <span class="math inline">\(Y\)</span>).</li>
-<li><strong>Prediction</strong>: If you know what variable <span class="math inline">\(X\)</span> is, what should <span class="math inline">\(Y\)</span> then be?</li>
+<li><strong>Causal inference</strong>: You want to assess the effect of a change in one variable (typically called <span class="math inline">\(X\)</span>) on another variable (often called <span class="math inline">\(Y\)</span>).</li>
+<li><strong>Prediction</strong>: If you know the value(s) of variable(s) <span class="math inline">\(X\)</span>, what is then the value of outcome variable <span class="math inline">\(Y\)</span>?</li>
 </ol>
 <p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal mechanism) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction.</p>
 <p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:</p>
@@ -332,7 +335,7 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 </ul>
 <section id="a-first-encounter-with-stata" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="a-first-encounter-with-stata"><span class="header-section-number">2.2.1</span> A first encounter with <code>STATA</code></h3>
-<p>For this section, we will focus on the last question. And this is an important question for policy as teachers are costly, but parents value school performance very highly. To start answering this question we <em>use</em> data. In <code>STATA</code> data is in a specific format, named <code>.dta</code>. Note that this format is not in a text format and cannot be read with the human eye. To start using <code>STATA</code> we first need to set the working directory to the appropriate directory.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> You can do this by using the drop down menu <code>File</code> in <code>STATA</code> and click on <code>Change working directly</code> but you can also do this with the following command:</p>
+<p>For this chapter (and for the most part of this syllabus), we will focus on the last question. And this is an important question for policy as teachers are costly, but parents value school performance very highly. To start answering this question we <em>use</em> data. In <code>STATA</code> data is in a specific format, named <code>.dta</code>. Note that this format is not in a text format and cannot be read with the human eye. To start using <code>STATA</code> we first need to set the working directory to the appropriate directory.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> You can do this by using the drop down menu <code>File</code> in <code>STATA</code> and click on <code>Change working directly</code> but you can also do this with the following command:</p>
 <div class="cell">
 
 </div>
@@ -345,20 +348,18 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 <pre><code>/Users/tomba/Dropbox/Thomas/project/preparatory</code></pre>
 </div>
 </div>
-<p>Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for e.g.&nbsp;slides, data and tutorials. Now suppose you have the subdirectory <code>data</code> in your course folder<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and in that data directory you have a file called <code>caschool.dta</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).</p>
+<p>Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for, e.g., slides, data and tutorials. Now suppose you have the subdirectory <code>data</code> in your course folder<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and in that data directory you have a file called <code>caschool.dta</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).</p>
 <p>To import the data in STATA you make use of the <code>use</code> command (again, you can make use of the dropdown menus), as follows:</p>
 <div class="cell" data-collectcode="true">
-<div class="cell-output cell-output-stdout">
-<pre><code></code></pre>
-</div>
+
 </div>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"./data/caschool.dta"</span>, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"./data/caschool.dta"</span>, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that an option is added using the syntax <code>, clear</code>. The comma indicates that an option is expected and the verb <code>clear</code> indicates that memory of <code>STATA</code> should be cleared from data. That is because, <code>STATA</code> can only have one dataset in its memory.</p>
 <p>In addition, we would like to know how the dataset looks like, for example what kind of variables it contains. We do this by invoking the command <code>describe</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">describe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">describe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Contains data from ./data/caschool.dta
  Observations:           420                  
@@ -392,7 +393,7 @@ Sorted by: </code></pre>
 <p>This provides information about the amount of observations and variables and the names and types of variables. In this case variables are either a float (a real number) or a string (text). Note as well, that this kind of output is cumbersome and ugly and not fit directly for reporting. Later, we will try to make this look better in an automatic way.</p>
 <p>The command <code>summarize</code> gives descriptive statistics. Suppose that in this case we are only interested in the variables <code>testscr</code> (average testscore by district) and <code>str</code> (the student-teacher ratio by district). Then we invoke this by:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> testscr str</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> testscr str</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -402,7 +403,7 @@ Sorted by: </code></pre>
 </div>
 <p>Now we see descriptive statistics for two variables, containing number of observations, the mean, the standard deviation and the minimum and maximum of each variable. For a first insight in the relation between class size and class performance we might want to draw a so-called scatter plot. These type of plots relate the values of two variables in a two-dimensional way by giving the values as coordinates. The following syntax will do so.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> testscr str</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> testscr str</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And this provides the following <code>STATA</code> output.</p>
 <div class="cell" data-layout-align="center">
@@ -431,13 +432,13 @@ Sorted by: </code></pre>
 </ul></li>
 <li>Confidence intervals
 <ul>
-<li>This strategy estimates an interval for the <strong>difference</strong> in the mean test scores, so small versus large student-teacher ratio districts.</li>
+<li>This strategy estimates an interval for the <strong>difference</strong> of the mean test scores, so small versus large student-teacher ratio districts. This interval denotes the set of null-hypotheses that can <strong>not</strong> be rejected.</li>
 </ul></li>
 </ol>
 <p>In <code>STATA</code> we can make a start with this data analysis by executing the following two commands:</p>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> large = (str &gt;= 20)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> large, <span class="kw">summarize</span>(testscr) <span class="kw">mean</span> standard <span class="kw">obs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> large = (str &gt;= 20)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> large, <span class="kw">summarize</span>(testscr) <span class="kw">mean</span> standard <span class="kw">obs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            |         Summary of testscr
       large |        Mean   Std. dev.         Obs
@@ -497,7 +498,7 @@ Sorted by: </code></pre>
 \end{align}\]</span></p>
 <p>This basically means subtracting the average scores of <a href="#tbl-smalllarge">Table&nbsp;<span>2.1</span></a> (later we see how to do this automatically in <code>STATA</code>). Now, the difference—<span class="math inline">\(\Delta\)</span>—equals 7.4. We then have to ask ourselves whether this is a large difference in a real-world sense. Note that test scores seem to range from 600 to 800 and do not really have a direct meaning for us. A useful trick then is to look at the standard deviation (note that if things are normally distributed, 95% of all probability mass is within the range mean plus or minus two times the standard deviation). In this case, the difference is about <span class="math inline">\(1/3\)</span> of the standard deviation. A different way of looking at this is looking at the percentiles of test scores. In <code>STATA</code> this looks like:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabstat</span> testscr, <span class="kw">statistics</span>(p10 p25 p50 p75 p90)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabstat</span> testscr, <span class="kw">statistics</span>(p10 p25 p50 p75 p90)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Variable |       p10       p25       p50       p75       p90
 -------------+--------------------------------------------------
@@ -531,7 +532,7 @@ t = \frac{\bar{Y}_s - \bar{Y}_l}{\sqrt{\frac{s^2_s}{n_s} +\frac{s^2_l}{n_l} }}  
 <p>So, why give this rather simple procedure so much attention. That is because all “classical” statistics are centered around these three elements and statistical computer output will always give, at least, these three. And they are as well very much related with each other. Once you know two of them, you know the third one as well.</p>
 <p>Now, although the procedure is rather straightforward, it is also a bit cumbersome and prone to errors. Therefore, it is much easier to let <code>STATA</code> do it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> testscr, <span class="kw">by</span>(large) unequal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> testscr, <span class="kw">by</span>(large) unequal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Two-sample t test with unequal variances
 ------------------------------------------------------------------------------
@@ -665,7 +666,7 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 <p>Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
 <p>In <code>STATA</code> both the constant and the slope can be easily retrieved by:</p>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
@@ -754,7 +755,7 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 \label{eq:olsci}
 \end{equation}\]</span> So, every value between <span class="math inline">\(-3.30\)</span> and <span class="math inline">\(-1.26\)</span> will <strong>not</strong> be rejected as null-hypothesis, while every value outside that interval will be rejected. Note that confidence intervals are again automatically given by computer output. If one would like a confidence interval against another critical level, say against a 99% critical level, one can use the <code>level()</code> option</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
@@ -790,7 +791,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i
 \end{equation}\]</span> Which is just the population difference in group means.</p>
 <p>If we go back to our example with <span class="math inline">\(X_i = 1\)</span> if <span class="math inline">\(STR \geq 20\)</span> and 0 otherwise then we get the following regression output</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      16.34
@@ -982,7 +983,7 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat{u}_i^2},
 \end{equation}\]</span> where <span class="math inline">\(RMSE\)</span> only differs from the <span class="math inline">\(SER\)</span> in the <em>degrees of freedom</em>.</p>
 <p>If we again look at our regression output:</p>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
@@ -1026,7 +1027,7 @@ Stock, James H, Mark W Watson, et al. 2003. <em>Introduction to Econometrics</em
 <hr>
 <ol>
 <li id="fn1"><p>Moreover, very often experiments are not feasible or highly unethical.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>I suggest that for this—and every other course—you have a specific directory<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>I suggest that for this—and every other course—you have a specific dedicated directory.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Often it is as well advisable to make a distinction between <em>derived</em> and <em>raw</em> data. Raw data is original data and derived data is data you have transformed or worked on. In principle, you do not want to change the original data!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>This dataset can be downloaded from Canvas.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>This is something that should be extensively dealt with in introductory statistics courses.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

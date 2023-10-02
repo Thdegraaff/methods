@@ -5,7 +5,7 @@ project:
 book:
   title: "Applied econometric methods"
   author: "Thomas de Graaff"
-  date: "09/18/2023"
+  date: "09/19/2023"
   chapters:
     - index.qmd
     - intro.qmd
@@ -16,6 +16,7 @@ book:
     - references.qmd
   appendices:
     - appendix.qmd
+  downloads: pdf
 
 bibliography: references.bib
 

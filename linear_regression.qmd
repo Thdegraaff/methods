@@ -11,7 +11,7 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 
 Here, the quantities of the goods $x_1$ and $x_2$ are considered to be **known**---also often referred to as **data**. In theoretical work they are fictional or sometimes simulated. The parameters $\alpha$ and $\beta$ are **not known** and we often want to **estimate** them. If we know what the parameters $\alpha$ and $\beta$ should be, then we can calculate what utility a certain amount of consumption of both goods gives and then, for example, assess which combination of goods gives maximum utility.  
 
-This course is about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring **causal** effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon $X$ on $Y$. However, we almost always only have observational data on, for example, demand and prices.^[Moreover, very often experiments are not feasible or highly unethical.] Therefore, this course and syllabus deals with (*i*) difficulties arising from using observational data to estimate these causal effects and (*ii*) rewriting models as (\ref{eq:directutility}) such that we can actually *use* data to tease out values for---in this case---$\alpha$ and $\beta$.
+This course is about using data to quantify (socio-economic) parameters. Moreover, we focus on measuring **causal** effects, instead of mere correlations. Note, that in an ideal world, we would like conducting experiments as to measure a causal relation of a phenomenon $X$ on $Y$. However, we almost always only have observational data on, for example, demand and prices.^[Moreover, very often experiments are not feasible or highly unethical.] Therefore, this course and syllabus deals with (*i*) how to estimate parameter value of in this case---$\alpha$ and $\beta$, (*ii*) rewriting models as (\ref{eq:directutility}) such that we can actually *use* data to tease out values for---again, in this case---$\alpha$ and $\beta$, and (*iii*) difficulties arising from using observational data to estimate these causal effects.
 
 This chapter is organised as follows. The next section addresses the problem of finding a *relation* between some $X$ and some $Y$. Here, we follow an example from the well-known textbook of @stock2003introduction where we look at the relation between school class size and school class performance. At the same time, we also introduce some `STATA` commands. To do so, this section deals as well with the statistical framework that is needed for applied econometrics. Note that we assume that the reader already had a course in introductionary statistics and that we provide only the basic concepts most important for this course in @sec-reviewstat. 
 
@@ -19,8 +19,8 @@ This chapter is organised as follows. The next section addresses the problem of 
 
 As explained in the introduction above, applied econometrics aims to give the policy maker well-informed, and evidence based, values for variables she needs. She needs these variables basically for two separate things:
 
-1. **Causal inference**: The policy maker wants to assess the effect of a change in one variable (typically called $X$) on another variables (often called $Y$).
-2. **Prediction**: If you know what variable $X$ is, what should $Y$ then be?
+1. **Causal inference**: You want to assess the effect of a change in one variable (typically called $X$) on another variable (often called $Y$).
+2. **Prediction**: If you know the value(s) of variable(s) $X$, what is then the value of outcome variable $Y$?
 
 Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the **true** causal mechanism) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction. 
 
@@ -32,7 +32,7 @@ Thus, finding (causal) mechanism helps the scientist or policy maker in assessin
 
 ### A first encounter with `STATA`
 
-For this section, we will focus on the last question. And this is an important question for policy as teachers are costly, but parents value school performance very highly. To start answering this question we *use* data. In `STATA` data is in a specific format, named `.dta`. Note that this format is not in a text format and cannot be read with the human eye. To start using `STATA` we first need to set the working directory to the appropriate directory.^[I suggest that for this---and every other course---you have a specific directory] You can do this by using the drop down menu `File` in `STATA` and click on `Change working directly` but you can also do this with the following command:
+For this chapter (and for the most part of this syllabus), we will focus on the last question. And this is an important question for policy as teachers are costly, but parents value school performance very highly. To start answering this question we *use* data. In `STATA` data is in a specific format, named `.dta`. Note that this format is not in a text format and cannot be read with the human eye. To start using `STATA` we first need to set the working directory to the appropriate directory.^[I suggest that for this---and every other course---you have a specific dedicated directory.] You can do this by using the drop down menu `File` in `STATA` and click on `Change working directly` but you can also do this with the following command:
 
 ```{r}
 #| label: stata_setup
@@ -58,7 +58,7 @@ library(tidyverse)
 cd  "/Users/tomba/Dropbox/Thomas/project/preparatory/"
 ```
 
-Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for e.g. slides, data and tutorials. Now suppose you have the subdirectory `data` in your course folder^[Often it is as well advisable to make a distinction between *derived* and *raw* data. Raw data is original data and derived data is data you have transformed or worked on. In principle, you do not want to change the original data!] and in that data directory you have a file called `caschool.dta`.^[This dataset can be downloaded from Canvas.] Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).
+Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for, e.g., slides, data and tutorials. Now suppose you have the subdirectory `data` in your course folder^[Often it is as well advisable to make a distinction between *derived* and *raw* data. Raw data is original data and derived data is data you have transformed or worked on. In principle, you do not want to change the original data!] and in that data directory you have a file called `caschool.dta`.^[This dataset can be downloaded from Canvas.] Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).
 
 To import the data in STATA you make use of the `use` command (again, you can make use of the dropdown menus), as follows:
 
@@ -122,7 +122,7 @@ To assess whether there is a relation between class performance and class size a
     - Now, we aim to **test** the "null" hypothesis that the mean test scores in the two types of districts are the same, against the "alternative" hypothesis that they differ.
 
 3. Confidence intervals
-    - This strategy estimates an interval for the **difference** in the mean test scores, so small versus large student-teacher ratio districts.
+    - This strategy estimates an interval for the **difference** of the mean test scores, so small versus large student-teacher ratio districts. This interval denotes the set of null-hypotheses that can **not** be rejected.
 
 In `STATA` we can make a start with this data analysis by executing the following two commands:
 

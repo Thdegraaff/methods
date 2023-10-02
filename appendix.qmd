@@ -11,7 +11,7 @@ stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE" # Mac OS
 knitr::opts_chunk$set(engine.path = list(stata = stataexe))
 ```
 
-This appendix very briefly reviews the statistical knowledge you need for applied econometrics. We assume you had an introductory course in statistics already and will go over this material very quickly.
+This appendix very briefly reviews the statistical knowledge you need for applied econometrics. We assume you had an introductory course in statistics already, so that this material acts mainly as a refresher.
 
 ## Reviewing probability
 
@@ -32,15 +32,15 @@ Now probabilities are *defined* by a set of definations (axioms). These are:
 
 ### Population & random variables
 
-In general we see a population as the the group or collection of all possible entities of interest (school districts, inhabitants of the Netherlands, homeowners) and we will think of populations as infinitely large ($\infty$). From this population we then *sample* specific observations. This sample contains then a random variable $Y$, which denotes a characteristics of the entity (district average test score, prices of houses, prices of meat). An important feature is that the specific contents of the sample is unknown, that is before measurement ($y$), after measurement the sample is know and is called data. 
+In general we see a population as the the group or collection of all possible entities of interest (school districts, inhabitants of the Netherlands, homeowners) and we will think of populations as infinitely large ($\infty$). From this population we then *sample* specific observations. This sample contains then a random variable $Y$, which denotes a characteristic of the entity (district average test score, prices of houses, prices of meat). An important feature is that the specific contents of the sample is unknown, that is before measurement ($y$), after measurement the sample is known and is now called **data**. 
 
-So, a random variable (also called a stochastic variable) is a mathematical formalization of something that depends on *random* outcomes. Unfortunately, randomness is not clearly defined and depends on specific scientific philosophical schools. The scientific philosophical school we implicitly assume in this course---and, in fact, in most statistical courses---is that of frequentist statistics. Here we assume that all things we measure are *intrinsically* random. In fact, this is an *ontological* argument---in other words, what are our beliefs in the state of the world. Because all things we measure are random, every time we measure something our measurements are (slightly) different. However, the more we measure, the more precise we *know* something. But there is still randomness. 
+So, a random variable (also called a stochastic variable) is a mathematical formalization of something that depends on *random* outcomes. Unfortunately, randomness is not clearly defined and depends on the type of specific scientific philosophical school you follow. The scientific philosophical school we implicitly assume in this course---and, in fact, in most statistical courses---is that of frequentist statistics. Here we assume that all things we measure are *intrinsically* random. In fact, this is an *ontological* argument---in other words, what are our beliefs in the state of the world. Because all things we measure are random, every time we measure something our measurements are (slightly) different. However, the more we measure, the more precise we *know* something. But there is still randomness. 
 
 In general, there are two types of random variables. First, there are *discrete* random variables, where outcomes can be counted, such as $0, 1, 2, 3, \ldots$ and *continuous* random variables, where outcomes can be any real number.^[There is slightly more to this as fractions such as $\frac{1}{2}$ can in fact be counted as well, and continuous outcomes can be as well complex numbers. But for now we typically see integer numbers as discrete, and real numbers as continuous.]
 
 ### Distribution functions
 
-Random variables are governed by *distribution functions* which are mathematical functions that provides the probabilities of occurrence of all different possible outcomes of a specific *experiment*^[This could be the throw of a dice but as well the measurement of 10,000 house prices.]: e.g. for a discrete distribution, $f(x) = \Pr(Y = y)$  $\forall y$. Or, in other words, the distribution function maps discrete outcomes to probabilities. For continuous distribution function, this is not possible as there an infinite number of possible outcomes, so that means that for each $y$ must yield $\Pr(Y = y) = 0$. Therefore, with continuous distributions, often the *cumulative distribution function* is used, which is defined as $F(x) = \Pr(Y \leq y)$. This is why we always use the surface of areas under the *normal* distribution function. 
+Random variables are governed by *distribution functions* which are mathematical functions that provides the probabilities of occurrence of all different possible outcomes of a specific *experiment*^[This could be the throw of a dice but as well the measurement of 10,000 house prices.]: e.g. for a discrete distribution, $f(x) = \Pr(Y = y)$  $\forall y$. Or, in other words, the distribution function maps discrete outcomes to probabilities. For continuous distribution function, this is not possible as there an infinite number of possible outcomes, so that means that for each $y$ must yield $\Pr(Y = y) = 0$. Therefore, with continuous distributions, often the *cumulative distribution function* is used, which is defined as $F(x) = \Pr(Y \leq y)$. This is why we always use the surface of areas under distribution function, such as the *normal* distribution function. 
 
 Distribution functions have characteristics of which the most important are:
 
@@ -83,9 +83,9 @@ which is a very important concept in applied economics as it resembles two group
 
 So, we mentioned above that we sample from the population which is assumed to be infinitely large. Now, how does this sampling then carry over to statistics. For that we need a statistical framework based on *random sampling*. First, choose an individual, $i$, (or district, firm, etc.) at random from the population. Now, prior to sample selection, the value of what we want to know $Y_i$ is random because the individual is **randomly** selected. Once the individual is selected and the value of $Y$ is observed, then $Y$ is just a number---not random anymore but data. And then we say it has the value $y$. Hence the notation $\Pr(Y = y$). 
 
-If we sample multiple entities, the we construct a data set that looks like $(y_1, y_2,\dots, y_n)$, where $y_i$ = value of $y$ for the $i^{\mathrm{th}}$ individual (district, entity) sampled. Again the lower case here denotes a realisation---the dataset. Now, we want to know what the distribution of the random variables $Y_1$,\ldots, $Y_n$ is under simple random sampling. Note that because entities (say individuals) \#1 and \#2 are selected at random, the value of $Y_1$ has no information content for $Y_2$.  Thus: $Y_1$ and $Y_2$ are independently distributed. And if $Y_1$ and $Y_2$ come from the same distribution, that is, $Y_1$, $Y_2$ are identically distributed, then we say that, under simple random sampling, $Y_1$ and $Y_2$ are independently and identically distributed (*i.i.d.*). More generally, under simple random sampling, $Y_i$, $i = 1,\ldots, n$, are *i.i.d*---this term always come back in all sorts of statistics.
+If we sample multiple entities, the we construct a data set that looks like $(y_1, y_2,\dots, y_n)$, where $y_i$ = value of $y$ for the $i^{\mathrm{th}}$ individual (district, entity) sampled. Again the lower case here denotes a realisation---the dataset. Now, we want to know what the distribution of the random variables $Y_1, \ldots, Y_n$ is under simple random sampling. Note that because entities (say individuals) \#1 and \#2 are selected at random, the value of $Y_1$ has no information content for $Y_2$.  Thus: $Y_1$ and $Y_2$ are independently distributed. And if $Y_1$ and $Y_2$ come from the same distribution, that is, $Y_1$, $Y_2$ are identically distributed, then we say that, under simple random sampling, $Y_1$ and $Y_2$ are independently and identically distributed (*i.i.d.*). More generally, under simple random sampling, $Y_i$, $i = 1,\ldots, n$, are *i.i.d*---this term always come back in all sorts of statistics.
 
-This simple framework already allows rigorous statistical inferences about, e.g., *the mean* $\bar{Y}$ of population distributions using a sample of data from that population. The next subsection does this because the mean is not only an important statistic, but mainly because the results immediately can be transferred to the regression context. 
+This simple framework already allows rigorous statistical inferences about, e.g., *the mean* $\bar{Y}$ of population distributions using a sample of data from that population. The next subsection does this because the mean is not only an important statistic, but the results can immediately be transferred to the regression context as well. 
 
 ### The sampling distribution of $\bar{Y}$
 
@@ -129,7 +129,7 @@ But what if I do this a 100 times, so $n = 100$?
 clear
 set obs 10000
 generate Y = rbinomial(100,0.78)/100 
-hist(Y), fraction
+histogram Y, bin(35) fraction
 quietly graph export figures/coin100.png, replace
 ```
 
