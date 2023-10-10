@@ -449,7 +449,7 @@ Sorted by: </code></pre>
       Total |   654.15655   19.053348         420</code></pre>
 </div>
 </div>
-<p>The first command <em>generates</em> a new variable called “large” and denotes an indicator being 0 if STR <span class="math inline">\(&lt; 20\)</span> and 1 if STR <span class="math inline">\(\geq 20\)</span>. The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable <code>large</code>. Of course, this output is rather ugly and it is better to make a nice table such as <a href="#tbl-smalllarge">Table&nbsp;<span>2.1</span></a>).</p>
+<p>The first command <em>generates</em> a new variable called “large” and denotes an indicator being 0 if STR <span class="math inline">\(&lt; 20\)</span> and 1 if STR <span class="math inline">\(\geq 20\)</span>. The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable <code>large</code>. Of course, this output is rather ugly and it is better to make a nice table such as <a href="#tbl-smalllarge">Table&nbsp;<span>2.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-smalllarge" class="anchored">
@@ -506,7 +506,7 @@ Sorted by: </code></pre>
 ----------------------------------------------------------------</code></pre>
 </div>
 </div>
-<p>where the command <code>tabstat</code> asks for a tabulation of certain statistics and <code>px</code> gives the <span class="math inline">\(x\)</span>-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given this information, the difference of <span class="math inline">\(7.4\)</span> is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer with this analysis.</p>
+<p>where the command <code>tabstat</code> asks for a tabulation of certain statistics and <code>px</code> gives the <span class="math inline">\(x\)</span>-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given this information, the difference of <span class="math inline">\(7.4\)</span> is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer based on this analysis alone; we can only give the resulting difference.</p>
 </section>
 <section id="hypothesis-testing" class="level4" data-number="2.2.2.2">
 <h4 data-number="2.2.2.2" class="anchored" data-anchor-id="hypothesis-testing"><span class="header-section-number">2.2.2.2</span> Hypothesis testing</h4>
@@ -567,7 +567,7 @@ H0: diff = 0                     Satterthwaite's degrees of freedom =  403.607
 <div class="cell-output-display">
 <div id="fig-galton2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./figures/Galton2.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="./figures/Galton2.png" class="img-fluid figure-img" width="400"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.2: Relation between the heigh fathers and the height of children</figcaption><p></p>
 </figure>
 </div>
@@ -578,7 +578,7 @@ H0: diff = 0                     Satterthwaite's degrees of freedom =  403.607
 <div class="cell-output-display">
 <div id="fig-galton1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./figures/Galton1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="./figures/Galton1.png" class="img-fluid figure-img" width="400"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.3: Relation heigh fathers and height children</figcaption><p></p>
 </figure>
 </div>
@@ -589,12 +589,12 @@ H0: diff = 0                     Satterthwaite's degrees of freedom =  403.607
 <blockquote class="blockquote">
 <p><span class="math inline">\(\ldots\)</span> a concept that refers to the fact that if one sample of a random variable is extreme, the next sampling of the same random variable is likely to be closer to its mean</p>
 </blockquote>
-<p>For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do well, but not that well). Or, your favorite football club does extremely well in a particular year (Leicester City FC comes to mind who became premier league champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.</p>
+<p>For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do well, but not that well). Or, your favorite football club does extremely well in a particular year (Leicester City FC comes to mind who became Premier League champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.</p>
 </section>
 <section id="regression-with-one-regressor" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="regression-with-one-regressor"><span class="header-section-number">2.3.2</span> Regression with one regressor</h3>
 <p>So, linear regression allows us to <em>estimate</em>, and make <em>inferences</em> about, <em>population</em> slope coefficients. Inference means drawing conclusions and population refers to the fact that we do not want to say something about our sample, but instead about the whole population. Ultimately our aim is to estimate the <strong>causal</strong> effect on <span class="math inline">\(Y\)</span> of a unit change in <span class="math inline">\(X\)</span>—but for now, just think of the problem of fitting a straight line to data on two variables, <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
-<p>Similar to Subsection <a href="#sec-numevidence"><span>Section&nbsp;2.2.2</span></a>) we have three strategies to make inferences:</p>
+<p>Similar to <a href="#sec-numevidence"><span>Section&nbsp;2.2.2</span></a> we have three strategies to make inferences:</p>
 <ul>
 <li>We estimation the relation:
 <ul>
@@ -647,7 +647,7 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
     \hat{\beta}_0 &amp;=&amp; \overline{Y} - \hat{\beta}_1\overline{X}
 \end{eqnarray}\]</span></p>
 <p>Although you do <strong>not</strong> need to learn these formula’s by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Second, the optimal <span class="math inline">\(\hat{\beta}_1\)</span> is equal to <span class="math inline">\(\frac{s_{XY}}{s^2_X}\)</span> and this is the sampling covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the sampling variance of <span class="math inline">\(X\)</span>. This is not a correlation as the units still depend on <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and therefore the slope can be larger than <span class="math inline">\(1\)</span> or smaller than <span class="math inline">\(-1\)</span>, but it does say something about the relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Third, the constant is governed by the estimated parameter <span class="math inline">\(\hat{\beta}_0\)</span></p>
-<p>From here we can predict the values <span class="math inline">\(\hat{Y}_i\)</span> and residuals <span class="math inline">\(\hat{u}_i\)</span> as they are: <span class="math display">\[\begin{eqnarray}
+<p>From here we can predict the values <span class="math inline">\(\hat{Y}_i\)</span> and residuals <span class="math inline">\(\hat{u}_i\)</span> by using the estimated values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>, which are: <span class="math display">\[\begin{eqnarray}
     \hat{Y}_i &amp;=&amp; \hat{\beta}_0 + \hat{\beta}_1 X_i, \qquad i = 1, \ldots, n \notag\\
     \hat{u}_i &amp;=&amp; Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
 \end{eqnarray}\]</span></p>
@@ -664,7 +664,7 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 </div>
 <p>where the estimated slope equals <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span>, the estimated intercept equals <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span> and the total population regression line can be written as: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span>. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span>). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not make any sense—it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.</p>
 <p>Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
-<p>In <code>STATA</code> both the constant and the slope can be easily retrieved by:</p>
+<p>In <code>STATA</code> both the constant and the slope can be easily retrieved by invoking the <strong>regress</strong> command:</p>
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -683,7 +683,7 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 ------------------------------------------------------------------------------</code></pre>
 </div>
 </div>
-<p>We will discuss the rest of this output later.</p>
+<p>The coefficient of <code>STR</code> being <span class="math inline">\(\hat{\beta}_1\)</span> is now <span class="math inline">\(-2.28\)</span> and the constant being <span class="math inline">\(\hat{\beta}_0\)</span> equals <span class="math inline">\(698.9\)</span>. We will discuss the rest of this output later.</p>
 </section>
 <section id="sec-unitesting" class="level4" data-number="2.3.2.2">
 <h4 data-number="2.3.2.2" class="anchored" data-anchor-id="sec-unitesting"><span class="header-section-number">2.3.2.2</span> Hypothesis testing</h4>
@@ -692,7 +692,7 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 <blockquote class="blockquote">
 <p>What is the probability that your data (<span class="math inline">\(D\)</span>) might be right <em>given</em> the null-hypothesis (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\Pr(D|H_0)\)</span></p>
 </blockquote>
-<p>And that is a strange concept. You first imagine a world <span class="math inline">\(H_0\)</span> with the data that it <em>should</em> provide and then test that imaginary world.</p>
+<p>And that is a strange concept. You first imagine a world <span class="math inline">\(H_0\)</span> with the data that that world <em>should</em> provide and then test that imaginary world with your <em>actual</em> data at hand. .</p>
 <p>Secondly, there is the notation that often works confusing. First, we have the <span class="math inline">\(p\)</span>-value which equals the probability of drawing a statistic (e.g., <span class="math inline">\(\bar{Y}\)</span>) <em>at least as adverse</em> to the null (that is: your imaginary world) as the value actually computed with your data, <strong>assuming</strong> again that the null-hypothesis is true—again, your imaginary world. Secondly, there is the significance level of a test which is a <em>pre-specified</em> probability of incorrectly rejecting the null, when the null is actually true.</p>
 <p>Now, suppose that you want to calculate the <span class="math inline">\(p\)</span>-value based on an estimated coefficient <span class="math inline">\(\hat{\beta}_1\)</span>, then you construct the following test: <span class="math display">\[\begin{equation}
 p\text{-value} = \Pr_{H_0}[|\hat{\beta}_1 - \beta_{1,0}| &gt; |\hat{\beta}_1^{act} - \beta_{1,0}|
@@ -712,7 +712,7 @@ t = \frac{\hat{\beta}_1 - \beta_{1,0}}{\sigma_{\hat{\beta_1}} }
             &amp; = &amp;   \Pr_{H_0}[|t| &gt; |t^{act}|] \notag \\
                         &amp;\simeq&amp; \text{probability under left + right } N(0,1) \text{ tails}
 \end{eqnarray}\]</span> where <span class="math inline">\(\sigma_{\hat{\beta_1}}\)</span> again equals the standard error of <span class="math inline">\(\hat{\beta}_1\)</span>,</p>
-<p>So, if you know <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> you can calculate this. However, computers are much faster, in doing to. For example, suppose we want to test whether <span class="math inline">\(\beta_{1,0} = 0\)</span> using the regression output displayed above which gives <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1} = 0.52\)</span>. That is step 1. Note that <code>STATA</code> already calculated the standard error of Eq. <span class="math inline">\(\ref{eq:olsse}\)</span>. For the next step we need to compute the <span class="math inline">\(t\)</span>-statistic, which is:</p>
+<p>So, if you know <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> you can calculate this. However, computers are much faster, in doing so. For example, suppose we want to test whether <span class="math inline">\(\beta_{1,0} = 0\)</span> using the regression output displayed above which gives <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span> and <span class="math inline">\(\sigma_{\hat{\beta}_1} = 0.52\)</span>. That is step 1. Note that <code>STATA</code> already calculated the standard error of Eq. <span class="math inline">\(\ref{eq:olsse}\)</span>. For the next step we need to compute the <span class="math inline">\(t\)</span>-statistic, which is:</p>
 <p><span class="math display">\[\begin{equation}
 t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 \label{eq:olstemp}
@@ -722,7 +722,7 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 <div class="cell-output-display">
 <div id="fig-pvalues" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./figures/lecture_sheet9.jpg" class="img-fluid figure-img" width="600"></p>
+<p><img src="./figures/lecture_sheet9.jpg" class="img-fluid figure-img" width="400"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.6: Calculating the <span class="math inline">\(p\)</span>-value of a two-sided test when <span class="math inline">\(t^{act} = -4.38\)</span></figcaption><p></p>
 </figure>
 </div>
@@ -734,8 +734,8 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 <li>Compute the <span class="math inline">\(t^{act}\)</span>-statistics as in Eq. <span class="math inline">\(\ref{eq:olst}\)</span></li>
 <li>Get the corresponding <span class="math inline">\(p\)</span>-value. Or, reject the null-hypothesis at the 5% significance level if <span class="math inline">\(|t^{act}| &gt; 1.96\)</span>.</li>
 </ol>
-<p>Now there is a link between the <span class="math inline">\(p\)</span>-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5%, then you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span> or equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span>. The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level. Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the “yes/no” statement about whether the test rejects.</p>
-<p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation" data-cites="amrhein2019scientists">(<a href="references.html#ref-amrhein2019scientists" role="doc-biblioref">Amrhein, Greenland, and McShane 2019</a>)</span>. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? <a href="#fig-significance">Figure&nbsp;<span>2.7</span></a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, <span class="math inline">\(p\)</span>-values in themselves do not contain that much information. In the regression output of above the reported <span class="math inline">\(p\)</span>-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with <span class="math inline">\(p\)</span>-values just below 0.05, leading to what is called publication bias.</p>
+<p>In fact, there is a link between the <span class="math inline">\(p\)</span>-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5%, then you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span> or equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span>. The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level. Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the “yes/no” statement about whether the test rejects.</p>
+<p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation" data-cites="amrhein2019scientists">(<a href="references.html#ref-amrhein2019scientists" role="doc-biblioref">Amrhein, Greenland, and McShane 2019</a>)</span>. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? <a href="#fig-significance">Figure&nbsp;<span>2.7</span></a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, <span class="math inline">\(p\)</span>-values in themselves do not contain that much information. In the regression output of above the reported <span class="math inline">\(p\)</span>-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with <span class="math inline">\(p\)</span>-values just below 0.05, leading to a phenomenon that is called publication bias.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-significance" class="quarto-figure quarto-figure-center anchored">
@@ -783,8 +783,8 @@ Y_i = \beta_0 + \beta_1 X_i + u_i
 \end{equation}\]</span></p>
 <p>Where <span class="math inline">\(Y\)</span> denotes, e.g., test scores, and where <span class="math inline">\(X\)</span>, e.g., denotes a dummy variable for a large class (so, if <span class="math inline">\(STR \geq 20\)</span> then <span class="math inline">\(X_i = 1\)</span>; otherwise <span class="math inline">\(X_i = 0\)</span>), so there is then only two possibilities:</p>
 <ol type="1">
-<li>For small class size there should hold that <span class="math inline">\(X_i = 0\)</span> yielding that <span class="math inline">\(Y_i = \beta_0 + u_i\)</span>. Namely <span class="math inline">\(\beta_1 \times X_i = \beta_1 \times 0 = 0\)</span>. That means automatically that the expectation of <span class="math inline">\(Y_i\)</span> is the constant, being <span class="math inline">\(\beta_0\)</span>. Another way or writing is that the expectation of model <span class="math inline">\(\ref{eq:olsdummy}\)</span> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 0\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 0) = \beta_0\)</span>.</li>
-<li>For large classes there should hold that <span class="math inline">\(X_i = 1\)</span> yielding that <span class="math inline">\(X_i = 1\)</span>, <span class="math inline">\(Y_i = \beta_0 + \beta_1 + u_i\)</span>. This means that the expectation of model <span class="math inline">\(\ref{eq:olsdummy}\)</span> <em>conditional</em> on the fact that <span class="math inline">\(X_i = 1\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1\)</span></li>
+<li>For small class size there should hold that <span class="math inline">\(X_i = 0\)</span> yielding that <span class="math inline">\(Y_i = \beta_0 + u_i\)</span>. Namely <span class="math inline">\(\beta_1 \times X_i = \beta_1 \times 0 = 0\)</span>. That means automatically that the expectation of <span class="math inline">\(Y_i\)</span> is the constant, being <span class="math inline">\(\beta_0\)</span>. Another way or writing is that the expectation of model (<span class="math inline">\(\ref{eq:olsdummy}\)</span>) <em>conditional</em> on the fact that <span class="math inline">\(X_i = 0\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 0) = \beta_0\)</span>.</li>
+<li>For large classes there should hold that <span class="math inline">\(X_i = 1\)</span> yielding that <span class="math inline">\(X_i = 1\)</span>, <span class="math inline">\(Y_i = \beta_0 + \beta_1 + u_i\)</span>. This means that the expectation of model (<span class="math inline">\(\ref{eq:olsdummy}\)</span>) <em>conditional</em> on the fact that <span class="math inline">\(X_i = 1\)</span> is <span class="math inline">\(\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1\)</span></li>
 </ol>
 <p>So a regression with a dummy as independent variable gives two different <em>constants</em>, for each group (small/large classes) one. You can interpret this as a level-effect (only the level changes, not the slope as there is none here). The interpretation of <span class="math inline">\(\beta_1\)</span> is in this case rather special and can be denoted as: <span class="math display">\[\begin{equation}
 \beta_1 = \mathbb{E}(Y_i \mid X_i = 1) - \mathbb{E}(Y_i \mid X_i = 0),
@@ -814,7 +814,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i
 </section>
 <section id="sec-lsa" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-lsa"><span class="header-section-number">2.4</span> Least squares assumptions for causal inference</h2>
-<p>As stated at the start of <a href="#sec-problem"><span>Section&nbsp;2.2</span></a> applied econometrics focuses on finding a <strong>causal</strong> effect. But how do you do know that the <span class="math inline">\(\hat{\beta}_1\)</span> you estimate using the population regression model of Eq. <span class="math inline">\(\ref{eq:betacausal}\)</span> is indeed a causal effect. In other words, if you change <span class="math inline">\(X_i\)</span> with one unit, will <span class="math inline">\(Y_i\)</span> then change with <span class="math inline">\(\beta_1\)</span> <strong>in reality</strong>?</p>
+<p>As stated at the start of <a href="#sec-problem"><span>Section&nbsp;2.2</span></a> applied econometrics focuses on finding a <strong>causal</strong> effect. But how do you do know that the <span class="math inline">\(\hat{\beta}_1\)</span> you estimate using the population regression model of Equation (<span class="math inline">\(\ref{eq:betacausal}\)</span>) is indeed a causal effect. In other words, if you change <span class="math inline">\(X_i\)</span> with one unit, will <span class="math inline">\(Y_i\)</span> then change with <span class="math inline">\(\beta_1\)</span> <strong>in reality</strong>?</p>
 <p><span class="math display">\[\begin{equation}
 Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 \label{eq:betacausal}
@@ -877,7 +877,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 </div>
 </div>
 </div>
-<p>However, this does not automatically entail that the isolated observation should be deleted. What it does entail is that one should go back to her data and investigate whether the outlier could be a mistake—perhaps a typo made when preparing the data or something that went amiss when converting the data from an <code>Excel</code> format to a <code>STATA</code> format.</p>
+<p>However, this does not automatically entail that the isolated observation should be deleted. What it does entail is that one should go back to the data and investigate whether the outlier could be a mistake—perhaps a typo made when preparing the data or something that went amiss when converting the data from an <code>Excel</code> format to a <code>STATA</code> format.</p>
 </section>
 </section>
 <section id="other-least-squares-assumptions" class="level2" data-number="2.5">
@@ -912,7 +912,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <div class="cell-output-display">
 <div id="fig-wages" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./figures/Sheet23.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="./figures/Sheet23.png" class="img-fluid figure-img" width="400"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.12: Wages versus years of education</figcaption><p></p>
 </figure>
 </div>
@@ -929,7 +929,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 </div>
 </div>
 </div>
-<p>Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in <a href="#fig-heteroskedasticityca">Figure&nbsp;<span>2.13</span></a>, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity.?</p>
+<p>Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in <a href="#fig-heteroskedasticityca">Figure&nbsp;<span>2.13</span></a>, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity?</p>
 <p>Note that so far we have (without saying so) assumed that <span class="math inline">\(u\)</span> might be heteroskedastic Recall again the three least squares assumptions:</p>
 <ol type="1">
 <li><span class="math inline">\(E(u \mid X = x) = 0\)</span></li>
@@ -946,7 +946,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <ol type="1">
 <li>If the errors are heteroskedastic and you use the homoskedasticity-only formula for standard errors, your standard errors will be wrong (the homoskedasticity-only estimator of the variance of <span class="math inline">\(\hat{\beta}_1\)</span> is inconsistent if there is heteroskedasticity).</li>
 <li>The two formulas coincide (when <span class="math inline">\(n\)</span> is large) in the special case of homoskedasticity.</li>
-<li>So, you should <strong>always</strong> use heteroskedasticity-robust standard errors.</li>
+<li>So, you should <strong>always</strong> use heteroskedasticity-robust standard errors; that is, use the <code>, robust</code> option as we have done consistently in the regression above.</li>
 </ol>
 </section>
 <section id="normal-distributed-regression-term" class="level3" data-number="2.5.2">
@@ -1005,7 +1005,7 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat{u}_i^2},
 </section>
 <section id="conclusion" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">2.7</span> Conclusion</h2>
-<p>Regression analysis in the most common form of statistical analysis over the sciences. Very often is it used to model associations. However, in applied econometrics regression analysis is applied to find causal causal relations. This can be done on the basis of three assumptions, of which the first—the conditional mean assumption—is the most crucial. In fact, if this assumption holds then the data mimics the data that come out of an experiment. This assumption can unfortunately not be proven. We therefore have to think very hard whether this assumption holds. The next Chapter deals with a possible violation of this assumption, how to solve for it and at the same time we answer the question why we want multiple variables in our specification.</p>
+<p>Regression analysis in the most common form of statistical analysis over the sciences. Very often is it used to model associations. However, in applied econometrics regression analysis is applied to find causal causal relations. This can be done on the basis of three assumptions, of which the first—the conditional mean assumption—is the most crucial. In fact, if this assumption holds then the data mimics the data that come out of an experiment. This assumption can unfortunately not be proven. We therefore have to think very hard whether this assumption holds. The next cshapter deals with a possible violation of this assumption, how to solve for it and at the same time we answer the question why we want multiple variables in our specification.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

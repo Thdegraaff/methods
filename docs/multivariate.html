@@ -308,7 +308,7 @@ window.MathJax = {
 <section id="sec-morevar" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-morevar"><span class="header-section-number">3.1</span> Why more independent variables?</h2>
 <p>So, why do we include more variables? One possible answer is because it makes a better predictive model. That is, a model that is able to explain the variation in the dependent variable <span class="math inline">\(Y\)</span> better.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> So, the R<span class="math inline">\(^2\)</span> increases. But, as argued in <a href="linear_regression.html"><span>Chapter&nbsp;2</span></a> we are not so much interested in prediction, but more in establishing a <strong>causal</strong> relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. So, if you change <span class="math inline">\(X\)</span> (and only <span class="math inline">\(X\)</span>) does <span class="math inline">\(Y\)</span> change and then with how much?</p>
-<p>Although economists often claim that they are the only (social-)science that focuses on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl <span class="citation" data-cites="pearl2009causality">(<a href="references.html#ref-pearl2009causality" role="doc-biblioref">Pearl 2009</a>)</span>. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is a graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in <a href="#fig-unknown">Figure&nbsp;<span>3.1</span></a>. Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in <a href="#fig-unknown">Figure&nbsp;<span>3.1</span></a>. We also know that the R<span class="math inline">\(^2\)</span> of that regression model was rather low (5%), so by default there must be other but yet unknown factors, let us name them for now <span class="math inline">\(U\)</span> (often as well referred to as unobservables), that influence test scores as well (so a directed arrow going from <span class="math inline">\(U\)</span> to test scores).</p>
+<p>Although economists often claim that they are the only (social-)science that focuses on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl <span class="citation" data-cites="pearl2009causality">(<a href="references.html#ref-pearl2009causality" role="doc-biblioref">Pearl 2009</a>)</span>. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is a graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in <a href="#fig-unknown">Figure&nbsp;<span>3.1</span></a>. Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in <a href="#fig-unknown">Figure&nbsp;<span>3.1</span></a>. We also know that the R<span class="math inline">\(^2\)</span> of that regression model was rather low (5%), so by default there must be other but yet unknown factors—let us name them for now <span class="math inline">\(U\)</span> (often as well referred to as unobservables)—that influence test scores as well (so a directed arrow going from <span class="math inline">\(U\)</span> to test scores).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-unknown" class="quarto-figure quarto-figure-center anchored">
@@ -365,16 +365,16 @@ Y_i = \beta_0 + \beta_1 X_i + u_i,
 <li>districts with <em>fewer</em> English Learners (so less migrants) have <em>smaller</em> classes (what we assumed above);</li>
 <li>the effect of class size with comparable percentages English learners is still (mostly negative), but not as much as we compare for all districts together (the <em>Difference</em>-column). This confirms our reasoning that our original estimate was too negative.</li>
 </ol>
-<p>No, as already mentioned above, omitted variable bias occurs very often. So, how to correct for this such that the bias disappaers. In general, there are three strategies:</p>
+<p>Unfortunately, as already mentioned above, omitted variable bias occurs very often. So, how to correct for this such we can deal with this particular bias. In general, there are three strategies:</p>
 <ol type="1">
-<li>we can run a randomized controlled experiment in which treatment (<span class="math inline">\(STR\)</span>) is randomly assigned: then percentage English learners (<span class="math inline">\(PctEL\)</span>) is still a determinant of test scores, but by construction <span class="math inline">\(PctEL\)</span> should be uncorrelated with <span class="math inline">\(STR\)</span>. Unfortunately, is it very difficult to randomize class size in reality and often this strategy is just not attainable as being too costly or unethical (this argument accounts by the way for all sciences, not only the social sciences);</li>
-<li>we can adopt the cross tabulation approach of above, with finer gradations of <span class="math inline">\(STR\)</span> and <span class="math inline">\(PctEL\)</span>. Then by construction, within each group all classes have the same <span class="math inline">\(PctEL\)</span> so we control for <span class="math inline">\(PctEL\)</span>. A disadvantages is that one needs many observations, especially when one wants to stratify upon other variables as well;</li>
+<li>we can run a randomized controlled experiment in which treatment (<span class="math inline">\(STR\)</span>) is randomly assigned: then percentage English learners (<span class="math inline">\(PctEL\)</span>) is still a determinant of test scores, but by construction <span class="math inline">\(PctEL\)</span> should be uncorrelated with <span class="math inline">\(STR\)</span>. Unfortunately, is it very difficult to randomize class size in reality and often this strategy is just not feasible as being too costly or unethical (this argument accounts by the way for all sciences, not only the social sciences);</li>
+<li>we can adopt the cross tabulation approach of above, with finer gradations of <span class="math inline">\(STR\)</span> and <span class="math inline">\(PctEL\)</span>. Then by construction, within each group all classes have the same <span class="math inline">\(PctEL\)</span> so we control for <span class="math inline">\(PctEL\)</span>. A disadvantage is that one needs many observations, especially when one wants to stratify upon other variables as well;</li>
 <li>finally, and perhaps the easiest approach, we can use a population regression model in which the omitted variable (<span class="math inline">\(PctEL\)</span>) is no longer omitted. We just include <span class="math inline">\(PctEL\)</span> as an additional regressor in a multiple regression model. This is what the next section deals with. Obviously, a disadvantage of this approach is that you need observations for the omitted variable (but that also accounts for method 2).</li>
 </ol>
 </section>
 <section id="sec-multivariate" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-multivariate"><span class="header-section-number">3.2</span> Multivariate regression analysis</h2>
-<p>So, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like: <span class="math display">\[\begin{equation}
+<p>Thus, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like: <span class="math display">\[\begin{equation}
 Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
 \end{equation}\]</span> where:</p>
 <ul>
@@ -390,16 +390,15 @@ Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
 Y = \beta_0 + \beta_1 X_{1} + \beta_2 X_{2},
 \end{equation}\]</span> whilst the population regression line, after the change, looks like: <span class="math display">\[\begin{equation}
 Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}
-\end{equation}\]</span> And if we take the difference, then the interpretation of <span class="math inline">\(\beta_1\)</span> boils down again to the marginal effect:<span class="math inline">\(\Delta Y = \beta_1 \Delta X_1\)</span>. Or, <span class="math inline">\(\beta_1 = \frac{\Delta Y}{\Delta X_1}\)</span> when holding <span class="math inline">\(X_2\)</span> constant and, likewise, <span class="math inline">\(\beta_2 = \frac{\Delta Y}{\Delta X_2}\)</span> when holding <span class="math inline">\(X_1\)</span> constant. <span class="math inline">\(\beta_0\)</span> is now the predicted value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1 = X_2 = 0\)</span></p>
-<p>If we do this for the the Californian school district data, then the original population regression line was estimated as: <span class="math display">\[\begin{equation}
+\end{equation}\]</span> And if we take the difference, then the interpretation of <span class="math inline">\(\beta_1\)</span> boils down again to the marginal effect:<span class="math inline">\(\Delta Y = \beta_1 \Delta X_1\)</span>. Or, <span class="math inline">\(\beta_1 = \frac{\Delta Y}{\Delta X_1}\)</span> when holding <span class="math inline">\(X_2\)</span> constant and, likewise, <span class="math inline">\(\beta_2 = \frac{\Delta Y}{\Delta X_2}\)</span> when holding <span class="math inline">\(X_1\)</span> constant. Instead of taking changes you can as well take the first derivative of <span class="math inline">\(X_1\)</span> with respect to <span class="math inline">\(Y\)</span> which simply boils down to <span class="math inline">\(\beta_1\)</span>. <span class="math inline">\(\beta_0\)</span> is now the predicted value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1 = X_2 = 0\)</span>.</p>
+<p>If we do this for the the Californian school district data, then recall that the original population regression line was estimated as: <span class="math display">\[\begin{equation}
 \widehat{TestScore} = 698.9- 2.28 STR
 \end{equation}\]</span> But if we now include include percent English Learners in the district (<span class="math inline">\(PctEL\)</span>) to the model then the population regression ‘line’ becomes: <span class="math display">\[\begin{equation}
 \widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL
 \end{equation}\]</span></p>
-<p>Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). That indicates that the original regression suffers from omitted variable bias. And this is what should happen as reasoned above. The <code>STATA</code> syntax for a multivariate regression model is now rather straightforward. You basically add another to the regression equation, as below (do not forget the command <code>, robust</code>):</p>
+<p>Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). That indicates that the original regression suffers from omitted variable bias. And this is what should happen as reasoned above. The <code>STATA</code> syntax for a multivariate regression model is rather straightforward. You basically add another variable to the regression equation, as below (do not forget the command <code>, robust</code>):</p>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">linesize</span> 96</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str el_pct, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str el_pct, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>no variables defined
 r(111);
@@ -436,7 +435,7 @@ TestScore &amp;=&amp; 686.0 - 1.10  STR - 0.65 PctEL \\
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str el_pct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -451,7 +450,7 @@ r(111);</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> <span class="st">"adjusted R2 = "</span> <span class="fu">e</span>(r2_a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -479,7 +478,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}+\ldots + \beta_k X_{ki}+u_i, i=1
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str str el_pct, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -550,7 +549,7 @@ F = \frac{1}{2} \left(\frac{t_1^2 + t_2^2 - 2\hat{\rho}_{t_1,t_2}t_1 t_2}{1-\hat
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr str expn_stu el_pct, <span class="fu">r</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> str expn_stu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -620,7 +619,7 @@ TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 +
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc, <span class="fu">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -701,7 +700,7 @@ r(111);</code></pre>
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> testscr c.avginc##c.avginc##c.avginc, <span class="fu">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -721,7 +720,7 @@ r(111);</code></pre>
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> avginc#avginc avginc#avginc#avginc  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -833,7 +832,7 @@ Y =\beta_0  + \beta_1 X  +\beta_2 D+ \beta_3 (D \times X)
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>margins hiel, <span class="fu">at</span>(str=( 14 ( 2 ) 26 ))</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>marginsplot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -1011,7 +1010,7 @@ Y = A K^\alpha L^{1-\alpha} \rightarrow \ln(Y) = \ln(A) + \alpha \ln(K) + (1-\al
 <p>and then run a simple regression:</p>
 <div class="cell" data-collectcode="true">
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 
@@ -1030,7 +1029,7 @@ r(111);</code></pre>
 <div class="cell" data-max-width="1400px">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> fatality beertax, absorb(state) <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> no variables defined
+<pre><code>no variables defined
 r(111);
 
 

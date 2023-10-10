@@ -132,7 +132,7 @@ generate large = (str >= 20)
 tabulate large, summarize(testscr) mean standard obs
 ```
 
-The first command *generates* a new variable called "large" and denotes an indicator being 0 if STR $< 20$ and 1 if STR $\geq 20$. The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable `large`. Of course, this output is rather ugly and it is better to make a nice table such as @tbl-smalllarge).
+The first command *generates* a new variable called "large" and denotes an indicator being 0 if STR $< 20$ and 1 if STR $\geq 20$. The second command summarizes the testscore variable again, but now only gives the mean, standard deviation and the number of observation and does this by each value of the new variable `large`. Of course, this output is rather ugly and it is better to make a nice table such as @tbl-smalllarge.
 
 ```{r, echo = FALSE}
 #| label: tbl-smalllarge
@@ -176,7 +176,7 @@ This basically means subtracting the average scores of @tbl-smalllarge (later we
 tabstat testscr, statistics(p10 p25 p50 p75 p90)
 ```
 
-where the command `tabstat` asks for a tabulation of certain statistics and `px` gives the $x$-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given this information, the difference of $7.4$ is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer with this analysis.
+where the command `tabstat` asks for a tabulation of certain statistics and `px` gives the $x$-th percentile of that statistic. Now note that between the 50th and 65th percentile there is only 12 points. So given this information, the difference of $7.4$ is rather sizable. But whether this difference is big enough to be important for school reform discussions, for parents, or for a school committee is a question we cannot answer based on this analysis alone; we can only give the resulting difference.
 
 #### Hypothesis testing
 
@@ -229,13 +229,13 @@ The name regression seems to have a negative connotation, as progress is in gene
 
 in 1886, Galton started to research the height of adult children with the height of their parents [@galton1886regression]. The original data can be seen in the scatterplot in @fig-galton2. What Galton expected was that the relation between the height of children and that of their parents was a one-to-one relation. On average children should receive the same height of their parents. So, in fact he expected a $45^{\circ}$ line---the red line; a line with slope equal to 1.
 
-```{r fig.align='center', echo=FALSE, fig.cap = "Relation between the heigh fathers and the height of children", label='fig-galton2', out.width="600px"}
+```{r fig.align='center', echo=FALSE, fig.cap = "Relation between the heigh fathers and the height of children", label='fig-galton2', out.width="400px"}
 knitr::include_graphics("./figures/Galton2.png")
 ```
 
 However, he found consistently the blue line, a line with positive slope but lower than 1 (the blue line in @fig-galton1). That entails that, *on average* tall parents get tall children but not as tall as themselves. Of course, this goes as well the other way. Short parents get short children but not as short as themselves.
 
-```{r fig.align='center', echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='fig-galton1', out.width="600px"}
+```{r fig.align='center', echo=FALSE, fig.cap = "Relation heigh fathers and height children", label='fig-galton1', out.width="400px"}
 knitr::include_graphics("./figures/Galton1.png")
 ```
 
@@ -245,14 +245,14 @@ This regression towards the mean is now seen as a very important characteristic 
 
 > $\ldots$ a concept that refers to the fact that if one sample of a random variable is extreme, the next sampling of the same random variable is likely to be closer to its mean
 
-For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do well, but not that well). Or, your favorite football club does extremely well in a particular year (Leicester City FC comes to mind who became premier league champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.
+For instance, suppose that everything went really well for a course and you got a 9 for an examination. That does not mean that the next time you will do equally well (you will still do well, but not that well). Or, your favorite football club does extremely well in a particular year (Leicester City FC comes to mind who became Premier League champion in 2016). That does not mean that the next year it will do equally well, and so forth and so on.
 
 ### Regression with one regressor
 
 So, linear regression allows us to *estimate*, and make *inferences* about, *population* slope coefficients. Inference means drawing conclusions and population refers to the fact that we do not want to say something about our sample, but instead about the whole population. Ultimately our aim
 is to estimate the **causal** effect on $Y$ of a unit change in $X$---but for now, just think of the problem of fitting a straight line to data on two variables, $Y$ and $X$.
 
-Similar to Subsection @sec-numevidence) we have three strategies to make inferences:
+Similar to @sec-numevidence we have three strategies to make inferences:
 
 - We estimation the relation:
     - This now boils down to the question how we should draw a line through the data to estimate the (population) slope using Ordinary Least Squares (OLS---a specific and most common type of regression analysis)
@@ -308,7 +308,7 @@ In fact, the OLS estimators of the slope $\beta$$_1$ and the intercept $\beta$$_
 
 Although you do **not** need to learn these formula's by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Second, the optimal $\hat{\beta}_1$ is equal to $\frac{s_{XY}}{s^2_X}$ and this is the sampling covariance between $X$ and $Y$ divided by the sampling variance of $X$. This is not a correlation as the units still depend on $X$ and $Y$ and therefore the slope can be larger than $1$ or smaller than $-1$, but it does say something about the relation between $X$ and $Y$. Third, the constant is governed by the estimated parameter $\hat{\beta}_0$
 
-From here we can predict the values $\hat{Y}_i$ and residuals $\hat{u}_i$ as they are:
+From here we can predict the values $\hat{Y}_i$ and residuals $\hat{u}_i$ by using the estimated values of $\hat{\beta}_0$ and $\hat{\beta}_1$, which are:
 \begin{eqnarray}
 	\hat{Y}_i &=& \hat{\beta}_0 + \hat{\beta}_1 X_i, \qquad i = 1, \ldots, n \notag\\
 	\hat{u}_i &=& Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
@@ -323,13 +323,13 @@ where the estimated slope equals $\hat{\beta}_1 = -2.28$, the estimated intercep
 
 Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which $STR = 19.33$ and $TestScore = 657.8$ Then the predicted value for the testscore is $\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8$ and the resulting residual is $\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0$
 
-In `STATA` both the constant and the slope can be easily retrieved by:
+In `STATA` both the constant and the slope can be easily retrieved by invoking the **regress** command:
 
 ```{stata, collectcode=TRUE}
 regress testscr str, robust
 ```
 
-We will discuss the rest of this output later.
+The coefficient of `STR` being $\hat{\beta}_1$ is now $-2.28$ and the constant being $\hat{\beta}_0$ equals $698.9$. We will discuss the rest of this output later.
 
 #### Hypothesis testing {#sec-unitesting}
 
@@ -339,7 +339,7 @@ Testing statistical hypotheses is often very confusing, because of two things. F
 
 > What is the probability that your data ($D$) might be right *given* the null-hypothesis ($H_0$): $\Pr(D|H_0)$
 
-And that is a strange concept. You first imagine a world $H_0$ with the data that it *should* provide and then test that imaginary world.
+And that is a strange concept. You first imagine a world $H_0$ with the data that that world *should* provide and then test that imaginary world with your *actual* data at hand. .
 
 Secondly, there is the notation that often works confusing. First, we have the $p$-value which equals the probability of drawing a statistic (e.g., $\bar{Y}$) *at least as adverse* to the null (that is: your imaginary world) as the value actually computed with your data, **assuming** again that the null-hypothesis is true---again, your imaginary world. Secondly, there is the significance level of a test which is a *pre-specified* probability of incorrectly rejecting the null, when the null is actually true.
 
@@ -372,7 +372,7 @@ Finally, we need to calculate the $p$-value. To do so, we need to know the sampl
 \end{eqnarray}
 where $\sigma_{\hat{\beta_1}}$ again equals the standard error of $\hat{\beta}_1$,
 
-So, if you know $\hat{\beta}_1$ and $\sigma_{\hat{\beta}_1}$ you can calculate this. However, computers are much faster, in doing to. For example, suppose we want to test whether $\beta_{1,0} = 0$ using the regression output displayed above which gives $\hat{\beta}_1 = -2.28$ and $\sigma_{\hat{\beta}_1} = 0.52$. That is step 1. Note that `STATA` already calculated the standard error of Eq. \ref{eq:olsse}. For the next step we need to compute the $t$-statistic, which is:
+So, if you know $\hat{\beta}_1$ and $\sigma_{\hat{\beta}_1}$ you can calculate this. However, computers are much faster, in doing so. For example, suppose we want to test whether $\beta_{1,0} = 0$ using the regression output displayed above which gives $\hat{\beta}_1 = -2.28$ and $\sigma_{\hat{\beta}_1} = 0.52$. That is step 1. Note that `STATA` already calculated the standard error of Eq. \ref{eq:olsse}. For the next step we need to compute the $t$-statistic, which is:
 
 \begin{equation}
 t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
@@ -381,7 +381,7 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 
 then the $p$-value can be seen from @fig-pvalues:
 
-```{r fig.align='center', echo=FALSE, fig.cap = "Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$", label='fig-pvalues', out.width="600px"}
+```{r fig.align='center', echo=FALSE, fig.cap = "Calculating the $p$-value of a two-sided test when $t^{act} = -4.38$", label='fig-pvalues', out.width="400px"}
 knitr::include_graphics("./figures/lecture_sheet9.jpg")
 ```
 
@@ -391,9 +391,9 @@ That is, for large $n$ (and typically we have that), the $p$-value is the probab
 2. Compute the $t^{act}$-statistics as in Eq. \ref{eq:olst}
 3. Get the corresponding $p$-value. Or, reject the null-hypothesis at the 5% significance level if $|t^{act}| > 1.96$.
 
-Now there is a link between the $p$-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5\%, then you reject the null hypothesis if $|t| \geq 1.96$ or equivalently, you reject if $p \leq 0.05$. The $p$-value is sometimes called the marginal significance level. Often, it is better to communicate the $p$-value than simply whether a test rejects or not---the $p$-value contains more information than the "yes/no" statement about whether the test rejects.
+In fact, there is a link between the $p$-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5\%, then you reject the null hypothesis if $|t| \geq 1.96$ or equivalently, you reject if $p \leq 0.05$. The $p$-value is sometimes called the marginal significance level. Often, it is better to communicate the $p$-value than simply whether a test rejects or not---the $p$-value contains more information than the "yes/no" statement about whether the test rejects.
 
-But recently there has been some debate about using $p$-values [@amrhein2019scientists]. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? @fig-significance shows a figure from the journal Nature and how scientists across all fields nowadays see $p$-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, $p$-values in themselves do not contain that much information. In the regression output of above the reported $p$-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with $p$-values just below 0.05, leading to what is called publication bias.
+But recently there has been some debate about using $p$-values [@amrhein2019scientists]. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? @fig-significance shows a figure from the journal Nature and how scientists across all fields nowadays see $p$-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, $p$-values in themselves do not contain that much information. In the regression output of above the reported $p$-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with $p$-values just below 0.05, leading to a phenomenon that is called publication bias.
 
 ```{r fig.align='center', echo=FALSE, fig.cap = "Critical review on the (mis)use of statistical significance", label='fig-significance', out.width="600px"}
 knitr::include_graphics("./figures/significance.jpg")
@@ -426,8 +426,8 @@ Y_i = \beta_0 + \beta_1 X_i + u_i
 
 Where $Y$ denotes, e.g., test scores, and where $X$, e.g., denotes a dummy variable for a large class (so, if $STR \geq 20$ then $X_i = 1$; otherwise $X_i = 0$), so there is then only two possibilities:
 
-1. For small class size there should hold that $X_i = 0$ yielding that $Y_i = \beta_0 + u_i$. Namely $\beta_1 \times X_i = \beta_1 \times 0 = 0$. That means automatically that the expectation of $Y_i$ is the constant, being $\beta_0$. Another way or writing is that the expectation of model \ref{eq:olsdummy} *conditional* on the fact that $X_i = 0$ is $\mathbb{E}(Y_i \mid X_i = 0) = \beta_0$.
-2. For large classes there should hold that $X_i = 1$ yielding that $X_i = 1$, $Y_i = \beta_0 + \beta_1 + u_i$. This means that the expectation of model \ref{eq:olsdummy} *conditional* on the fact that $X_i = 1$ is $\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1$
+1. For small class size there should hold that $X_i = 0$ yielding that $Y_i = \beta_0 + u_i$. Namely $\beta_1 \times X_i = \beta_1 \times 0 = 0$. That means automatically that the expectation of $Y_i$ is the constant, being $\beta_0$. Another way or writing is that the expectation of model (\ref{eq:olsdummy}) *conditional* on the fact that $X_i = 0$ is $\mathbb{E}(Y_i \mid X_i = 0) = \beta_0$.
+2. For large classes there should hold that $X_i = 1$ yielding that $X_i = 1$, $Y_i = \beta_0 + \beta_1 + u_i$. This means that the expectation of model (\ref{eq:olsdummy}) *conditional* on the fact that $X_i = 1$ is $\mathbb{E}(Y_i \mid X_i = 1) = \beta_0 + \beta_1$
 
 So a regression with a dummy as independent variable gives two different *constants*, for each group (small/large classes) one. You can interpret this as a level-effect (only the level changes, not the slope as there is none here). The interpretation of $\beta_1$ is in this case rather special and can be denoted as:
 \begin{equation}
@@ -445,7 +445,7 @@ Now, note that this is the same output ($\Delta= -7.4$, $\sigma_\Delta = 1.82$ a
 
 ## Least squares assumptions for causal inference {#sec-lsa}
 
-As stated at the start of @sec-problem applied econometrics focuses on finding a **causal** effect. But how do you do know that the $\hat{\beta}_1$ you estimate using the population regression model of Eq. \ref{eq:betacausal} is indeed a causal effect. In other words, if you change $X_i$ with one unit, will $Y_i$ then change with $\beta_1$ **in reality**?
+As stated at the start of @sec-problem applied econometrics focuses on finding a **causal** effect. But how do you do know that the $\hat{\beta}_1$ you estimate using the population regression model of Equation (\ref{eq:betacausal}) is indeed a causal effect. In other words, if you change $X_i$ with one unit, will $Y_i$ then change with $\beta_1$ **in reality**?
 
 \begin{equation}
 Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
@@ -497,7 +497,7 @@ The third and final least square assumption for causal inference is that large o
 knitr::include_graphics("./figures/Lecture1_sheet29.jpg")
 ```
 
-However, this does not automatically entail that the isolated observation should be deleted. What it does entail is that one should go back to her data and investigate whether the outlier could be a mistake---perhaps a typo made when preparing the data or something that went amiss when converting the data from an `Excel` format to a `STATA` format.
+However, this does not automatically entail that the isolated observation should be deleted. What it does entail is that one should go back to the data and investigate whether the outlier could be a mistake---perhaps a typo made when preparing the data or something that went amiss when converting the data from an `Excel` format to a `STATA` format.
 
 ## Other least squares assumptions
 
@@ -519,7 +519,7 @@ knitr::include_graphics("./figures/Sheet22.png")
 
 Now consider @fig-heteroskedasticity. Now clearly the variance around the population regression line increases in size of student-teacher ratio ($X$). So, $E(u \mid X=x) = 0$ is still satisfied, but the variance of $u$ does now depend on $x$. $u$ is now said to be heteroskedastic.
 
-```{r fig.align='center', echo=FALSE, fig.cap = "Wages versus years of education", label='fig-wages', out.width="600px"}
+```{r fig.align='center', echo=FALSE, fig.cap = "Wages versus years of education", label='fig-wages', out.width="400px"}
 knitr::include_graphics("./figures/Sheet23.png")
 ```
 
@@ -529,7 +529,7 @@ Very often data in the social sciences are heteroskedastic. For example, wages a
 knitr::include_graphics("./figures/Sheet24.png")
 ```
 
-Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in @fig-heteroskedasticityca, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity.?
+Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in @fig-heteroskedasticityca, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity?
 
 Note that so far we have (without saying so) assumed that $u$ might be heteroskedastic
 Recall again the three least squares assumptions:
@@ -553,7 +553,7 @@ The bottom line is that the errors are either homoskedastic or heteroskedastic a
 
 1. If the errors are heteroskedastic and you use the homoskedasticity-only formula for standard errors, your standard errors will be wrong (the homoskedasticity-only estimator of the variance of $\hat{\beta}_1$ is inconsistent if there is heteroskedasticity).
 2. The two formulas coincide (when $n$ is large) in the special case of homoskedasticity.
-3. So, you should **always** use heteroskedasticity-robust standard errors.
+3. So, you should **always** use heteroskedasticity-robust standard errors; that is, use the `, robust` option as we have done consistently in the regression above.
 
 ### Normal distributed regression term
 
@@ -605,4 +605,4 @@ then we see that the $R^2 = .05$. So, only 5% of all variation in test scores is
 
 ## Conclusion
 
-Regression analysis in the most common form of statistical analysis over the sciences. Very often is it used to model associations. However, in applied econometrics regression analysis is applied to find causal causal relations. This can be done on the basis of three assumptions, of which the first---the conditional mean assumption---is the most crucial. In fact, if this assumption holds then the data mimics the data that come out of an experiment. This assumption can unfortunately not be proven. We therefore have to think very hard whether this assumption holds. The next Chapter deals with a possible violation of this assumption, how to solve for it and at the same time we answer the question why we want multiple variables in our specification. 
+Regression analysis in the most common form of statistical analysis over the sciences. Very often is it used to model associations. However, in applied econometrics regression analysis is applied to find causal causal relations. This can be done on the basis of three assumptions, of which the first---the conditional mean assumption---is the most crucial. In fact, if this assumption holds then the data mimics the data that come out of an experiment. This assumption can unfortunately not be proven. We therefore have to think very hard whether this assumption holds. The next cshapter deals with a possible violation of this assumption, how to solve for it and at the same time we answer the question why we want multiple variables in our specification. 

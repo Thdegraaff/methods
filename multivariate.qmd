@@ -18,7 +18,7 @@ In @sec-univariateregression we discussed the origins of, working of, and assump
 
 So, why do we include more variables? One possible answer is because it makes a better predictive model. That is, a model that is able to explain the variation in the dependent variable $Y$ better.^[This is not entirely true. Increasing the R$^2$ explains **in-sample** variation better, not necessarily **out-of-sample**. The latter is really what matters for prediction and this is the focus of many machine learning techniques. Note that this argument is directly related with the regression towards the mean argument made in @sec-genesis.] So, the R$^2$ increases. But, as argued in @sec-univariateregression we are not so much interested in prediction, but more in establishing a **causal** relation between $X$ and $Y$. So, if you change $X$ (and only $X$) does $Y$ change and then with how much?
 
-Although economists often claim that they are the only (social-)science that focuses on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl [@pearl2009causality]. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is a graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in @fig-unknown. Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in @fig-unknown. We also know that the R$^2$ of that regression model was rather low (5%), so by default there must be other but yet unknown factors, let us name them for now $U$ (often as well referred to as unobservables), that influence test scores as well (so a directed arrow going from $U$ to test scores). 
+Although economists often claim that they are the only (social-)science that focuses on causality and provides a statistical framework for that, there are other approaches to causality as well. One that is often used in other sciences is the approach of the mathematican Judea Pearl [@pearl2009causality]. This approach focuses on the use of Directed Acyclical Graphs (DAGs), which is a graphical visualisation of causality chains (or, what impacts what). We borrow this approach for the most simple setting as explained in @fig-unknown. Here, we go back to our Californian school district dataset again, where we still are interested in the effect of class size on school performance. So, we suppose that there is an effect from student teacher ratio on test scores as displayed with an directed arrow in @fig-unknown. We also know that the R$^2$ of that regression model was rather low (5%), so by default there must be other but yet unknown factors---let us name them for now $U$ (often as well referred to as unobservables)---that influence test scores as well (so a directed arrow going from $U$ to test scores). 
 
 ```{r fig.align="center", echo=FALSE, fig.cap = "Unrelated omitted variables", label='fig-unknown', out.width = "600px"}
 knitr::include_graphics("./figures/unknown.png")
@@ -67,15 +67,15 @@ Now, the table depicted in @fig-omitca is complex in its various dimensions. We 
 2) districts with *fewer* English Learners (so less migrants) have *smaller* classes (what we assumed above);
 3) the effect of class size with comparable percentages English learners is still (mostly negative), but not as much as we compare for all districts together (the *Difference*-column). This confirms our reasoning that our original estimate was too negative. 
 
-No, as already mentioned above, omitted variable bias occurs very often. So, how to correct for this such that the bias disappaers. In general, there are three strategies:
+Unfortunately, as already mentioned above, omitted variable bias occurs very often. So, how to correct for this such we can deal with this particular bias. In general, there are three strategies:
 
-1. we can run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then percentage English learners ($PctEL$) is still a determinant of test scores, but by construction $PctEL$ should be uncorrelated with $STR$. Unfortunately, is it very difficult to randomize class size in reality  and often this strategy is just not attainable as being too costly or unethical (this argument accounts by the way for all sciences, not only the social sciences);
-2. we can adopt the cross tabulation approach of above, with finer gradations of $STR$ and $PctEL$. Then by construction, within each group all classes have the same $PctEL$ so we control for $PctEL$. A disadvantages is that one needs many observations, especially when one wants to stratify upon other variables as well; 
+1. we can run a randomized controlled experiment in which treatment ($STR$) is randomly assigned: then percentage English learners ($PctEL$) is still a determinant of test scores, but by construction $PctEL$ should be uncorrelated with $STR$. Unfortunately, is it very difficult to randomize class size in reality and often this strategy is just not feasible as being too costly or unethical (this argument accounts by the way for all sciences, not only the social sciences);
+2. we can adopt the cross tabulation approach of above, with finer gradations of $STR$ and $PctEL$. Then by construction, within each group all classes have the same $PctEL$ so we control for $PctEL$. A disadvantage is that one needs many observations, especially when one wants to stratify upon other variables as well; 
 3. finally, and perhaps the easiest approach, we can use a population regression model in which the omitted variable ($PctEL$) is no longer omitted. We just include $PctEL$ as an additional regressor in a multiple regression model. This is what the next section deals with. Obviously, a disadvantage of this approach is that you need observations for the omitted variable (but that also accounts for method 2). 
 
 ## Multivariate regression analysis {#sec-multivariate}
 
-So, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like:
+Thus, if we have information about an important omitted variable, as in the case of the size of migrant communities in the example above, then we can use that information in a multivariate population regression model. In the case of two regressors, that would look like:
 \begin{equation}
 Y_i =\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i, i=1,\ldots,n
 \end{equation}
@@ -97,9 +97,9 @@ whilst the population regression line, after the change, looks like:
 \begin{equation}
 Y + \Delta Y = \beta_0 + \beta_1 (X_{1} + \Delta X_1) + \beta_2 X_{2}
 \end{equation}
-And if we take the difference, then the interpretation of $\beta_1$ boils down again to the marginal effect:$\Delta Y = \beta_1 \Delta X_1$. Or, $\beta_1 = \frac{\Delta Y}{\Delta X_1}$ when holding $X_2$ constant and, likewise, $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ when holding $X_1$ constant. $\beta_0$ is now the predicted value of $Y$ when $X_1 = X_2 = 0$
+And if we take the difference, then the interpretation of $\beta_1$ boils down again to the marginal effect:$\Delta Y = \beta_1 \Delta X_1$. Or, $\beta_1 = \frac{\Delta Y}{\Delta X_1}$ when holding $X_2$ constant and, likewise, $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ when holding $X_1$ constant. Instead of taking changes you can as well take the first derivative of $X_1$ with respect to $Y$ which simply boils down to $\beta_1$. $\beta_0$ is now the predicted value of $Y$ when $X_1 = X_2 = 0$. 
 
-If we do this for the the Californian school district data, then the original population regression line was estimated as:
+If we do this for the the Californian school district data, then recall that the original population regression line was estimated as:
 \begin{equation}
 \widehat{TestScore} = 698.9- 2.28 STR
 \end{equation}
@@ -108,10 +108,9 @@ But if we now include include percent English Learners in the district ($PctEL$)
 \widehat{TestScore} = 686.0- 1.10 STR - 0.65  PctEL
 \end{equation}
 
-Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). That indicates that the original regression suffers from omitted variable bias. And this is what should happen as reasoned above. The `STATA` syntax for a multivariate regression model is now rather straightforward. You basically add another to the regression equation, as below (do not forget the command `, robust`):
+Clearly, the effect of student teacher ratio becomes smaller (that is, less negative). That indicates that the original regression suffers from omitted variable bias. And this is what should happen as reasoned above. The `STATA` syntax for a multivariate regression model is rather straightforward. You basically add another variable to the regression equation, as below (do not forget the command `, robust`):
 
 ```{stata, collectcode=TRUE}
-set linesize 96
 reg testscr str el_pct, robust
 ```
 
