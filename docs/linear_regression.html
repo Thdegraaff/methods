@@ -279,7 +279,7 @@ window.MathJax = {
   <li><a href="#homoskedasticity" id="toc-homoskedasticity" class="nav-link" data-scroll-target="#homoskedasticity"><span class="toc-section-number">2.5.1</span>  Homoskedasticity</a></li>
   <li><a href="#normal-distributed-regression-term" id="toc-normal-distributed-regression-term" class="nav-link" data-scroll-target="#normal-distributed-regression-term"><span class="toc-section-number">2.5.2</span>  Normal distributed regression term</a></li>
   </ul></li>
-  <li><a href="#measures-of-fit" id="toc-measures-of-fit" class="nav-link" data-scroll-target="#measures-of-fit"><span class="toc-section-number">2.6</span>  Measures of fit</a>
+  <li><a href="#sec-measuresoffit" id="toc-sec-measuresoffit" class="nav-link" data-scroll-target="#sec-measuresoffit"><span class="toc-section-number">2.6</span>  Measures of fit</a>
   <ul>
   <li><a href="#the-regression-r2" id="toc-the-regression-r2" class="nav-link" data-scroll-target="#the-regression-r2"><span class="toc-section-number">2.6.1</span>  The regression R<span class="math inline">\(^2\)</span></a></li>
   <li><a href="#the-standard-error-of-the-regression" id="toc-the-standard-error-of-the-regression" class="nav-link" data-scroll-target="#the-standard-error-of-the-regression"><span class="toc-section-number">2.6.2</span>  The Standard Error of the Regression</a></li>
@@ -954,8 +954,8 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <p>Finally, in many introductionary statistic courses, normal distributed error terms are assumed, which facilitates testing with small samples. So, <span class="math inline">\(u\)</span> should be distributed <span class="math inline">\(N(0,\sigma^2)\)</span>. If you have a reasonable amount of observations (<span class="math inline">\(n &gt;50\)</span>), you do not need this assumption, and especially not for causal inference.</p>
 </section>
 </section>
-<section id="measures-of-fit" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="measures-of-fit"><span class="header-section-number">2.6</span> Measures of fit</h2>
+<section id="sec-measuresoffit" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sec-measuresoffit"><span class="header-section-number">2.6</span> Measures of fit</h2>
 <p>A natural question that might arise is how well the population regression line fits or explains the data. For ordinary least squares estimators often two regression statistics are given that provide complementary measures of the quality of fit:</p>
 <ol type="1">
 <li>The regression <strong><span class="math inline">\(R^2\)</span></strong>: This measures the fraction of the variance of <span class="math inline">\(Y\)</span> that is explained by <span class="math inline">\(X\)</span>; it is unitless and ranges between zero (no fit) and one (perfect fit). This one is almost always reported.</li>

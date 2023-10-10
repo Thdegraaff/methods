@@ -559,7 +559,7 @@ The bottom line is that the errors are either homoskedastic or heteroskedastic a
 
 Finally, in many introductionary statistic courses, normal distributed error terms are assumed, which facilitates testing with small samples. So, $u$ should be distributed $N(0,\sigma^2)$. If you have a reasonable amount of observations ($n >50$), you do not need this assumption, and especially not for causal inference.
 
-## Measures of fit
+## Measures of fit {#sec-measuresoffit}
 
 A natural question that might arise is how well the population regression line fits or explains the data. For ordinary least squares estimators often two regression statistics are given that provide complementary measures of the quality of fit:
 
