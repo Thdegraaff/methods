@@ -24,7 +24,7 @@ As explained in the introduction above, applied econometrics aims to give the po
 
 Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the **true** causal mechanism) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction. 
 
-Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:
+Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the (spatial-)economic realm one could think about trying to assess the following quantities:
 
 - To what extent do people eat less meat if we increase the prices with 1% (using a meat-tax)?
 - If we increase Dutch dikes with one meter, how much less flood risk will there be?
@@ -55,7 +55,7 @@ library(tidyverse)
 ```{stata}
 #| label: workingdirectory
 #| eval: TRUE
-cd  "/Users/tomba/Dropbox/Thomas/project/preparatory/"
+cd  "/Users/tomba/projects/methods/"
 ```
 
 Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for, e.g., slides, data and tutorials. Now suppose you have the subdirectory `data` in your course folder^[Often it is as well advisable to make a distinction between *derived* and *raw* data. Raw data is original data and derived data is data you have transformed or worked on. In principle, you do not want to change the original data!] and in that data directory you have a file called `caschool.dta`.^[This dataset can be downloaded from Canvas.] Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).
@@ -77,8 +77,7 @@ set linesize 96
 use "./data/caschool.dta", clear
 ```
 
-Note that an option is added using the syntax `, clear`. The comma indicates that an option is expected and the verb `clear` indicates that memory of `STATA` should be cleared from data. That is because, `STATA` can only have one dataset in its memory.
-
+Note that an option is added using the syntax `, clear`. The comma indicates that an option is expected and the verb `clear` indicates that memory of `STATA` should be cleared from data. That is because `STATA` can only have one dataset in its memory.
 
 In addition, we would like to know how the dataset looks like, for example what kind of variables it contains. We do this by invoking the command `describe`:
 
@@ -275,7 +274,7 @@ where
 \end{eqnarray}
 Note the definition here of $\beta_1$. It gives the **marginal effect** of a change in $STR$ on $testscr$. So the interpretation of the parameter $\beta_1$ is very straightforward. However, we do not know the population value of $\beta_1$ and we therefore have to estimate it using data.
 
-In general, the population linear regression *model* is different as we add element $u_1$.
+In general, the population linear regression *model* is different as we add an element $u_i$.
 \begin{equation}
 	Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i\ldots n
 	\label{eq:ols}
@@ -284,11 +283,25 @@ Now, $X$ denotes the independent variable or regressor, $Y$ the dependent variab
 
 #### Estimating with OLS
 
-```{r fig.align='center', echo=FALSE, fig.cap = "Drawing a straight line through data in a scatterplot", label='fig-unire', out.width="600px"}
-knitr::include_graphics("./figures/Lecture1_sheet8.png")
+Thus, estimation boils down to drawing a straight line through data---that is, for regression with only one regressor. But how to see this. Let's start with a couple observations from the Californian Testscore Dataset. These are plotted in @fig-observations. Here you four observations, where each observation consist of one independent variable ($X$) and one dependent variable ($Y$). These can also be seen as the combination of measurement and outcome. So, the first observation consist of the independent variable $X_1$ which equals a student teacher ratio of 16 and the dependent variable $Y_1$ which equals a test score of 682. The other observations have a similar interpretation. As mentioned above as well, this display with two axes and two variables is called a scatterplot and it is a very common way to visualize the combination of two variables.
+
+```{r fig.align='center', echo=FALSE, fig.cap = "Displaying observations in a scatterplot", label='fig-observations', out.width="600px"}
+knitr::include_graphics("./figures/observations.png")
 ```
 
-To estimate the population linear regression model we apply the ordinary least squares estimator. Again, as @fig-unire shows as well, a linear regression line is a straight line through points in a scatterplot. Actually, we want to draw that line such that the distance of all points to that line is minimized. See that in @fig-unire the distances between the points and the line are given by the $u_i$'s, the regression errors. So, if we somehow can minimize all $u_i$'s we are fine. But those distances could be both positive and negative and they might cancel each other out. Therefore, we first square the regression errors and then minimize (hence the name: ordinary least *squares*). Also, see from Eq. \ref{eq:ols} that:
+Our aim is to draw a line through the data to estimate the population slope line. That means that with the sampled data at hand we would like know something about the underlying total population. @fig-unire displays that population regression line that we would like to estimate using our data. Note that the specification of the line here is $Y = b_0 + b_1 X$, where the parameters $b_0$ and $b_1$ are the population parameters; the parameters that we do not know and that we would like to estimate with data.
+
+```{r fig.align='center', echo=FALSE, fig.cap = "The population regression line", label='fig-unire', out.width="600px"}
+knitr::include_graphics("./figures/regression.png")
+```
+
+The way we estimate these parameters is displayed in @fig-unierror:
+
+```{r fig.align='center', echo=FALSE, fig.cap = "Estimating a regression line in a scatterplot", label='fig-unierror', out.width="600px"}
+knitr::include_graphics("./figures/regression_errors.png")
+```
+
+To estimate the population linear regression model we apply the ordinary least squares estimator. Again, as @fig-unierror shows as well, a linear regression line is a straight line through points in a scatterplot. Actually, we want to draw that line such that the distance of all points to that line is minimized. See that in @fig-unierror the distances between the points and the line are given by the $u_i$'s, the regression errors. So, if we somehow can minimize all $u_i$'s we are fine. But those distances could be both positive and negative and they might cancel each other out. Therefore, we first square the regression errors and then minimize (hence the name: ordinary least *squares*). Also, see from Eq. \ref{eq:ols} that:
 
 \begin{equation}
 u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\beta_0 + \beta_1 X_i) \right]^2
@@ -299,14 +312,14 @@ But how can we estimate $\beta_0$ and $\beta_1$ from data? For that we will focu
 	\min_{b_0,b_1} \sum^n_{i=1} \left[Y_i - (b_0 + b_1 X_i) \right]^2
 \end{equation}
 
-In fact, the OLS estimators of the slope $\beta$$_1$ and the intercept $\beta$$_0$ are:^[This result is given but is not all too difficult to prove. However, usually you do need these types of equations in your work.]
+In fact, the OLS estimators of the slope $\beta_1$ and the intercept $\beta_0$ are:^[This result is given but is not all too difficult to prove. However, usually you do need these types of equations in your work.]
 
 \begin{eqnarray}
 	\hat{\beta}_1 &=& \frac{\sum^n_{i=1}(X_i - \overline{X})(Y_i - \overline{Y})}{\sum^n_{i=1}(X_i - \overline{X})^2} = \frac{s_{XY}}{s^2_X}\\
 	\hat{\beta}_0 &=& \overline{Y} - \hat{\beta}_1\overline{X}
 \end{eqnarray}
 
-Although you do **not** need to learn these formula's by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Second, the optimal $\hat{\beta}_1$ is equal to $\frac{s_{XY}}{s^2_X}$ and this is the sampling covariance between $X$ and $Y$ divided by the sampling variance of $X$. This is not a correlation as the units still depend on $X$ and $Y$ and therefore the slope can be larger than $1$ or smaller than $-1$, but it does say something about the relation between $X$ and $Y$. Third, the constant is governed by the estimated parameter $\hat{\beta}_0$
+Although you do **not** need to learn these formula's by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Note that in @fig-unierror we already use hat symbols in the legend to communicate that the regression line is given by estimation. Second, the optimal $\hat{\beta}_1$ is equal to $\frac{s_{XY}}{s^2_X}$ and this is the sampling covariance between $X$ and $Y$ divided by the sampling variance of $X$. This is not a correlation as the units still depend on $X$ and $Y$ and therefore the slope can be larger than $1$ or smaller than $-1$, but it does say something about the relation between $X$ and $Y$. Third, the constant is governed by the estimated parameter $\hat{\beta}_0$
 
 From here we can predict the values $\hat{Y}_i$ and residuals $\hat{u}_i$ by using the estimated values of $\hat{\beta}_0$ and $\hat{\beta}_1$, which are:
 \begin{eqnarray}
@@ -321,7 +334,7 @@ knitr::include_graphics("./figures/Lecture1_sheet13.jpg")
 ```
 where the estimated slope equals $\hat{\beta}_1 = -2.28$, the estimated intercept equals $\hat{\beta}_0 = 698.9$ and the total population regression line can be written as: $\widehat{TestScore} = 698.9 - 2.28 \times STR$. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, $\frac{\Delta TestScore}{\Delta STR} =-2.28$). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not make any sense---it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.
 
-Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which $STR = 19.33$ and $TestScore = 657.8$ Then the predicted value for the testscore is $\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8$ and the resulting residual is $\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0$
+Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which $STR = 19.33$ and $TestScore = 657.8$ Then the predicted value for the testscore is $\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8$ and the resulting residual is $\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0$. In `STATA` you can retrieve all predictions from observations  
 
 In `STATA` both the constant and the slope can be easily retrieved by invoking the **regress** command:
 
@@ -329,11 +342,21 @@ In `STATA` both the constant and the slope can be easily retrieved by invoking t
 regress testscr str, robust
 ```
 
-The coefficient of `STR` being $\hat{\beta}_1$ is now $-2.28$ and the constant being $\hat{\beta}_0$ equals $698.9$. We will discuss the rest of this output later.
+The coefficient of `STR` being $\hat{\beta}_1$ is now $-2.28$ and the constant being $\hat{\beta}_0$ equals $698.9$. We will discuss the rest of this output later. In `STATA` one can get all predictions for $\hat{Y}$ with the command **predict** after estimation. Note that here you need to give `STATA` a new variable name. 
+
+```{stata, collectcode=TRUE}
+predict y_hat
+```
+
+So, all prediction for $\hat{Y}$ are now stored with the variable name `y_hat`. This comes in very handy when drawing plots. To retrieve a specific $\hat{Y}_i$ for observation $i$, you need the margins command (also useful for other purposes). This boils down to:
+```{stata, collectcode=TRUE}
+margins, at(str = 19.33)
+```
+where we asked for the *marginal* value of only one value of `str`, namely evaluated at 19.33. Note that our value here of 654.9 deviates slightly from above because of approximation errors. 
 
 #### Hypothesis testing {#sec-unitesting}
 
-We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only **reject** the **null**-hypothesis, we do not accept an hypothesis based upon one statistical test only. So, we aim to test $H_0: E(Y) = \mu_{Y,0}$ vs. $H_1: E(Y) \neq \mu_{Y,0}$, where $\mu_{Y,0}$ is some pre-specified quantity that we are interested in. Typically $\mu_{Y,0} = 0$ as this denotes no relation, but sometimes you could be interested in, e.g., whether $\mu_{Y,0} = 1$ when testing elasticities. Or you could be interested in other quantities.
+We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only **reject** the **null**-hypothesis, we do not accept a scientific hypothesis based upon one statistical test only. So, we aim to test $H_0: E(Y) = \mu_{Y,0}$ vs. $H_1: E(Y) \neq \mu_{Y,0}$, where $\mu_{Y,0}$ is some pre-specified quantity that we are interested in. Typically $\mu_{Y,0} = 0$ as this denotes no relation, but sometimes you could be interested in, e.g., whether $\mu_{Y,0} = 1$ when testing elasticities. Or you could be interested in other quantities.
 
 Testing statistical hypotheses is often very confusing, because of two things. First, you actually test whether the data you have corresponds with the null-hypothesis. Or, in other words:
 
@@ -569,13 +592,20 @@ A natural question that might arise is how well the population regression line f
 ### The regression R$^2$
 
 The regression R$^2$ is the fraction of the sample variance of $Y_i$ "explained" by the
-regression. To see this, first note that $Y_i = \hat{Y}_i + \hat{u}_i$ or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the R$^2$ is the ratio between the sample variance of $\hat{Y}$ and the sample variance of $Y$. Here we make use of the following equity: Total sum of squares = explained "SS" + Residual "SS"---or, $TSS = ESS + RSS$---, where we can now define R$^2$ as:
+regression. To see this, first note that $Y_i = \hat{Y}_i + \hat{u}_i$ or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the R$^2$ is the ratio between the sample variance of $\hat{Y}$ and the sample variance of $Y$. Here we make use of the following equity: Total sum of squares = explained "SS" + Residual "SS"---or, TSS = ESS + RSS---, where we can now define R$^2$ as:
 
 \begin{equation}
-\text{R}^2= \frac{ESS}{TSS} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
+\text{R}^2= \frac{\text{ESS}}{\text{TSS}} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
 \label{eq:r2}
 \end{equation}
-Now if R$^2 = 0$ then that means $ESS = 0$ and if R$^2 = 1$ then that means $ESS = TSS$. So, by definition yields $0 \leq \text{R}^2 \leq 1$. There is one additional remark to make and that is that for an univariate regression model (so with one single $X$ on the right side), R$^2$ equals the square of the correlation coefficient between $X$ and $Y$.
+
+To understand in a graph what this entails, we go back to our four observation scatterplot in @fig-rsquare and focus on the first observation. We add to this scatterplot a new horizontal dashed line which denotes the mean of test scores ($\bar{Y}$). Now the distance between the observation and the mean is given by $(Y_i - \bar{Y})$. If we square this we get the "total square" (TS). The squared distance between the population regression line and the observation itself yields the "residual square" $(Y_i - \hat{Y}_i)$ (RS). And finally the squared distance between the estimation and the mean gives the "explained square" $(\hat{Y}_i - \bar{Y})$ (ES). Doing this for all observations gives the totals (so TSS, RSS and ESS).
+
+```{r fig.align='center', echo=FALSE, fig.cap = "Total, explained and residual variation", label='fig-rsquare', out.width="600px"}
+knitr::include_graphics("./figures/r_square.png")
+```
+
+Now if R$^2 = 0$ then that means ESS$ = 0$ and if R$^2 = 1$ then that means ESS = TSS. So, by definition yields $0 \leq \text{R}^2 \leq 1$. There is one additional remark to make and that is that for an univariate regression model (so with one single $X$ on the right side), R$^2$ equals the square of the correlation coefficient between $X$ and $Y$.
 
 ### The Standard Error of the Regression
 

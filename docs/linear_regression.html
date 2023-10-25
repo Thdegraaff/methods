@@ -327,7 +327,7 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 <li><strong>Prediction</strong>: If you know the value(s) of variable(s) <span class="math inline">\(X\)</span>, what is then the value of outcome variable <span class="math inline">\(Y\)</span>?</li>
 </ol>
 <p>Nowadays, most applied econometric techniques are concerned with causal inference, not so much with prediction. Even more, the techniques often applied are beneficial for correct causal inference, but might harm prediction. However, see that without correct causal inference (so knowing the <strong>true</strong> causal mechanism) prediction is always cumbersome. That is why current methods such as machine learning methods first focus on finding the correct causal mechanism (even without sometimes specifying what they may be) and then optimize prediction.</p>
-<p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the economic realm one could think about trying to assess the following quantities:</p>
+<p>Thus, finding (causal) mechanism helps the scientist or policy maker in assessing the outcomes of a particular (policy) intervention. In the (spatial-)economic realm one could think about trying to assess the following quantities:</p>
 <ul>
 <li>To what extent do people eat less meat if we increase the prices with 1% (using a meat-tax)?</li>
 <li>If we increase Dutch dikes with one meter, how much less flood risk will there be?</li>
@@ -343,9 +343,9 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cd  <span class="st">"/Users/tomba/Dropbox/Thomas/project/preparatory/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cd  <span class="st">"/Users/tomba/projects/methods/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>/Users/tomba/Dropbox/Thomas/project/preparatory</code></pre>
+<pre><code>/Users/tomba/projects/methods</code></pre>
 </div>
 </div>
 <p>Note here that this file path is used on an Apple or Linux system. On a Windows system you need forward slashes. It is also good to have subdirectories in your project/course folder for, e.g., slides, data and tutorials. Now suppose you have the subdirectory <code>data</code> in your course folder<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and in that data directory you have a file called <code>caschool.dta</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Now, this dataset describes 420 school districts in California and, amongst other things, their average performance (measured by a testscore) and their financial constraints (measured by the amount of students per teacher).</p>
@@ -356,7 +356,7 @@ U(x_1, x2) = x_1^\alpha \cdot x_2^\beta
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"./data/caschool.dta"</span>, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that an option is added using the syntax <code>, clear</code>. The comma indicates that an option is expected and the verb <code>clear</code> indicates that memory of <code>STATA</code> should be cleared from data. That is because, <code>STATA</code> can only have one dataset in its memory.</p>
+<p>Note that an option is added using the syntax <code>, clear</code>. The comma indicates that an option is expected and the verb <code>clear</code> indicates that memory of <code>STATA</code> should be cleared from data. That is because <code>STATA</code> can only have one dataset in its memory.</p>
 <p>In addition, we would like to know how the dataset looks like, for example what kind of variables it contains. We do this by invoking the command <code>describe</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">describe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -618,35 +618,58 @@ testscr = \beta_0 + \beta_1 STR,
     &amp;=&amp;   \frac{\Delta Testscore}{\Delta STR} \notag \\
     &amp;=&amp; \text{change in test score for a \textbf{unit} change in STR}
 \end{eqnarray}\]</span> Note the definition here of <span class="math inline">\(\beta_1\)</span>. It gives the <strong>marginal effect</strong> of a change in <span class="math inline">\(STR\)</span> on <span class="math inline">\(testscr\)</span>. So the interpretation of the parameter <span class="math inline">\(\beta_1\)</span> is very straightforward. However, we do not know the population value of <span class="math inline">\(\beta_1\)</span> and we therefore have to estimate it using data.</p>
-<p>In general, the population linear regression <em>model</em> is different as we add element <span class="math inline">\(u_1\)</span>. <span class="math display">\[\begin{equation}
+<p>In general, the population linear regression <em>model</em> is different as we add an element <span class="math inline">\(u_i\)</span>. <span class="math display">\[\begin{equation}
     Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i\ldots n
     \label{eq:ols}
 \end{equation}\]</span> Now, <span class="math inline">\(X\)</span> denotes the independent variable or regressor, <span class="math inline">\(Y\)</span> the dependent variable, <span class="math inline">\(\beta_0\)</span> the intercept, <span class="math inline">\(\beta_1\)</span> the slope, and <span class="math inline">\(u_i\)</span> the regression error. The regression error consists of omitted factors, or possibly measurement error in the measurement of <span class="math inline">\(Y\)</span>. In general, these omitted factors are other factors that influence <span class="math inline">\(Y\)</span>, other than the variable <span class="math inline">\(X\)</span>.</p>
 <section id="estimating-with-ols" class="level4" data-number="2.3.2.1">
 <h4 data-number="2.3.2.1" class="anchored" data-anchor-id="estimating-with-ols"><span class="header-section-number">2.3.2.1</span> Estimating with OLS</h4>
+<p>Thus, estimation boils down to drawing a straight line through data—that is, for regression with only one regressor. But how to see this. Let’s start with a couple observations from the Californian Testscore Dataset. These are plotted in <a href="#fig-observations">Figure&nbsp;<span>2.4</span></a>. Here you four observations, where each observation consist of one independent variable (<span class="math inline">\(X\)</span>) and one dependent variable (<span class="math inline">\(Y\)</span>). These can also be seen as the combination of measurement and outcome. So, the first observation consist of the independent variable <span class="math inline">\(X_1\)</span> which equals a student teacher ratio of 16 and the dependent variable <span class="math inline">\(Y_1\)</span> which equals a test score of 682. The other observations have a similar interpretation. As mentioned above as well, this display with two axes and two variables is called a scatterplot and it is a very common way to visualize the combination of two variables.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-unire" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-observations" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./figures/Lecture1_sheet8.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.4: Drawing a straight line through data in a scatterplot</figcaption><p></p>
+<p><img src="./figures/observations.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.4: Displaying observations in a scatterplot</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>To estimate the population linear regression model we apply the ordinary least squares estimator. Again, as <a href="#fig-unire">Figure&nbsp;<span>2.4</span></a> shows as well, a linear regression line is a straight line through points in a scatterplot. Actually, we want to draw that line such that the distance of all points to that line is minimized. See that in <a href="#fig-unire">Figure&nbsp;<span>2.4</span></a> the distances between the points and the line are given by the <span class="math inline">\(u_i\)</span>’s, the regression errors. So, if we somehow can minimize all <span class="math inline">\(u_i\)</span>’s we are fine. But those distances could be both positive and negative and they might cancel each other out. Therefore, we first square the regression errors and then minimize (hence the name: ordinary least <em>squares</em>). Also, see from Eq. <span class="math inline">\(\ref{eq:ols}\)</span> that:</p>
+<p>Our aim is to draw a line through the data to estimate the population slope line. That means that with the sampled data at hand we would like know something about the underlying total population. <a href="#fig-unire">Figure&nbsp;<span>2.5</span></a> displays that population regression line that we would like to estimate using our data. Note that the specification of the line here is <span class="math inline">\(Y = b_0 + b_1 X\)</span>, where the parameters <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are the population parameters; the parameters that we do not know and that we would like to estimate with data.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-unire" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./figures/regression.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.5: The population regression line</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The way we estimate these parameters is displayed in <a href="#fig-unierror">Figure&nbsp;<span>2.6</span></a>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-unierror" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./figures/regression_errors.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.6: Estimating a regression line in a scatterplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To estimate the population linear regression model we apply the ordinary least squares estimator. Again, as <a href="#fig-unierror">Figure&nbsp;<span>2.6</span></a> shows as well, a linear regression line is a straight line through points in a scatterplot. Actually, we want to draw that line such that the distance of all points to that line is minimized. See that in <a href="#fig-unierror">Figure&nbsp;<span>2.6</span></a> the distances between the points and the line are given by the <span class="math inline">\(u_i\)</span>’s, the regression errors. So, if we somehow can minimize all <span class="math inline">\(u_i\)</span>’s we are fine. But those distances could be both positive and negative and they might cancel each other out. Therefore, we first square the regression errors and then minimize (hence the name: ordinary least <em>squares</em>). Also, see from Eq. <span class="math inline">\(\ref{eq:ols}\)</span> that:</p>
 <p><span class="math display">\[\begin{equation}
 u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\beta_0 + \beta_1 X_i) \right]^2
 \end{equation}\]</span></p>
 <p>But how can we estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> from data? For that we will focus on the least squares (ordinary least squares or OLS) estimator of the unknown parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, which solves, <span class="math display">\[\begin{equation}
     \min_{b_0,b_1} \sum^n_{i=1} \left[Y_i - (b_0 + b_1 X_i) \right]^2
 \end{equation}\]</span></p>
-<p>In fact, the OLS estimators of the slope <span class="math inline">\(\beta\)</span><span class="math inline">\(_1\)</span> and the intercept <span class="math inline">\(\beta\)</span><span class="math inline">\(_0\)</span> are:<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>In fact, the OLS estimators of the slope <span class="math inline">\(\beta_1\)</span> and the intercept <span class="math inline">\(\beta_0\)</span> are:<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
 <p><span class="math display">\[\begin{eqnarray}
     \hat{\beta}_1 &amp;=&amp; \frac{\sum^n_{i=1}(X_i - \overline{X})(Y_i - \overline{Y})}{\sum^n_{i=1}(X_i - \overline{X})^2} = \frac{s_{XY}}{s^2_X}\\
     \hat{\beta}_0 &amp;=&amp; \overline{Y} - \hat{\beta}_1\overline{X}
 \end{eqnarray}\]</span></p>
-<p>Although you do <strong>not</strong> need to learn these formula’s by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Second, the optimal <span class="math inline">\(\hat{\beta}_1\)</span> is equal to <span class="math inline">\(\frac{s_{XY}}{s^2_X}\)</span> and this is the sampling covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the sampling variance of <span class="math inline">\(X\)</span>. This is not a correlation as the units still depend on <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and therefore the slope can be larger than <span class="math inline">\(1\)</span> or smaller than <span class="math inline">\(-1\)</span>, but it does say something about the relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Third, the constant is governed by the estimated parameter <span class="math inline">\(\hat{\beta}_0\)</span></p>
+<p>Although you do <strong>not</strong> need to learn these formula’s by heart some insightful comments can be retrieved from them. First, if a parameter is estimated then it gets a hat symbol on its top. Note that in <a href="#fig-unierror">Figure&nbsp;<span>2.6</span></a> we already use hat symbols in the legend to communicate that the regression line is given by estimation. Second, the optimal <span class="math inline">\(\hat{\beta}_1\)</span> is equal to <span class="math inline">\(\frac{s_{XY}}{s^2_X}\)</span> and this is the sampling covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the sampling variance of <span class="math inline">\(X\)</span>. This is not a correlation as the units still depend on <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and therefore the slope can be larger than <span class="math inline">\(1\)</span> or smaller than <span class="math inline">\(-1\)</span>, but it does say something about the relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Third, the constant is governed by the estimated parameter <span class="math inline">\(\hat{\beta}_0\)</span></p>
 <p>From here we can predict the values <span class="math inline">\(\hat{Y}_i\)</span> and residuals <span class="math inline">\(\hat{u}_i\)</span> by using the estimated values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>, which are: <span class="math display">\[\begin{eqnarray}
     \hat{Y}_i &amp;=&amp; \hat{\beta}_0 + \hat{\beta}_1 X_i, \qquad i = 1, \ldots, n \notag\\
     \hat{u}_i &amp;=&amp; Y_i - \hat{Y}_i, \qquad i = 1, \ldots, n
@@ -657,13 +680,13 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 <div id="fig-cloud" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Lecture1_sheet13.jpg" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.5: Scatterplot and estimated regression line</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.7: Scatterplot and estimated regression line</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>where the estimated slope equals <span class="math inline">\(\hat{\beta}_1 = -2.28\)</span>, the estimated intercept equals <span class="math inline">\(\hat{\beta}_0 = 698.9\)</span> and the total population regression line can be written as: <span class="math inline">\(\widehat{TestScore} = 698.9 - 2.28 \times STR\)</span>. So, how to interpret the estimated slope and intercept now? First, the slope entails that districts with one more student per teacher on average have test scores that are 2.28 points lower (that is, <span class="math inline">\(\frac{\Delta TestScore}{\Delta STR} =-2.28\)</span>). Secondly, the intercept (taken literally) means that, according to this estimated line, districts with zero students per teacher would have a (predicted) test score of 698.9. Now, this does not make any sense—it actually extrapolates the line outside the range of the data. In this case we can say that the intercept is not economically meaningful.</p>
-<p>Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span></p>
+<p>Now, how to fill in predictions? One of the districts in the data set is Antelope (CA) for which <span class="math inline">\(STR = 19.33\)</span> and <span class="math inline">\(TestScore = 657.8\)</span> Then the predicted value for the testscore is <span class="math inline">\(\hat{Y}_{Antelope}= 698.9 - 2.28 \times 19.33 = 654.8\)</span> and the resulting residual is <span class="math inline">\(\hat{u}_{Antelope} = 657.8 - 654.8 = 3.0\)</span>. In <code>STATA</code> you can retrieve all predictions from observations</p>
 <p>In <code>STATA</code> both the constant and the slope can be easily retrieved by invoking the <strong>regress</strong> command:</p>
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -683,11 +706,36 @@ u_i = Y_i - (\beta_0 + \beta_1 X_i) \longleftrightarrow (u_i)^2 = \left[Y_i - (\
 ------------------------------------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The coefficient of <code>STR</code> being <span class="math inline">\(\hat{\beta}_1\)</span> is now <span class="math inline">\(-2.28\)</span> and the constant being <span class="math inline">\(\hat{\beta}_0\)</span> equals <span class="math inline">\(698.9\)</span>. We will discuss the rest of this output later.</p>
+<p>The coefficient of <code>STR</code> being <span class="math inline">\(\hat{\beta}_1\)</span> is now <span class="math inline">\(-2.28\)</span> and the constant being <span class="math inline">\(\hat{\beta}_0\)</span> equals <span class="math inline">\(698.9\)</span>. We will discuss the rest of this output later. In <code>STATA</code> one can get all predictions for <span class="math inline">\(\hat{Y}\)</span> with the command <strong>predict</strong> after estimation. Note that here you need to give <code>STATA</code> a new variable name.</p>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">predict</span> y_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(option xb assumed; fitted values)</code></pre>
+</div>
+</div>
+<p>So, all prediction for <span class="math inline">\(\hat{Y}\)</span> are now stored with the variable name <code>y_hat</code>. This comes in very handy when drawing plots. To retrieve a specific <span class="math inline">\(\hat{Y}_i\)</span> for observation <span class="math inline">\(i\)</span>, you need the margins command (also useful for other purposes). This boils down to:</p>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>margins, <span class="fu">at</span>(str = 19.33)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adjusted predictions                                       Number of obs = 420
+Model VCE: Robust
+
+Expression: Linear prediction, predict()
+At: str = 19.33
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       _cons |   654.8643   .9420722   695.13   0.000     653.0125     656.716
+------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p>where we asked for the <em>marginal</em> value of only one value of <code>str</code>, namely evaluated at 19.33. Note that our value here of 654.9 deviates slightly from above because of approximation errors.</p>
 </section>
 <section id="sec-unitesting" class="level4" data-number="2.3.2.2">
 <h4 data-number="2.3.2.2" class="anchored" data-anchor-id="sec-unitesting"><span class="header-section-number">2.3.2.2</span> Hypothesis testing</h4>
-<p>We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only <strong>reject</strong> the <strong>null</strong>-hypothesis, we do not accept an hypothesis based upon one statistical test only. So, we aim to test <span class="math inline">\(H_0: E(Y) = \mu_{Y,0}\)</span> vs.&nbsp;<span class="math inline">\(H_1: E(Y) \neq \mu_{Y,0}\)</span>, where <span class="math inline">\(\mu_{Y,0}\)</span> is some pre-specified quantity that we are interested in. Typically <span class="math inline">\(\mu_{Y,0} = 0\)</span> as this denotes no relation, but sometimes you could be interested in, e.g., whether <span class="math inline">\(\mu_{Y,0} = 1\)</span> when testing elasticities. Or you could be interested in other quantities.</p>
+<p>We can assess the importance of the line as well with hypothesis testing. Again, recall that in in applied econometrics we will only <strong>reject</strong> the <strong>null</strong>-hypothesis, we do not accept a scientific hypothesis based upon one statistical test only. So, we aim to test <span class="math inline">\(H_0: E(Y) = \mu_{Y,0}\)</span> vs.&nbsp;<span class="math inline">\(H_1: E(Y) \neq \mu_{Y,0}\)</span>, where <span class="math inline">\(\mu_{Y,0}\)</span> is some pre-specified quantity that we are interested in. Typically <span class="math inline">\(\mu_{Y,0} = 0\)</span> as this denotes no relation, but sometimes you could be interested in, e.g., whether <span class="math inline">\(\mu_{Y,0} = 1\)</span> when testing elasticities. Or you could be interested in other quantities.</p>
 <p>Testing statistical hypotheses is often very confusing, because of two things. First, you actually test whether the data you have corresponds with the null-hypothesis. Or, in other words:</p>
 <blockquote class="blockquote">
 <p>What is the probability that your data (<span class="math inline">\(D\)</span>) might be right <em>given</em> the null-hypothesis (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\Pr(D|H_0)\)</span></p>
@@ -717,13 +765,13 @@ t = \frac{\hat{\beta}_1 - \beta_{1,0}}{\sigma_{\hat{\beta_1}} }
 t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 \label{eq:olstemp}
 \end{equation}\]</span></p>
-<p>then the <span class="math inline">\(p\)</span>-value can be seen from <a href="#fig-pvalues">Figure&nbsp;<span>2.6</span></a>:</p>
+<p>then the <span class="math inline">\(p\)</span>-value can be seen from <a href="#fig-pvalues">Figure&nbsp;<span>2.8</span></a>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-pvalues" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/lecture_sheet9.jpg" class="img-fluid figure-img" width="400"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.6: Calculating the <span class="math inline">\(p\)</span>-value of a two-sided test when <span class="math inline">\(t^{act} = -4.38\)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.8: Calculating the <span class="math inline">\(p\)</span>-value of a two-sided test when <span class="math inline">\(t^{act} = -4.38\)</span></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -735,13 +783,13 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 <li>Get the corresponding <span class="math inline">\(p\)</span>-value. Or, reject the null-hypothesis at the 5% significance level if <span class="math inline">\(|t^{act}| &gt; 1.96\)</span>.</li>
 </ol>
 <p>In fact, there is a link between the <span class="math inline">\(p\)</span>-value and the significance level. The significance level is pre-specified. For example, if the pre-specified significance level is 5%, then you reject the null hypothesis if <span class="math inline">\(|t| \geq 1.96\)</span> or equivalently, you reject if <span class="math inline">\(p \leq 0.05\)</span>. The <span class="math inline">\(p\)</span>-value is sometimes called the marginal significance level. Often, it is better to communicate the <span class="math inline">\(p\)</span>-value than simply whether a test rejects or not—the <span class="math inline">\(p\)</span>-value contains more information than the “yes/no” statement about whether the test rejects.</p>
-<p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation" data-cites="amrhein2019scientists">(<a href="references.html#ref-amrhein2019scientists" role="doc-biblioref">Amrhein, Greenland, and McShane 2019</a>)</span>. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? <a href="#fig-significance">Figure&nbsp;<span>2.7</span></a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, <span class="math inline">\(p\)</span>-values in themselves do not contain that much information. In the regression output of above the reported <span class="math inline">\(p\)</span>-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with <span class="math inline">\(p\)</span>-values just below 0.05, leading to a phenomenon that is called publication bias.</p>
+<p>But recently there has been some debate about using <span class="math inline">\(p\)</span>-values <span class="citation" data-cites="amrhein2019scientists">(<a href="references.html#ref-amrhein2019scientists" role="doc-biblioref">Amrhein, Greenland, and McShane 2019</a>)</span>. Why should you use a 5% significance level, what is so special about that number? Is it not better just to report coefficients and standard errors? <a href="#fig-significance">Figure&nbsp;<span>2.9</span></a> shows a figure from the journal Nature and how scientists across all fields nowadays see <span class="math inline">\(p\)</span>-values and statistical significance. This is not to say that statistical testing does not matter, but more the reporting of that statistical testing. First of all, <span class="math inline">\(p\)</span>-values in themselves do not contain that much information. In the regression output of above the reported <span class="math inline">\(p\)</span>-values are being equal to 0.000 which is not informative. Secondly, the cut-off point of 5% is a bit harsh and could lead to publications being published only with <span class="math inline">\(p\)</span>-values just below 0.05, leading to a phenomenon that is called publication bias.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-significance" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/significance.jpg" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.7: Critical review on the (mis)use of statistical significance</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.9: Critical review on the (mis)use of statistical significance</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -755,7 +803,7 @@ t^{act} = \frac{2.28 - \beta_{1,0}}{0.52} = \frac{2.28 - 0}{0.52} = -4.39.
 \label{eq:olsci}
 \end{equation}\]</span> So, every value between <span class="math inline">\(-3.30\)</span> and <span class="math inline">\(-1.26\)</span> will <strong>not</strong> be rejected as null-hypothesis, while every value outside that interval will be rejected. Note that confidence intervals are again automatically given by computer output. If one would like a confidence interval against another critical level, say against a 99% critical level, one can use the <code>level()</code> option</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span> <span class="dv">level</span>(99)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
@@ -791,7 +839,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i
 \end{equation}\]</span> Which is just the population difference in group means.</p>
 <p>If we go back to our example with <span class="math inline">\(X_i = 1\)</span> if <span class="math inline">\(STR \geq 20\)</span> and 0 otherwise then we get the following regression output</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr large, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      16.34
@@ -839,13 +887,13 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <p>We will first discuss these three least squares assumptions and then give some other assumptions (but not directly necessary for the identification of causal effects) as well as you frequently encounter them</p>
 <section id="least-squares-assumption-1-conditional-mean-independence" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="least-squares-assumption-1-conditional-mean-independence"><span class="header-section-number">2.4.1</span> Least squares assumption 1: conditional mean independence</h3>
-<p>This first assumption states that <span class="math inline">\(E(u \mid X = x) = 0\)</span> and is conceptually the most difficult one to grasp. Loosely speaking, it states that the regression error <span class="math inline">\(u\)</span> is <em>not</em> related with the independent variable <span class="math inline">\(X\)</span>. They are independent of other. Another way of looking at this is displayed in <a href="#fig-ass1">Figure&nbsp;<span>2.8</span></a>. Here, whatever the value of student-teacher ratio is, the expectation of the outcome variable (test scores) is always centered around the population regression line. So, on average, you always predict correctly according to <em>your</em> model, for each value of <span class="math inline">\(X\)</span>.</p>
+<p>This first assumption states that <span class="math inline">\(E(u \mid X = x) = 0\)</span> and is conceptually the most difficult one to grasp. Loosely speaking, it states that the regression error <span class="math inline">\(u\)</span> is <em>not</em> related with the independent variable <span class="math inline">\(X\)</span>. They are independent of other. Another way of looking at this is displayed in <a href="#fig-ass1">Figure&nbsp;<span>2.10</span></a>. Here, whatever the value of student-teacher ratio is, the expectation of the outcome variable (test scores) is always centered around the population regression line. So, on average, you always predict correctly according to <em>your</em> model, for each value of <span class="math inline">\(X\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-ass1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Lecture1_sheet25.jpg" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.8: Condition mean independence assumption</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.10: Condition mean independence assumption</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -866,13 +914,13 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 </section>
 <section id="least-squares-assumption-3-large-outliers-are-rare" class="level3" data-number="2.4.3">
 <h3 data-number="2.4.3" class="anchored" data-anchor-id="least-squares-assumption-3-large-outliers-are-rare"><span class="header-section-number">2.4.3</span> Least squares assumption 3: Large outliers are rare</h3>
-<p>The third and final least square assumption for causal inference is that large outliers are rare. Large outliers are not well defined and depend on the size of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>, but in general it can be seen as an <em>extreme</em> value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>. The problem is that such a large outlier can strongly <em>influence</em> the results and in general it can be stated that OLS can be rather sensitive to an outlier. Consider the two population regression lines in <a href="#fig-outlier">Figure&nbsp;<span>2.9</span></a>. The flat one (with <span class="math inline">\(\hat{\beta}_1 = 0)\)</span> does not take the isolated observation in the upper right corner into account. The one with the positive slope does. Now, clearly the one isolated observation in the upper right corner matters to a large extent and is an important driver for the results of the ordinary least squares estimator.</p>
+<p>The third and final least square assumption for causal inference is that large outliers are rare. Large outliers are not well defined and depend on the size of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>, but in general it can be seen as an <em>extreme</em> value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>. The problem is that such a large outlier can strongly <em>influence</em> the results and in general it can be stated that OLS can be rather sensitive to an outlier. Consider the two population regression lines in <a href="#fig-outlier">Figure&nbsp;<span>2.11</span></a>. The flat one (with <span class="math inline">\(\hat{\beta}_1 = 0)\)</span> does not take the isolated observation in the upper right corner into account. The one with the positive slope does. Now, clearly the one isolated observation in the upper right corner matters to a large extent and is an important driver for the results of the ordinary least squares estimator.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-outlier" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Lecture1_sheet29.jpg" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.9: Effect of outliers on OLS estimations</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.11: Effect of outliers on OLS estimations</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -891,45 +939,45 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 <div id="fig-homoskedasticity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Sheet21.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.10: Homoskedastic standard errors</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.12: Homoskedastic standard errors</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Consider <a href="#fig-homoskedasticity">Figure&nbsp;<span>2.10</span></a>. Clearly the variance <em>around</em> the population regression line is everywhere the same, regardless the value of student-teacher ratio (<span class="math inline">\(X\)</span>). Recall, that <span class="math inline">\(E(u \mid X=x) = 0\)</span> so <span class="math inline">\(u\)</span> satisfies Least Squares Assumption 1. Now, in addition we also assume that the variance of <span class="math inline">\(u\)</span> does not depend on <span class="math inline">\(x\)</span>. This is the case of homoskedasticity</p>
+<p>Consider <a href="#fig-homoskedasticity">Figure&nbsp;<span>2.12</span></a>. Clearly the variance <em>around</em> the population regression line is everywhere the same, regardless the value of student-teacher ratio (<span class="math inline">\(X\)</span>). Recall, that <span class="math inline">\(E(u \mid X=x) = 0\)</span> so <span class="math inline">\(u\)</span> satisfies Least Squares Assumption 1. Now, in addition we also assume that the variance of <span class="math inline">\(u\)</span> does not depend on <span class="math inline">\(x\)</span>. This is the case of homoskedasticity</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-heteroskedasticity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Sheet22.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.11: Heteroskedastic standard errors</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.13: Heteroskedastic standard errors</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Now consider <a href="#fig-heteroskedasticity">Figure&nbsp;<span>2.11</span></a>. Now clearly the variance around the population regression line increases in size of student-teacher ratio (<span class="math inline">\(X\)</span>). So, <span class="math inline">\(E(u \mid X=x) = 0\)</span> is still satisfied, but the variance of <span class="math inline">\(u\)</span> does now depend on <span class="math inline">\(x\)</span>. <span class="math inline">\(u\)</span> is now said to be heteroskedastic.</p>
+<p>Now consider <a href="#fig-heteroskedasticity">Figure&nbsp;<span>2.13</span></a>. Now clearly the variance around the population regression line increases in size of student-teacher ratio (<span class="math inline">\(X\)</span>). So, <span class="math inline">\(E(u \mid X=x) = 0\)</span> is still satisfied, but the variance of <span class="math inline">\(u\)</span> does now depend on <span class="math inline">\(x\)</span>. <span class="math inline">\(u\)</span> is now said to be heteroskedastic.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-wages" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Sheet23.png" class="img-fluid figure-img" width="400"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.12: Wages versus years of education</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.14: Wages versus years of education</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Very often data in the social sciences are heteroskedastic. For example, wages are usually heteroskedastic in the amount of education consumed. <a href="#fig-wages">Figure&nbsp;<span>2.12</span></a> shows the relation between years of education and wages, and the larger the years of education the larger hourly earnings (wages) are—as you would assume it should be. But the variance also increases in years of education. That is because you can easily predict wages when workers enjoyed very few years of schooling—usually those are just above minimum wages—but the spread becomes much wider when years of schooling go up.</p>
+<p>Very often data in the social sciences are heteroskedastic. For example, wages are usually heteroskedastic in the amount of education consumed. <a href="#fig-wages">Figure&nbsp;<span>2.14</span></a> shows the relation between years of education and wages, and the larger the years of education the larger hourly earnings (wages) are—as you would assume it should be. But the variance also increases in years of education. That is because you can easily predict wages when workers enjoyed very few years of schooling—usually those are just above minimum wages—but the spread becomes much wider when years of schooling go up.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-heteroskedasticityca" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figures/Sheet24.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.13: Heteroskedasticity in Californation schools?</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.15: Heteroskedasticity in Californation schools?</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in <a href="#fig-heteroskedasticityca">Figure&nbsp;<span>2.13</span></a>, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity?</p>
+<p>Is this now the case for our Californian school dataset. If we look again at the scatterplot between test scores and student-teacher ratios in <a href="#fig-heteroskedasticityca">Figure&nbsp;<span>2.15</span></a>, then that is very difficult to see. But then again, does it matter whether you face heteroskedasticity or homoskedasticity?</p>
 <p>Note that so far we have (without saying so) assumed that <span class="math inline">\(u\)</span> might be heteroskedastic Recall again the three least squares assumptions:</p>
 <ol type="1">
 <li><span class="math inline">\(E(u \mid X = x) = 0\)</span></li>
@@ -963,11 +1011,23 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \qquad i = 1 \dots n
 </ol>
 <section id="the-regression-r2" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="the-regression-r2"><span class="header-section-number">2.6.1</span> The regression R<span class="math inline">\(^2\)</span></h3>
-<p>The regression R<span class="math inline">\(^2\)</span> is the fraction of the sample variance of <span class="math inline">\(Y_i\)</span> “explained” by the regression. To see this, first note that <span class="math inline">\(Y_i = \hat{Y}_i + \hat{u}_i\)</span> or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the R<span class="math inline">\(^2\)</span> is the ratio between the sample variance of <span class="math inline">\(\hat{Y}\)</span> and the sample variance of <span class="math inline">\(Y\)</span>. Here we make use of the following equity: Total sum of squares = explained “SS” + Residual “SS”—or, <span class="math inline">\(TSS = ESS + RSS\)</span>—, where we can now define R<span class="math inline">\(^2\)</span> as:</p>
+<p>The regression R<span class="math inline">\(^2\)</span> is the fraction of the sample variance of <span class="math inline">\(Y_i\)</span> “explained” by the regression. To see this, first note that <span class="math inline">\(Y_i = \hat{Y}_i + \hat{u}_i\)</span> or the observation is equal to the OLS prediction plus the predicted residual. In this notation, the R<span class="math inline">\(^2\)</span> is the ratio between the sample variance of <span class="math inline">\(\hat{Y}\)</span> and the sample variance of <span class="math inline">\(Y\)</span>. Here we make use of the following equity: Total sum of squares = explained “SS” + Residual “SS”—or, TSS = ESS + RSS—, where we can now define R<span class="math inline">\(^2\)</span> as:</p>
 <p><span class="math display">\[\begin{equation}
-\text{R}^2= \frac{ESS}{TSS} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
+\text{R}^2= \frac{\text{ESS}}{\text{TSS}} = \frac{\sum^n_{i=1}\left(\hat{Y}_i - \overline{Y}\right)^2}{\sum^n_{i=1}\left(Y_i - \overline{Y}\right)^2}.
 \label{eq:r2}
-\end{equation}\]</span> Now if R<span class="math inline">\(^2 = 0\)</span> then that means <span class="math inline">\(ESS = 0\)</span> and if R<span class="math inline">\(^2 = 1\)</span> then that means <span class="math inline">\(ESS = TSS\)</span>. So, by definition yields <span class="math inline">\(0 \leq \text{R}^2 \leq 1\)</span>. There is one additional remark to make and that is that for an univariate regression model (so with one single <span class="math inline">\(X\)</span> on the right side), R<span class="math inline">\(^2\)</span> equals the square of the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+\end{equation}\]</span></p>
+<p>To understand in a graph what this entails, we go back to our four observation scatterplot in <a href="#fig-rsquare">Figure&nbsp;<span>2.16</span></a> and focus on the first observation. We add to this scatterplot a new horizontal dashed line which denotes the mean of test scores (<span class="math inline">\(\bar{Y}\)</span>). Now the distance between the observation and the mean is given by <span class="math inline">\((Y_i - \bar{Y})\)</span>. If we square this we get the “total square” (TS). The squared distance between the population regression line and the observation itself yields the “residual square” <span class="math inline">\((Y_i - \hat{Y}_i)\)</span> (RS). And finally the squared distance between the estimation and the mean gives the “explained square” <span class="math inline">\((\hat{Y}_i - \bar{Y})\)</span> (ES). Doing this for all observations gives the totals (so TSS, RSS and ESS).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-rsquare" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./figures/r_square.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.16: Total, explained and residual variation</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now if R<span class="math inline">\(^2 = 0\)</span> then that means ESS$ = 0$ and if R<span class="math inline">\(^2 = 1\)</span> then that means ESS = TSS. So, by definition yields <span class="math inline">\(0 \leq \text{R}^2 \leq 1\)</span>. There is one additional remark to make and that is that for an univariate regression model (so with one single <span class="math inline">\(X\)</span> on the right side), R<span class="math inline">\(^2\)</span> equals the square of the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 </section>
 <section id="the-standard-error-of-the-regression" class="level3" data-number="2.6.2">
 <h3 data-number="2.6.2" class="anchored" data-anchor-id="the-standard-error-of-the-regression"><span class="header-section-number">2.6.2</span> The Standard Error of the Regression</h3>
@@ -983,7 +1043,7 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat{u}_i^2},
 \end{equation}\]</span> where <span class="math inline">\(RMSE\)</span> only differs from the <span class="math inline">\(SER\)</span> in the <em>degrees of freedom</em>.</p>
 <p>If we again look at our regression output:</p>
 <div class="cell" data-collectcode="true">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> testscr str, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear regression                               Number of obs     =        420
                                                 F(1, 418)         =      19.26
