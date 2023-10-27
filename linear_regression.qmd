@@ -289,7 +289,7 @@ Thus, estimation boils down to drawing a straight line through data---that is, f
 knitr::include_graphics("./figures/observations.png")
 ```
 
-Our aim is to draw a line through the data to estimate the population slope line. That means that with the sampled data at hand we would like know something about the underlying total population. @fig-unire displays that population regression line that we would like to estimate using our data. Note that the specification of the line here is $Y = b_0 + b_1 X$, where the parameters $b_0$ and $b_1$ are the population parameters; the parameters that we do not know and that we would like to estimate with data.
+Our aim is to draw a line through the data to estimate the population slope line. That means that with the sampled data at hand we would like know something about the underlying total population. @fig-unire displays that population regression line that we would like to estimate using our data. Note that the specification of the line here is $Y = \beta_0 + \beta_1 X$, where the parameters $\beta_0$ and $\beta_1$ are the population parameters; the parameters that we do not know and that we would like to estimate with data.
 
 ```{r fig.align='center', echo=FALSE, fig.cap = "The population regression line", label='fig-unire', out.width="600px"}
 knitr::include_graphics("./figures/regression.png")

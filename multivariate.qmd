@@ -88,13 +88,13 @@ student teacher ratio on class size and that is exactly what we want to
 measure. However, if there is a directed arrow going from $U$ into $STR$
 as depicted by @fig-unobshet, then the effect of student teacher ratio
 is not isolated anymore. Essentially, the effect of student teacher
-ratio on class size is composed out of two parts:
+ratio on test scores is composed out of two parts:
 
-1)  The **causal** effect on student teacher ratio on class size
+1)  The **causal** effect on student teacher ratio on test scores
     captured by the chain $\text{STR} \longrightarrow \text{testscore}$.
     The one we are after.
-2)  The impact of the unknown variables on test scores. As we have not
-    modeled them in our regression model, the effect is captured by the
+2)  The impact of the unknown variables on test scores. As we have **not
+    modeled** them directly in our regression model, the effect is now captured by the
     chain
     $U \longrightarrow \text{STR} \longrightarrow \text{testscore}$
 
@@ -109,9 +109,9 @@ knitr::include_graphics("./figures/Unobshet.png")
 
 So, when **U** is a *common* cause for both student teacher ratio and
 test scores there is omitted variable bias. If we go back to our
-population regression model as follows: \begin{equation}
+population regression model displayed as: \begin{equation}
 Y_i = \beta_0 + \beta_1 X_i + u_i,
-\end{equation} then we know that the error $u$ arises because of factors
+\end{equation} then we know that the error $u_i$ arises because of factors
 that influence $Y$ but are not included in the regression function; so,
 there are *always* omitted variables. But they do not always lead to
 bias. For omitted variable bias to occur, the omitted factor, let's call
@@ -131,7 +131,7 @@ it $Z$[^multivariate-4], must be:
     to something else than omitted variables, namely to a difference
     between a direct ($\text{STR} \longrightarrow \text{testscore}$) and
     an indirect effect
-    ($\text{STR} \longrightarrow U \longrightarrow \text{testscore}$).
+    ($\text{STR} \longrightarrow U \longrightarrow \text{testscore}$). We follow here         @stock2003introduction
 
 Thus, both conditions must hold for the omission of $Z$ to result in
 omitted variable bias.
@@ -147,19 +147,21 @@ affluent and thus have smaller school budgets---and, therefore, higher
 $STR$: $Z$ is most likely as well a **determinant** of $X$.
 
 So, most likely, our original estimation from @sec-univariateregression,
-$\hat{\beta}_1$, is biased (so, it is not the true causal effect). But
+$\hat{\beta}_1$, is biased (so, $\hat{\beta}_1$ does not resemble the true causal effect $\beta_1$). But
 can we say something about the direction of that bias? Yes, but the
 argument tends to become very quickly rather complex. In this case, note
-that districts with more migrant communities tend to have (*i*) higher
+that we hypothesized that. districts with more migrant communities tend to have (*i*) higher
 class sizes and (*ii*) lower test scores. So, to the original estimation
-they add a *negative* effect. Thus, following this reasoning, the "true"
+they add a *negative* effect to test scores. Thus, following this reasoning, the "true"
 effect must be less negative. Now, especially with negative signs this
 reasoning becomes rather complex, so if common sense fails you, then
 there is the following formula:
 
 \begin{equation}
 \hat{\beta}_1 \overset{p}{\to} \beta_1 + \frac{\sigma_u}{\sigma_X}\rho_{Xu},
-\end{equation} where you should focus on the sign of the correlation
+\end{equation} 
+
+where you should focus on the sign of the correlation
 between $X$ and the regression residual $u$ (all standard errors,
 $\sigma$, are always positive by default). Now, the first least squares
 assumption states that $\rho_{Xu} = 0$---no correlation between the
@@ -199,7 +201,7 @@ several important observations to make here:
     our reasoning that our original estimate was too negative.
 
 Unfortunately, as already mentioned above, omitted variable bias occurs
-very often. So, how to correct for this such we can deal with this
+very often. So, how to correct for this such that we can deal with this
 particular bias. In general, there are three strategies:
 
 1.  we can run a randomized controlled experiment in which treatment
@@ -263,7 +265,7 @@ likewise, $\beta_2 = \frac{\Delta Y}{\Delta X_2}$ when holding $X_1$
 constant. Instead of taking changes you can as well take the first
 derivative of $X_1$ with respect to $Y$ which simply boils down to
 $\beta_1$. $\beta_0$ is now the predicted value of $Y$ when
-$X_1 = X_2 = 0$.
+$X_1 = X_2 = 0$. This particular effect on $Y$ induced by a small effect in $X_1$ is called the **marginal** effect of $X_1$ and thus equals $\beta_1$. Note, that for linear models usually the change in $X_1$ is a unit change (or $\Delta X_1 = 1$).
 
 If we do this for the the Californian school district data, then recall
 that the original population regression line was estimated as:
@@ -353,7 +355,7 @@ is a *huge* improvement compared to the 5% explanatory power of the
 univariate case. That indicates that the $PctEL$ strongly correlates
 with testscores. But again, we are not so much interested in prediction,
 but want to find the causal impact of class size instead. Another thing
-to notice here is that the R$^2$ and the $\bar{\text{R}}^2$ are very
+to notice here is that the $\text{R}^2$ and the $\bar{\text{R}}^2$ are very
 close. That is because the number of variables is much smaller than the
 number of observations $k \ll n$, so that the impact of $k$ is not very
 big.
@@ -530,7 +532,7 @@ generally not independently distributed---so neither are their
 $t$-statistics (more on this later).
 
 Now, if we return to our Californian school district data set then we
-find that for the univariate case holds:
+find that for the univariate case holds (with standard errors below the coefficients):
 
 ```{=tex}
 \begin{equation}
@@ -708,11 +710,13 @@ We will analyse below two complementary and often adopted approaches:
 
 Our first approach to non-linear specification is applying polynomials
 of the variables that we suspect has a non-linear impact. If that is the
-independent variable $X$, the we can construct the following *linear
-regression* model by using polynomials: \begin{equation}
+independent variable $X$, then we can construct the following *linear
+regression* model by using polynomials: 
+\begin{equation}
 Y_i = \beta_0 + \beta_1 X_1 + \beta_2 X^2_i + \ldots + \beta_r X_i^r + u_i
 \label{eq:poly}
-\end{equation} Note again that this is just the linear regression
+\end{equation} 
+Note again that this is just the linear regression
 model---except that the regressors are powers of $X$! So, in effect we
 transform the data---actually create new variables $X^r$---, but the
 specification in parameters remains linear. Estimation, hypothesis
@@ -720,7 +724,7 @@ testing, etc. proceeds as in the multiple regression model using OLS.
 However, the coefficients are now a bit more difficult to interpret.
 Consider the example of above about the relation between test scores
 average district income, where $Income_i$ is defined as the average
-district income in the $i^{\mathrm{th}}$ district (thousands of dollars
+district income in the $i^{\mathrm{th}}$ district (in thousands of dollars
 per capita). For a quadratic specification, we specify the linear
 regression model as below: \begin{equation}
 TestScore_i = \beta_0 + \beta_1 Income_i + \beta_2 (Income_i)^2 + u_i
@@ -754,12 +758,11 @@ that you want to know when working with polynomials and interaction
 effects:
 
 -   `i.` operator: this specifies that the following variable is an
-    integer and should be considered on all its level. This actually
+    integer (factor variable) and should be considered on all its *levels*. This actually
     create indicator or dummies variables
 -   `c.` operator: this specifies that the following variable is a
-    continuous variables and should be treated as continuous.
--   `#` binary operator that specifies an interaction between two
-    variables
+    *continuous* variables and should be treated as continuous
+-   `#` binary operator that specifies an interaction between two variables
 -   `##` binary operator that specifies both the interaction effect
     between two variables and the individual variable effects
 
@@ -851,7 +854,7 @@ test avginc#avginc avginc#avginc#avginc
 ### Interaction variables
 
 Using interaction variables is a special case of polynomial effects.
-Namely, instead of multiply a variable with itself $X\times X = X^2$,
+Namely, instead of multiply a variable with itself as $X\times X = X^2$,
 you now multiple a variable with another variable. And you want to do
 this to take into account interactions between independent variables.
 Assume, for example, that a class size reduction is more effective in
@@ -896,10 +899,13 @@ PctEL \geq 10 \\
 HiSTR &=& 0 \text{ if } STR < 20 \text{ and } HiEL = 0 \text{ if }
 PctEL < 10 \\
 \end{eqnarray} And after estimation we get the
-following outcome. \begin{equation}
+following outcome: 
+\begin{equation}
 \widehat{TestScore} = 664.1 - 18.2 HiEL - 1.9 HiSTR - 3.5(HiSTR \times
 HiEL)
-\end{equation} So, how to interpret the various parameters? Perhaps the
+\end{equation} 
+
+So, how to interpret the various parameters? Perhaps the
 simple way is to construct the following two-by-two table:
 
 ```{r intdummies, echo = FALSE}
@@ -994,13 +1000,13 @@ communities) is large.
 Hypothesis testing is as before. To test whether the two regression
 lines have the same slope, the null-hypothesis boils down to the
 coefficient of $STR \times HiEL$ being zero: the $t$-statistic of this
-one become $-1.28/0.97 = -1.32$ and thus we do not reject this test. To
+one becomes $-1.28/0.97 = -1.32$ and thus we do not reject this test. To
 test whether the two regression lines have the same intercept, the
 null-hypothesis becomes the coefficient of $HiEL$ being zero, yielding:
 $t = -5.6/19.5 = 0.29$, so we do not reject that null-hypothesis either.
 Interestingly, the null-hypothesis that the two regression lines are the
 same---population coefficient on $HiEL = 0$ and population coefficient
-on yields $STR \times HiEL = 0$: $F = 89.94 (p-value < .001)$. So, we
+on yields $STR \times HiEL = 0$: $F = 89.94 (\text{p-value} < .001)$. So, we
 reject the joint hypothesis but neither individual hypothesis.
 
 Finally, the question may arise how to draw such lines as in
@@ -1219,7 +1225,7 @@ log-linear specification is now a linear line.
 
 #### Summary: logarithmic transformations
 
-We have seen three different cases of logarithmic specification,
+We have seen three different cases of logarithmic specifications,
 differing in whether $Y$ and/or $X$ is transformed by taking logarithms.
 Now, the regression is linear in the new variable(s) $\ln(Y)$ and/or
 $\ln(X)$, and the coefficients can be estimated by OLS where hypothesis
@@ -1232,7 +1238,7 @@ application?), tests, and plotting predicted values. Sometimes, though,
 you have a structural economic model such as the Cobb-Douglas function
 which defines the type of specification you should use. Finally, see
 that in economics many models exists with decreasing or increasing
-return to scale and that these are very closely related with logarithmic
+return to scale and, thus, that these are very often estimated with logarithmic
 specifications.
 
 ## Using fixed effects in panel data {#sec-fixedeffects}
@@ -1308,8 +1314,7 @@ Now, see what happens with the coefficient of the beer tax variable. It
 changes sign! So from positive it becomes negative. That is how
 **disruptive** omitted variable bias can be. Also see that by including
 all these state fixed effects, the $\bar{\text{R}^2}$ now increase
-enormously to 91%, which does make sense because the states explain the
-variation in fatality rate to a large extent (e.g., compare Kansas with
+enormously to 91%, which does make sense because uobserved characteristics of US states explain the variation in fatality rates to a large extent (e.g., compare Kansas with
 Connecticut).
 
 This is just a snapshot of the use of fixed effects in panel data, but
@@ -1334,10 +1339,10 @@ our selection of control variables, preferably in some kind of causal
 framework.
 
 Moreover, this chapter dealt as well with non-linear transformations of
-variables, so that more realistic specification can ben estimated.
+variables, so that **specification bias** can be addressed. Moreover, it allows for more realistic specifications to be estimated.
 Especially, in economics with its many forms of decreasing (sometimes
 increasing) returns to scale, it is important to account for concave
-(the slope keeps positive but gets smaller and smaller) relations.
+(the slope keeps positive but gets smaller and smaller) and---less often--- convex relations.
 
 Finally, I dealt very shortly with the use of fixed effects---in this
 case still a set of additional dummies to account for omitted variable

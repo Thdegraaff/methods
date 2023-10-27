@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1698218437 "scatter_plot.tex" "scatter_plot.pdf" "scatter_plot" 1698218438
+["pdflatex"] 1698226022 "scatter_plot.tex" "scatter_plot.pdf" "scatter_plot" 1698226023
   "/Users/tomba/.emacs.d/.local/straight/build-29.1/auctex/latex/preview.sty" 1694786422 13873 f20e5546ad38d2ac6052703bc753a668 ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -168,8 +168,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1676365134 2826441 2c2a95228b6053a763a35dcddf3aa1a2 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "scatter_plot.aux" 1698218438 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "scatter_plot.tex" 1698218436 2348 44497076a9e5e1c83de5cbc27245193c ""
+  "scatter_plot.aux" 1698226023 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "scatter_plot.tex" 1698226021 2352 56046b23fce3c9f87d5e7c256eff64f2 ""
   (generated)
   "scatter_plot.aux"
   "scatter_plot.log"
